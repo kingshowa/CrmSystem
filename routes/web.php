@@ -58,3 +58,6 @@ Route::get('/user-profile', function () {
     return view('user-profile');
 });
 
+Route::get('/opportunites', function () {
+    return view('opportunites/opportunites');
+});
