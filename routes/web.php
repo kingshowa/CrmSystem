@@ -26,6 +26,14 @@ Route::get('/prospects', function () {
     return view('prospects/prospects');
 });
 
+Route::get('/prospect', function () {
+    return view('prospects/prospect');
+});
+
+Route::get('/prospect-add', function () {
+    return view('prospects/prospect-add');
+});
+
 Route::get('/contacts', function () {
     return view('contacts/contacts');
 });

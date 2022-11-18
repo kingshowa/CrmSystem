@@ -8,7 +8,7 @@
       <h1>Prospects</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ url('admin')}}">Home</a></li>
           <li class="breadcrumb-item active">Prospects</li>
         </ol>
       </nav>
@@ -24,7 +24,11 @@
                 
 
                 <div class="card-body">
-                  <h5 class="card-title"><a href="prospect-add.html"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Prospect</button></a></h5>
+                  <h5 class="card-title">
+                    <a href="{{url('prospect-add')}}">
+                      <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Prospect</button>
+                    </a>
+                  </h5>
 
                   <table class="table table-striped datatable">
                     <thead>
@@ -50,7 +54,7 @@
                         <td><a href="#" class="text-primary">website.com</a></td>
                         <td>Web</td>
                         <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="prospect-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -80,7 +84,7 @@
                         <td><a href="#" class="text-primary">website.com</a></td>
                         <td>Partenaire</td>
                         <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="prospect-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -110,7 +114,7 @@
                         <td><a href="#" class="text-primary">website.com</a></td>
                         <td>Web</td>
                         <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="prospect-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -140,7 +144,7 @@
                         <td><a href="#" class="text-primar">website.com</a></td>
                         <td>Telephone</td>
                         <td><span class="badge bg-danger">Chaud</span></td>
-                        <td><a class="collapsed" href="prospect-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -170,7 +174,7 @@
                         <td><a href="#" class="text-primary">website.com</a></td>
                         <td>Salon</td>
                         <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="prospect-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
