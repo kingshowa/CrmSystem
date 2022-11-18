@@ -65,3 +65,7 @@ Route::get('/opportunites', function () {
 Route::get('/opportunite', function () {
     return view('opportunites/opportunite');
 });
+
+Route::get('/opportunites-add', function () {
+    return view('opportunites/opportunites-add');
+});
