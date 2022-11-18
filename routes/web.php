@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ChartJSController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,18 @@ use App\Http\Controllers\ChartJSController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('chart-js', [ChartJSController::class, 'index']);
+
+ Route::get('/contacts', [ContactController::class, 'index'])->name('index');
+ Route::get('/contact-add', [ContactController::class, 'create'])->name('create');
+ //Route::get('/contact/{id}', [ContactController::class, 'details'])->name('details');
+ //Route::delete('/contacts/{contact:id}', [ContactController::class, 'destroy'])->name('destroy');
+
+// Route::post('articles', 'ArticleController@store');
+// Route::get('articles', 'ArticleController@index');
+
+
+
+
 Route::get('/', function () {
     return view('admin');
 });
@@ -34,13 +45,13 @@ Route::get('/prospect-add', function () {
     return view('prospects/prospect-add');
 });
 
-Route::get('/contacts', function () {
-    return view('contacts/contacts');
-});
+// Route::get('/contacts', function () {
+//     return view('contacts/contacts');
+// });
 
-Route::get('/contact-add', function () {
-    return view('contacts/contact-add');
-});
+// Route::get('/contact-add', function () {
+//     return view('contacts/contact-add');
+// });
 
 Route::get('/contact', function () {
     return view('contacts/contact');
