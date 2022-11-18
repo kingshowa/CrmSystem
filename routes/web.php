@@ -72,3 +72,11 @@ Route::get('/user-profile', function () {
 Route::get('/opportunites', function () {
     return view('opportunites/opportunites');
 });
+
+Route::get('/opportunite', function () {
+    return view('opportunites/opportunite');
+});
+
+Route::get('/opportunites-add', function () {
+    return view('opportunites/opportunites-add');
+});

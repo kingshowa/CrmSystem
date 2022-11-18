@@ -24,7 +24,7 @@
                 
 
                 <div class="card-body">
-                  <h5 class="card-title"><a href="oppotunites-add.html"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunite</button></a></h5>
+                  <h5 class="card-title"><a href="{{url('opportunites-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunite</button></a></h5>
 
                   <table class="table table-striped datatable">
                     <thead>
@@ -46,7 +46,7 @@
                         <td>23/02/2023</td>
                         <td>Brandon Jacob</td>
                         <td>Company Name</td>
-                        <td><a class="collapsed" href="oppotunites-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('opportunite')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -74,7 +74,7 @@
                         <td>16/03/2023</td>
                         <td>Bridie Kessler</td>
                         <td>Company Name</td>
-                        <td><a class="collapsed" href="oppotunites-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('opportunite')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -102,7 +102,7 @@
                         <td>05/01/2023</td>
                         <td>Angus Grady</td>
                         <td>Company Name</td>
-                        <td><a class="collapsed" href="oppotunites-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('opportunite')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -130,7 +130,7 @@
                         <td>02/12/2022</td>
                         <td>Ashleigh Langosh</td>
                         <td>Company Name</td>
-                        <td><a class="collapsed" href="oppotunites-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('opportunite')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -158,7 +158,7 @@
                         <td>11/11/2022</td>
                         <td>Angus Grady</td>
                         <td>Company Name</td>
-                        <td><a class="collapsed" href="oppotunites-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{url('opportunite')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
