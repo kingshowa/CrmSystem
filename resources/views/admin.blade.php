@@ -1,4 +1,4 @@
-@extends("layouts.mainMaster")
+@extends("layouts.Master")
 
 @Section("content")
 
@@ -9,7 +9,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('admin')}}">
+    <a class="nav-link" href="{{ url('admin')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
@@ -23,7 +23,7 @@
   </li><!-- End Prospects Nav -->
 
   <li class="nav-item">
-    <a class="nav-link" href="{{  url('contacts') }}">
+    <a class="nav-link collapsed" href="{{  url('contacts') }}">
       <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
     </a>
   </li><!-- End Contacts Nav -->

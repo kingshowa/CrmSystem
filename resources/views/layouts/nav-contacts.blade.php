@@ -2,7 +2,7 @@
 
 @Section("content")
 
-<!-- ======= Sidebar For prospects ======= -->
+<!-- ======= Sidebar For contact ======= -->
 <aside id="sidebar" class="sidebar">
 
 <ul class="sidebar-nav" id="sidebar-nav">
@@ -15,14 +15,14 @@
   </li><!-- End Dashboard Nav -->
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ url('prospects')}}">
+    <a class="nav-link collapsed" href="{{ url('prospects')}}">
       <i class="bi bi-person-plus-fill"></i><span>Prospects</span>
     </a>
     
   </li><!-- End Prospects Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('contacts')}}">
+    <a class="nav-link" href="{{ url('contacts')}}">
       <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
     </a>
   </li><!-- End Contacts Nav -->
@@ -53,7 +53,7 @@
   </li><!-- End Users Nav -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez-vous')}}">
-      <i class="bi bi-person"></i>
+      <i class="bi bi-envelope"></i>
       <span>Rendez-Vous</span>
     </a>
   </li>
@@ -61,6 +61,6 @@
 
 </aside><!-- End Sidebar-->
 
-@yield("prospects")
+@yield("contacts")
 
 @endsection

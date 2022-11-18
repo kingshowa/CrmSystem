@@ -23,10 +23,30 @@ Route::get('/admin', function () {
 });
 
 Route::get('/prospects', function () {
-    return view('prospects');
+    return view('prospects/prospects');
 });
 
 Route::get('/contacts', function () {
-    return view('contacts');
+    return view('contacts/contacts');
+});
+
+Route::get('/contact-add', function () {
+    return view('contacts/contact-add');
+});
+
+Route::get('/contact', function () {
+    return view('contacts/contact');
+});
+
+Route::get('/front-office', function () {
+    return view('front-office');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/user-profile', function () {
+    return view('user-profile');
 });
 
