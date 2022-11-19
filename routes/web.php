@@ -80,3 +80,17 @@ Route::get('/opportunite', function () {
 Route::get('/opportunites-add', function () {
     return view('opportunites/opportunites-add');
 });
+Route::get('client','ClientController@index');
+Route::get('client/create','ClientController@create');
+Route::post('client/store','ClientController@store');
+Route::get('client/edite/{id}','ClientController@edite');
+Route::put('client/update/{id}','ClientController@update');
+Route::delete('client/destroy/{id}','ClientController@destroy');
+
+Route::get('rendez','RendezController@index');
+Route::get('rendez/create','RendezController@create');
+Route::post('rendez/store','RendezController@store');
+Route::get('rendez/edite/{id}','RendezController@edite');
+Route::put('rendez/update/{id}','RendezController@update');
+Route::delete('rendez/destroy/{id}','RendezController@destroy');
+
