@@ -63,7 +63,7 @@
                     <p class="text-center small">Enter your email & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="{{url('front-office')}}" method="GET" >
+                  <form class="row g-3 needs-validation" action="{{url('profile')}}" method="GET" >
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
@@ -86,9 +86,7 @@
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
-                    </div>
+                   
                   </form>
 
                 </div>

@@ -79,7 +79,31 @@ Route::get('/opportunite', function () {
 
 Route::get('/opportunites-add', function () {
     return view('opportunites/opportunites-add');
+
+    
 });
+
+
+Route::get('/clients', function () {
+    return view('clients/client-add');
+});
+
+Route::get('/clients', function () {
+    return view('clients/clients');
+});
+Route::get('/clients', function () {
+    return view('clients/clientView');
+});
+Route::get('/rendez-vous', function () {
+    return view('rendez-vous/rendezView');
+});
+Route::get('/rendez-vous', function () {
+    return view('rendez-vous/rendez-add');
+});
+Route::get('/rendez-vous', function () {
+    return view('rendez-vous/rendez-vous');
+});
+
 Route::get('client','ClientController@index');
 Route::get('client/create','ClientController@create');
 Route::post('client/store','ClientController@store');
