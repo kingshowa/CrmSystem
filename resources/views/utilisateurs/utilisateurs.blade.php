@@ -1,15 +1,17 @@
-@extends("layouts.nav-produits")
 
-@Section("produits")
+@extends("layouts.nav-utilisateurs")
+
+@Section("utilisateurs")
+
 <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Produits</h1>
+  <h1>Utilisateurs</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="produits-view.html">Produits</a></li>
-      <li class="breadcrumb-item active">View Produits</li>
+      <li class="breadcrumb-item"><a href="utilisateurs-view.html">Utilisateurs</a></li>
+      <li class="breadcrumb-item active">View Utilisateur</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -29,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Produits</button>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Utilisateurs</button>
             </li>
 
             <li class="nav-item">
@@ -42,27 +44,38 @@
             <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
 
-              <h5 class="card-title">Produits Details</h5>
+              <h5 class="card-title">Utilisateurs Details</h5>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label ">Nom</div>
-                <div class="col-lg-9 col-md-8">Mercedes 190</div>
+                <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                <div class="col-lg-9 col-md-8">Kevin Anderson</div>
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Prix</div>
-                <div class="col-lg-9 col-md-8">2400 euros</div>
+                <div class="col-lg-3 col-md-4 label">Company</div>
+                <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Quantites</div>
-                <div class="col-lg-9 col-md-8">10</div>
+                <div class="col-lg-3 col-md-4 label">Job</div>
+                <div class="col-lg-9 col-md-8">Web Designer</div>
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Photo</div>
-                <div class="col-lg-9 col-md-8"><img src="Mercedes_Classe_C_002.jpg" width="100px" height="100px"></div>
+                <div class="col-lg-3 col-md-4 label">Address</div>
+                <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
               </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Phone</div>
+                <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Email</div>
+                <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+              </div>
+
             </div>
 
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -71,32 +84,54 @@
               <form>
 
                 <div class="row mb-3">
-                  <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                  <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Nom" type="text" class="form-control" id="Nom" value="Mercedes 190">
+                    <input name="firstName" type="text" class="form-control" id="firstName" value="Kevin">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Prix" class="col-md-4 col-lg-3 col-form-label">Prix</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Prix" type="text" class="form-control" id="Prix" value="2400 euros">
+                    <input name="surName" type="text" class="form-control" id="surName" value="Anderson">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Quantite</label>
+                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Quantite" type="number" class="form-control" id="Quantite" value="10">
+                    <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
+                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Photo" type="file"  accept="image/png, image/jpeg" class="form-control" id="Photo" value="Mercedes_Classe_C_002.jpg ">
+                    <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
                   </div>
                 </div>
+
+                <div class="row mb-3">
+                  <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                  <div class="col-md-8 col-lg-9">
+                    <textarea name="address" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                  </div>
+                </div>
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
@@ -116,7 +151,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers" checked>
                       <label class="form-check-label" for="proOffers">
-                        Delete Produits
+                        Delete Utilisateurs
                       </label>
                     </div>
                   
@@ -162,5 +197,4 @@
 </section>
 
 </main><!-- End #main -->
-
-@endsection
+  @endsection

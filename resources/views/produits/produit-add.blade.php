@@ -1,6 +1,6 @@
-@extends("layouts.nav-contacts")
+@extends("layouts.nav-produits")
 
-@Section("contacts")
+@Section("produits")
 
 <main id="main" class="main">
 
