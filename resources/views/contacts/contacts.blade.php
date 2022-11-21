@@ -42,146 +42,49 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($contacts as $contact)
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>Manager</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td>Company Name</td>
-                        <td><a class="collapsed" href="{{url('contact')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                        <th scope="row"><a href="#">{{$contact->id}}</a></th>
+                        <td>{{$contact->prenom}} {{$contact->nom}}</td>
+                        <td>{{$contact->fonction}}</td>
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->telephone}}</td>
+                        <td>{{$contact->client}}</td>
+                        <td>
+                          <a class="collapsed" href="{{url('contact/'.$contact->id)}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <form action="{{url('contacts/'.$contact->id)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                          
+                          
 
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete Contact</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <div class="modal fade" id="basicModal" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Confirm To Delete Contact</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Are you sure that you want to delete {{$contact->prenom}} {{$contact->nom}} from contacts? This action is permanent and can not be undone.
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Confirm</button>
+                                </div>
+                              </div>
                             </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from contacts? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
+                          </div><!-- End Basic Modal-->
+                          </form>
+                        </td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td>Bridie Kessler</td>
-                        <td>Manager</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td>Company Name</td>
-                        <td><a class="collapsed" href="{{url('contact')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete Contact</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from contacts? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td>Manager</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td>Company Name</td>
-                        <td><a class="collapsed" href="{{url('contact')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete Contact</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from contacts? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td>Angus Grady</td>
-                        <td>Manager</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td>Company Name</td>
-                        <td><a class="collapsed" href="{{url('contact')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete Contact</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from contacts? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">5</a></th>
-                        <td>Raheem Lehner</td>
-                        <td>Manager</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td>Company Name</td>
-                        <td><a class="collapsed" href="{{url('contact')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete Contact</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from contacts? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
+                      @endforeach
+            
                      
                     </tbody>
                   </table>
