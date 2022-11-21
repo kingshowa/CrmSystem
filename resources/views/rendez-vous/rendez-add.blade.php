@@ -9,8 +9,8 @@
   <h1>Add Contact</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="contacts-view.html">rendez-vous</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
       <li class="breadcrumb-item active">Add rendez-vous</li>
     </ol>
   </nav>
@@ -24,7 +24,7 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-          <form>
+          <form action="{{url('rendez/store')}}" method="post">
 
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>

@@ -8,8 +8,8 @@
   <h1>rendez-vous details</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="contacts-view.html">rendez-vous</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
       <li class="breadcrumb-item active"></li>
     </ol>
   </nav>
@@ -26,16 +26,14 @@
           <ul class="nav nav-tabs nav-tabs-bordered">
 
             <li class="nav-item">
-              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+              <a><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button></a>
             </li>
 
             <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Contact</button>
+             <a href="{{url('rendez/edite'.$rendez->id)}}"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Contact</button></a>
             </li>
 
-            <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-            </li>
+            
 
           </ul>
           <div class="tab-content pt-2 col-xl-8">
@@ -47,32 +45,32 @@
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">Date</div>
-                <div class="col-lg-9 col-md-8">07/01/2020</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->date}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Compte Rendu</div>
-                <div class="col-lg-9 col-md-8">un rendez vous annuler</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->compte}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Client</div>
-                <div class="col-lg-9 col-md-8">Azure company</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->client}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Commercial</div>
-                <div class="col-lg-9 col-md-8">Jacob</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->Commercial}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">durée de la rendez-vous</div>
-                <div class="col-lg-9 col-md-8">30 minutes</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->duree}}</div>
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Email</div>
-                <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                <div class="col-lg-3 col-md-4 label">Email Contact</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->email}}</div>
               </div>
 
             </div>
@@ -85,7 +83,7 @@
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="firstName" type="date" class="form-control" id="firstName" value="Kevin">
+                    <input name="firstName" type="date" class="form-control" id="firstName" value="{{$rendez->date}}">
                   </div>
                 </div>
 
@@ -139,52 +137,7 @@
 
             </div>
 
-            <div class="tab-pane fade pt-3" id="profile-settings">
-
-              <!-- Settings Form -->
-              <form method="get" action="confirm-operation.html">
-
-                <div class="row mb-3">
-                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"></label>
-                  <div class="col-md-8 col-lg-9">
-                    
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers" checked>
-                      <label class="form-check-label" for="proOffers">
-                        Delete Rendez-vous
-                      </label>
-                    </div>
-                  
-                  </div>
-                </div>
-
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                    Save Changes
-                  </button>
-                  
-                  <div class="modal fade" id="basicModal" tabindex="-1">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Basic Modal</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!-- End Basic Modal-->
-
-                </div>
-              </form><!-- End settings Form -->
-
-            </div>
+            
 
 
           </div><!-- End Bordered Tabs -->

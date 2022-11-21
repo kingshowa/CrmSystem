@@ -8,8 +8,8 @@
       <h1>Client</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="clients-view.html">Client</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('clients')}}">Client</a></li>
           <li class="breadcrumb-item active">View Client</li>
         </ol>
       </nav>
@@ -26,16 +26,13 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                 <a href="{{('client/edite/.$client->$id')}}" > <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button></a>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Client</button>
+                  <a href=""><button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Client</button></a>
                 </li>
 
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-                </li>
 
               </ul>
               <div class="tab-content pt-2 col-xl-8">
@@ -46,8 +43,8 @@
                   <h5 class="card-title">Client Details</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-3 col-md-4 label ">Nom societe</div>
+                    <div class="col-lg-9 col-md-8"></div>
                   </div>
 
                   <div class="row">
@@ -70,45 +67,43 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form action="{{url('client/update/'.$client->id)}}" method="poste">
+
+                    <input type="hidden" name="_method" value="PUT" >
+                    {{ csrf_field() }}
 
                     <div class="row mb-3">
                       <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="firstName" type="text" class="form-control" id="firstName" value="Kevin">
+                        <input name="firstName" type="text" class="form-control" id="firstName" value="{{$client->societe}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Telephone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="surName" type="text" class="form-control" id="surName" value="Anderson">
+                        <input name="surName" type="text" class="form-control" id="surName" value="{{$client->telephone}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="address" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                        <textarea name="address" class="form-control" id="about"value="{{$client->adresse}}" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Site Web</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                        <input name="phone" type="text" class="form-control" id="Phone" value="{{$client->site_web}}">
                       </div>
                     </div>
 
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Site Web</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
-                      </div>
-                    </div>
+                    
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="submit" class="btn btn-primary">Modifier</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
@@ -138,23 +133,7 @@
                         Save Changes
                       </button>
                       
-                      <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Basic Modal</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal-->
+                      
 
                     </div>
                   </form><!-- End settings Form -->
