@@ -25,7 +25,11 @@
                 
 
                 <div class="card-body">
+<<<<<<< Updated upstream
                   <h5 class="card-title"><a href="{{ url('client/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
+=======
+                  <h5 class="card-title"><a href="{{url('client-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
+>>>>>>> Stashed changes
 
                   <table class="table table-striped datatable">
                     <thead>
@@ -41,11 +45,21 @@
                     <tbody>
                       @foreach($clients as $client)
                       <tr>
+<<<<<<< Updated upstream
                         <th scope="row"><a href="#">{{$client->id}}</a></th>
                         <td>{{ $client->societe }}</td>
                         <td>{{$client->telephone}}</td>
                         <td>{{$client->created_at}}</td>
                         <td><a class="collapsed" href="{{url('clientView'.$client->$id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+=======
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>Manager</td>
+                        <td>useremail@gmail.com</td>
+                        <td>0554107003</td>
+                        <td>Company Name</td>
+                        <td><a class="collapsed" href="clientView"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+>>>>>>> Stashed changes
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">

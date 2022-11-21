@@ -88,6 +88,7 @@ Route::get('/opportunites-add', function () {
 });
 
 
+<<<<<<< Updated upstream
 //Route::get('/clients', function () {
    
    // return view('clients/client-add');
@@ -121,6 +122,34 @@ Route::get('/clients', [ClientController::class, 'index'])->name('index');
 //Route::get('client/edite/{id}','ClientController@edite');
 //Route::put('client/update/{id}','ClientController@update');
 //Route::delete('client/destroy/{id}','ClientController@destroy');
+=======
+Route::get('/client-add', function () {
+    return view('clients/client-add');
+});
+
+Route::get('/clients', function () {
+    return view('clients/clients');
+});
+Route::get('/clientView', function () {
+    return view('clients/clientView');
+});
+Route::get('/rendezView', function () {
+    return view('rendez-vous/rendezView');
+});
+Route::get('/rendez-add', function () {
+    return view('rendez-vous/rendez-add');
+});
+Route::get('/rendez-vous', function () {
+    return view('rendez-vous/rendez-vous');
+});
+
+Route::get('client','ClientController@index');
+Route::get('client/create','ClientController@create');
+Route::post('client/store','ClientController@store');
+Route::get('client/edite/{id}','ClientController@edite');
+Route::put('client/update/{id}','ClientController@update');
+Route::delete('client/destroy/{id}','ClientController@destroy');
+>>>>>>> Stashed changes
 
 Route::get('rendez','RendezController@index');
 Route::get('rendez/create','RendezController@create');

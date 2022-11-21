@@ -10,7 +10,11 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+<<<<<<< Updated upstream
       <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
+=======
+      <li class="breadcrumb-item"><a href="{{url('rendez-vous')}}">rendez-vous</a></li>
+>>>>>>> Stashed changes
       <li class="breadcrumb-item active">Add rendez-vous</li>
     </ol>
   </nav>

@@ -8,8 +8,8 @@
       <h1>Add Client</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="clients-view.html">Clients</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('clients')}}">Clients</a></li>
           <li class="breadcrumb-item active">Add Client</li>
         </ol>
       </nav>
