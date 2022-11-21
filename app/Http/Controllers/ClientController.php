@@ -27,7 +27,7 @@ class ClientController extends Controller
     }
 
     public function details($id){
-    	$contact = Contact::find($id);
+    	$client = Client::find($id);
     	return view('clients.client', ['client'=>$client]);
     }
 
@@ -39,12 +39,12 @@ class ClientController extends Controller
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input(' site_web');
     	$client->save();
-        return redirect('clients/clients'$id);    	
+        return redirect('clients/clients');    	
     }
 
     public function destroy($id){
     	$client = Article::find($id);
-    	$contact->delete();
+    	$client->delete();
     	return redirect('clients');
     } 
 }
