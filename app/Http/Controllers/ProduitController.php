@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Produit;
 
 class ProduitController extends Controller
 {
@@ -10,7 +12,7 @@ class ProduitController extends Controller
     public function index(){
         $listproduits=Produit::all();
     	
-        return view('produits/produitview',['produits'=> $listproduits]);
+        return view('produits/produit-view',['produits'=> $listproduits]);
     }
     
     public function create(){

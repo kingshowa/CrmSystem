@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RendezController;
+use App\Http\Controllers\ProduitController;
 
 /*
 |--------------------------------------------------------------------------
