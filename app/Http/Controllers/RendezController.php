@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Rendez;
 use Illuminate\Http\Request;
 
@@ -9,7 +8,9 @@ use Illuminate\Http\Request;
 class RendezController extends Controller
 {
     public function index(){
-        return view('rendez-vous/rendez-vous');
+        $listrendez=Rendez::all();
+    	
+        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez]);
     }
     
     public function create(){
@@ -24,12 +25,12 @@ class RendezController extends Controller
     	$rendez-> client = $request->input(' client');
         $rendez-> commerciel = $request->input(' commerciel');
     	$rendez->save();
-        return redirect('rendez-vous/clientView');
+        return redirect('rendez-vous');
     }
 
-    public function details($id){
-    	$client = Client::find($id);
-    	return view('clients.clientView', ['client'=>$client]);
+    public function edite($id){
+    	$rendez = Rendez::find($id);
+    	return view('rendez', ['rendez'=>$rendez]);
     }
 
     public function update(Request $request, $id){
@@ -41,12 +42,12 @@ class RendezController extends Controller
     	$rendez-> client = $request->input(' client');
         $rendez-> commerciel = $request->input(' commerciel');
     	$rendez->save();
-        return redirect('rendez-vous/rendezView$'$id);   	
+        return redirect('rendez/'.$id);   	
     }
 
     public function destroy($id){
-    	$client = Article::find($id);
-    	$client->delete();
+    	$rendez = Rendez::find($id);
+    	$rendez->delete();
     	return redirect('rendez-vous/rendez-vous');
     } 
 }

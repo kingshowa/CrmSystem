@@ -7,7 +7,7 @@
       <h1>rendez-vous</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
           <li class="breadcrumb-item active">rendez-vous</li>
         </ol>
       </nav>
@@ -23,7 +23,11 @@
                 
 
                 <div class="card-body">
-                  <h5 class="card-title"><a href="rendez_add.html"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
+<<<<<<< Updated upstream
+                  <h5 class="card-title"><a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
+=======
+                  <h5 class="card-title"><a href="{{url('rendez-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
+>>>>>>> Stashed changes
 
                   <table class="table table-striped datatable">
                     <thead>
@@ -37,14 +41,19 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($rendez as $rendez)
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td>26/02/2019</td>
-                        <td>un rendez vous annuler</td>
-                        <td>azure company</td>
-                        <td>jacob</td>
+                        <th scope="row"><a href="#">{{$rendez->id}}</a></th>
+                        <td>{{$rendez->date}}</td>
+                        <td>{{$rendez->compte}}</td>
+                        <td>{{$rendez->client}}</td>
+                        <td>{{$rendez->commercial}}</td>
                         
-                        <td><a class="collapsed" href="rendez-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+<<<<<<< Updated upstream
+                        <td><a class="collapsed" href="{{url('$rendezView').$rendez->id}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+=======
+                        <td><a class="collapsed" href="{{url('rendezView')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+>>>>>>> Stashed changes
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
@@ -65,114 +74,9 @@
                         </div>
                       </div><!-- End Basic Modal--></td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td>12/09/2019</td>
-                        <td>un rendez vous avec succes</td>
-                        <td>azure company</td>
-                        <td>Arianna</td>
-                        <td><a class="collapsed" href="rendez-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete rendez-vous</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete these meeting? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td>07/01/2020</td>
-                        <td>un rendez vous annuler</td>
-                        <td>azure company</td>
-                        <td>jacob</td>
-                        <td><a class="collapsed" href="rendez-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete rendez-vous</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete these meeting? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td>26/02/2019</td>
-                        <td>un rendez vous annuler</td>
-                        <td>company</td>
-                        <td>Showa</td>
-                        <td><a class="collapsed" href="rendez-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete rendez-vous</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete these meeting? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">5</a></th>
-                        <td>26/02/2019</td>
-                        <td>un rendez vous annuler</td>
-                        <td>azure company</td>
-                        <td>jacob</td>
-                        <td><a class="collapsed" href="rendez-details.html"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete rendez-vous</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete these meeting? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
+                      
+                        @endforeach
+                       
                      
                     </tbody>
                   </table>

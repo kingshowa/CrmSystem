@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
     public function index(){
+        $listclients=Client::all();
     	
-        return view('clients/clients');
+        return view('clients/clients',['clients'=> $listclients]);
     }
     
     public function create(){
@@ -18,32 +19,32 @@ class ClientController extends Controller
    
     public function store(Request $request){
     	$client = new  Client();
-    	$client->société = $request->input('société');
-    	$client->téléphone = $request->input('téléphone');
+    	$client->societe = $request->input('societe');
+    	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input(' site_web');
     	$client->save();
-        return redirect('clients/clients');
+        return redirect('clients');
     }
 
-    public function details($id){
+    public function edite($id){
     	$client = Client::find($id);
-    	return view('clients.client', ['client'=>$client]);
+    	return view('clients.clientView', ['client'=>$client]);
     }
 
     public function update(Request $request, $id){
     	$client = Client::find($id);
     	$client = new  Client();
-    	$client->société = $request->input('société');
-    	$client->téléphone = $request->input('téléphone');
+    	$client->societe = $request->input('societe');
+    	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input(' site_web');
     	$client->save();
-        return redirect('clients/clients');    	
+        return redirect('clients');    	
     }
 
     public function destroy($id){
-    	$client = Article::find($id);
+    	$client = Client::find($id);
     	$client->delete();
     	return redirect('clients');
     } 
