@@ -129,3 +129,6 @@ Route::get('rendez/edite/{id}','RendezController@edite');
 Route::put('rendez/update/{id}','RendezController@update');
 Route::delete('rendez/destroy/{id}','RendezController@destroy');
 
+//*************************************************************** */
+
+Route::get('/produits', [ProduitController::class, 'index'])->name('index');
