@@ -22,8 +22,8 @@ use App\Http\Controllers\ContactController;
  Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
 
-// Route::post('articles', 'ArticleController@store');
-// Route::get('articles', 'ArticleController@index');
+ Route::get('/front-office/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
+
 
 
 
@@ -59,9 +59,9 @@ Route::get('/prospect-add', function () {
 //     return view('contacts/contact');
 // });
 
-Route::get('/front-office', function () {
-    return view('front-office');
-});
+// Route::get('/front-office', function () {
+//     return view('front-office');
+// });
 
 Route::get('/login', function () {
     return view('login');

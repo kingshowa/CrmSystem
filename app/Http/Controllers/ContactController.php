@@ -34,6 +34,11 @@ class ContactController extends Controller
     	return view('contacts.contact', ['contact'=>$contact]);
     }
 
+    public function contact_details($id){
+    	$contact = Contact::find($id);
+    	return view('front-office', ['contact'=>$contact]);
+    }
+
     public function update(Request $request, $id){
     	$contact = Contact::find($id);
     	$contact->nom = $request->input('nom');
