@@ -32,6 +32,9 @@
               <div class="tab-content pt-2 col-xl-8">
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">Contact Details</h5>
+   
+                  @if($contact != null)
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Nom</div>
                     <div class="col-lg-9 col-md-8">{{$contact->nom}}</div>
@@ -56,10 +59,12 @@
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8">{{$contact->email}}</div>
                   </div>
+                  
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                   <!-- Profile Edit Form -->
+                  
                   <form action="{{url('contact/'.$contact->id)}}" method="POST">
                     <input type="hidden" name="_method" value="PUT">
                     {{ csrf_field() }}
@@ -105,6 +110,8 @@
                         <input name="email" type="email" class="form-control" id="Email" value="{{$contact->email}}">
                       </div>
                     </div>
+                    
+                    @endif
 
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>
