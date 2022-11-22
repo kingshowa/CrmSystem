@@ -22,8 +22,8 @@ class RendezController extends Controller
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
-    	$rendez-> client = $request->input(' client');
-        $rendez-> commerciel = $request->input(' commerciel');
+    	$rendez-> client = $request->input('client');
+        $rendez-> commerciel = $request->input('commerciel');
     	$rendez->save();
         return redirect('rendez-vous');
     }
