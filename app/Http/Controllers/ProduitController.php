@@ -19,7 +19,7 @@ class ProduitController extends Controller
     	return view('produits/produit-add');
     } 
    
-    public function store(Request $request){
+    public function store_produit(Request $request){
     	$produit = new  Produit();
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
