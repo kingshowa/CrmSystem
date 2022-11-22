@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('montant');
-            $table->string('etapes');
-            $table->string('date_clôture');
+            $table->string('date_cloture');
             $table->string('client');
             $table->string('produits');
             $table->timestamps();
