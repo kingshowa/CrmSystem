@@ -26,9 +26,13 @@
 
                 <div class="card-body">
 
+
                   <h5 class="card-title"><a href="{{ url('client/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
 
                 
+
+
+                  <h5 class="card-title"><a href="{{url('client-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
 
 
                   <table class="table table-striped datatable">
@@ -46,13 +50,19 @@
                       @foreach($clients as $client)
                       <tr>
 
+
+
                         <th scope="row"><a href="#">{{$client->id}}</a></th>
                         <td>{{ $client->societe }}</td>
                         <td>{{$client->telephone}}</td>
                         <td>{{$client->created_at}}</td>
                         <td><a class="collapsed" href="{{url('clientView'.$client->$id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
 
+
                            <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+
+                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
                         <div class="modal-dialog">

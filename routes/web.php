@@ -88,7 +88,6 @@ Route::get('/opportunites-add', function () {
 });
 
 
-
 //Route::get('/clients', function () {
    
    // return view('clients/client-add');
@@ -133,10 +132,18 @@ Route::get('/opportunites-add', function () {
 //Route::delete('client/destroy/{id}','ClientController@destroy');
 
 
+
 //Route::get('rendez','RendezController@index');
 //Route::get('rendez/create','RendezController@create');
 //Route::post('rendez/store','RendezController@store');
 //Route::get('rendez/edite/{id}','RendezController@edite');
 //Route::put('rendez/update/{id}','RendezController@update');
 //Route::delete('rendez/destroy/{id}','RendezController@destroy');
+
+Route::get('rendez','RendezController@index');
+Route::get('rendez/create','RendezController@create');
+Route::post('rendez/store','RendezController@store');
+Route::get('rendez/edite/{id}','RendezController@edite');
+Route::put('rendez/update/{id}','RendezController@update');
+Route::delete('rendez/destroy/{id}','RendezController@destroy');
 

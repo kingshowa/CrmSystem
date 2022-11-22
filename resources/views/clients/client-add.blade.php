@@ -23,7 +23,7 @@
           <div class="card"> 
             <div class="card-body pt-3 col-xl-8">
 
-              <form action="{{url('client/store')}}" methode="poste">
+              <form action="{{url('client/store')}}" methode="post">
 
                     <div class="row mb-3">
                       <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>

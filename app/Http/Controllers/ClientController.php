@@ -19,8 +19,8 @@ class ClientController extends Controller
    
     public function store(Request $request){
     	$client = new  Client();
-    	$client->société = $request->input('societe');
-    	$client->téléphone = $request->input('telephone');
+    	$client->societe = $request->input('societe');
+    	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input(' site_web');
     	$client->save();
@@ -35,8 +35,8 @@ class ClientController extends Controller
     public function update(Request $request, $id){
     	$client = Client::find($id);
     	$client = new  Client();
-    	$client->société = $request->input('societe');
-    	$client->téléphone = $request->input('telephone');
+    	$client->societe = $request->input('societe');
+    	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input(' site_web');
     	$client->save();
