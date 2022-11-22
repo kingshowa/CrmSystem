@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RendezController;
+use App\Http\Controllers\ProduitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,3 +148,6 @@ Route::get('rendez/edite/{id}','RendezController@edite');
 Route::put('rendez/update/{id}','RendezController@update');
 Route::delete('rendez/destroy/{id}','RendezController@destroy');
 
+//*************************************************************** */
+
+Route::get('/produits', [ProduitController::class, 'index'])->name('index');
