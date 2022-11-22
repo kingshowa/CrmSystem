@@ -23,11 +23,11 @@
                 
 
                 <div class="card-body">
-<<<<<<< Updated upstream
+
                   <h5 class="card-title"><a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
-=======
-                  <h5 class="card-title"><a href="{{url('rendez-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
->>>>>>> Stashed changes
+
+                 
+
 
                   <table class="table table-striped datatable">
                     <thead>
@@ -49,11 +49,11 @@
                         <td>{{$rendez->client}}</td>
                         <td>{{$rendez->commercial}}</td>
                         
-<<<<<<< Updated upstream
+
                         <td><a class="collapsed" href="{{url('$rendezView').$rendez->id}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-=======
+
                         <td><a class="collapsed" href="{{url('rendezView')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
->>>>>>> Stashed changes
+
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
