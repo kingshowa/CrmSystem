@@ -35,7 +35,7 @@ class ProduitController extends Controller
     }
 
     public function update(Request $request, $id){
-    	$client = Client::find($id);
+    	$produit = Produit::find($id);
     	$produit = new  Produit();
     	$produit->nom = $request->input('nom');
     	$produit->prix = $request->input('prix');
