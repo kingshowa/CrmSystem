@@ -31,7 +31,7 @@ class ProduitController extends Controller
 
     public function edite($id){
     	$produit = Produit::find($id);
-    	return view('produits.produits', ['produit'=>$produit]);
+    	return view('produits/produits', ['produit'=>$produit]);
     }
 
     public function update(Request $request, $id){
