@@ -20,7 +20,7 @@ use App\Http\Controllers\UtilisateurController;
 
  Route::get('/contacts', [ContactController::class, 'index'])->name('index');
  Route::get('/contact-add', [ContactController::class, 'create'])->name('create');
- Route::post('/contact-add', [ContactController::class, 'store'])->name('store');
+ Route::post('/contact-add', [ContactController::class, 'store_contact'])->name('store_contact');
  Route::get('/contact/{id}', [ContactController::class, 'details'])->name('details');
  Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
