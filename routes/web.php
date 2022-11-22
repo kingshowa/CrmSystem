@@ -111,7 +111,7 @@ Route::get('/opportunites-add', function () {
 //});//
 
   Route::get('/clients', [ClientController::class, 'index'])->name('index');
-  Route::get('/client/create', [ClientController::class, 'create'])->name('create');
+  Route::get('/client-add', [ClientController::class, 'create'])->name('create');
   Route::post('/client/store', [ClientController::class, 'store'])->name('store');
   Route::get('/client/edite/{id}', [ClientController::class, 'edite'])->name('edite');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
