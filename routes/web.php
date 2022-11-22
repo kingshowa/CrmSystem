@@ -6,7 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RendezController;
 use App\Http\Controllers\ProduitController;
-
+use App\Http\Controllers\UtilisateurController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -133,3 +133,4 @@ Route::delete('rendez/destroy/{id}','RendezController@destroy');
 //*************************************************************** */
 
 Route::get('/produits', [ProduitController::class, 'index'])->name('index');
+Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
