@@ -119,7 +119,7 @@ Route::get('/opportunites-add', function () {
 
   Route::get('/rendez', [RendezController::class, 'index'])->name('index-rendez');
  Route::get('/rendez/create', [RendezController::class, 'create'])->name('create-rendez');
-  Route::post('/rendez/store', [RendezController::class, 'store'])->name('store-rendez');
+  Route::post('/rendez/store', [RendezController::class, 'store_rendez'])->name('store-rendez');
  Route::get('/rendez/edite/{id}', [RendezController::class, 'edite'])->name('edite-rendez');
  Route::put('/rendez/update/{id}', [RendezController::class, 'update'])->name('update-rendez');
 Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy-rendez');

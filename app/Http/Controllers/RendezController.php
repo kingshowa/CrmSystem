@@ -17,7 +17,7 @@ class RendezController extends Controller
     	return view('rendez-vous.rendez-add');
     } 
    
-    public function store(Request $request){
+    public function store_rendez(Request $request){
     	$rendez= new  Rendez();
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
