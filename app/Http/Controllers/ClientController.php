@@ -34,13 +34,13 @@ class ClientController extends Controller
 
     public function update(Request $request, $id){
     	$client = Client::find($id);
-    	$client = new  Client();
+    	
     	$client->societe = $request->input('societe');
     	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
-    	$client-> site_web = $request->input(' site_web');
+    	$client-> site_web = $request->input('site_web');
     	$client->save();
-        //return redirect('clients');    	
+        return redirect('clients');    	
     }
 
     public function destroy($id){

@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class RendezController extends Controller
 {
     public function index(){
-        $listrendez=Rendez::all();
+        $listrendez = Rendez::all();
     	
-        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez]);
+        return view('rendez-vous.rendez-vous',['rendez'=> $listrendez]);
     }
     
     public function create(){
@@ -18,7 +18,7 @@ class RendezController extends Controller
     } 
    
     public function store(Request $request){
-    	$rendez= new  rendez();
+    	$rendez= new  Rendez();
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
@@ -35,7 +35,7 @@ class RendezController extends Controller
 
     public function update(Request $request, $id){
     	$rendez = Rendez::find($id);
-    	$rendez= new  Rendez();
+    	
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
