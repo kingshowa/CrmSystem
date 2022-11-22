@@ -26,12 +26,6 @@
 
                 <div class="card-body">
 
-
-                 
-
-                
-
-
                   <h5 class="card-title"><a href="{{url('client-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
 
 
@@ -53,9 +47,9 @@
 
 
                         <th scope="row"><a href="#">{{$client->id}}</a></th>
-                        <td>{{ $client->societe }}</td>
-                        <td>{{$client->telephone}}</td>
-                        <td>{{$client->created_at}}</td>
+                        <td>{{ $client->societe }}  </td>
+                        <td>{{$client->telephone}}  </td>
+                        <td>{{$client->created_at}}  </td>
                         <td><a class="collapsed" href="{{url('clientView'.$client->$id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
 
 
