@@ -10,7 +10,7 @@ class RendezController extends Controller
     public function index(){
         $listrendez = Rendez::all();
     	
-        return view('rendez-vous.rendez-vous',['rendez'=> $listrendez]);
+        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez]);
     }
     
     public function create(){
@@ -30,7 +30,7 @@ class RendezController extends Controller
 
     public function edite($id){
     	$rendez = Rendez::find($id);
-    	return view('rendez', ['rendez'=>$rendez]);
+    	return view('rendez-vous.rendezView', ['rendez'=>$rendez]);
     }
 
     public function update(Request $request, $id){
@@ -42,7 +42,7 @@ class RendezController extends Controller
     	$rendez-> client = $request->input(' client');
         $rendez-> commerciel = $request->input(' commerciel');
     	$rendez->save();
-        return redirect('rendez/'.$id);   	
+        return redirect('rendez');   	
     }
 
     public function destroy($id){
