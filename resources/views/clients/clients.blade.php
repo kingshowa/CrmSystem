@@ -47,10 +47,10 @@
                         <td>{{ $client->societe }}</td>
                         <td>{{$client->telephone}}</td>
                         <td>{{$client->site_web}}</td>
-                        <td><a class="collapsed" href="{{url('clientView'.$client->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{route('show',$client->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
 
 
-                           <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 
                         <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
 

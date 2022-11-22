@@ -40,7 +40,7 @@ class ClientController extends Controller
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input(' site_web');
     	$client->save();
-        return redirect('clients');    	
+        //return redirect('clients');    	
     }
 
     public function destroy($id){

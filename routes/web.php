@@ -113,7 +113,7 @@ Route::get('/opportunites-add', function () {
   Route::get('/clients', [ClientController::class, 'index'])->name('index');
   Route::get('/client-add', [ClientController::class, 'create'])->name('create');
   Route::post('/client-add', [ClientController::class, 'store'])->name('store');
-  Route::get('/client/edite/{id}', [ClientController::class, 'edite'])->name('edite');
+  Route::get('/clientView/{id}', [ClientController::class, 'edite'])->name('show');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
   //Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
 
