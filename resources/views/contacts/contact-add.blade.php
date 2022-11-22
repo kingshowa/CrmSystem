@@ -23,7 +23,7 @@
           <div class="card"> 
             <div class="card-body pt-3 col-xl-8">
 
-              <form action="{{ route('store') }}" method="POST">
+              <form action="{{ route('store_contact') }}" method="POST">
               {{ csrf_field()}}
 
 
