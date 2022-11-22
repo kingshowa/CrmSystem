@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('compte');
             $table->string('client');
             $table->string('commerciel');
-            $table->timestamps();
+            $table->timestamps()->after('commercial');
         });
     }
 

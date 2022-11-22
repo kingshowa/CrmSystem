@@ -23,8 +23,8 @@
           <div class="card"> 
             <div class="card-body pt-3 col-xl-8">
 
-              <form>
-
+              <form action="{{url('produit/store')}}" method="POST">
+              {{ csrf_field()}}  
                     <div class="row mb-3">
                       <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Nom</label>
                       <div class="col-md-8 col-lg-9">
