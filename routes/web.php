@@ -112,17 +112,17 @@ Route::get('/opportunites-add', function () {
 
   Route::get('/clients', [ClientController::class, 'index'])->name('index');
   Route::get('/client-add', [ClientController::class, 'create'])->name('create');
-  Route::post('/client/store', [ClientController::class, 'store'])->name('store');
-  Route::get('/client/edite/{id}', [ClientController::class, 'edite'])->name('edite');
+  Route::post('/client-add', [ClientController::class, 'store'])->name('store');
+  Route::get('/clientView/{id}', [ClientController::class, 'edite'])->name('show');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
   //Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
 
-  Route::get('/rendez', [RendezController::class, 'index'])->name('index');
-  Route::get('/rendez/create', [RendezController::class, 'create'])->name('create');
-  Route::post('/rendez/store', [RendezController::class, 'store'])->name('store');
-  Route::get('/rendez/edite/{id}', [RendezController::class, 'edite'])->name('edite');
-  Route::put('/rendez/update/{id}', [RendezController::class, 'update'])->name('update');
-  Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy');
+  Route::get('/rendez', [RendezController::class, 'index'])->name('index-rendez');
+ Route::get('/rendez/create', [RendezController::class, 'create'])->name('create-rendez');
+  Route::post('/rendez/store', [RendezController::class, 'store'])->name('store-rendez');
+ Route::get('/rendez/edite/{id}', [RendezController::class, 'edite'])->name('edite-rendez');
+ Route::put('/rendez/update/{id}', [RendezController::class, 'update'])->name('update-rendez');
+Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy-rendez');
 
 
 //Route::get('clients','ClientController@index');
@@ -133,22 +133,24 @@ Route::get('/opportunites-add', function () {
 //Route::delete('client/destroy/{id}','ClientController@destroy');
 
 
-
-//Route::get('rendez','RendezController@index');
 //Route::get('rendez/create','RendezController@create');
 //Route::post('rendez/store','RendezController@store');
 //Route::get('rendez/edite/{id}','RendezController@edite');
 //Route::put('rendez/update/{id}','RendezController@update');
 //Route::delete('rendez/destroy/{id}','RendezController@destroy');
 
-Route::get('rendez','RendezController@index');
-Route::get('rendez/create','RendezController@create');
-Route::post('rendez/store','RendezController@store');
-Route::get('rendez/edite/{id}','RendezController@edite');
-Route::put('rendez/update/{id}','RendezController@update');
-Route::delete('rendez/destroy/{id}','RendezController@destroy');
+
+// Route::get('rendez/create','RendezController@create');
+// Route::post('rendez/store','RendezController@store');
+// Route::get('rendez/edite/{id}','RendezController@edite');
+// Route::put('rendez/update/{id}','RendezController@update');
+// Route::delete('rendez/destroy/{id}','RendezController@destroy');
 
 //*************************************************************** */
 
 Route::get('/produits', [ProduitController::class, 'index'])->name('index');
+Route::get('produits-add',[ProduitController::class, 'create'])->name('create');
+Route::post('produit/store',[ProduitController::class, 'store'])->name('store');
+Route::get('produit/edite/{id}',[ProduitController::class, 'edite'])->name('edite');
+
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');

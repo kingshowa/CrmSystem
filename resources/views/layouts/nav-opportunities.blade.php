@@ -52,7 +52,7 @@
     </a>
   </li><!-- End Users Nav -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('rendez-vous')}}">
+    <a class="nav-link collapsed" href="{{ url('rendez')}}">
       <i class="bi bi-envelope"></i>
       <span>Rendez-Vous</span>
     </a>

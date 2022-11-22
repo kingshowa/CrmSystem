@@ -26,12 +26,6 @@
 
                 <div class="card-body">
 
-
-                 
-
-                
-
-
                   <h5 class="card-title"><a href="{{url('client-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
 
 
@@ -42,7 +36,6 @@
                         <th scope="col">Client</th>
                         <th scope="col">Telephone</th>
                         <th scope="col">Site Web</th>
-                        <th scope="col">date creation</th>
                         <th scope="col" colspan="2">Actions </th>
                       </tr>
                     </thead>
@@ -50,18 +43,23 @@
                       @foreach($clients as $client)
                       <tr>
 
-
-
                         <th scope="row"><a href="#">{{$client->id}}</a></th>
-                        <td>{{ $client->societe }}</td>
-                        <td>{{$client->telephone}}</td>
-                        <td>{{$client->created_at}}</td>
+<<<<<<< HEAD
+                        <td>{{ $client->societe }}  </td>
+                        <td>{{$client->telephone}}  </td>
+                        <td>{{$client->created_at}}  </td>
                         <td><a class="collapsed" href="{{url('clientView'.$client->$id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
 
 
                            <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+=======
+                        <td>{{ $client->societe }}</td>
+                        <td>{{$client->telephone}}</td>
+                        <td>{{$client->site_web}}</td>
+                        <td><a class="collapsed" href="{{route('show',$client->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+>>>>>>> fe986e3e61fa7d47486eff6e938baba2eb5e9484
 
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button></td>
 
 
                         <div class="modal fade" id="basicModal" tabindex="-1">
