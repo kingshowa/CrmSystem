@@ -23,18 +23,18 @@
           <div class="card"> 
             <div class="card-body pt-3 col-xl-8">
 
-              <form action="{{url('client/store')}}" methode="POST">
-              {{ csrf_field()}}
-
+              <form action="{{route('store')}}" method="POST">
+                 {{csrf_field()}}
+  
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Societe</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="societe" type="text" class="form-control" id="firstName">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Telephone</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="telephone" type="text" class="form-control" id="surName">
                       </div>
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">site</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="site_web" type="text" class="form-control" id="Phone">
                       </div>

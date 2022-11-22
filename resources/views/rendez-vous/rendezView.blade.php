@@ -9,11 +9,11 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-<<<<<<< Updated upstream
+
       <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
-=======
+
       <li class="breadcrumb-item"><a href="{{url('rendez-vous')}}">rendez-vous</a></li>
->>>>>>> Stashed changes
+
       <li class="breadcrumb-item active"></li>
     </ol>
   </nav>
@@ -30,11 +30,11 @@
           <ul class="nav nav-tabs nav-tabs-bordered">
 
             <li class="nav-item">
-              <a><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button></a>
+              <a href="#"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button></a>
             </li>
 
             <li class="nav-item">
-             <a href="{{url('rendez/edite'.$rendez->id)}}"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Contact</button></a>
+             <a href="#"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Contact</button></a>
             </li>
 
             
@@ -46,7 +46,7 @@
 
 
               <h5 class="card-title">Rendez-Vous Details</h5>
-
+                 @if($rendez !=null)
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">Date</div>
                 <div class="col-lg-9 col-md-8">{{$rendez->date}}</div>
@@ -67,79 +67,64 @@
                 <div class="col-lg-9 col-md-8">{{$rendez->Commercial}}</div>
               </div>
 
-              <div class="row">
-                <div class="col-lg-3 col-md-4 label">durée de la rendez-vous</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->duree}}</div>
-              </div>
-
-              <div class="row">
-                <div class="col-lg-3 col-md-4 label">Email Contact</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->email}}</div>
-              </div>
-
+             
             </div>
 
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form>
+              <form action="{{url('rendez/update',$rendez->id)}}" method="POST">
+
+                    <input type="hidden" name="_method" value="PUT" >
+                    {{ csrf_field() }}
+
 
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="firstName" type="date" class="form-control" id="firstName" value="{{$rendez->date}}">
+                    <input name="date" type="date" class="form-control" id="firstName" value="{{$rendez->date}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Compte rendu</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Heure de rendez-vous</label>
                   <div class="col-md-8 col-lg-9">
                     <!--<input name="surName" type="textarea" class="form-control" id="surName" value="Anderson">-->
-                    <textarea name="surName" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                    <textarea name="heure" class="form-control" id="about" value="{{$rendez->heure}}" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Client</label>
+                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte rondus</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
+                    <input name="compte" type="text" class="form-control" id="company" value="{{$rendez->compte}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Job" class="col-md-4 col-lg-3 col-form-label">Commercial</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
+                    <input name="client" type="text" class="form-control" id="Job" value="{{$rendez->client}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="about" class="col-md-4 col-lg-3 col-form-label">durée de rendz-vous</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="surName" type="textarea" class="form-control" id="surName" value="Anderson">
+                    <input name="commercial" type="textarea" class="form-control" id="surName" value="{{$rendez->commercial}}">
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
-                  </div>
-                </div>
+               
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
+                
               </form><!-- End Profile Edit Form -->
 
             </div>
+            @endif
 
             
 

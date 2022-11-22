@@ -10,11 +10,11 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-<<<<<<< Updated upstream
+
       <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
-=======
+
       <li class="breadcrumb-item"><a href="{{url('rendez-vous')}}">rendez-vous</a></li>
->>>>>>> Stashed changes
+
       <li class="breadcrumb-item active">Add rendez-vous</li>
     </ol>
   </nav>
@@ -28,8 +28,8 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-          <form action="{{url('rendez/store')}}" method="post">
-
+        <form action="{{route('store')}}" method="POST">
+                 {{csrf_field()}}
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>
                   <div class="col-md-8 col-lg-9">
@@ -58,12 +58,7 @@
                     <input name="client" type="text" class="form-control" id="Job">
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">durée de rendez-vous</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="commerciel" type="text" class="form-control" id="Job">
-                  </div>
-                </div>
+                
                 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save rendez-vous</button>

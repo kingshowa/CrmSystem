@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Opportunite;
 use Illuminate\Http\Request;
 
-class OpportunitesController extends Controller
+class OpportuniteController extends Controller
 {
     public function index(){
     	
