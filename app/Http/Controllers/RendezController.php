@@ -17,13 +17,13 @@ class RendezController extends Controller
     	return view('rendez-vous.rendez-add');
     } 
    
-    public function store_rendez(Request $request){
+    public function store(Request $request){
     	$rendez= new  Rendez();
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
     	$rendez-> client = $request->input('client');
-        $rendez-> commerciel = $request->input('commerciel');
+        $rendez-> commerciel = $request->input('commercial');
     	$rendez->save();
         return redirect('rendez-vous');
     }
@@ -40,7 +40,7 @@ class RendezController extends Controller
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
     	$rendez-> client = $request->input(' client');
-        $rendez-> commerciel = $request->input(' commerciel');
+        $rendez-> commerciel = $request->input(' commercial');
     	$rendez->save();
         return redirect('rendez');   	
     }

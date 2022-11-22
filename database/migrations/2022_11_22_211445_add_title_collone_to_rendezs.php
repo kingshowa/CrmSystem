@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rendezs', function (Blueprint $table) {
-            $table->id();
-            $table->string('date');
-            $table->string(' heure');
-            $table->string('compte');
-            $table->string('client');
-            $table->string('commerciel');
-            $table->timestamps()->after('commercial');
+        Schema::table('rendezs', function (Blueprint $table) {
+            $table->string('commercial')->after('client');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rendezs');
+        Schema::table('rendezs', function (Blueprint $table) {
+            $table->dropColumn('commercial');
+        });
     }
 };
