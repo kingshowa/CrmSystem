@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('telephone');
             $table->string('adresse');
             $table->string('site_web');
-            $table->boolean('achived');
+            $table->boolean('achived')->default(false);
             $table->timestamps();
         });
     }
