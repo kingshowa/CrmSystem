@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Prospect;
 use Illuminate\Http\Request;
 
 class ProspectController extends Controller
@@ -24,7 +24,7 @@ class ProspectController extends Controller
         $prospect->email = $request->input('email');
     	$prospect->téléphone = $request->input('téléphone');
         $prospect->adresse = $request->input('adresse');
-    	$prospect-> site_web = $request->input(' site_web');
+    	$prospect-> site_web = $request->input('site_web');
         $prospect->Statut = $request->input('Statut');
         $prospect->source = $request->input('source');
     	$prospect->save();

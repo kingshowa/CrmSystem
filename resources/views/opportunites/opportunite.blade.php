@@ -45,37 +45,39 @@
 
                   <h5 class="card-title">Opportunite Details</h5>
 
+                  @if($opportunite != null)
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Name</div>
-                    <div class="col-lg-9 col-md-8">Brandon Jacob</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->nom}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Stage</div>
-                    <div class="col-lg-9 col-md-8">Gangee</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->montant}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Closing Date</div>
-                    <div class="col-lg-9 col-md-8">23/02/2023	</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->date_cloture}}	</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Customer</div>
-                    <div class="col-lg-9 col-md-8">Brandon Jacob	</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->client}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Product</div>
-                    <div class="col-lg-9 col-md-8">Product Name</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->produits}}</div>
                   </div>
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
-
+                  <form action="{{url('opportunite/'.$opportunite->id)}}" method="POST">
+                  {{ csrf_field() }}
                     <div class="row mb-3">
                       <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Name</label>
                       <div class="col-md-8 col-lg-9">
@@ -110,7 +112,7 @@
                         <input name="product" type="email" class="form-control" id="Product" value="Product Name">
                       </div>
                     </div>
-
+                    @endif
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>

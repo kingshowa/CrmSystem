@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RendezController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\OpportuniteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,15 @@ use App\Http\Controllers\UtilisateurController;
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
 
  Route::get('/front-office/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
+
+
+
+ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+ Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
+ Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
+ Route::get('/opportunite/{id}', [OpportuniteController::class, 'details'])->name('details');
+ Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
+ Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
 
 
 
@@ -74,7 +84,7 @@ Route::get('/user-profile', function () {
     return view('user-profile');
 });
 
-Route::get('/opportunites', function () {
+/*Route::get('/opportunites', function () {
     return view('opportunites/opportunites');
 });
 
@@ -86,7 +96,7 @@ Route::get('/opportunites-add', function () {
     return view('opportunites/opportunites-add');
 
     
-});
+});*/
 
 
 //Route::get('/clients', function () {
