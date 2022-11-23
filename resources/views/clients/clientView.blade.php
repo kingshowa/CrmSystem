@@ -183,6 +183,67 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="row">
+        
+        <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                
+
+                <div class="card-body">
+
+                  <h5 class="card-title"><a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
+
+                 
+
+
+                  <table class="table table-striped datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Compte rendu</th>
+                        <th scope="col">Client</th>
+                        <th scope="col">Commercial</th>
+                        <th scope="col" colspan="2">Actions </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <th scope="row"><a href="#"></a></th>
+                        <td>hgtr</td>
+                        <td>fdgb</td>
+                        <td>dfgf</td>
+                        <td>dftgrtg</td>
+                        
+
+                        <td><a class="collapsed" href="#"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+
+                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button></td>
+
+                       
+                      
+                      </tr>
+                      
+                       
+                       
+                     
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+
+
+
+      </div>
+    </section>
+
   </main><!-- End #main -->
   
 @endSection;
