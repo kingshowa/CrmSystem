@@ -33,9 +33,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Prix</th>
-                        <th scope="col">Quantites</th>
-                       
-                       
+                        <th scope="col">Quantites</th>   
+                        <th  colspan="4">Actions</th>                                             
                       </tr>
                     </thead>
                     <tbody>

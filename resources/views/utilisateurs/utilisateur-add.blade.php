@@ -8,8 +8,8 @@
   <h1>Add Utilisateurs</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="utilisateurs-view.html">Utilisateurs</a></li>
+      <li class="breadcrumb-item"><a href="{{ url('admin')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="utilisateurs-view">Utilisateurs</a></li>
       <li class="breadcrumb-item active">Add Utilisateurs</li>
     </ol>
   </nav>
@@ -23,7 +23,8 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-          <form>
+        <form action="{{url('utilisateurs/store')}}" method="POST">
+              {{ csrf_field()}}  
 
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
@@ -36,34 +37,6 @@
                   <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="surName" type="text" class="form-control" id="surName">
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="company" type="text" class="form-control" id="company">
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="job" type="text" class="form-control" id="Job">
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                  <div class="col-md-8 col-lg-9">
-                    <textarea name="address" class="form-control" id="about" style="height: 100px">Type Your Address ...</textarea>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="phone" type="text" class="form-control" id="Phone">
                   </div>
                 </div>
 
