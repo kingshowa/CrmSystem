@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('rendezs', function (Blueprint $table) {
-            $table->string('commercial')->after('client');
+           // $table->string('commercial')->after('client');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('rendezs', function (Blueprint $table) {
-            $table->dropColumn('commercial');
+           // $table->dropColumn('commercial');
         });
     }
 };

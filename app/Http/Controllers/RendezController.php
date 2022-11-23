@@ -21,7 +21,7 @@ class RendezController extends Controller
     	$rendez= new  Rendez();
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
-        $rendez->compte = $request->input('compte');
+       $rendez->compte = $request->input('compte');
     	$rendez-> client = $request->input('client');
         $rendez-> commerciel = $request->input('commercial');
     	$rendez->save();
@@ -42,6 +42,7 @@ class RendezController extends Controller
     public function destroy($id){
     	$rendez = Rendez::find($id);
     	$rendez->delete();
-    	return redirect('rendez-vous/rendez-vous');
+    	
+    	return redirect('rendez');
     } 
 }

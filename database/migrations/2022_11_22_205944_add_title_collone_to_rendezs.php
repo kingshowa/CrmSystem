@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('rendezs', function (Blueprint $table) {
-            $table->date('date');
+          //  $table->date('date');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('rendezs', function (Blueprint $table) {
-            $table->dropColumn('date');
+            //$table->dropColumn('date');
         });
     }
 };

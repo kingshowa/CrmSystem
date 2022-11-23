@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('rendezs', function (Blueprint $table) {
-            $table->time('heure')->after('date');
+          //  $table->time('heure')->after('date');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('rendezs', function (Blueprint $table) {
-            $table->dropColumn('heure');
+           // $table->dropColumn('heure');
         });
     }
 };
