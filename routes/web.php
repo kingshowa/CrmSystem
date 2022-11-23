@@ -99,33 +99,14 @@ Route::get('/opportunites-add', function () {
 });*/
 
 
-//Route::get('/clients', function () {
-   
-   // return view('clients/client-add');
-//});
 
-//Route::get('/clients', function () {
-   // return view('clients/clients');
-//});
-//Route::get('/clients', function () {
-   // return view('clients/clientView');
-//});
-// Route::get('/rendez-vous', function () {
-    //return view('rendez-vous/rendezView');
-//});
-//Route::get('/rendez-vous', function () {
-    //return view('rendez-vous/rendez-add');
-//});
-//Route::get('/rendez-vous', function () {
-    //return view('rendez-vous/rendez-vous');
-//});//
 
   Route::get('/clients', [ClientController::class, 'index'])->name('index');
   Route::get('/client-add', [ClientController::class, 'create'])->name('create');
   Route::post('/client-add', [ClientController::class, 'store'])->name('store');
   Route::get('/clientView/{id}', [ClientController::class, 'edite'])->name('show');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
-  //Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
+  Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
 
 
 
@@ -138,26 +119,7 @@ Route::get('/opportunites-add', function () {
 Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy-rendez');
 
 
-//Route::get('clients','ClientController@index');
-//Route::get('client/create','ClientController@create');
-//Route::post('client/store','ClientController@store');
-//Route::get('client/edite/{id}','ClientController@edite');
-//Route::put('client/update/{id}','ClientController@update');
-//Route::delete('client/destroy/{id}','ClientController@destroy');
 
-
-//Route::get('rendez/create','RendezController@create');
-//Route::post('rendez/store','RendezController@store');
-//Route::get('rendez/edite/{id}','RendezController@edite');
-//Route::put('rendez/update/{id}','RendezController@update');
-//Route::delete('rendez/destroy/{id}','RendezController@destroy');
-
-
-// Route::get('rendez/create','RendezController@create');
-// Route::post('rendez/store','RendezController@store');
-// Route::get('rendez/edite/{id}','RendezController@edite');
-// Route::put('rendez/update/{id}','RendezController@update');
-// Route::delete('rendez/destroy/{id}','RendezController@destroy');
 
 //*************************************************************** */
 
