@@ -38,15 +38,15 @@
                 <div class="row mb-3">
                   <label for="surName" class="col-md-4 col-lg-3 col-form-label">heur</label>
                   <div class="col-md-8 col-lg-9">
-                   <!-- <input name="surName" type="text" class="form-control" id="surName">-->
-                   <textarea name="heure" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                    <input name="heure" type="time" class="form-control" id="firstName">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte Rondus</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="compte" type="text" class="form-control" id="company">
+                   <!-- <input name="surName" type="text" class="form-control" id="surName">-->
+                   <textarea name="compte" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
                   </div>
                 </div>
 
