@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -29,7 +30,8 @@ class ClientController extends Controller
 
     public function edite($id){
     	$client = Client::find($id);
-    	return view('clients.clientView', ['client'=>$client]);
+        $contact=Contact::find($client->societe);
+    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact]);
     }
 
     public function update(Request $request, $id){

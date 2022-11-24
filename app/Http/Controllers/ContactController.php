@@ -59,7 +59,7 @@ class ContactController extends Controller
 
     // public function filtrer($societe){
     //     $a=request('societe');
-    //     $contact = Contact::where('client',$a);
+    //     $contact = Contact::where('client',$client->societe);
     //return redirect();
 
     // }
