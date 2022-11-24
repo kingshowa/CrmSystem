@@ -33,9 +33,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Prix</th>
-                        <th scope="col">Quantites</th>
-                       
-                       
+                        <th scope="col">Quantites</th>   
+                        <th  colspan="4">Actions</th>                                             
                       </tr>
                     </thead>
                     <tbody>
@@ -61,7 +60,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
+                              <a href="{{route('destroy',$produit->id)}}"><button type="button" class="btn btn-primary">Confirm</button></a>
                             </div>
                           </div>
                         </div>

@@ -111,7 +111,7 @@
                   </form><!-- End Profile Edit Form -->
 
                 </div>
-                @endif
+                
 
                 <div class="tab-pane fade pt-3" id="profile-settings">
 
@@ -156,21 +156,21 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
+                    @foreach($contacts as $contact)
                       <tr>
                         <th scope="row"><a href="#"></a></th>
-                        <td>hhhh</td>
-                        <td>nhj</td>
-                        <td>hfgrh</td>
-                        <td>rt</td>
-                        <td>yery</td>
+                        <td>{{$contact->nom}} {{$contact->prenom}}</td>
+                        <td>{{$contact->fonction}}</td>
+                        <td>{{$contact->telephone}}</td>
+                        <td>{{$contact->client}}</td>
+                        <td>{{$contact->email}}</td>
                         <td>
-                          <a class="collapsed" href="#">
+                          <a class="collapsed" href="{{url('contact/'.$contact->id)}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                           </a>
                         </td>
                        </tr>
-                      
+                      @endforeach
             
                      
                     </tbody>
@@ -243,6 +243,7 @@
 
       </div>
     </section>
+    @endif
 
   </main><!-- End #main -->
   
