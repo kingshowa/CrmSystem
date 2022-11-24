@@ -23,12 +23,14 @@ class ProspectController extends Controller
         $prospect->prenom = $request->input('prenom');
     	$prospect->societe = $request->input('societe');
         $prospect->fonction = $request->input('fonction');
-        $prospect->email = $request->input('email');
-    	$prospect->telephone = $request->input('telephone');
         $prospect->adresse = $request->input('adresse');
-    	//$prospect-> site_web = $request->input('site_web');
-        //$prospect->Statut = $request->input('Statut');
-        //$prospect->source = $request->input('source');
+        $prospect->telephone = $request->input('telephone');
+        $prospect->email = $request->input('email');
+    	
+        
+    	$prospect-> site_web = $request->input('site_web');
+        $prospect->statut = $request->input('statut');
+        $prospect->source = $request->input('source');
     	$prospect->save();
         return redirect('prospects');
     }
@@ -43,10 +45,16 @@ class ProspectController extends Controller
         $prospect->nom = $request->input('nom');
         $prospect->prenom = $request->input('prenom');
     	$prospect->societe = $request->input('societe');
-        $prospect->fonction = $request->input('fonction');
-        $prospect->email = $request->input('email');
-    	$prospect->telephone = $request->input('telephone');
+        $prospect->fonction = $request->input('fonction');  
         $prospect->adresse = $request->input('adresse');
+        $prospect->telephone = $request->input('telephone');
+        $prospect->email = $request->input('email');
+    	
+      
+
+        $prospect-> site_web = $request->input('site_web');
+        $prospect->statut = $request->input('statut');
+        $prospect->source = $request->input('source');
     	$prospect->save();
         return redirect('prospect/'.$id);    	
     }

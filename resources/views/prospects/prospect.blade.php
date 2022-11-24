@@ -87,7 +87,7 @@
 
                   <!-- Profile Edit Form -->
                   <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
-
+                  <input type="hidden" name="_method" value="PUT">
                   {{ csrf_field() }}
 
                     <div class="row mb-3">
@@ -98,17 +98,19 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">prenom</label>
+                      <label for="prenom" class="col-md-4 col-lg-3 col-form-label">prenom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="prenom" type="text" class="form-control" id="surName" value="{{$prospect->prenom}}">
+                        <input name="prenom" type="text" class="form-control" id="prenom" value="{{$prospect->prenom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">societe</label>
+                      <label for="societe" class="col-md-4 col-lg-3 col-form-label">societe</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="societe" type="text" class="form-control" id="company" value="{{$prospect->societe}}>
+                        <input name="societe" type="text" class="form-control" id="societe" value="{{$prospect->societe}}">
+                      
                       </div>
+                    
                     </div>
 
                     <div class="row mb-3">
@@ -121,7 +123,7 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Adresse</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="adresse" class="form-control" id="about" style="height: 100px" value="{{$prospect->adresse}}">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                        <input name="adresse" class="form-control" id="about" value="{{$prospect->adresse}}">
                       </div>
                     </div>
 
@@ -138,6 +140,28 @@
                         <input name="email" type="email" class="form-control" id="Email" value="{{$prospect->email}}">
                       </div>
                     </div>
+
+                    <div class="row mb-3">
+                      <label for="site_web" class="col-md-4 col-lg-3 col-form-label">Site web</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="site_web" type="text" class="form-control" id="site_web" value="{{$prospect->site_web}}">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="source" class="col-md-4 col-lg-3 col-form-label">Source</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="source" type="text" class="form-control" id="source" value="{{$prospect->source}}">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="statut" class="col-md-4 col-lg-3 col-form-label">Statut</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="statut" type="text" class="form-control" id="statut" value="{{$prospect->statut}}">
+                      </div>
+                    </div>
+                    
                     @endif
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>

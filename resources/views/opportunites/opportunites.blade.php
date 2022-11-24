@@ -30,11 +30,11 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Stage</th>
-                        <th scope="col">Closing Date</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product </th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">Date_cloture</th>
+                        <th scope="col">Client</th>
+                        <th scope="col">Produit </th>
                         <th scope="col" colspan="2">Actions</th>
                       </tr>
                     </thead>
@@ -65,7 +65,7 @@
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title">Confirm To Delete Contact</h5>
+                                  <h5 class="modal-title">Confirm To Delete Opportunite</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">

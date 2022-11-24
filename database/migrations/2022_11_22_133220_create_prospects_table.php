@@ -19,9 +19,12 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('societe');
             $table->string('fonction');
-            $table->string('email');
-            $table->string('telephone');
             $table->string('adresse');
+            $table->string('telephone');
+            $table->string('email');
+            $table->string('site_web');
+            $table->string('source');
+            $table->string('statut');
             $table->timestamps();
         });
     }

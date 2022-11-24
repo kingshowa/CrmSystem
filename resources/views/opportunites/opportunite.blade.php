@@ -77,6 +77,7 @@
 
                   <!-- Profile Edit Form -->
                   <form action="{{url('opportunite/'.$opportunite->id)}}" method="POST">
+                  <input type="hidden" name="_method" value="PUT">
                   {{ csrf_field() }}
 
                     <div class="row mb-3">
@@ -87,9 +88,9 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Stage</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Montant</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="stage" type="text" class="form-control" id="stage" value="">
+                        <input name="montant" type="text" class="form-control" id="stage" value="{{$opportunite->montant}}">
                       </div>
                     </div>
 
@@ -110,7 +111,7 @@
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Product</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="produit" type="email" class="form-control" id="Product" value="{{$opportunite->produit}}">
+                        <input name="produits" type="text" class="form-control" id="Product" value="{{$opportunite->produits}}">
                       </div>
                     </div>
                     @endif

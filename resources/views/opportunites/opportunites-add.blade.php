@@ -26,14 +26,14 @@
           <form action="{{ route('store_opportunite') }}" method="POST">
           {{ csrf_field()}}
                 <div class="row mb-3">
-                  <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Name</label>
+                  <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="nom" type="text" class="form-control" id="firstName">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Amount</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Montant</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="montant" type="text" class="form-control" id="surName">
                   </div>
@@ -57,21 +57,21 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Closing Date</label>
+                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Date_cloture</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="date_cloture" type="date" class="form-control" id="Phone">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Customer</label>
+                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Client</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="client" type="text" class="form-control" id="Email">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Product</label>
+                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Produit</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="produits" type="text" class="form-control" id="Email">
                   </div>
