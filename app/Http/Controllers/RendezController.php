@@ -23,9 +23,9 @@ class RendezController extends Controller
     	$rendez->heure = $request->input('heure');
        $rendez->compte = $request->input('compte');
     	$rendez-> client = $request->input('client');
-        $rendez-> commerciel = $request->input('commercial');
+        $rendez-> commercial = $request->input('commercial');
     	$rendez->save();
-        return redirect('rendez-vous');
+        return redirect('rendez');
     }
 
     public function edite($id){
@@ -35,8 +35,13 @@ class RendezController extends Controller
 
     public function update(Request $request, $id){
     	$rendez = Rendez::find($id);
+    	$rendez->date = $request->input('date');
+    	$rendez->heure = $request->input('heure');
+        $rendez->compte = $request->input('compte');
+    	$rendez-> client = $request->input('client');
+        $rendez-> commercial = $request->input('commercial');
     	$rendez->save();
-        return redirect('rendez');   	
+        return redirect('rendez');      	
     }
 
     public function destroy($id){

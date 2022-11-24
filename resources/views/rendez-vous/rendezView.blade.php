@@ -53,7 +53,12 @@
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Compte Rendu</div>
+                <div class="col-lg-3 col-md-4 label">Heure</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->heure}}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">compte</div>
                 <div class="col-lg-9 col-md-8">{{$rendez->compte}}</div>
               </div>
 
@@ -61,10 +66,9 @@
                 <div class="col-lg-3 col-md-4 label">Client</div>
                 <div class="col-lg-9 col-md-8">{{$rendez->client}}</div>
               </div>
-
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Commercial</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->Commercial}}</div>
+                <div class="col-lg-9 col-md-8">{{$rendez->commercial}}</div>
               </div>
 
              
@@ -89,27 +93,27 @@
                 <div class="row mb-3">
                   <label for="surName" class="col-md-4 col-lg-3 col-form-label">Heure de rendez-vous</label>
                   <div class="col-md-8 col-lg-9">
-                    <!--<input name="surName" type="textarea" class="form-control" id="surName" value="Anderson">-->
-                    <textarea name="heure" class="form-control" id="about" value="{{$rendez->heure}}" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                    <input name="heure" type="time" class="form-control" id="firstName" value="{{$rendez->heure}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte rondus</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="compte" type="text" class="form-control" id="company" value="{{$rendez->compte}}">
+                    <!--<input name="surName" type="textarea" class="form-control" id="surName" value="Anderson">-->
+                    <textarea name="compte" class="form-control" id="about" value="{{$rendez->compte}}" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Commercial</label>
+                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">CLIENT</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="client" type="text" class="form-control" id="Job" value="{{$rendez->client}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="about" class="col-md-4 col-lg-3 col-form-label">durée de rendz-vous</label>
+                  <label for="about" class="col-md-4 col-lg-3 col-form-label">Commercial</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="commercial" type="textarea" class="form-control" id="surName" value="{{$rendez->commercial}}">
                   </div>

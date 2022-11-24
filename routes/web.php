@@ -114,6 +114,7 @@ Route::get('/opportunites-add', function () {
   Route::get('/clientView/{id}', [ClientController::class, 'edite'])->name('show');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
   Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
+ 
 
 
 
