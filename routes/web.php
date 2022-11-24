@@ -129,6 +129,8 @@ Route::get('/opportunites-add', function () {
  Route::put('/rendez/update/{id}', [RendezController::class, 'update'])->name('update-rendez');
 Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy-rendez');
 
+Route::get('/rendez/creater/{societe}', [RendezController::class, 'creater'])->name('creater');
+
 
 
 

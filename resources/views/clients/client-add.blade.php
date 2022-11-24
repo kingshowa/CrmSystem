@@ -51,7 +51,7 @@
                     <div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">site</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="site_web" type="text" class="form-control" id="Phone">
+                        <input name="site_web" type="email" class="form-control" id="Phone">
                       </div>
                     </div>
                     <div class="text-center">

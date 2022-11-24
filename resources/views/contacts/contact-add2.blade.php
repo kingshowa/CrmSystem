@@ -13,7 +13,7 @@
           <li class="breadcrumb-item active">Add Contact</li>
         </ol>
       </nav>
-      <h1>{{$societe->societe}}</h1>
+     
     </div><!-- End Page Title -->
 
     <section class="section profile">

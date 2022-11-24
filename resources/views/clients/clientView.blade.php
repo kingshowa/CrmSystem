@@ -190,7 +190,7 @@
 
                 <div class="card-body">
 
-                  <h5 class="card-title"><a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
+                  <h5 class="card-title"><a href="{{ url('rendez/creater/'.$client->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
 
                  
 
