@@ -57,11 +57,6 @@ class ContactController extends Controller
     	return redirect('contacts');
     } 
 
-    // public function filtrer($societe){
-    //     $a=request('societe');
-    //     $contact = Contact::where('client',$client->societe);
-    //return redirect();
-
-    // }
+    
 
 }
