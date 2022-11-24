@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Client;
 
 class ContactController extends Controller
 {   
@@ -15,6 +16,11 @@ class ContactController extends Controller
     
     public function create(){
     	return view('contacts.contact-add');
+    } 
+    public function create2($id){
+        $societe= Client::find('id');
+        
+    	return view('contacts.contact-add2', ['societe' => $societe]);
     } 
    
     public function store_contact(Request $request){

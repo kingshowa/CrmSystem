@@ -138,7 +138,7 @@
 
                 <div class="card-body">
                   <h5 class="card-title">
-                    <a href="{{ url('contact-add')}}">
+                    <a href="{{ url('contact-add2/'.$client->id)}}">
                       <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Contact</button>
                     </a>
                   </h5>
