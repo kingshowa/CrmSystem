@@ -16,15 +16,12 @@ return new class extends Migration
         Schema::create('prospects', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('prénom');
-            $table->string('société');
+            $table->string('prenom');
+            $table->string('societe');
             $table->string('fonction');
             $table->string('email');
-            $table->string('téléphone');
+            $table->string('telephone');
             $table->string('adresse');
-            $table->string('site_web');
-            $table->string('Statut');
-            $table->string('source');
             $table->timestamps();
         });
     }

@@ -45,157 +45,50 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($prospects as $prospect)
                       <tr>
-                        <th scope="row"><a href="#">1</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>Company Name</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td><a href="#" class="text-primary">website.com</a></td>
-                        <td>Web</td>
-                        <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                        <th scope="row"><a href="#">{{$prospect->id}}</a></th>
+                        <td>{{$prospect->nom}}</td>
+                        <td>{{$prospect->prenom}}</td>
+                        <td>{{$prospect->societe}}</td>
+                        <td>{{$prospect->fonction}}</td>
+                        <td>{{$prospect->email}}</td>
+                        <td>{{$prospect->telephone}}</td>
+                        <td>{{$prospect->adresse}}</td>
+                        <td>
+                          <a class="collapsed" href="{{url('prospect/'.$prospect->id)}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <form action="{{url('prospects/'.$prospect->id)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                          
+                          
 
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm to delete</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <div class="modal fade" id="basicModal" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Confirm To Delete Contact</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Are you sure that you want to delete {{$prospect->prenom}} {{$prospect->nom}} from prospects? This action is permanent and can not be undone.
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Confirm</button>
+                                </div>
+                              </div>
                             </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from the prospects? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
+                          </div><!-- End Basic Modal-->
+                          </form>
+                        </td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2</a></th>
-                        <td>Bridie Kessler</td>
-                        <td>Company Name</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td><a href="#" class="text-primary">website.com</a></td>
-                        <td>Partenaire</td>
-                        <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm to delete</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from the prospects? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">3</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td>Company Name</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td><a href="#" class="text-primary">website.com</a></td>
-                        <td>Web</td>
-                        <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm to delete</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from the prospects? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">4</a></th>
-                        <td>Angus Grady</td>
-                        <td>Company Name</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td><a href="#" class="text-primar">website.com</a></td>
-                        <td>Telephone</td>
-                        <td><span class="badge bg-danger">Chaud</span></td>
-                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm to delete</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from the prospects? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">5</a></th>
-                        <td>Raheem Lehner</td>
-                        <td>Company Name</td>
-                        <td>useremail@gmail.com</td>
-                        <td>0554107003</td>
-                        <td><a href="#" class="text-primary">website.com</a></td>
-                        <td>Salon</td>
-                        <td><span class="badge bg-success">Froid</span></td>
-                        <td><a class="collapsed" href="{{url('prospect')}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm to delete</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete Kingstone Showa from the prospects? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal--></td>
-                      </tr>
-                     
+                      @endforeach
                     </tbody>
                   </table>
 

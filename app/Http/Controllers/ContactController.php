@@ -57,11 +57,11 @@ class ContactController extends Controller
     	return redirect('contacts');
     } 
 
-    //public function filtrer($societe){
-      //  $contact = Contact::where('client',$societe);
+    // public function filtrer($societe){
+    //     $a=request('societe');
+    //     $contact = Contact::where('client',$a);
+    //return redirect();
 
-
-
-    //}
+    // }
 
 }
