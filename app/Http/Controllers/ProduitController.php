@@ -19,7 +19,8 @@ class ProduitController extends Controller
     	return view('produits/produit-add');
     } 
    
-    public function store_produit(Request $request){
+   /* public function store_produit(Request $request){*/
+    public function store(Request $request){
     	$produit = new  Produit();
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
@@ -36,12 +37,12 @@ class ProduitController extends Controller
 
     public function update(Request $request, $id){
     	$produit = Produit::find($id);
-    	$produit = new  Produit();
+    	
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
-        $produit->quantite = $request->input('Quantite');
-    	$produit->photo = $request->input('Photo');
-    	$client->save();
+        $produit->quantitie = $request->input('Quantite');
+    	//$produit->photo = $request->input('Photo');
+    	$produit->save();
         return redirect('produits');    	
     }
 
