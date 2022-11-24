@@ -78,38 +78,39 @@
                   <!-- Profile Edit Form -->
                   <form action="{{url('opportunite/'.$opportunite->id)}}" method="POST">
                   {{ csrf_field() }}
+
                     <div class="row mb-3">
                       <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="name" type="text" class="form-control" id="name" value="Brandon Jacob">
+                        <input name="nom" type="text" class="form-control" id="name" value="{{$opportunite->nom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="surName" class="col-md-4 col-lg-3 col-form-label">Stage</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="stage" type="text" class="form-control" id="stage" value="Gangee">
+                        <input name="stage" type="text" class="form-control" id="stage" value="">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Closing Date</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="closing" type="text" class="form-control" id="closing" value="23/02/2023	">
+                        <input name="date_cloture" type="text" class="form-control" id="closing" value="{{$opportunite->date_cloture}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Customer</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="customer" type="text" class="form-control" id="customer" value="Brandon Jacob">
+                        <input name="client" type="text" class="form-control" id="customer" value="{{$opportunite->client}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Product</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="product" type="email" class="form-control" id="Product" value="Product Name">
+                        <input name="produit" type="email" class="form-control" id="Product" value="{{$opportunite->produit}}">
                       </div>
                     </div>
                     @endif

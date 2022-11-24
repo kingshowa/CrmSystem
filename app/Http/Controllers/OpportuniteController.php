@@ -7,8 +7,8 @@ use App\Models\Opportunite;
 class OpportuniteController extends Controller
 {
     public function index(){
-    	$listopportunites = opportunite::all();
-        return view('opportunites/opportunites', ['opportunites' => $listopportunites]);
+    	$listOpportunites = Opportunite::all();
+        return view('opportunites/opportunites', ['opportunites' => $listOpportunites]);
         //return view('opportunites/opportunites');
     }
     
@@ -24,11 +24,11 @@ class OpportuniteController extends Controller
         $opportunite-> client = $request->input('client');
         $opportunite-> produits = $request->input('produits');
     	$opportunite->save();
-        return redirect('opportunites/opportunites');
+        return redirect('opportunites');
     }
 
     public function details($id){
-    	$opportunite = opportunite::find($id);
+    	$opportunite = Opportunite::find($id);
     	return view('opportunites.opportunite', ['opportunite'=>$opportunite]);
     }
 
@@ -49,7 +49,7 @@ class OpportuniteController extends Controller
     }
 
     public function destroy($id){
-    	$opportunite = Article::find($id);
+    	$opportunite = Opportunite::find($id);
     	$opportunite->delete();
     	return redirect('opportunites');
     }

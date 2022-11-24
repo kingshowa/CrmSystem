@@ -38,6 +38,13 @@ use App\Http\Controllers\OpportuniteController;
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
 
 
+ Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
+ Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
+ Route::post('/prospect-add', [ProspectController::class, 'store_prospect'])->name('store_prospect');
+ Route::get('/prospect/{id}', [ProspectController::class, 'details'])->name('details');
+ Route::put('/prospect/{id}', [ProspectController::class, 'update'])->name('update');
+ Route::delete('/prospects/{id}', [ProspectController::class, 'destroy'])->name('destroy');
+
 
 
 
@@ -48,7 +55,7 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/prospects', function () {
+/*Route::get('/prospects', function () {
     return view('prospects/prospects');
 });
 
@@ -58,7 +65,7 @@ Route::get('/prospect', function () {
 
 Route::get('/prospect-add', function () {
     return view('prospects/prospect-add');
-});
+});*/
 
 // Route::get('/contacts', function () {
 //     return view('contacts/contacts');
