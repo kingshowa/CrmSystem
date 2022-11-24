@@ -56,6 +56,13 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+
+Route::get('/', function () {
+    return view('commerciale');
+});
+Route::get('/commerciale', function () {
+    return view('commerciale');
+});
 /*Route::get('/prospects', function () {
     return view('prospects/prospects');
 });

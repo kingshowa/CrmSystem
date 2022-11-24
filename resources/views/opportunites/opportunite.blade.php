@@ -8,7 +8,8 @@
       <h1>Opportunite</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('admin')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('commerciale')}}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{url('opportunites')}}">Opportunite</a></li>
           <li class="breadcrumb-item active">Details Opportunite</li>
         </ol>
