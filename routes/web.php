@@ -8,6 +8,7 @@ use App\Http\Controllers\RendezController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\OpportuniteController;
+use App\Http\Controllers\ProspectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
