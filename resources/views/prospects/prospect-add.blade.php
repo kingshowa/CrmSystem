@@ -23,54 +23,58 @@
           <div class="card"> 
             <div class="card-body pt-3 col-xl-8">
 
-              <form>
+              <form action="{{ route('store_opportunite') }}" method="POST">
+
+              {{ csrf_field()}}
+
+
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">nom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="firstName" type="text" class="form-control" id="firstName">
+                        <input name="nom" type="text" class="form-control" id="firstName" require>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">prenom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="surName" type="text" class="form-control" id="surName">
+                        <input name="prenom" type="text" class="form-control" id="surName" require>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">societe</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company">
+                        <input name="societe" type="text" class="form-control" id="company" require>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
+                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">fonction</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job">
+                        <input name="fonction" type="text" class="form-control" id="Job" require>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Adresse</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="address" class="form-control" id="about" style="height: 100px">Type Your Address ...</textarea>
+                        <textarea name="adresse" class="form-control" id="about" style="height: 100px" require>Type Your Address ...</textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">telephone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone">
+                        <input name="telephone" type="text" class="form-control" id="Phone" require>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email">
+                        <input name="email" type="email" class="form-control" id="Email" require>
                       </div>
                     </div>
 

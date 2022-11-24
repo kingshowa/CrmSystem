@@ -41,34 +41,44 @@
 
                   <h5 class="card-title">prospects Details</h5>
 
+
+                  @if($prospect != null)
+
+
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-3 col-md-4 label ">nom</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->nom}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                    <div class="col-lg-3 col-md-4 label ">prenom</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->prenom}}</div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">societe</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->societe}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
+                    <div class="col-lg-3 col-md-4 label">Fonction</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->fonction}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                    <div class="col-lg-3 col-md-4 label">Addresse</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->adresse}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                    <div class="col-lg-3 col-md-4 label">telephone</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->telephone}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                    <div class="col-lg-9 col-md-8">{{$prospect->email}}</div>
                   </div>
 
                 </div>
@@ -76,57 +86,59 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form>
+                  <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
+
+                  {{ csrf_field() }}
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">nom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="firstName" type="text" class="form-control" id="firstName" value="Kevin">
+                        <input name="nom" type="text" class="form-control" id="firstName" value="{{$prospect->nom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">prenom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="surName" type="text" class="form-control" id="surName" value="Anderson">
+                        <input name="prenom" type="text" class="form-control" id="surName" value="{{$prospect->prenom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">societe</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
+                        <input name="societe" type="text" class="form-control" id="company" value="{{$prospect->societe}}>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
+                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Fonction</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
+                        <input name="fonction" type="text" class="form-control" id="Job" value="{{$prospect->fonction}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Adresse</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="address" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                        <textarea name="adresse" class="form-control" id="about" style="height: 100px" value="{{$prospect->adresse}}">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">telephone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                        <input name="telephone" type="text" class="form-control" id="Phone" value="{{$prospect->telephone}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                        <input name="email" type="email" class="form-control" id="Email" value="{{$prospect->email}}">
                       </div>
                     </div>
-
+                    @endif
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
