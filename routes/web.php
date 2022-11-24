@@ -134,6 +134,9 @@ Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->nam
 
 Route::get('/produits', [ProduitController::class, 'index'])->name('index');
 Route::get('produits-add',[ProduitController::class, 'create'])->name('create');
+Route::post('produit/store',[ProduitController::class, 'store'])->name('store');
+Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite');
+/*
 <<<<<<< HEAD
 Route::post('produit/store',[ProduitController::class, 'store'])->name('store');
 Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite');
@@ -142,8 +145,9 @@ Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edi
 Route::post('produit/store',[ProduitController::class, 'store_produit'])->name('store_produit');
 Route::get('produit/edite/{id}',[ProduitController::class, 'edite'])->name('edite');
 >>>>>>> 704ad08464b7e93e5556ce247f688f9542f5f19d
-
+ 
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
 Route::get('utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
 Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name('store');
 Route::get('utilisateurs/edite/{id}',[UtilisateurController::class, 'edite'])->name('edite');
+*/

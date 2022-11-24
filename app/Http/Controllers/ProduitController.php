@@ -40,7 +40,7 @@ class ProduitController extends Controller
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
         $produit->quantite = $request->input('Quantite');
-    	$produit->photo = $request->input('Photo');
+    	//$produit->photo = $request->input('Photo');
     	$client->save();
         return redirect('produits');    	
     }

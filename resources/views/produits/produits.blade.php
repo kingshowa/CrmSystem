@@ -46,17 +46,17 @@
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">Nom</div>
-                <div class="col-lg-9 col-md-8">Mercedes 190</div>
+                <div class="col-lg-9 col-md-8">{{$produit->nom}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Prix</div>
-                <div class="col-lg-9 col-md-8">2400 euros</div>
+                <div class="col-lg-9 col-md-8">{{$produit->prix}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Quantites</div>
-                <div class="col-lg-9 col-md-8">10</div>
+                <div class="col-lg-9 col-md-8">{{$produit->quantitie}}</div>
               </div>
 
               <div class="row">
@@ -73,21 +73,21 @@
                 <div class="row mb-3">
                   <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Nom</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Nom" type="text" class="form-control" id="Nom" value="Mercedes 190">
+                    <input name="Nom" type="text" class="form-control" id="Nom" value="{{$produit->nom}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Prix" class="col-md-4 col-lg-3 col-form-label">Prix</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Prix" type="text" class="form-control" id="Prix" value="2400 euros">
+                    <input name="Prix" type="text" class="form-control" id="Prix" value="{{$produit->prix}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Quantite</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Quantite" type="number" class="form-control" id="Quantite" value="10">
+                    <input name="Quantite" type="number" class="form-control" id="Quantite" value="{{$produit->quantitie}}">
                   </div>
                 </div>
 

@@ -45,7 +45,7 @@
                         <input name="Quantites" type="number" class="form-control" id="Quantites">
                       </div>
                     </div>
-
+                    <!--
                     <div class="row mb-3">
                       <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
                       <div class="col-md-8 col-lg-9">
@@ -55,7 +55,7 @@
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Produits</button>
                     </div>
-                  </form><!-- End Profile Edit Form -->
+                  </form>--><!-- End Profile Edit Form -->
 
             </div>
           </div>
