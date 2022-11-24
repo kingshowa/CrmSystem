@@ -209,15 +209,15 @@
                     @foreach($rendezs as $rendez)
                       <tr>
                         <th scope="row"><a href="#"></a></th>
-                        <td>>{{$rendez->date}}</td>
+                        <td>{{$rendez->date}}</td>
                         <td>{{$rendez->client}}</td>
-                        <td>{{$rendez->Commercial}}</td>
+                        <td>{{$rendez->commercial}}</td>
                         
                         
 
-                        <td><a class="collapsed" href="#"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{route('show2',$rendez->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
 
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button></td>
+                       
 
                        
                       
