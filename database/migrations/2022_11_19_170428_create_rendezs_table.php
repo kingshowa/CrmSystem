@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('rendezs', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string(' heure');
-            $table->string('compte');
-            $table->string('client');
-            $table->string('commerciel');
-            $table->timestamps();
+           // $table->string('date');
+            //$table->string(' heure');
+           // $table->string('compte');
+            //$table->string('client');
+            //$table->string('commercial');
+            //$table->timestamps()->after('commercial');
         });
     }
 

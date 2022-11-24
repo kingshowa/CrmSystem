@@ -17,7 +17,7 @@ class ContactController extends Controller
     	return view('contacts.contact-add');
     } 
    
-    public function store(Request $request){
+    public function store_contact(Request $request){
     	$contact = new Contact();
     	$contact->nom = $request->input('nom');
     	$contact->prenom = $request->input('prenom');
@@ -56,5 +56,12 @@ class ContactController extends Controller
     	$contact->delete();
     	return redirect('contacts');
     } 
+
+    //public function filtrer($societe){
+      //  $contact = Contact::where('client',$societe);
+
+
+
+    //}
 
 }

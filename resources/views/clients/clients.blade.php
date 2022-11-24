@@ -44,40 +44,38 @@
                       <tr>
 
                         <th scope="row"><a href="#">{{$client->id}}</a></th>
-<<<<<<< HEAD
-                        <td>{{ $client->societe }}  </td>
-                        <td>{{$client->telephone}}  </td>
-                        <td>{{$client->created_at}}  </td>
-                        <td><a class="collapsed" href="{{url('clientView'.$client->$id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-
-
-                           <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-=======
                         <td>{{ $client->societe }}</td>
                         <td>{{$client->telephone}}</td>
                         <td>{{$client->site_web}}</td>
                         <td><a class="collapsed" href="{{route('show',$client->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
->>>>>>> fe986e3e61fa7d47486eff6e938baba2eb5e9484
 
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                        <td>
+                          <form action="{{url('client/destroy/'.$client->id)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                          
+                          
 
-
-                        <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Confirm To Delete Contact</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <div class="modal fade" id="basicModal" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Confirm To Delete Contact</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Are you sure that you want to delete  {{$client->societe}} from contacts? This action is permanent and can not be undone.
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Confirm</button>
+                                </div>
+                              </div>
                             </div>
-                            <div class="modal-body">
-                              Are you sure that you want to delete {{url('client->societe')}} from listes clients? This action is permanent and can not be undone.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <a href="pages-blank.html"><button type="button" class="btn btn-primary">Confirm</button></a>
-                            </div>
-                          </div>
-                        </div>
+                          </div><!-- End Basic Modal-->
+                          </form>
+                        </td>
                       </div><!-- End Basic Modal--></td>
                       </tr>
                       @endforeach

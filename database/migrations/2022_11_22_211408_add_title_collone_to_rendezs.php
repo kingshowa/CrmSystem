@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('opportunites', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom');
-            $table->string('montant');
-            $table->string('date_cloture');
-            $table->string('client');
-            $table->string('produits');
-            $table->timestamps();
+        Schema::table('rendezs', function (Blueprint $table) {
+          //  $table->time('heure')->after('date');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opportunites');
+        Schema::table('rendezs', function (Blueprint $table) {
+           // $table->dropColumn('heure');
+        });
     }
 };
