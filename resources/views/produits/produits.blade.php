@@ -38,7 +38,7 @@
 
           </ul>
           <div class="tab-content pt-2 col-xl-8">
-
+          @if($produit != null)
             <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
 
@@ -68,8 +68,8 @@
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form>
-
+              <form action="{{url('produit/update')}}" method="POST">
+              {{ csrf_field() }}
                 <div class="row mb-3">
                   <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Nom</label>
                   <div class="col-md-8 col-lg-9">
@@ -103,11 +103,11 @@
               </form><!-- End Profile Edit Form -->
 
             </div>
-
+          @endif
             <div class="tab-pane fade pt-3" id="profile-settings">
 
               <!-- Settings Form -->
-              <form method="get" action="confirm-operation.html">
+              <form>
 
                 <div class="row mb-3">
                   <label for="fullName" class="col-md-4 col-lg-3 col-form-label"></label>

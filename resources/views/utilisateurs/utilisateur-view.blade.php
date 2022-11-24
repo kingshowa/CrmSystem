@@ -41,9 +41,9 @@
                 @foreach($utilisateurs as $utilisateur)
                   <tr>
                     <th scope="row"><a href="#"></a></th>
-                    <td>{{$utilisateur->nom}}</td>
-                    <td>{{$utilisateur->prenom}}</td>
-                    <td>{{$utilisateur->email}}</td>
+                    <td>{{ $utilisateur->nom }}</td>
+                    <td>{{ $utilisateur->prenom }}</td>
+                    <td>{{ $utilisateur->email }}</td>
                     <!--<td>{{$utilisateur->password}}</td>-->
                    
                     <td><a class="collapsed" href="{{route('edite',$utilisateur->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
@@ -57,7 +57,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          Are you sure that you want to delete Kingstone Showa from contacts? This action is permanent and can not be undone.
+                          Are you sure that you want to delete  {{url('utilisateur->nom')}} from contacts? This action is permanent and can not be undone.
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

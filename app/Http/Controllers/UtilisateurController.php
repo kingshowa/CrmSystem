@@ -35,12 +35,12 @@ class UtilisateurController extends Controller
 
     public function update(Request $request, $id){
     	$utilisateur = Utilisateur::find($id);
-    	$utilisateur = new  Utilisateur();
-    	$utilisateur->nom = $request->input('nom');
-    	$utilisateur->prix = $request->input('prix');
-        $utilisateur->quantite = $request->input('quantite');
-    	$utilisateur->photo = $request->input('photo');
-    	$client->save();
+    	
+    	$utilisateur->nom = $request->input('firstName');
+    	$utilisateur->prenom = $request->input('surName');
+        $utilisateur->email = $request->input('email');
+    	//$utilisateur->password = $request->input('password');
+    	$utilisateur->save();
         return redirect('utilisateurs');    	
     }
 

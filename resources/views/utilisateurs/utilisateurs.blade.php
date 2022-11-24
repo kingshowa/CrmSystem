@@ -48,24 +48,24 @@
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">First Name</div>
-                <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                <div class="col-lg-9 col-md-8">{{$utilisateur->nom}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Sure Name</div>
-                <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                <div class="col-lg-9 col-md-8">{{$utilisateur->prenom}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Email</div>
-                <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                <div class="col-lg-9 col-md-8">{{$utilisateur->email}}</div>
               </div>
-
+<!--
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">PassWord</div>
                 <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
               </div>
-
+-->
             </div>
 
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -76,21 +76,21 @@
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="firstName" type="text" class="form-control" id="firstName" value="Kevin">
+                    <input name="firstName" type="text" class="form-control" id="firstName" value="{{$utilisateur->nom}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="surName" type="text" class="form-control" id="surName" value="Anderson">
+                    <input name="surName" type="text" class="form-control" id="surName" value="{{$utilisateur->prenom}}">
                   </div>
                 </div>
 
                <div class="row mb-3">
                   <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                    <input name="email" type="email" class="form-control" id="Email" value="{{$utilisateur->email}}">
                   </div>
                 </div>
                 <!--
