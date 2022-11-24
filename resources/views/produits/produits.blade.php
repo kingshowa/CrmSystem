@@ -32,9 +32,7 @@
               <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Produits</button>
             </li>
 
-            <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-            </li>
+            
 
           </ul>
           <div class="tab-content pt-2 col-xl-8">
@@ -68,7 +66,8 @@
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form action="{{url('produit/update')}}" method="POST">
+              <form action="{{url('produits/update',$produit->id)}}" method="POST">
+              <input type="hidden" name="_method" value="PUT" >
               {{ csrf_field() }}
                 <div class="row mb-3">
                   <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Nom</label>
@@ -87,7 +86,7 @@
                 <div class="row mb-3">
                   <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Quantite</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Quantite" type="number" class="form-control" id="Quantite" value="{{$produit->quantitie}}">
+                    <input name="quantitie" type="number" class="form-control" id="Quantite" value="{{$produit->quantitie}}">
                   </div>
                 </div>
 

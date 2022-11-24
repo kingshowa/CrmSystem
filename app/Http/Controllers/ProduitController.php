@@ -24,7 +24,7 @@ class ProduitController extends Controller
     	$produit = new  Produit();
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
-        $produit->quantitie = $request->input('Quantites');
+        $produit->quantitie = $request->input('quantitie');
     	
     	$produit->save();
         return redirect('produits');
@@ -40,7 +40,7 @@ class ProduitController extends Controller
     	
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
-        $produit->quantitie = $request->input('Quantite');
+        $produit->quantitie = $request->input('quantitie');
     	//$produit->photo = $request->input('Photo');
     	$produit->save();
         return redirect('produits');    	

@@ -42,7 +42,7 @@
                     <div class="row mb-3">
                       <label for="Quantites" class="col-md-4 col-lg-3 col-form-label">Quantites</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Quantites" type="number" class="form-control" id="Quantites">
+                        <input name="quantitie" type="number" class="form-control" id="Quantites">
                       </div>
                     </div>
                     <!--
@@ -51,11 +51,11 @@
                       <div class="col-md-8 col-lg-9">
                         <input name="Photo" type="file" class="form-control" id="Photo" width="60px" height="60px" accept="image/png, image/jpeg">
                       </div>
-                    </div>
+                    </div>-->
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Produits</button>
                     </div>
-                  </form>--><!-- End Profile Edit Form -->
+                  </form>
 
             </div>
           </div>

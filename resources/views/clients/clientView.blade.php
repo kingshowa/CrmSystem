@@ -149,8 +149,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Fonction</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Telephone</th>
                         <th scope="col">Client</th>
                         <th scope="col" colspan="2">Actions</th>
                       </tr>
@@ -160,10 +158,8 @@
                       <tr>
                         <th scope="row"><a href="#"></a></th>
                         <td>{{$contact->nom}} {{$contact->prenom}}</td>
-                        <td>{{$contact->fonction}}</td>
-                        <td>{{$contact->telephone}}</td>
+                        <td>{{$contact->fonction}}</td>                     
                         <td>{{$contact->client}}</td>
-                        <td>{{$contact->email}}</td>
                         <td>
                           <a class="collapsed" href="{{url('contact/'.$contact->id)}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
@@ -204,29 +200,29 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Compte rendu</th>
                         <th scope="col">Client</th>
                         <th scope="col">Commercial</th>
                         <th scope="col" colspan="2">Actions </th>
                       </tr>
                     </thead>
                     <tbody>
-                      
+                    @foreach($rendezs as $rendez)
                       <tr>
                         <th scope="row"><a href="#"></a></th>
-                        <td>hgtr</td>
-                        <td>fdgb</td>
-                        <td>dfgf</td>
-                        <td>dftgrtg</td>
+                        <td>{{$rendez->date}}</td>
+                        <td>{{$rendez->client}}</td>
+                        <td>{{$rendez->commercial}}</td>
+                        
                         
 
-                        <td><a class="collapsed" href="#"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{route('show2',$rendez->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
 
-                        <td><button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button></td>
+                       
 
                        
                       
                       </tr>
+                      @endforeach
                       
                        
                        
