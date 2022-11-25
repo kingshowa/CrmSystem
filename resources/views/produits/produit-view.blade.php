@@ -62,7 +62,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Are you sure that you want to delete  {{$produit->nom}} from contacts? This action is permanent and can not be undone.
+                                  Are you sure that you want to delete  {{$produit->nom}} from produits?
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

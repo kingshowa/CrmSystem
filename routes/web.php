@@ -146,10 +146,12 @@ Route::get('/produits', [ProduitController::class, 'index'])->name('index');
 Route::get('produits-add',[ProduitController::class, 'create'])->name('create');
 Route::post('produit/store',[ProduitController::class, 'store'])->name('store-produit');
 Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite-produit');
-Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update');
+Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update-produit');
 Route::delete('produits/destroy/{id}', [ProduitController::class, 'destroy'])->name('destroy');
 
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
 Route::get('utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
 Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name('store-ut');
 Route::get('utilisateurs/edite/{id}',[UtilisateurController::class, 'edite'])->name('edite-ut');
+Route::put('utilisateurs/update/{id}',[UtilisateurController::class, 'update'])->name('update-ut');
+Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destroy'])->name('destroy-ut');

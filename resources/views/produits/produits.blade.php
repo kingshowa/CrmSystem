@@ -8,7 +8,7 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="produits-view.html">Produits</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/produits')}}">Produits</a></li>
       <li class="breadcrumb-item active">View Produits</li>
     </ol>
   </nav>
