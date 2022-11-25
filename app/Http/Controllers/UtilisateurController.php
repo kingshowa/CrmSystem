@@ -30,7 +30,7 @@ class UtilisateurController extends Controller
 
     public function edite($id){
     	$utilisateur = Utilisateur::find($id);
-    	return view('utilisateurs/utilisateur-view', ['utilisateur'=>$utilisateur]);
+    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur]);
     }
 
     public function update(Request $request, $id){
@@ -45,8 +45,9 @@ class UtilisateurController extends Controller
     }
 
     public function destroy($id){
-        $utilisateur->delete();
+        
     	$utilisateur = Utilisateur::find($id);
+        $utilisateur->delete();
     	return redirect('utilisateurs');
     } 
 }
