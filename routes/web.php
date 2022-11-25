@@ -27,7 +27,7 @@ use App\Http\Controllers\ProspectController;
  Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
 
- //Route::get('/contact-add{societe}', [ContactController::class, 'create'])->name('createc');
+ Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
 
  Route::get('/front-office/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
 
@@ -135,6 +135,8 @@ Route::get('/opportunites-add', function () {
  Route::get('/rendezView/{id}', [RendezController::class, 'edite'])->name('show2');
  Route::put('/rendez/update/{id}', [RendezController::class, 'update'])->name('update-rendez');
 Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy-rendez');
+
+Route::get('/rendez/creater/{societe}', [RendezController::class, 'creater'])->name('creater');
 
 
 

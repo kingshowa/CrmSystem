@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Rendez;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 
@@ -15,6 +16,11 @@ class RendezController extends Controller
     
     public function create(){
     	return view('rendez-vous.rendez-add');
+    } 
+    public function creater($id){
+        $societe= Client::find($id);
+        
+    	return view('rendez-vous.rendez-add2', ['societe' => $societe]);
     } 
    
     public function store(Request $request){
