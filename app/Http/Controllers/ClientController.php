@@ -45,7 +45,18 @@ class ClientController extends Controller
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input('site_web');
     	$client->save();
-        return redirect('clients');    	
+        return back();    	
+    }
+
+    // details de la client edité par le contact
+    public function update_by_contact(Request $request, $id){
+    	$client = Client::find($id);
+    	$client->societe = $client->societe;
+    	$client->telephone = $request->input('telephone');
+        $client->adresse = $request->input('adresse');
+    	$client-> site_web = $request->input('site_web');
+    	$client->save();
+        return back();    	
     }
 
     public function destroy($id){
