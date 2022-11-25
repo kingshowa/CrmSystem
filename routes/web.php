@@ -27,9 +27,7 @@ use App\Http\Controllers\ProspectController;
  Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update');
  Route::put('/contact/update_by_contact/{id}', [ContactController::class, 'update_by_contact'])->name('update_by_contact');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
-
  Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
-
  Route::get('/front-office/account/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
 
 
@@ -79,17 +77,6 @@ Route::get('/front-office/team', function () {
     return view('front-office/team');
 });
 
-// Route::get('/front-office/account', function () {
-//     return view('front-office/account');
-// });
-
-
-// });
-
-// Route::get('/front-office', function () {
-//     return view('front-office');
-// });
-
 Route::get('/login', function () {
     return view('login');
 });
@@ -97,20 +84,6 @@ Route::get('/login', function () {
 Route::get('/user-profile', function () {
     return view('user-profile');
 });
-
-/*Route::get('/opportunites', function () {
-    return view('opportunites/opportunites');
-});
-
-Route::get('/opportunite', function () {
-    return view('opportunites/opportunite');
-});
-
-Route::get('/opportunites-add', function () {
-    return view('opportunites/opportunites-add');
-
-    
-});*/
 
 
 
