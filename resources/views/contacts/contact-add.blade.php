@@ -65,7 +65,9 @@
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="client" type="text" class="form-control" id="Email" required>
+                      @foreach ($clients as $client)
+                        <input name="client"  type="text" class="form-control" id="Email" required>
+                        @endforeach
                       </div>
                     </div>
 
