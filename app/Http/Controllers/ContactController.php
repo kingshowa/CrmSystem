@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Client;
 
+use Illuminate\Support\Facades\DB;
+
 class ContactController extends Controller
 {   
     public function index(){
@@ -43,7 +45,9 @@ class ContactController extends Controller
 
     public function contact_details($id){
     	$contact = Contact::find($id);
-    	return view('front-office', ['contact'=>$contact]);
+        $sos = $contact->client;
+        $societe = DB::table('clients')->where('societe', $sos)->first();
+    	return view('front-office.account', ['contact'=>$contact], ['societe'=>$societe]);
     }
 
     public function update(Request $request, $id){
@@ -56,6 +60,18 @@ class ContactController extends Controller
     	$contact->client = $request->input('client');
     	$contact->save();
         return redirect('contact/'.$id);    	
+    }
+
+    public function update_by_contact(Request $request, $id){
+    	$contact = Contact::find($id);
+    	$contact->nom = $request->input('nom');
+    	$contact->prenom = $request->input('prenom');
+        $contact->fonction = $request->input('fonction');
+    	$contact->email = $request->input('email');
+        $contact->telephone = $request->input('telephone');
+    	$contact->client = $contact->client;
+    	$contact->save();
+        return back();    	
     }
 
     public function destroy($id){

@@ -9,8 +9,8 @@
   <h1>Utilisateurs</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="utilisateurs-view.html">Utilisateurs</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{url('/utilisateurs')}}">Utilisateurs</a></li>
       <li class="breadcrumb-item active">View Utilisateur</li>
     </ol>
   </nav>
@@ -20,7 +20,7 @@
   <div class="row">
 
     <div class="col-xl-12">
-
+  
       <div class="card">
         <div class="card-body pt-3">
           <!-- Bordered Tabs -->
@@ -71,8 +71,9 @@
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form>
-
+              <form action="{{url('utilisateurs/update',$utilisateur->id)}}" method="POST">
+              <input type="hidden" name="_method" value="PUT" >
+              {{ csrf_field() }}
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                   <div class="col-md-8 col-lg-9">
