@@ -32,6 +32,7 @@ class ContactController extends Controller
         $contact->telephone = $request->input('telephone');
     	$contact->client = $request->input('client');
     	$contact->save();
+        session()->flash('succes','client ajouter avec success');
         return redirect('contacts');
     }
 
