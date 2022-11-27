@@ -145,7 +145,7 @@
             <br>
 
             <div class="main-button text-center">
-                <a href="cars.html">View Cars</a>
+                <a href="{{url('front-office/cars')}}">View Cars</a>
             </div>
         </div>
     </section>
@@ -162,7 +162,7 @@
                         <h2>Send us a <em>message</em></h2>
                         <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
                         <div class="main-button">
-                            <a href="contact.html">Contact us</a>
+                            <a href="{{url('front-office/contact')}}">Contact us</a>
                         </div>
                     </div>
                 </div>
