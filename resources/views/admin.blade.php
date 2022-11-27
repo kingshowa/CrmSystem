@@ -151,8 +151,7 @@
                   <div id="barChart" style="min-height: 400px;" class="echart"></div>
 
                   <script>
-                     var mois = JSON.parse('{!! json_encode($monthsem) !!}');
-                     var oppr = document.getElementById("opportuniter");
+                    
                     document.addEventListener("DOMContentLoaded", () => {
                       echarts.init(document.querySelector("#barChart")).setOption({
                         xAxis: {
