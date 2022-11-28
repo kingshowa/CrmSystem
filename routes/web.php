@@ -128,3 +128,6 @@ Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name(
 Route::get('utilisateurs/edite/{id}',[UtilisateurController::class, 'edite'])->name('edite-ut');
 Route::put('utilisateurs/update/{id}',[UtilisateurController::class, 'update'])->name('update-ut');
 Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destroy'])->name('destroy-ut');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
