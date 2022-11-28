@@ -12,12 +12,14 @@ class ContactController extends Controller
 {   
     public function index(){
     	$listContacts = Contact::all();
+        
         return view('contacts/contacts', ['contacts' => $listContacts]);
         //return view('contacts/contacts');
     }
     
     public function create(){
-    	return view('contacts.contact-add');
+        $clients = Client::orderBy('societe')->get();
+    	return view('contacts.contact-add',['clients'=>$clients]);
     } 
     public function create2($id){
         $societe= Client::find($id);
@@ -79,7 +81,5 @@ class ContactController extends Controller
     	$contact->delete();
     	return redirect('contacts');
     } 
-
     
-
 }
