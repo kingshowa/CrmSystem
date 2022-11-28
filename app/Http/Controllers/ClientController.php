@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\Contact;
 use App\Models\Rendez;
 use Illuminate\Http\Request;
+use App\Http\Requests\validate;
 
 class ClientController extends Controller
 {
@@ -19,13 +20,14 @@ class ClientController extends Controller
     	return view('clients.client-add');
     } 
    
-    public function store(Request $request){
+    public function store(validate $request){
     	$client = new  Client();
     	$client->societe = $request->input('societe');
     	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input('site_web');
     	$client->save();
+        session()->flash('succes','client ajouter avec success');
         return redirect('clients');
     }
 
@@ -37,7 +39,7 @@ class ClientController extends Controller
     	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez]);
     }
 
-    public function update(Request $request, $id){
+    public function update(validate $request, $id){
     	$client = Client::find($id);
     	
     	$client->societe = $request->input('societe');
@@ -45,7 +47,18 @@ class ClientController extends Controller
         $client->adresse = $request->input('adresse');
     	$client-> site_web = $request->input('site_web');
     	$client->save();
-        return redirect('clients');    	
+        return back();    	
+    }
+
+    // details de la client edité par le contact
+    public function update_by_contact(Request $request, $id){
+    	$client = Client::find($id);
+    	$client->societe = $client->societe;
+    	$client->telephone = $request->input('telephone');
+        $client->adresse = $request->input('adresse');
+    	$client-> site_web = $request->input('site_web');
+    	$client->save();
+        return back();    	
     }
 
     public function destroy($id){

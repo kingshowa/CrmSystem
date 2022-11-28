@@ -25,11 +25,10 @@ use App\Http\Controllers\ProspectController;
  Route::post('/contact-add', [ContactController::class, 'store_contact'])->name('store_contact');
  Route::get('/contact/{id}', [ContactController::class, 'details'])->name('details');
  Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update');
+ Route::put('/contact/update_by_contact/{id}', [ContactController::class, 'update_by_contact'])->name('update_by_contact');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
-
  Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
-
- Route::get('/front-office/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
+ Route::get('/front-office/account/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
 
 
 
@@ -58,6 +57,7 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+<<<<<<< HEAD
 
 Route::get('/', function () {
     return view('commerciale');
@@ -67,31 +67,27 @@ Route::get('/commerciale', function () {
 });
 /*Route::get('/prospects', function () {
     return view('prospects/prospects');
+=======
+Route::get('/front-office', function () {
+    return view('front-office/index');
+>>>>>>> 9f95de9fafe4234f6e505b97a1bf09d313bdb55a
 });
 
-Route::get('/prospect', function () {
-    return view('prospects/prospect');
+Route::get('/front-office/cars', function () {
+    return view('front-office/cars');
 });
 
-Route::get('/prospect-add', function () {
-    return view('prospects/prospect-add');
-});*/
+Route::get('/front-office/login', function () {
+    return view('front-office/login');
+});
 
-// Route::get('/contacts', function () {
-//     return view('contacts/contacts');
-// });
+Route::get('/front-office/contact', function () {
+    return view('front-office/contact');
+});
 
-// Route::get('/contact-add', function () {
-//     return view('contacts/contact-add');
-// });
-
-// Route::get('/contact', function () {
-//     return view('contacts/contact');
-// });
-
-// Route::get('/front-office', function () {
-//     return view('front-office');
-// });
+Route::get('/front-office/team', function () {
+    return view('front-office/team');
+});
 
 Route::get('/login', function () {
     return view('login');
@@ -100,20 +96,6 @@ Route::get('/login', function () {
 Route::get('/user-profile', function () {
     return view('user-profile');
 });
-
-/*Route::get('/opportunites', function () {
-    return view('opportunites/opportunites');
-});
-
-Route::get('/opportunite', function () {
-    return view('opportunites/opportunite');
-});
-
-Route::get('/opportunites-add', function () {
-    return view('opportunites/opportunites-add');
-
-    
-});*/
 
 
 
@@ -124,6 +106,8 @@ Route::get('/opportunites-add', function () {
   Route::get('/clientView/{id}', [ClientController::class, 'edite'])->name('show');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
   Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
+
+  Route::put('/client/update_by_contact/{id}', [ClientController::class, 'update_by_contact'])->name('update_by_contact');
  
 
 
@@ -147,10 +131,12 @@ Route::get('/produits', [ProduitController::class, 'index'])->name('index');
 Route::get('produits-add',[ProduitController::class, 'create'])->name('create');
 Route::post('produit/store',[ProduitController::class, 'store'])->name('store-produit');
 Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite-produit');
-Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update');
+Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update-produit');
 Route::delete('produits/destroy/{id}', [ProduitController::class, 'destroy'])->name('destroy');
 
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
 Route::get('utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
 Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name('store-ut');
 Route::get('utilisateurs/edite/{id}',[UtilisateurController::class, 'edite'])->name('edite-ut');
+Route::put('utilisateurs/update/{id}',[UtilisateurController::class, 'update'])->name('update-ut');
+Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destroy'])->name('destroy-ut');

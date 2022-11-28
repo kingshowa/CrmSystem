@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Rendez;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use App\Http\Requests\validerendez;
 
 
 class RendezController extends Controller
@@ -23,7 +24,7 @@ class RendezController extends Controller
     	return view('rendez-vous.rendez-add2', ['societe' => $societe]);
     } 
    
-    public function store(Request $request){
+    public function store(validerendez $request){
     	$rendez= new  Rendez();
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
@@ -31,6 +32,7 @@ class RendezController extends Controller
     	$rendez-> client = $request->input('client');
         $rendez-> commercial = $request->input('commercial');
     	$rendez->save();
+        session()->flash('succes','rendez-vous bien ajouter');
         return redirect('rendez');
     }
 
@@ -39,7 +41,7 @@ class RendezController extends Controller
     	return view('rendez-vous.rendezView', ['rendez'=>$rendez]);
     }
 
-    public function update(Request $request, $id){
+    public function update(validerendez $request, $id){
     	$rendez = Rendez::find($id);
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
