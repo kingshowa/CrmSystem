@@ -79,7 +79,5 @@ class ContactController extends Controller
     	$contact->delete();
     	return redirect('contacts');
     } 
-
     
-
 }
