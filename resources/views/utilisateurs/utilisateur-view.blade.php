@@ -44,8 +44,7 @@
                     <td>{{ $utilisateur->nom }}</td>
                     <td>{{ $utilisateur->prenom }}</td>
                     <td>{{ $utilisateur->email }}</td>
-                    <!--<td>{{$utilisateur->password}}</td>
-                 -->
+                   
                   
                   
                  <td><a class="collapsed" href=" {{route('edite-ut',$utilisateur->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>

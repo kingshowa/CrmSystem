@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Hash;
 
 class UtilisateurController extends Controller
 {
@@ -22,7 +24,28 @@ class UtilisateurController extends Controller
     	$utilisateur = new  Utilisateur();
     	$utilisateur->nom = $request->input('firstName');
     	$utilisateur->prenom = $request->input('surName');
-        $utilisateur->email = $request->input('email');
+        $request->validate(['password'=>'min:8']);
+    	$password = $request->input('password');
+        $utilisateur->password = Hash::make($password);
+
+       
+        $c = $request->input('role');
+        if ($c == "radio1") {
+            $utilisateur->role = 'admin';}
+        else {
+            if($c=="radio2")
+            $utilisateur->role = 'commercial';
+            else 
+            $utilisateur->role = 'contact';
+            }
+          
+        
+        if (Utilisateur::where('email', $request->input('email'))->exists() ) {
+           // Alert::error('Email déja existe!');
+            return redirect('/utilisateurs.utilisateur-add');
+        }else  $utilisateur->email = $request->input('email');
+    
+       
     	//$utilisateur->password = $request->input('password');
     	$utilisateur->save();
         return redirect('utilisateurs');
