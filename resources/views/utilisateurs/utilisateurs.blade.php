@@ -34,8 +34,7 @@
               <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Utilisateurs</button>
             </li>
 
-            <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+           
             </li>
 
           </ul>
@@ -109,52 +108,6 @@
 
             </div>
 
-            <div class="tab-pane fade pt-3" id="profile-settings">
-
-              <!-- Settings Form -->
-              <form method="get" action="confirm-operation.html">
-
-                <div class="row mb-3">
-                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label"></label>
-                  <div class="col-md-8 col-lg-9">
-                    
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers" checked>
-                      <label class="form-check-label" for="proOffers">
-                        Delete Utilisateurs
-                      </label>
-                    </div>
-                  
-                  </div>
-                </div>
-
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                    Save Changes
-                  </button>
-                  
-                  <div class="modal fade" id="basicModal" tabindex="-1">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Basic Modal</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!-- End Basic Modal-->
-
-                </div>
-              </form><!-- End settings Form -->
-
-            </div>
 
 
           </div><!-- End Bordered Tabs -->
