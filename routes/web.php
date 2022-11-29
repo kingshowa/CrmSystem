@@ -57,8 +57,20 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+<<<<<<< HEAD
+
+Route::get('/', function () {
+    return view('commerciale');
+});
+Route::get('/commerciale', function () {
+    return view('commerciale');
+});
+/*Route::get('/prospects', function () {
+    return view('prospects/prospects');
+=======
 Route::get('/front-office', function () {
     return view('front-office/index');
+>>>>>>> 9f95de9fafe4234f6e505b97a1bf09d313bdb55a
 });
 
 Route::get('/front-office/cars', function () {
