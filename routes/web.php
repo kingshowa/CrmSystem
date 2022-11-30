@@ -9,6 +9,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\OpportuniteController;
 use App\Http\Controllers\ProspectController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -143,3 +144,13 @@ Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destr
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//Authentification
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+

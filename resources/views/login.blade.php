@@ -63,8 +63,8 @@
                     <p class="text-center small">Enter your email & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="{{url('profile')}}" method="GET" >
-
+                  <form class="row g-3 needs-validation" action="{{route('verifier')}}" method="post" >
+                        @csrf
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
