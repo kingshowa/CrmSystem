@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('email');
             $table->string('role');
-            $table->string('password')->nullable();
+            $table->string('password');
             $table->timestamps();
         });
     }
