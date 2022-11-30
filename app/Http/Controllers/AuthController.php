@@ -22,6 +22,7 @@ class AuthController extends Controller
             echo"nnnnnnnn";}
            
            else{
+            echo"nnnnnnnn";
             $emailok =  DB::table('utilisateurs')->where('password',$password)->first();
             if($emailok != null)
           
