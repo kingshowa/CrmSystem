@@ -19,9 +19,9 @@ class AuthController extends Controller
         $emailok =  DB::table('utilisateurs')->where('email',$email)->first();
 
         if ($emailok == null){
-            echo"nnnnnnnn";
+            echo"nnnnnnnn";}
            
-           
+           else{
             $passwordOk =  DB::table('utilisateurs')->where('password',$password)->first();
             if($passwordOk != null)
           
@@ -34,4 +34,5 @@ class AuthController extends Controller
              }
     }
 }
+
 
