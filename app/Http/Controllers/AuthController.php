@@ -22,12 +22,12 @@ class AuthController extends Controller
             echo"nnnnnnnn";}
            
            else{
-            $passwordOk =  DB::table('utilisateurs')->where('password',$password)->first();
-            if($passwordOk != null)
+            $emailok =  DB::table('utilisateurs')->where('password',$password)->first();
+            if($emailok != null)
           
             
              //if($passwordOk->role == 'admin')
-              return view('layouts.Master', ['user'=>$password]);
+              return view('layouts.Master', ['user'=>$emailok]);
 
           
         
