@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\EloquentUserProvider;
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -16,20 +18,18 @@ class AuthController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
     
-        $emailok =  DB::table('utilisateurs')->where('email',$email)->first();
+       // $emailok =  DB::table('utilisateurs')->where('email',$email)->first();
+        //$pass=Hash::check($request->get('password'));
+        $user = Utilisateur::where('email', $email)->first();
+       
 
-        if ($emailok == null){
-            echo"nnnnnnnn";}
-           
-           else{
-            echo"nnnnnnnn";
-            $emailok =  DB::table('utilisateurs')->where('password',$password)->first();
-            if($emailok != null)
+        if ( Hash::check(request('password'), $user->password)){
           
-            
-             //if($passwordOk->role == 'admin')
-              return view('layouts.Master', ['user'=>$emailok]);
-
+          
+          if($user->role == 'admin')
+              {return view('layouts.Master', ['user'=>$user]);}
+              else
+              echo"nnnn";
           
         
              }
