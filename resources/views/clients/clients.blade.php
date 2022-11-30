@@ -70,7 +70,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Are you sure that you want to delete  {{$client->societe}} from contacts? This action is permanent and can not be undone.
+                                  Are you sure that you want to delete  {{$client->societe}} from clients? This action is permanent and can not be undone.
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -81,14 +81,13 @@
                           </div><!-- End Basic Modal-->
                           </form>
                         </td>
-                      </div><!-- End Basic Modal--></td>
+                     
                       </tr>
                       @endforeach
                      
                     </tbody>
                     
                   </table>
-                 <a href="{{url('client/create')}}"> <button type="button" class="btn btn-link" style="text-align: left;">planifier un rendez-vous</button></a>
                 </div>
 
               </div>

@@ -113,11 +113,7 @@
                 </div>
                 
 
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
-                 
-                </div>
+                
 
 
               </div><!-- End Bordered Tabs -->

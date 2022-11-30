@@ -65,5 +65,6 @@ class ClientController extends Controller
     	$client = Client::find($id);
     	$client->delete();
     	return redirect('clients');
+       
     } 
 }
