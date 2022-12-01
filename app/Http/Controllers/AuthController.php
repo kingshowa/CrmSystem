@@ -27,7 +27,7 @@ class AuthController extends Controller
           
           
           if($user->role == 'admin')
-              {return view('layouts.Master', ['user'=>$user]);}
+              {return view('admin', ['user'=>$user]);}
               else
               echo"nnnn";
           
