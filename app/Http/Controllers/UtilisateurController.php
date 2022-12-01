@@ -73,4 +73,9 @@ class UtilisateurController extends Controller
         $utilisateur->delete();
     	return redirect('utilisateurs');
     } 
+    public function profile($id){
+        $user = Utilisateur::find($id);
+        return view('user-profile',['user'=> $user]);
+
+    }
 }

@@ -34,6 +34,10 @@ class AuthController extends Controller
         
              }
     }
+    function logout(){
+        auth()->logout();
+        return redirect('login');
+    }
 }
 
 

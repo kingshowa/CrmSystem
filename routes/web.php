@@ -54,7 +54,7 @@ use App\Http\Controllers\AuthController;
 Route::get('/', function () {
     return view('admin');
 });
-Route::get('/admin', function () {
+Route::get('/admin/{id}', function () {
     return view('admin');
 });
 
@@ -151,6 +151,10 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/user-profile', function () {
+    return view('user-profile');
+});
+Route::get('/user-profile/{id}', [UtilisateurController::class, 'profile'])->name('profile');
 
 
 

@@ -86,7 +86,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{url('user-profile')}}">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('profile',$user->id)}}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -97,7 +97,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{url('login')}}">
+              <a class="dropdown-item d-flex align-items-center" href="{{url('logout')}}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -106,7 +106,7 @@
           </ul><!-- End Profile Dropdown Items -->
 
         </li><!-- End Profile Nav -->
-        @endif
+        
 
       </ul>
     </nav><!-- End Icons Navigation -->
@@ -115,6 +115,7 @@
 
 
   @yield("content")
+  @endif
 
   
   <!-- ======= Footer ======= -->
