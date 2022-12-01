@@ -70,7 +70,7 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form action="{{url('client/update',$client->id)}}" method="POST">
+                  <form action="{{url('client/update',$client->id)}}" method="POST">       
 
                     <input type="hidden" name="_method" value="PUT" >
                     {{ csrf_field() }}

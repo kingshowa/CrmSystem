@@ -155,6 +155,7 @@ Route::get('/user-profile', function () {
     return view('user-profile');
 });
 Route::get('/user-profile/{id}', [UtilisateurController::class, 'profile'])->name('profile');
+Route::put('/changepassword/{id}', [UtilisateurController::class, 'changepassword'])->name('changepassword');
 
 
 

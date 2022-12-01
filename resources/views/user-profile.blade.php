@@ -185,7 +185,9 @@
             
             <div class="tab-pane fade pt-3" id="profile-change-password">
               <!-- Change Password Form -->
-              <form action="" method="">
+              <form action="{{url('changepassword',$user->id)}}" method="POST">
+              <input type="hidden" name="_method" value="PUT" >
+                    {{ csrf_field() }}
 
                 <div class="row mb-3">
                   <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
@@ -197,14 +199,14 @@
                 <div class="row mb-3">
                   <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="newpassword" type="password" class="form-control" id="newPassword">
+                    <input name="newpassword1" type="password" class="form-control" id="newPassword">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                    <input name="newpassword2" type="password" class="form-control" id="renewPassword">
                   </div>
                 </div>
 

@@ -9,6 +9,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
+
+
 class AuthController extends Controller
 {
     function login(){
@@ -26,8 +29,9 @@ class AuthController extends Controller
         if ( Hash::check(request('password'), $user->password)){
           
           
-          if($user->role == 'admin')
-              {return view('admin', ['user'=>$user]);}
+          if($user->role == 'admin'){
+               // $user->session()->regenerate();
+              return view('admin', ['user'=>$user]);}
               else
               echo"nnnn";
           

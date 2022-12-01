@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Utilisateur;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\validate;
 
 class UtilisateurController extends Controller
 {
@@ -77,5 +78,18 @@ class UtilisateurController extends Controller
         $user = Utilisateur::find($id);
         return view('user-profile',['user'=> $user]);
 
+    }
+    public function changepassword(validate $request, $id){
+        $user=Utilisateur::find($id);
+        if(Hash::check(request('password'), $user->password)){
+            
+           $user->password = Hash::make(request('newpassword1'));
+          
+          return back()->with("status", "Password changed successfully!");
+            
+        }else
+        return back()->with("error", "Old Password Doesn't match!");
+            
+             
     }
 }
