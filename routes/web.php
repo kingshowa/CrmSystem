@@ -10,6 +10,7 @@ use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\OpportuniteController;
 use App\Http\Controllers\ProspectController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -154,8 +155,12 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/user-profile', function () {
     return view('user-profile');
 });
-Route::get('/user-profile/{id}', [UtilisateurController::class, 'profile'])->name('profile');
-Route::put('/changepassword/{id}', [UtilisateurController::class, 'changepassword'])->name('changepassword');
-
+// Route::get('/forget', [PasswordController::class, 'forget'])->name('forget');
+// Route::get('/user-profile/{id}', [PasswordController::class, 'profile'])->name('profile');
+// Route::put('/changepassword/{id}', [PasswordController::class, 'changepassword'])->name('changepassword');
+Route::get('forget-password', [PasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 

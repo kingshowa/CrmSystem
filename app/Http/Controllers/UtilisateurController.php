@@ -74,22 +74,5 @@ class UtilisateurController extends Controller
         $utilisateur->delete();
     	return redirect('utilisateurs');
     } 
-    public function profile($id){
-        $user = Utilisateur::find($id);
-        return view('user-profile',['user'=> $user]);
-
-    }
-    public function changepassword(validate $request, $id){
-        $user=Utilisateur::find($id);
-        if(Hash::check(request('password'), $user->password)){
-            
-           $user->password = Hash::make(request('newpassword1'));
-          
-          return back()->with("status", "Password changed successfully!");
-            
-        }else
-        return back()->with("error", "Old Password Doesn't match!");
-            
-             
-    }
+    
 }

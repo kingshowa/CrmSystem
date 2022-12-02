@@ -185,7 +185,7 @@
             
             <div class="tab-pane fade pt-3" id="profile-change-password">
               <!-- Change Password Form -->
-              <form action="{{url('changepassword',$user->id)}}" method="POST">
+              <form action="{{url('changepassword/'.$user->id)}}" method="POST">
               <input type="hidden" name="_method" value="PUT" >
                     {{ csrf_field() }}
 

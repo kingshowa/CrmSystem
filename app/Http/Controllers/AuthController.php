@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     function login(){
-        return view('login');
+        return view('login.login');
     }
     function verifier(Request $request){
         $email = $request->input('email');
