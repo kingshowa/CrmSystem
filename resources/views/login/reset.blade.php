@@ -53,17 +53,18 @@
                   <span class="d-none d-lg-block">KMHIcarSale</span>
                 </a>
               </div><!-- End Logo -->
-              <div class="tab-pane fade pt-3" id="profile-change-password">
               <!-- Change Password Form -->
               <form action="{{ route('reset.password.post') }}" method="POST">
-              <input type="hidden" name="token" value="{{ $token }}">
-             <!-- <input type="hidden" name="_method" value="PUT" > -->
-                    {{ csrf_field() }}
+             
+                         @csrf
+                          <input type="hidden" name="token" value="{{ $token }}">
+              <!-- <input type="hidden" name="_method" value="PUT" >  -->
+                    
 
                 <div class="row mb-3">
                   <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Email</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="email" type="password" class="form-control" id="currentPassword">
+                    <input name="email" type="email" class="form-control" id="currentPassword">
                   </div>
                 </div>
 
