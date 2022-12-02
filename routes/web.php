@@ -61,18 +61,19 @@ Route::get('/admin/{id}', function () {
 
 
 
-Route::get('/', function () {
+Route::get('commerciale', function () {
     return view('commerciale');
 });
 Route::get('/commerciale', function () {
     return view('commerciale');
 });
-/*Route::get('/prospects', function () {
+
+Route::get('/prospects', function () {
     return view('prospects/prospects');
+});
 
 Route::get('/front-office', function () {
     return view('front-office/index');
->>>>>>> 9f95de9fafe4234f6e505b97a1bf09d313bdb55a
 });
 
 Route::get('/front-office/cars', function () {
@@ -127,7 +128,6 @@ Route::get('/rendez/creater/{societe}', [RendezController::class, 'creater'])->n
 
 
 
-//*************************************************************** */
 
 Route::get('/produits', [ProduitController::class, 'index'])->name('index');
 Route::get('produits-add',[ProduitController::class, 'create'])->name('create');
