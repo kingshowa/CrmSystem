@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
+use App\Models\Contact;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\validate;
-
 use DB; 
 use Carbon\Carbon; 
 use Mail; 
 use Illuminate\Support\Str;
+
+ use App\Http\Controllers\response;
+use Illuminate\Http\RedirectResponse ;
 
 class PasswordController extends Controller
 {
@@ -77,7 +80,7 @@ class PasswordController extends Controller
      * @return response()
      */
     public function showResetPasswordForm($token) { 
-       return view('login/reset', ['token' => $token]);
+       return view('login.reset', ['token' => $token]);
     }
 
     /**
@@ -88,7 +91,7 @@ class PasswordController extends Controller
     public function submitResetPasswordForm(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email|exists:utilisateurs',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required'
         ]);
@@ -103,9 +106,10 @@ class PasswordController extends Controller
         if(!$updatePassword){
             return back()->withInput()->with('error', 'Invalid token!');
         }
-
+        echo "hjgy";
+        $password = $request->input('password');
         $user = Utilisateur::where('email', $request->email)
-                    ->update(['password' => Hash::make($request->password)]);
+                    ->update(['password' => Hash::make($password)]);
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
