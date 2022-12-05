@@ -37,30 +37,27 @@
                         <th scope="col">#</th>
                         <th scope="col">Prospect</th>
                         <th scope="col">Societe</th>
-                        <th scope="col">fonction</th>
-                        <th scope="col">Adresse</th>
                         <th scope="col">Telephone</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Site web</th>
+                        <th scope="col" >Site web</th>
                         <th scope="col">Source</th>
                         <th scope="col">Statut</th>
                         <th scope="col" colspan="2">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
+                    
                     @foreach($prospects as $prospect)
                       <tr>
                         <th scope="row"><a href="#">{{$prospect->id}}</a></th>
                         <td>{{$prospect->nom}}
                         {{$prospect->prenom}}</td>
                         <td>{{$prospect->societe}}</td>
-                        <td>{{$prospect->fonction}}</td>
-                        <td>{{$prospect->adresse}}</td>
                         <td>{{$prospect->telephone}}</td>
                         <td>{{$prospect->email}}</td>
-                        <td>{{$prospect->site_web}}</td>
+                        <td class="text-primary">{{$prospect->site_web}}</td>
                         <td>{{$prospect->source}}</td>
-                        <td>{{$prospect->statut}}</td>
+                        <td><span class="badge bg-success">{{$prospect->statut}}</span></td>
                         <td>
                           <a class="collapsed" href="{{url('prospect/'.$prospect->id)}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>

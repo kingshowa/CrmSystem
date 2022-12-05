@@ -26,11 +26,9 @@ class ProspectController extends Controller
         $prospect->adresse = $request->input('adresse');
         $prospect->telephone = $request->input('telephone');
         $prospect->email = $request->input('email');
-    	
-        
     	$prospect-> site_web = $request->input('site_web');
-        $prospect->statut = $request->input('statut');
-        $prospect->source = $request->input('source');
+        /*$prospect->statut = $request->input('statut');
+        $prospect->source = $request->input('source');*/
     	$prospect->save();
         return redirect('prospects');
     }
@@ -49,12 +47,9 @@ class ProspectController extends Controller
         $prospect->adresse = $request->input('adresse');
         $prospect->telephone = $request->input('telephone');
         $prospect->email = $request->input('email');
-    	
-      
-
         $prospect-> site_web = $request->input('site_web');
-        $prospect->statut = $request->input('statut');
-        $prospect->source = $request->input('source');
+        /*$prospect->statut = $request->input('statut');
+        $prospect->source = $request->input('source');*/
     	$prospect->save();
         return redirect('prospect/'.$id);    	
     }

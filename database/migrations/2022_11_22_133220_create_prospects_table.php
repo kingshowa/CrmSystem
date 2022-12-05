@@ -20,11 +20,9 @@ return new class extends Migration
             $table->string('societe');
             $table->string('fonction');
             $table->string('adresse');
-            $table->string('telephone');
+            $table->integer('telephone');
             $table->string('email');
             $table->string('site_web');
-            $table->string('source');
-            $table->string('statut');
             $table->timestamps();
         });
     }

@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
+use App\Models\Opportunite;
 
 class ProduitController extends Controller
 {
-    //
+    
     public function index(){
         $listproduits=Produit::all();
     	
@@ -19,6 +20,11 @@ class ProduitController extends Controller
     	return view('produits/produit-add');
     } 
    
+    public function create2($id){
+        $nom= Opportunite::find($id);
+        
+    	return view('produits.produit-add2', ['nom' => $nom]);
+    } 
    /* public function store_produit(Request $request){*/
     public function store(Request $request){
     	$produit = new  Produit();
@@ -45,6 +51,18 @@ class ProduitController extends Controller
     	$produit->save();
         return redirect('produits');    	
     }
+
+
+    public function update_by_produit(Request $request, $id){
+    	$produit = Produit::find($id);
+    	$produit->nom = $request->input('Nom');
+    	$produit->prix = $request->input('Prix');
+        $produit->quantitie = $request->input('quantitie');
+    	$produit->opportunite = $produit->opportunite;
+    	$produit->save();
+        return back();    	
+    }
+
 
     public function destroy($id){
     	$produit = Produit::find($id);

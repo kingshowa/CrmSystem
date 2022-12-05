@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Models\Opportunite;
+use App\Models\Produit;
+use Illuminate\Http\Request;
+use App\Http\Requests\validate;
+
 
 class OpportuniteController extends Controller
 {
     public function index(){
-    	$listOpportunites = Opportunite::all();
-        return view('opportunites/opportunites', ['opportunites' => $listOpportunites]);
+    	$listopportunites = Opportunite::all();
+        return view('opportunites/opportunites', ['opportunites' => $listopportunites]);
         //return view('opportunites/opportunites');
     }
     
@@ -16,7 +20,7 @@ class OpportuniteController extends Controller
     	return view('opportunites.opportunites-add');
     } 
    
-    public function store_opportunite(Request $request){
+    public function store_opportunite(validate $request){
     	$opportunite = new  Opportunite();
     	$opportunite->nom = $request->input('nom');
     	$opportunite->montant = $request->input('montant');
@@ -29,7 +33,9 @@ class OpportuniteController extends Controller
 
     public function details($id){
     	$opportunite = Opportunite::find($id);
-    	return view('opportunites.opportunite', ['opportunite'=>$opportunite]);
+        $produit = Produit::where('opportunite',$opportunite->nom)->get();
+    	return view('opportunites.opportunite', ['opportunite'=>$opportunite,'produits'=>$produit]);
+    	//return view('opportunites.opportunite', ['opportunite'=>$opportunite]);
     }
 
     /*public function details($id){
@@ -37,7 +43,7 @@ class OpportuniteController extends Controller
     	return view('clients.client', ['client'=>$client]);
     }*/
 
-    public function update(Request $request, $id){
+    public function update(validate $request, $id){
     	$opportunite = Opportunite::find($id);
     	$opportunite->nom = $request->input('nom');
     	$opportunite->montant = $request->input('montant');
@@ -45,8 +51,22 @@ class OpportuniteController extends Controller
         $opportunite->client = $request->input('client');
         $opportunite->produits = $request->input('produits');
     	$opportunite->save();
-        return redirect('opportunite/'.$id);  	
+        return back();
+        //return redirect('opportunite/'.$id);	
     }
+
+    // details de l'opportunites edité par le produit
+    public function update_by_produit(Request $request, $id){
+    	$opportunite = Opportunite::find($id);
+    	$opportunite->nom = $opportunite->nom;
+    	$opportunite->montant = $request->input('montant');
+        $opportunite->date_cloture = $request->input('date_cloture');
+    	$opportunite-> client = $request->input('client');
+        $opportunite-> produits = $request->input('produits');
+    	$opportunite->save();
+        return back();    	
+    }
+
 
     public function destroy($id){
     	$opportunite = Opportunite::find($id);

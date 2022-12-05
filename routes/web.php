@@ -40,7 +40,7 @@ use App\Http\Controllers\PasswordController;
  Route::get('/opportunite/{id}', [OpportuniteController::class, 'details'])->name('details');
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
-
+ Route::put('/opportunite/update_by_produit/{id}', [OpportuniteController::class, 'update_by_produit'])->name('update_by_produit');
 
  Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
@@ -55,7 +55,7 @@ use App\Http\Controllers\PasswordController;
 Route::get('/', function () {
     return view('admin');
 });
-Route::get('/admin/{id}', function () {
+Route::get('/admin', function () {
     return view('admin');
 });
 
@@ -66,10 +66,6 @@ Route::get('commerciale', function () {
 });
 Route::get('/commerciale', function () {
     return view('commerciale');
-});
-
-Route::get('/prospects', function () {
-    return view('prospects/prospects');
 });
 
 Route::get('/front-office', function () {
@@ -135,6 +131,7 @@ Route::post('produit/store',[ProduitController::class, 'store'])->name('store-pr
 Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite-produit');
 Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update-produit');
 Route::delete('produits/destroy/{id}', [ProduitController::class, 'destroy'])->name('destroy');
+Route::get('/produits-add2/{nom}', [ProduitController::class, 'create2'])->name('create2');
 
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
 Route::get('utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
