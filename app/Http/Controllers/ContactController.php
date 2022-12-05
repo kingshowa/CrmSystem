@@ -59,7 +59,7 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
-    	$contact->client = $request->input('client');
+    	$contact->client = $contact->client;
     	$contact->save();
         return redirect('contact/'.$id);    	
     }

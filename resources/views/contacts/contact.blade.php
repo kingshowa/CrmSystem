@@ -36,28 +36,33 @@
                   @if($contact != null)
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Nom</div>
+                    <div class="col-lg-3 col-md-4 label ">Surname</div>
                     <div class="col-lg-9 col-md-8">{{$contact->nom}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Prenom</div>
+                    <div class="col-lg-3 col-md-4 label">First name</div>
                     <div class="col-lg-9 col-md-8">{{$contact->prenom}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Fonction</div>
+                    <div class="col-lg-3 col-md-4 label">Position</div>
                     <div class="col-lg-9 col-md-8">{{$contact->fonction}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Telephone</div>
+                    <div class="col-lg-3 col-md-4 label">Phone No</div>
                     <div class="col-lg-9 col-md-8">{{$contact->telephone}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8">{{$contact->email}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Company</div>
+                    <div class="col-lg-9 col-md-8">{{$contact->client}}</div>
                   </div>
                   
                 </div>
@@ -70,35 +75,35 @@
                     {{ csrf_field() }}
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nom" type="text" class="form-control" id="firstName" value="{{$contact->nom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Prenom</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">First name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="prenom" type="text" class="form-control" id="surName" value="{{$contact->prenom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Fonction</label>
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="fonction" type="text" class="form-control" id="company" value="{{$contact->fonction}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Client</label>
+                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Company</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="client" type="text" class="form-control" id="Job" value="{{$contact->client}}">
+                        <input name="client" type="text" class="form-control" id="Job" value="{{$contact->client}}" disabled>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Telephone</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone No</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="telephone" type="text" class="form-control" id="Phone" value="{{$contact->telephone}}">
                       </div>

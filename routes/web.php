@@ -68,9 +68,12 @@ Route::get('/commerciale', function () {
     return view('commerciale');
 });
 
-Route::get('/prospects', function () {
-    return view('prospects/prospects');
-});
+// Route::get('/prospects', function () {
+//     return view('prospects/prospects');
+// });
+
+
+
 
 Route::get('/front-office', function () {
     return view('front-office/index');
@@ -91,6 +94,10 @@ Route::get('/front-office/contact', function () {
 Route::get('/front-office/team', function () {
     return view('front-office/team');
 });
+
+
+
+
 
 Route::get('/login', function () {
     return view('login');
