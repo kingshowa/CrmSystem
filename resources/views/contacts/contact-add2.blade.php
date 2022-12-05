@@ -13,6 +13,9 @@
           <li class="breadcrumb-item active">Add Contact</li>
         </ol>
       </nav>
+
+     
+
     </div><!-- End Page Title -->
 
     <section class="section profile">
@@ -23,7 +26,11 @@
           <div class="card"> 
             <div class="card-body pt-3 col-xl-8">
 
+
               <form action="{{ route('store_contactClient') }}" method="POST">
+
+              <form action="{{ route('store_contact') }}" method="POST">
+
               {{ csrf_field()}}
 
 
@@ -65,9 +72,13 @@
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
+
                         
                         <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" required>
                        
+
+                        <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" required>
+
                       </div>
                     </div>
 
