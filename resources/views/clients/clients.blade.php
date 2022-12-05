@@ -4,11 +4,12 @@
 
 
   <main id="main" class="main">
-  @if(session()->has('succes'))
-<div class="alert alert-success">
-  {{session()->get('succes')}}
-</div>
-@endif
+  
+    @if(session()->has('succes'))
+      <div class="alert alert-success">
+        {{session()->get('succes')}}
+      </div>
+    @endif
 
     <div class="pagetitle">
       <h1>Clients</h1>

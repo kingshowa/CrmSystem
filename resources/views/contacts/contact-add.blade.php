@@ -65,8 +65,13 @@
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
-                      
-                        <input name="client"  type="text" class="form-control" id="Email" required>
+                        <select class="form-select" id="select_box" name="client">
+                          <option selected>Choose Client</option>
+                          @foreach($clients as $client)
+                          <option value="{{$client->societe}}">{{$client->societe}}</option>
+                          @endforeach
+                        </select>
+                        <!-- <input name="client"  type="text" class="form-control" id="Email" required> -->
                        
                       </div>
                     </div>

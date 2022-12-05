@@ -46,7 +46,6 @@
                         <br>
                         <br>
                         <h2>Meet our <em>Team</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
                     </div>
                 </div>
             </div>
@@ -66,7 +65,6 @@
                         <div class="down-content">
                             <span>CEO</span>
                             <h4>John Doe</h4>
-                            <p>Vestibulum id est eu felis vulputate hendrerit. Suspendisse dapibus turpis in dui pulvinar imperdiet. Nunc consectetur.</p>
                             <ul class="social-icons">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -84,7 +82,6 @@
                         <div class="down-content">
                             <span>Customer Support</span>
                             <h4>Jane Smith</h4>
-                            <p>Vestibulum id est eu felis vulputate hendrerit. Suspendisse dapibus turpis in dui pulvinar imperdiet. Nunc consectetur.</p>
                             <ul class="social-icons">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -102,7 +99,6 @@
                         <div class="down-content">
                             <span>Customer Support</span>
                             <h4>Kate Johnson</h4>
-                            <p>Vestibulum id est eu felis vulputate hendrerit. Suspendisse dapibus turpis in dui pulvinar imperdiet. Nunc consectetur.</p>
                             <ul class="social-icons">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -121,7 +117,6 @@
                         <div class="down-content">
                             <span>Customer Support</span>
                             <h4>Mark Green</h4>
-                            <p>Vestibulum id est eu felis vulputate hendrerit. Suspendisse dapibus turpis in dui pulvinar imperdiet. Nunc consectetur.</p>
                             <ul class="social-icons">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
