@@ -36,8 +36,23 @@ class ContactController extends Controller
         $contact->telephone = $request->input('telephone');
     	$contact->client = $request->input('client');
     	$contact->save();
-        session()->flash('succes','client ajouter avec success');
+        session()->flash('succes','You have successfully added the contact '.$contact->nom);
         return redirect('contacts');
+    }
+    public function store_contactClient(Request $request){
+    	$contact = new Contact();
+    	$contact->nom = $request->input('nom');
+    	$contact->prenom = $request->input('prenom');
+        $contact->fonction = $request->input('fonction');
+    	$contact->email = $request->input('email');
+        $contact->telephone = $request->input('telephone');
+    	$contact->client = $request->input('client');
+    	$contact->save();
+        $client = Client::where('societe',$request->input('client'))->first();
+        $id=$client->id;
+        session()->flash('succes','client ajouter avec success');
+       // return view('clients.clientView', ['client'=>$client]);
+        return redirect('clientView/'.$id);
     }
 
     public function details($id){
@@ -59,7 +74,7 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
-    	$contact->client = $request->input('client');
+    	$contact->client = $contact->client;
     	$contact->save();
         return redirect('contact/'.$id);    	
     }

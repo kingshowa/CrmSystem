@@ -91,6 +91,7 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Source</label>
                       <div class="col-md-8 col-lg-9">
+<<<<<<< HEAD
                         <div class="col-md-8 col-lg-9">
                           <select class="form-select" arial-label="Default select example">
                                 <option selected="">Web</option>
@@ -104,6 +105,18 @@
                           </select>
                         </div>
                       </div>
+=======
+                        <select class="form-select" id="select_box" name="source">
+                         
+                          <option value="web">web</option>
+                          <option value="telehone">Téléphone</option>
+                          <option value="Partenaire">Partenaire</option>
+                          <option value=" Salon"> Salon</option>
+                          <option value=" Bouche à oreille"> Bouche à oreille</option>
+                          <option value=" autre">Autre</option>
+                        
+                        </select>
+>>>>>>> ee6af506326dda05d46a5fe60c95ea034c322e79
                     </div>
 
                     <div class="row mb-3">

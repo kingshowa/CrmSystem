@@ -71,7 +71,7 @@
                         <i class="fa fa-phone"></i>
                     </div>
 
-                    <h5><a href="#">+1 333 4040 5566</a></h5>
+                    <h5><a href="tel:+213554107003">+213 554 107 003</a></h5>
 
                     <br>
                 </div>
@@ -91,7 +91,7 @@
                         <i class="fa fa-map-marker"></i>
                     </div>
 
-                    <h5>212 Barrington Court New York</h5>
+                    <h5>Univ-tlemcen 13000 Mansoura 01, Tlemcen, Algeria</h5>
 
                     <br>
                 </div>

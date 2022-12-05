@@ -36,6 +36,22 @@ class RendezController extends Controller
         return redirect('rendez');
     }
 
+    public function store2(validerendez $request){
+    	$rendez= new  Rendez();
+    	$rendez->date = $request->input('date');
+    	$rendez->heure = $request->input('heure');
+       $rendez->compte = $request->input('compte');
+    	$rendez-> client = $request->input('client');
+        $rendez-> commercial = $request->input('commercial');
+    	$rendez->save();
+        session()->flash('succes','rendez-vous bien ajouter');
+        $client = Client::where('societe',$request->input('client'))->first();
+        $id=$client->id;
+        session()->flash('succes','client ajouter avec success');
+       // return view('clients.clientView', ['client'=>$client]);
+        return redirect('clientView/'.$id);
+    }
+
     public function edite($id){
     	$rendez = Rendez::find($id);
     	return view('rendez-vous.rendezView', ['rendez'=>$rendez]);

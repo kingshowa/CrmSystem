@@ -66,10 +66,8 @@
                             <span>CEO</span>
                             <h4>John Doe</h4>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com">email@gmail.com</a></li> 
                             </ul>
                         </div>
                     </div>
@@ -83,10 +81,8 @@
                             <span>Customer Support</span>
                             <h4>Jane Smith</h4>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com">email@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -100,10 +96,8 @@
                             <span>Customer Support</span>
                             <h4>Kate Johnson</h4>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com">email@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -118,10 +112,8 @@
                             <span>Customer Support</span>
                             <h4>Mark Green</h4>
                             <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                                <li><a href="mailto:kingshowa1@gmail.com">email@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
