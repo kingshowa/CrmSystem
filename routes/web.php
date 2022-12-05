@@ -30,6 +30,7 @@ use App\Http\Controllers\PasswordController;
  Route::put('/contact/update_by_contact/{id}', [ContactController::class, 'update_by_contact'])->name('update_by_contact');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
  Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
+ Route::post('/contact-add2', [ContactController::class, 'store_contactClient'])->name('store_contactClient');
  Route::get('/front-office/account/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
 
 
@@ -131,6 +132,7 @@ Route::get('/user-profile', function () {
 Route::delete('/rendez/destroy/{id}', [RendezController::class, 'destroy'])->name('destroy-rendez');
 
 Route::get('/rendez/creater/{societe}', [RendezController::class, 'creater'])->name('creater');
+Route::post('/rendez/store2', [RendezController::class, 'store2'])->name('store-rendez2');
 
 
 

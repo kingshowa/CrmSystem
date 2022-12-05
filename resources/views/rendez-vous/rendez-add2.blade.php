@@ -26,7 +26,7 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-        <form action="{{route('store-rendez')}}" method="POST">
+        <form action="{{route('store-rendez2')}}" method="POST">
                  {{csrf_field()}}
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>
