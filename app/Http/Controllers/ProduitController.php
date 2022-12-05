@@ -25,6 +25,22 @@ class ProduitController extends Controller
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
         $produit->quantitie = $request->input('quantitie');
+
+
+       
+        
+
+         $file = $request->file("Photo");
+         $extenstion = $file->getClientOriginalExtension();
+         $filename = time().'.'.$extenstion;
+       // $file->move('public/images/', $filename);
+         $file->move(public_path('images'), $filename);
+        // $path = $request->file('photo')->storeAs('public/images', $filename);
+         $produit->photo =$file ;
+
+        //Produit::create([
+           // 'photo' => $filename,
+        //]);
     	
     	$produit->save();
         return redirect('produits');

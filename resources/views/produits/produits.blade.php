@@ -59,7 +59,11 @@
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Photo</div>
-                <div class="col-lg-9 col-md-8"><img src="Mercedes_Classe_C_002.jpg" width="100px" height="100px"></div>
+                <div class="col-lg-9 col-md-8">
+                  <!-- <img src="{{('/public/images/'.$produit->photo)}}"> -->
+                   <!-- <img src="{{asset('/public/images/'.$produit->photo)}}" width="100" height="100">-->
+                   <img src="{{ asset('storage/app/public/images/'.$produit->photo) }}" class="avatar avatar-sm me-3 border-radius-lg" alt="produit1">
+                  </div> 
               </div>
             </div>
 
