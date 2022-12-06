@@ -55,7 +55,7 @@
                         <td>{{$prospect->societe}}</td>
                         <td>{{$prospect->telephone}}</td>
                         <td>{{$prospect->email}}</td>
-                        <td class="text-primary">{{$prospect->site_web}}</td>
+                        <td class="text-primary"><a href="">{{$prospect->site_web}}</a></td>
                         <td>{{$prospect->source}}</td>
                         @if($prospect->statut=='Froid')
                         <td><span class="badge bg-success">{{$prospect->statut}}</span></td>@endif
