@@ -17,7 +17,8 @@ class OpportuniteController extends Controller
     }
     
     public function create(){
-    	return view('opportunites.opportunites-add');
+        $client= Client::all();
+    	return view('opportunites.opportunites-add',['clients'=>$client]);
     } 
    
     public function store_opportunite(Request $request){

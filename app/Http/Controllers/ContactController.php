@@ -23,7 +23,6 @@ class ContactController extends Controller
     } 
     public function create2($id){
         $societe= Client::find($id);
-        
     	return view('contacts.contact-add2', ['societe' => $societe]);
     } 
    
