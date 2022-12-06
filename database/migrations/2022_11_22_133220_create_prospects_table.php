@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('telephone');
             $table->string('email');
             $table->string('site_web');
+            $table->string('source');
+            $table->string('statut');
             $table->timestamps();
         });
     }

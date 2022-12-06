@@ -147,7 +147,7 @@
                     <div class="row mb-3">
                       <label for="site_web" class="col-md-4 col-lg-3 col-form-label">Site web</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="site_web" type="text" class="form-control" id="site_web" value="{{$prospect->site_web}}">
+                        <a href=""><input name="site_web" type="text" class="form-control" id="site_web" value="{{$prospect->site_web}}"></a>
                       </div>
                     </div>
 
@@ -155,15 +155,15 @@
                       <label for="source" class="col-md-4 col-lg-3 col-form-label">Source</label>
                       <div class="col-md-8 col-lg-9">
                         <div class="col-md-8 col-lg-9">
-                          <select class="form-select" arial-label="Default select example">
-                                <option selected>Web</option>
-                                <option value="1" >Téléphone</option>
-                                <option value="2" >Partenaire</option>
-                                <option value="3" >Salon</option>
-                                <option value="4" >Bouche à oreille</option>
-                                <option value="5" >Salon</option>
-                                <option value="6" >Liste prospects</option>
-                                <option value="7" > Autre</option>
+                          <select class="form-select" arial-label="Default select example" name="source">
+                                <option value="Web" selected>Web</option>
+                                <option value="Téléphone" >Téléphone</option>
+                                <option value="Partenaire" >Partenaire</option>
+                                <option value="Salon" >Salon</option>
+                                <option value="Bouche à oreille" >Bouche à oreille</option>
+                                <option value="Salon" >Salon</option>
+                                <option value="Liste prospects" >Liste prospects</option>
+                                <option value="Autre" > Autre</option>
                           </select>
                         </div>
                       </div>
@@ -173,9 +173,9 @@
                       <label for="statut" class="col-md-4 col-lg-3 col-form-label">Statut</label>
                       <div class="col-md-8 col-lg-9">
                           <div class="col-sm-12">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected="">Froid</option>
-                                <option value="1">Chaud</option>
+                            <select class="form-select" aria-label="Default select example" name="statut">
+                                <option value="Froid" selected="">Froid</option>
+                                <option value="Chaud">Chaud</option>
                             </select>
                           </div>
                       </div>
