@@ -40,7 +40,6 @@ class UtilisateurController extends Controller
             $utilisateur->role = 'contact';
             }
           
-        
         if (Utilisateur::where('email', $request->input('email'))->exists() ) {
             
             return back();
