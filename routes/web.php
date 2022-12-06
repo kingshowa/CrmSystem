@@ -149,7 +149,7 @@ Route::delete('produits/destroy/{id}', [ProduitController::class, 'destroy'])->n
 Route::get('/produits-add2/{nom}', [ProduitController::class, 'create2'])->name('create2');
 
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
-Route::get('utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
+Route::get('/utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
 Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name('store-ut');
 Route::get('utilisateurs/edite/{id}',[UtilisateurController::class, 'edite'])->name('edite-ut');
 Route::put('utilisateurs/update/{id}',[UtilisateurController::class, 'update'])->name('update-ut');
