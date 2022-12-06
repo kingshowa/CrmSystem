@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prix');
             $table->string('quantitie');
-            $table->string('opportunite')
             $table->timestamps();
         });
     }
