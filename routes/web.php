@@ -69,8 +69,7 @@ Route::get('/commerciale', function () {
     return view('commerciale');
 });
 
-<<<<<<< HEAD
-=======
+
 // Route::get('/prospects', function () {
 //     return view('prospects/prospects');
 // });
@@ -78,7 +77,7 @@ Route::get('/commerciale', function () {
 
 
 
->>>>>>> ee6af506326dda05d46a5fe60c95ea034c322e79
+
 Route::get('/front-office', function () {
     return view('front-office/index');
 });
