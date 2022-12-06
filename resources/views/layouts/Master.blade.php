@@ -75,7 +75,7 @@
             <img src="{{asset('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">
               <!-- {//{$user->nom}} -->
-              Kingstone
+              Meriem
             </span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -84,7 +84,7 @@
             <li class="dropdown-header">
               <h6>
                 <!-- {//{$user->nom}} {//{$user->prenom}} -->
-                Showa Kingstone
+                Meriem Benikhlef 
               </h6>
               <span>
                 <!-- {//{$user->role}} -->
