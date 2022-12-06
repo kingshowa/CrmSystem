@@ -57,7 +57,12 @@
                         <td>{{$prospect->email}}</td>
                         <td class="text-primary">{{$prospect->site_web}}</td>
                         <td>{{$prospect->source}}</td>
-                        <td><span class="badge bg-success">{{$prospect->statut}}</span></td>
+                        @if($prospect->statut=='Froid')
+                        <td><span class="badge bg-success">{{$prospect->statut}}</span></td>@endif
+
+                        @if($prospect->statut=='Chaud')
+                        <td><span class="badge bg-danger">{{$prospect->statut}}</span></td>@endif
+
                         <td>
                           <a class="collapsed" href="{{url('prospect/'.$prospect->id)}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
