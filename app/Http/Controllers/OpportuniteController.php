@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Opportunite;
 use App\Models\Produit;
+use App\Models\Client;
 use Illuminate\Http\Request;
-use App\Http\Requests\validate;
 
 
 class OpportuniteController extends Controller
@@ -20,7 +20,7 @@ class OpportuniteController extends Controller
     	return view('opportunites.opportunites-add');
     } 
    
-    public function store_opportunite(validate $request){
+    public function store_opportunite(Request $request){
     	$opportunite = new  Opportunite();
     	$opportunite->nom = $request->input('nom');
     	$opportunite->montant = $request->input('montant');
@@ -43,7 +43,7 @@ class OpportuniteController extends Controller
     	return view('clients.client', ['client'=>$client]);
     }*/
 
-    public function update(validate $request, $id){
+    public function update(Request $request, $id){
     	$opportunite = Opportunite::find($id);
     	$opportunite->nom = $request->input('nom');
     	$opportunite->montant = $request->input('montant');
