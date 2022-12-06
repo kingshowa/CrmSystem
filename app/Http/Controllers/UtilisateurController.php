@@ -42,7 +42,7 @@ class UtilisateurController extends Controller
           
         
         if (Utilisateur::where('email', $request->input('email'))->exists() ) {
-            Alert::error('Failed', 'Email existe deja!!');
+            
             return back();
         }else  $utilisateur->email = $request->input('email');
     

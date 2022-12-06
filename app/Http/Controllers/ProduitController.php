@@ -39,8 +39,8 @@ class ProduitController extends Controller
          $file = $request->file("Photo");
          $extenstion = $file->getClientOriginalExtension();
          $filename = time().'.'.$extenstion;
-       // $file->move('public/images/', $filename);
-         $file->move(public_path('images'), $filename);
+         $file->move('public/images/', $filename);
+         //$file->move(public_path('images'), $filename);
         // $path = $request->file('photo')->storeAs('public/images', $filename);
          $produit->photo =$file ;
 
