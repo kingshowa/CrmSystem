@@ -33,7 +33,7 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit prospects</button>
                 </li>
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-transformations">Transformation</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-transformation">Transformation</button>
                 </li>
 
               </ul>
@@ -183,72 +183,26 @@
                     
                     @endif
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="submit" class="btn btn-primary">Modifier</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
 
 
-                 <!-- Profile Transformation Form -->
-                  <div class="tab-pane fade profile-edit pt-3" id="profile-transformations">
-
-                    <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
-                      <input type="hidden" name="_method" value="PUT">
-                                  
-                        <div class="row mb-3">
-                              <div class="col-md-8 col-lg-9">
-                                  <div class="form-check">
-                                      <input class="form-check-input" type="radio" value="{{url('prospect/')}}" name="gridRadios" id="changesMade" checked>
-                                        <label class="form-check-label" for="changesMade">
-                                                    Transformation en Contacts
-                                        </label>
-                                    </div>
-                             <div class="form-check">
-                                     <input class="form-check-input" type="radio" value="{{url('prospect/')}}" name="gridRadios" id="newProducts">
-                                     <label class="form-check-label" for="newProducts">
-                                                Transformation en Clients
-                                      </label>
-                             </div>
-                   <div class="form-check">
-                          <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers">
-                            <label class="form-check-label" for="proOffers">
-                                  Delete prospect
-                          </label>
-                    </div>
-  
-  </div>
-</div>
-
-<div class="text-center">
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-    Save Changes
-  </button>
-  
-  <div class="modal fade" id="basicModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Basic Modal</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div><!-- End Basic Modal-->
-
-</div>
-</form><!-- End settings Form -->
-                  </div>
-
-
 
                 </div>
+                <!--Profile transformation-->
+
+                <div class="tab-pane fade profile-edit pt-3" id="profile-transformation">
+                <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
+                  <input type="hidden" name="_method" value="PUT">
+                  <div class="text-center">
+                      <button name="Transformation" type="button" class="btn btn-primary">Transformation</button>
+                    </div>
+                </form>
+                </div>
+
+
 
               </div><!-- End Bordered Tabs -->
 

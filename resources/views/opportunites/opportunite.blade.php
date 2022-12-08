@@ -76,7 +76,7 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form action="{{url('opportunite/update',$opportunite->id)}}" method="POST">
+                  <form action="{{url('opportunite/'.$opportunite->id)}}" method="POST">
                   <input type="hidden" name="_method" value="PUT">
                   {{ csrf_field() }}
 
@@ -101,19 +101,19 @@
                       </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <!--<div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="client" type="text" class="form-control" id="customer" value="{{$opportunite->client}}">
                       </div>
-                    </div>
+                    </div>-->
 
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Product</label>
+                    <!--<div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Produit</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="produits" type="text" class="form-control" id="Product" value="{{$opportunite->produits}}">
                       </div>
-                    </div>
+                    </div>-->
                    
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Modifier</button>
@@ -125,14 +125,14 @@
                 <div class="tab-pane fade pt-3" id="profile-settings">
 
                   <!-- Settings Form -->
-                  <form method="get" action="confirm-operation.html">
+                  <form method="GET" action="confirm-operation.html">
 
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label"></label>
                       <div class="col-md-8 col-lg-9">
                         
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers" checked>
+                          <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers" >
                           <label class="form-check-label" for="proOffers">
                             Delete Opportunite
                           </label>
@@ -179,55 +179,7 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="row">
-        
-        <!-- Recent Sales -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <a href="{{ url('produit-add2/'.$opportunite->id)}}">
-                      <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add produit</button>
-                    </a>
-                  </h5>
-
-                  <table class="table table-striped datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Quantites</th>
-                        <th scope="col" colspan="2">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($produits as $produit)
-                      <tr>
-                        <th scope="row"><a href="#"></a></th>
-                        <td>{{$produit->nom}}</td>
-                        <td>{{$produit->prix}}</td>                     
-                        <td>{{$produit->quantitie}}</td>
-                        <td>
-                          <a class="collapsed" href="{{url('produit/'.$produit->id)}}">
-                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
-                          </a>
-                        </td>
-                       </tr>
-                      @endforeach
-            
-                     
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-      </div>
-    </section>
+   
     @endif
     
   </main><!-- End #main -->

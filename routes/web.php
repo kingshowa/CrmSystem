@@ -41,7 +41,6 @@ use App\Http\Controllers\PasswordController;
  Route::get('/opportunite/{id}', [OpportuniteController::class, 'details'])->name('details');
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
- Route::put('/opportunite/update_by_produit/{id}', [OpportuniteController::class, 'update_by_produit'])->name('update_by_produit');
 
  Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
@@ -147,7 +146,6 @@ Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edi
 Route::get('produits/editee/{id}',[ProduitController::class, 'editee'])->name('editee-produit');
 Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update-produit');
 Route::delete('produits/destroy/{id}', [ProduitController::class, 'destroy'])->name('destroy');
-Route::get('/produits-add2/{nom}', [ProduitController::class, 'create2'])->name('create2');
 
 Route::get('/utilisateurs', [UtilisateurController::class, 'index'])->name('index');
 Route::get('/utilisateurs-add',[UtilisateurController::class, 'create'])->name('create');
