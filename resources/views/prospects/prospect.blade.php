@@ -33,7 +33,7 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit prospects</button>
                 </li>
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-transformations">Transformations</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-transformations">Transformation</button>
                 </li>
 
               </ul>
@@ -189,8 +189,9 @@
 
 
 
-                   <!-- Profile Transformation Form -->
+                 <!-- Profile Transformation Form -->
                   <div class="tab-pane fade profile-edit pt-3" id="profile-transformations">
+
                     <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
                       <input type="hidden" name="_method" value="PUT">
                                   
@@ -203,7 +204,7 @@
                                         </label>
                                     </div>
                              <div class="form-check">
-                                     <input class="form-check-input" type="radio" value="{{url('client/')}}" name="gridRadios" id="newProducts">
+                                     <input class="form-check-input" type="radio" value="{{url('prospect/')}}" name="gridRadios" id="newProducts">
                                      <label class="form-check-label" for="newProducts">
                                                 Transformation en Clients
                                       </label>
