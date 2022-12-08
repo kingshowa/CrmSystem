@@ -50,30 +50,28 @@
                  <td><a class="collapsed" href=" {{route('edite-ut',$utilisateur->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                  
                  <td>
-                 <form action="{{url('utilisateurs/destroy/'.$utilisateur->id)}}" method="POST">
-                 @csrf
-                 @method('delete')
-                 <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-
-                    <div class="modal fade" id="basicModal" tabindex="-1">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Confirm To Delete User</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          Are you sure that you want to delete  {{$utilisateur->nom}} from users? 
-                          
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Confirm</button>
+                  <form action="{{url('utilisateurs/destroy/'.$utilisateur->id)}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$utilisateur->id}}"><i class="bi bi-trash-fill"></i></button>
+                    <div class="modal fade" id="basicModal{{$utilisateur->id}}" tabindex="-1">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Confirm To Delete User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure that you want to delete  {{$utilisateur->nom}} from users? 
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div><!-- End Basic Modal-->
-                  </form>
+                      </div><!-- End Basic Modal-->
+                    </form>
                    </td>
                   </tr>
                   @endforeach  

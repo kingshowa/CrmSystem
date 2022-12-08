@@ -144,6 +144,7 @@ Route::get('/produits', [ProduitController::class, 'index'])->name('index');
 Route::get('produits-add',[ProduitController::class, 'create'])->name('create');
 Route::post('produit/store',[ProduitController::class, 'store'])->name('store-produit');
 Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite-produit');
+Route::get('produits/editee/{id}',[ProduitController::class, 'editee'])->name('editee-produit');
 Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update-produit');
 Route::delete('produits/destroy/{id}', [ProduitController::class, 'destroy'])->name('destroy');
 Route::get('/produits-add2/{nom}', [ProduitController::class, 'create2'])->name('create2');

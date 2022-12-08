@@ -46,15 +46,15 @@
                         <td>{{ $produit->quantitie}}</td>
                         
                         <td><a class="collapsed" href="{{route('edite-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td><a class="collapsed" href="{{route('editee-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        
                         <td>
                           <form action="{{url('produits/destroy/'.$produit->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$produit->id}} "><i class="bi bi-trash-fill"></i></button>
+                            <div class="modal fade" id="basicModal{{$produit->id}}" tabindex="-1">
                           
-                          
-
-                          <div class="modal fade" id="basicModal" tabindex="-1">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
