@@ -44,10 +44,6 @@
                         <td>{{ $produit->nom }}</td>
                         <td>{{ $produit->prix }}</td>
                         <td>{{ $produit->quantitie}}</td>
-                        
-
-                        <td><a class="collapsed" href="{{route('edite-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-
                         <td>
                           <a class="collapsed" href="{{url('produit/'.$produit->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
