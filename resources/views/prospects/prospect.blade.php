@@ -23,14 +23,27 @@
           <div class="card">
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
+
+              @php ($a = 'active')
+              @php ($b = '')
+              @php ($a1 = 'show')
+              @php ($b1 = '')
+
+              @if($action==2)
+                @php ($b = 'active')
+                @php ($a = '')
+                @php ($a1 = '')
+                @php ($b1 = 'show')
+              @endif
+
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                  <button class="nav-link {{ $a }}" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit prospects</button>
+                  <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit prospects</button>
                 </li>
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-transformation">Transformation</button>
@@ -39,7 +52,7 @@
               </ul>
               <div class="tab-content pt-2 col-xl-8">
 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <div class="tab-pane fade {{ $a }} {{ $a1 }} profile-overview" id="profile-overview">
 
 
                   <h5 class="card-title">Prospects Details</h5>
@@ -86,7 +99,7 @@
 
                 </div>
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
                   <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
@@ -154,7 +167,7 @@
                     <div class="row mb-3">
                       <label for="source" class="col-md-4 col-lg-3 col-form-label">Source</label>
                       <div class="col-md-8 col-lg-9">
-                        <div class="col-md-8 col-lg-9">
+                        <div class="col-sm-12">
                           <select class="form-select" arial-label="Default select example" name="source">
                                 <option value="Web" selected>Web</option>
                                 <option value="Téléphone" >Téléphone</option>

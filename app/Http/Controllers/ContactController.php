@@ -54,9 +54,9 @@ class ContactController extends Controller
         return redirect('clientView/'.$id);
     }
 
-    public function details($id){
+    public function details($id, $action){
     	$contact = Contact::find($id);
-    	return view('contacts.contact', ['contact'=>$contact]);
+    	return view('contacts.contact', ['contact'=>$contact], ['action'=>$action]);
     }
 
     public function contact_details($id){

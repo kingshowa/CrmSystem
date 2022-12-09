@@ -34,7 +34,7 @@
                         <th scope="col">Nom</th>
                         <th scope="col">Prix</th>
                         <th scope="col">Quantites</th>   
-                        <th  colspan="4">Actions</th>                                             
+                        <th colspan="3">Action</th>                                             
                       </tr>
                     </thead>
                     <tbody>
@@ -45,8 +45,16 @@
                         <td>{{ $produit->prix }}</td>
                         <td>{{ $produit->quantitie}}</td>
                         
-                        <td><a class="collapsed" href="{{route('edite-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><a class="collapsed" href="{{route('editee-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td>
+                          <a class="collapsed" href="{{url('produit/'.$produit->id.'/1')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('produit/'.$produit->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
                         
                         <td>
                           <form action="{{url('produits/destroy/'.$produit->id)}}" method="POST">

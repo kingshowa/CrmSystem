@@ -42,7 +42,7 @@
                         <th scope="col">Client</th>
                         <th scope="col">Telephone</th>
                         <th scope="col">Site Web</th>
-                        <th scope="col" colspan="2">Actions </th>
+                        <th scope="col" colspan="3">Actions </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -53,7 +53,16 @@
                         <td>{{ $client->societe }}</td>
                         <td>{{$client->telephone}}</td>
                         <td>{{$client->site_web}}</td>
-                        <td><a class="collapsed" href="{{route('show',$client->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td>
+                          <a class="collapsed" href="{{url('clientView/'.$client->id.'/1')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('clientView/'.$client->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
 
                         <td>
                           <form action="{{url('client/destroy/'.$client->id)}}" method="POST">

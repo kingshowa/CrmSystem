@@ -52,14 +52,14 @@ class ProduitController extends Controller
         return redirect('produits');
     }
 
-    public function edite($id){
+    public function edite($id, $action){
     	$produit = Produit::find($id);
-    	return view('produits/produits', ['produit'=>$produit]);
+    	return view('produits/produits', ['produit'=>$produit], ['action'=>$action]);
     }
-    public function editee($id){
-    	$produit = Produit::find($id);
-    	return view('produits/produits-edit', ['produit'=>$produit]);
-    }
+    // public function editee($id){
+    // 	$produit = Produit::find($id);
+    // 	return view('produits/produits-edit', ['produit'=>$produit]);
+    // }
 
     public function update(Request $request, $id){
     	$produit = Produit::find($id);

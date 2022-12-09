@@ -33,9 +33,9 @@ class ProspectController extends Controller
         return redirect('prospects');
     }
 
-    public function details($id){
+    public function details($id, $action){
     	$prospect = Prospect::find($id);
-    	return view('prospects.prospect', ['prospect'=>$prospect]);
+    	return view('prospects.prospect', ['prospect'=>$prospect], ['action'=>$action]);
     }
 
     public function update(Request $request, $id){

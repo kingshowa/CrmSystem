@@ -34,9 +34,9 @@ class OpportuniteController extends Controller
         return redirect('opportunites');
     }
 
-    public function details($id){
+    public function details($id, $action){
     	$opportunite = Opportunite::find($id);
-    	return view('opportunites.opportunite', ['opportunite'=>$opportunite]);
+    	return view('opportunites.opportunite', ['opportunite'=>$opportunite], ['action'=>$action]);
     }
 
 
