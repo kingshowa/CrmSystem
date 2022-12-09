@@ -23,21 +23,34 @@
           <div class="card">
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
+
+              @php ($a = 'active')
+              @php ($b = '')
+              @php ($a1 = 'show')
+              @php ($b1 = '')
+
+              @if($action==2)
+                @php ($b = 'active')
+                @php ($a = '')
+                @php ($a1 = '')
+                @php ($b1 = 'show')
+              @endif
+
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                 <a href="#" > <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button></a>
+                 <button class="nav-link {{ $a }}" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
 
                 <li class="nav-item">
-                  <a href="#"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Client</button></a>
+                  <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Client</button>
                 </li>
 
 
               </ul>
               <div class="tab-content pt-2 col-xl-8">
                 @if($client != null)
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <div class="tab-pane fade {{ $a }} {{ $a1 }} profile-overview" id="profile-overview">
                 
 
                   <h5 class="card-title">Client Details</h5>
@@ -63,11 +76,9 @@
 
                    </div>
                   
-
-
                 </div>
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
                   <form action="{{url('client/update',$client->id)}}" method="POST">       
@@ -157,8 +168,13 @@
                         <td>{{$contact->fonction}}</td>                     
                         <td>{{$contact->client}}</td>
                         <td>
-                          <a class="collapsed" href="{{url('contact/'.$contact->id)}}">
+                          <a class="collapsed" href="{{url('contact/'.$contact->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('contact/'.$contact->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
                           </a>
                         </td>
                        </tr>
@@ -211,7 +227,16 @@
                         
                         
 
-                        <td><a class="collapsed" href="{{route('show2',$rendez->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
+                        <td>
+                          <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/1')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
 
                        
 

@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Models\Opportunite;
+
 use App\Models\Utilisateur;
+
+use App\Models\Produit;
+use App\Models\Client;
+use Illuminate\Http\Request;
 
 class OpportuniteController extends Controller
 {
@@ -13,12 +18,13 @@ class OpportuniteController extends Controller
         return view('opportunites/opportunites', ['opportunites' => $listOpportunites,'user'=>$user]);
         //return view('opportunites/opportunites');
     }
-    
-    public function create(Request $request){
+
+    public function create(Request $request)
+    {
         $user = Utilisateur::find($request->session()->get('user'));
-    	return view('opportunites.opportunites-add',['user'=>$user]);
-    } 
-   
+        return view('opportunites.opportunites-add', ['user' => $user]);
+    }
+    
     public function store_opportunite(Request $request){
     	$opportunite = new  Opportunite();
     	$opportunite->nom = $request->input('nom');
@@ -31,27 +37,28 @@ class OpportuniteController extends Controller
         return redirect('opportunites');
     }
 
-    public function details(Request $request,$id){
+
+   
+
+    public function details(Request $request,$id, $action){
     	$opportunite = Opportunite::find($id);
         $user = Utilisateur::find($request->session()->get('user'));
-    	return view('opportunites.opportunite', ['opportunite'=>$opportunite,'user'=>$user]);
+    	return view('opportunites.opportunite', ['opportunite'=>$opportunite,'user'=>$user], ['action'=>$action]);
+
     }
 
-    /*public function details($id){
-    	$client = client::find($id);
-    	return view('clients.client', ['client'=>$client]);
-    }*/
+
+
 
     public function update(Request $request, $id){
     	$opportunite = Opportunite::find($id);
     	$opportunite->nom = $request->input('nom');
     	$opportunite->montant = $request->input('montant');
     	$opportunite->date_cloture = $request->input('date_cloture');
-        $opportunite->client = $request->input('client');
-        $opportunite->produits = $request->input('produits');
     	$opportunite->save();
-        return redirect('opportunite/'.$id);  	
+        return back();
     }
+
 
     public function destroy($id){
     	$opportunite = Opportunite::find($id);

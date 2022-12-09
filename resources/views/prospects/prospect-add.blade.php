@@ -61,15 +61,15 @@
                     <div class="row mb-3">
                       <label for="address" class="col-md-4 col-lg-3 col-form-label">Adresse</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="adresse" class="form-control" id="address" style="height: 100px">add your adresse</textarea>
+                        <textarea name="adresse" class="form-control" id="address" style="height: 100px"></textarea>
                       </div>
                     </div>
 
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Telephone</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Téléphone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="telephone" type="text" class="form-control" id="Phone" require>
+                        <input name="telephone" type="text" class="form-control" id="Phone" pattern="0(5|6|7)[0-9]{8}" require>
                       </div>
                     </div>
 
@@ -84,30 +84,39 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Site Web</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="site_web" class="form-control" id="about" text="text" require>
+                        <input name="site_web" class="form-control" id="about" type="text" require>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Source</label>
-                      <div class="col-md-8 col-lg-9">
-                        <select class="form-select" id="select_box" name="source">
-                         
-                          <option value="web">web</option>
-                          <option value="telehone">Téléphone</option>
-                          <option value="Partenaire">Partenaire</option>
-                          <option value=" Salon"> Salon</option>
-                          <option value=" Bouche à oreille"> Bouche à oreille</option>
-                          <option value=" autre">Autre</option>
-                        
-                        </select>
+                      
+
+                        <div class="col-md-8 col-lg-9">
+                          <select class="form-select" arial-label="Default select example" name="source">
+                                <option value="Web" selected="">Web</option>
+                                <option value="Téléphone" >Téléphone</option>
+                                <option value="Partenaire" >Partenaire</option>
+                                <option value="Salon" >Salon</option>
+                                <option value="Bouche à oreille" >Bouche à oreille</option>
+                                <option value="Salon" >Salon</option>
+                                <option value="Liste prospects" >Liste prospects</option>
+                                <option value="Autre" > Autre</option>
+                          </select>
+                        </div>
+                 
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Statut</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="statut" class="form-control" id="statuts" text="text" require>
-                      </div>
+                        <div class="col-md-8 col-lg-9">
+                          <div class="col-sm-12">
+                            <select class="form-select" aria-label="Default select example" name="statut">
+                                <option value="Froid" selected="">Froid</option>
+                                <option value="Chaud">Chaud</option>
+                            </select>
+                          </div>
+                        </div>
                     </div>
 
                     <div class="text-center">

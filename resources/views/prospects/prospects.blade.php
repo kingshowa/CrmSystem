@@ -37,33 +37,40 @@
                         <th scope="col">#</th>
                         <th scope="col">Prospect</th>
                         <th scope="col">Societe</th>
-                        <th scope="col">fonction</th>
-                        <th scope="col">Adresse</th>
                         <th scope="col">Telephone</th>
-                        <th scope="col">Email</th>
+                        <!-- <th scope="col">Email</th> -->
                         <th scope="col">Site web</th>
                         <th scope="col">Source</th>
                         <th scope="col">Statut</th>
-                        <th scope="col" colspan="2">Actions</th>
+                        <th scope="col" colspan="3">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
+                    
                     @foreach($prospects as $prospect)
                       <tr>
                         <th scope="row"><a href="#">{{$prospect->id}}</a></th>
                         <td>{{$prospect->nom}}
                         {{$prospect->prenom}}</td>
                         <td>{{$prospect->societe}}</td>
-                        <td>{{$prospect->fonction}}</td>
-                        <td>{{$prospect->adresse}}</td>
                         <td>{{$prospect->telephone}}</td>
-                        <td>{{$prospect->email}}</td>
-                        <td>{{$prospect->site_web}}</td>
+                        <!-- <td>{//{$prospect->email}}</td> -->
+                        <td class="text-primary"><a href="">{{$prospect->site_web}}</a></td>
                         <td>{{$prospect->source}}</td>
-                        <td>{{$prospect->statut}}</td>
+                        @if($prospect->statut=='Froid')
+                        <td><span class="badge bg-success">{{$prospect->statut}}</span></td>@endif
+
+                        @if($prospect->statut=='Chaud')
+                        <td><span class="badge bg-danger">{{$prospect->statut}}</span></td>@endif
+
                         <td>
-                          <a class="collapsed" href="{{url('prospect/'.$prospect->id)}}">
+                          <a class="collapsed" href="{{url('prospect/'.$prospect->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('prospect/'.$prospect->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
                           </a>
                         </td>
                         <td>
@@ -71,9 +78,7 @@
                             @csrf
                             @method('delete')
                             <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
-                          
-                          
-
+                        
                           <div class="modal fade" id="basicModal" tabindex="-1">
                             <div class="modal-dialog">
                               <div class="modal-content">

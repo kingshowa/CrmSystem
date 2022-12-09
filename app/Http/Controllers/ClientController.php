@@ -34,13 +34,21 @@ class ClientController extends Controller
         return redirect('clients');
     }
 
-    public function edite(Request $request,$id){
+
+    
+
+    public function edite(Request $request,$id, $action){
+
     	$client = Client::find($id);
         //$contact=Contact::find($client->societe);
         $contact = Contact::where('client',$client->societe)->get();
         $rendez = Rendez::where('client',$client->societe)->get();
+
         $user = Utilisateur::find($request->session()->get('user'));
-    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez,'user'=>$user]);
+    	
+
+    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez,'user'=>$user, 'action'=>$action]);
+
     }
 
     public function update(validate $request, $id){
@@ -71,5 +79,6 @@ class ClientController extends Controller
     	return redirect('clients');
        
     } 
-    
 }
+    
+

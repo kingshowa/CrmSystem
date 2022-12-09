@@ -31,8 +31,6 @@ class ProspectController extends Controller
         $prospect->adresse = $request->input('adresse');
         $prospect->telephone = $request->input('telephone');
         $prospect->email = $request->input('email');
-    	
-        
     	$prospect-> site_web = $request->input('site_web');
         $prospect->statut = $request->input('statut');
         $prospect->source = $request->input('source');
@@ -40,10 +38,13 @@ class ProspectController extends Controller
         return redirect('prospects');
     }
 
-    public function details(Request $request,$id){
+
+    public function details(Request $request,$id,$action){
     	$prospect = Prospect::find($id);
         $user = Utilisateur::find($request->session()->get('user'));
-    	return view('prospects.prospect', ['prospect'=>$prospect,'user'=>$user]);
+    	return view('prospects.prospect', ['prospect'=>$prospect,'user'=>$user],['action'=>$action]);
+
+    
     }
 
     public function update(Request $request, $id){

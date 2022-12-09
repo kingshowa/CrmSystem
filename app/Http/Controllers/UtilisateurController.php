@@ -42,9 +42,8 @@ class UtilisateurController extends Controller
             $utilisateur->role = 'contact';
             }
           
-        
         if (Utilisateur::where('email', $request->input('email'))->exists() ) {
-            Alert::error('Failed', 'Email existe deja!!');
+            
             return back();
         }else  $utilisateur->email = $request->input('email');
     
@@ -54,10 +53,14 @@ class UtilisateurController extends Controller
         return redirect('utilisateurs');
     }
 
-    public function edite(Request $request,$id){
+
+    public function edite(Request $request,$id, $action){
     	$utilisateur = Utilisateur::find($id);
         $user = Utilisateur::find($request->session()->get('user'));
-    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur,'user'=>$user]);
+    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur,'user'=>$user], ['action'=>$action]);
+
+
+
     }
 
     public function update(Request $request, $id){

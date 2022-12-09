@@ -26,9 +26,13 @@ class ContactController extends Controller
     } 
     public function create2(Request $request,$id){
         $societe= Client::find($id);
+
         $user = Utilisateur::find($request->session()->get('user'));
         
     	return view('contacts.contact-add2', ['societe' => $societe,'user'=>$user]);
+
+    	
+
     } 
    
     public function store_contact(Request $request){
@@ -59,10 +63,14 @@ class ContactController extends Controller
         return redirect('clientView/'.$id);
     }
 
-    public function details(Request $request,$id){
+
+    
+
+    public function details(Request $request,$id, $action){
     	$contact = Contact::find($id);
         $user = Utilisateur::find($request->session()->get('user'));
-    	return view('contacts.contact', ['contact'=>$contact,'user'=>$user]);
+    	return view('contacts.contact', ['contact'=>$contact,'user'=>$user], ['action'=>$action]);
+
     }
 
     public function contact_details(Request $request,$id){

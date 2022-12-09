@@ -57,11 +57,15 @@ class RendezController extends Controller
         return redirect('clientView/'.$id);
     }
 
-    public function edite(Request $request,$id){
+
+   
+
+    public function edite(Request $request,$id, $action){
     	$rendez = Rendez::find($id);
         $user = Utilisateur::find($request->session()->get('user'));
 
-    	return view('rendez-vous.rendezView', ['rendez'=>$rendez,'user'=>$user]);
+    	return view('rendez-vous.rendezView', ['rendez'=>$rendez,'user' => $user,'action'=>$action]);
+
     }
 
     public function update(validerendez $request, $id){
@@ -82,3 +86,4 @@ class RendezController extends Controller
     	return redirect('rendez');
     } 
 }
+

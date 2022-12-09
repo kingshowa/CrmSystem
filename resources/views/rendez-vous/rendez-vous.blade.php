@@ -43,7 +43,7 @@
                         <th scope="col">Compte rendu</th>
                         <th scope="col">Client</th>
                         <th scope="col">Commercial</th>
-                        <th scope="col" colspan="2">Actions </th>
+                        <th scope="col" colspan="3">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,8 +57,13 @@
                         
 
                         <td>
-                          <a class="collapsed" href="{{route('show2',$rendez->id)}}">
+                          <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
                           </a>
                         </td>
                         <td>

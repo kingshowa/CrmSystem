@@ -1,7 +1,7 @@
 @extends("layouts.nav-utilisateurs")
 
 @Section("utilisateurs")
-<script>@include('sweetalert::alert')</Script>
+
 
 <main id="main" class="main">
 

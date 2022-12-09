@@ -68,7 +68,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -113,15 +113,15 @@
                             },
                             {
                               value: 735,
-                              name: "Client"
+                              name: "Proposition"
                             },
                             {
                               value: 580,
-                              name: "Contact"
+                              name: "Verification"
                             },
                             {
                               value: 484,
-                              name: "Opportunité"
+                              name: "Gangee"
                             }
                           ],
                           emphasis: {
@@ -151,7 +151,6 @@
                   <div id="barChart" style="min-height: 400px;" class="echart"></div>
 
                   <script>
-                    
                     document.addEventListener("DOMContentLoaded", () => {
                       echarts.init(document.querySelector("#barChart")).setOption({
                         xAxis: {

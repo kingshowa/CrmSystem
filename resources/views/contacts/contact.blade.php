@@ -21,16 +21,29 @@
           <div class="card">
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
+
+              @php ($a = 'active')
+              @php ($b = '')
+              @php ($a1 = 'show')
+              @php ($b1 = '')
+
+              @if($action==2)
+                @php ($b = 'active')
+                @php ($a = '')
+                @php ($a1 = '')
+                @php ($b1 = 'show')
+              @endif
+
               <ul class="nav nav-tabs nav-tabs-bordered">
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                  <button class="nav-link {{ $a }}" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Contact</button>
+                  <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Contact</button>
                 </li>
               </ul>
               <div class="tab-content pt-2 col-xl-8">
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                <div class="tab-pane fade {{ $a1 }} {{ $a }} profile-overview" id="profile-overview">
                   <h5 class="card-title">Contact Details</h5>
    
                   @if($contact != null)
@@ -67,7 +80,7 @@
                   
                 </div>
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                <div class="tab-pane fade {{ $b1 }} {{ $b }} profile-edit pt-3" id="profile-edit">
                   <!-- Profile Edit Form -->
                   
                   <form action="{{url('contact/'.$contact->id)}}" method="POST">
