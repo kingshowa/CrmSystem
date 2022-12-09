@@ -21,9 +21,9 @@ class ProduitController extends Controller
     } 
    
     public function create2($id){
-        $nom= Opportunite::find($id);
+        $opportunite= Opportunite::find($id);
         
-    	return view('produits.produit-add2', ['nom' => $nom]);
+    	return view('produits.produit-add2', ['opportunite' => $opportunite]);
     } 
    /* public function store_produit(Request $request){*/
     public function store(Request $request){
@@ -52,11 +52,19 @@ class ProduitController extends Controller
         return redirect('produits');
     }
 
-    public function edite($id){
+    public function edite($id, $action){
     	$produit = Produit::find($id);
+
     	return view('produits/produits', ['produit'=>$produit]);
     }
     
+    	return view('produits/produits', ['produit'=>$produit], ['action'=>$action]);
+    
+    // public function editee($id){
+    // 	$produit = Produit::find($id);
+    // 	return view('produits/produits-edit', ['produit'=>$produit]);
+    // }
+
     public function update(Request $request, $id){
     	$produit = Produit::find($id);
     	
@@ -65,7 +73,7 @@ class ProduitController extends Controller
         $produit->quantitie = $request->input('quantitie');
     	//$produit->photo = $request->input('Photo');
     	$produit->save();
-        return redirect('produits');    	
+        return redirect('produit/'.$id);    	
     }
 
 
@@ -86,3 +94,4 @@ class ProduitController extends Controller
     	return redirect('produits');
     } 
 }
+?>

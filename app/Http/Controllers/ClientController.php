@@ -31,12 +31,12 @@ class ClientController extends Controller
         return redirect('clients');
     }
 
-    public function edite($id){
+    public function edite($id, $action){
     	$client = Client::find($id);
         //$contact=Contact::find($client->societe);
         $contact = Contact::where('client',$client->societe)->get();
         $rendez = Rendez::where('client',$client->societe)->get();
-    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez]);
+    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez, 'action'=>$action]);
     }
 
     public function update(validate $request, $id){

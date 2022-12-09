@@ -51,9 +51,9 @@ class UtilisateurController extends Controller
         return redirect('utilisateurs');
     }
 
-    public function edite($id){
+    public function edite($id, $action){
     	$utilisateur = Utilisateur::find($id);
-    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur]);
+    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur], ['action'=>$action]);
     }
 
     public function update(Request $request, $id){

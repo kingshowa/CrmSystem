@@ -44,7 +44,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telephone</th>
                         <th scope="col">Client</th>
-                        <th scope="col" colspan="2">Actions</th>
+                        <th scope="col" colspan="3">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,8 +57,13 @@
                         <td>{{$contact->telephone}}</td>
                         <td>{{$contact->client}}</td>
                         <td>
-                          <a class="collapsed" href="{{url('contact/'.$contact->id)}}">
+                          <a class="collapsed" href="{{url('contact/'.$contact->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('contact/'.$contact->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
                           </a>
                         </td>
                         <td>
