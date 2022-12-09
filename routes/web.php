@@ -11,6 +11,8 @@ use App\Http\Controllers\OpportuniteController;
 use App\Http\Controllers\ProspectController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ChartsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,12 +55,12 @@ use App\Http\Controllers\PasswordController;
 
 
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('admin');
 });
-Route::get('/admin/{id}', function () {
-    return view('admin');
-});
+// Route::get('/admin', [ChartsController::class, 'index'])->name('index');
+Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
+
 
 
 
@@ -161,12 +163,14 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/user-profile', function () {
-    return view('user-profile');
-});
+Route::get('user-profile/{id}', [AuthController::class, 'profile'])->name('user-profile');
+Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
+
+
+
 // Route::get('/forget', [PasswordController::class, 'forget'])->name('forget');
 // Route::get('/user-profile/{id}', [PasswordController::class, 'profile'])->name('profile');
-// Route::put('/changepassword/{id}', [PasswordController::class, 'changepassword'])->name('changepassword');
+Route::put('changepassword/{id}', [PasswordController::class, 'changepassword'])->name('changepassword');
 Route::get('forget-password', [PasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');

@@ -5,26 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Client;
+use App\Models\Utilisateur;
 
 use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {   
-    public function index(){
+    public function index(Request $request){
     	$listContacts = Contact::all();
+        $user = Utilisateur::find($request->session()->get('user'));
         
-        return view('contacts/contacts', ['contacts' => $listContacts]);
+        return view('contacts/contacts', ['contacts' => $listContacts,'user'=>$user]);
         //return view('contacts/contacts');
     }
     
-    public function create(){
+    public function create(Request $request){
         $clients = Client::orderBy('societe')->get();
-    	return view('contacts.contact-add',['clients'=>$clients]);
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('contacts.contact-add',['clients'=>$clients,'user'=>$user]);
     } 
-    public function create2($id){
+    public function create2(Request $request,$id){
         $societe= Client::find($id);
+        $user = Utilisateur::find($request->session()->get('user'));
         
-    	return view('contacts.contact-add2', ['societe' => $societe]);
+    	return view('contacts.contact-add2', ['societe' => $societe,'user'=>$user]);
     } 
    
     public function store_contact(Request $request){
@@ -55,15 +59,17 @@ class ContactController extends Controller
         return redirect('clientView/'.$id);
     }
 
-    public function details($id){
+    public function details(Request $request,$id){
     	$contact = Contact::find($id);
-    	return view('contacts.contact', ['contact'=>$contact]);
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('contacts.contact', ['contact'=>$contact,'user'=>$user]);
     }
 
-    public function contact_details($id){
+    public function contact_details(Request $request,$id){
     	$contact = Contact::find($id);
         $sos = $contact->client;
         $societe = DB::table('clients')->where('societe', $sos)->first();
+        
     	return view('front-office.account', ['contact'=>$contact], ['societe'=>$societe]);
     }
 

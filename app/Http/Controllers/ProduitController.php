@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
+use App\Models\Utilisateur;
 
 class ProduitController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
         $listproduits=Produit::all();
+        $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('produits/produit-view',['produits'=> $listproduits]);
+        return view('produits/produit-view',['produits'=> $listproduits,'user'=>$user]);
     }
     
     public function create(){
@@ -33,10 +35,10 @@ class ProduitController extends Controller
          $file = $request->file("Photo");
          $extenstion = $file->getClientOriginalExtension();
          $filename = time().'.'.$extenstion;
-       // $file->move('public/images/', $filename);
-         $file->move(public_path('images'), $filename);
-        // $path = $request->file('photo')->storeAs('public/images', $filename);
-         $produit->photo =$file ;
+        //$file->move('public/images/', $filename);
+         //$file->move(public_path('images'), $filename);
+         $path = $request->file('photo')->storeAs('public/images', $filename);
+         $produit->photo =$filename ;
 
         //Produit::create([
            // 'photo' => $filename,

@@ -27,20 +27,30 @@ class AuthController extends Controller
        
 
         if ( Hash::check(request('password'), $user->password)){
-          
-          
+
+            $request->session()->put('user', $user->id);
           if($user->role == 'admin'){
                // $user->session()->regenerate();
               return view('admin', ['user'=>$user]);}
               else
-              echo"nnnn";
-          
-        
-             }
+             if($user->role == 'contact'){
+                return view('front-office.account', ['user'=>$user]);
+
+             };
+
+
+        } else
+            return back();
     }
     function logout(){
         auth()->logout();
         return redirect('login');
+    }
+    function profile( $id)
+    {
+        $user=Utilisateur::where('id', $id)->first();
+        return  view('user-profile', ['user'=>$user]);
+
     }
 }
 

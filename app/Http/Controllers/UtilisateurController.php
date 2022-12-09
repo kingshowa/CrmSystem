@@ -11,14 +11,16 @@ use App\Http\Requests\validate;
 class UtilisateurController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
         $listutilisateurs=Utilisateur::all();
+        $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('utilisateurs/utilisateur-view',['utilisateurs'=> $listutilisateurs]);
+        return view('utilisateurs/utilisateur-view',['utilisateurs'=> $listutilisateurs,'user'=>$user]);
     }
     
-    public function create(){
-    	return view('utilisateurs.utilisateur-add');
+    public function create(Request $request){
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('utilisateurs.utilisateur-add',['user'=>$user]);
     } 
    
     public function store(Request $request){
@@ -52,9 +54,10 @@ class UtilisateurController extends Controller
         return redirect('utilisateurs');
     }
 
-    public function edite($id){
+    public function edite(Request $request,$id){
     	$utilisateur = Utilisateur::find($id);
-    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur]);
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('utilisateurs/utilisateurs', ['utilisateur'=>$utilisateur,'user'=>$user]);
     }
 
     public function update(Request $request, $id){

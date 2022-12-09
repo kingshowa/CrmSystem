@@ -43,14 +43,14 @@
 
                 <div class="row mb-3">
                   <label for="about" class="col-md-4 col-lg-3 col-form-label">Stage</label>
-                  <div class="col-md-8 col-lg-9">
+                   <div class="col-md-8 col-lg-9">
               
                     <div class="col-sm-12">
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" name="etapes" aria-label="Default select example">
                         <option selected="">Prospection</option>
-                        <option value="1">Proposition</option>
-                        <option value="2">Verification</option>
-                        <option value="3">Gangee</option>
+                        <option value="Proposition">Proposition</option>
+                        <option value="Verification">Verification</option>
+                        <option value="Gangee">Gangee</option>
                         </select>
                     </div>
             

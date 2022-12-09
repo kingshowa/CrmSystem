@@ -3,23 +3,27 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Opportunite;
+use App\Models\Utilisateur;
 
 class OpportuniteController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
     	$listOpportunites = Opportunite::all();
-        return view('opportunites/opportunites', ['opportunites' => $listOpportunites]);
+        $user = Utilisateur::find($request->session()->get('user'));
+        return view('opportunites/opportunites', ['opportunites' => $listOpportunites,'user'=>$user]);
         //return view('opportunites/opportunites');
     }
     
-    public function create(){
-    	return view('opportunites.opportunites-add');
+    public function create(Request $request){
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('opportunites.opportunites-add',['user'=>$user]);
     } 
    
     public function store_opportunite(Request $request){
     	$opportunite = new  Opportunite();
     	$opportunite->nom = $request->input('nom');
     	$opportunite->montant = $request->input('montant');
+        $opportunite->etapes = $request->input('etapes');
     	$opportunite-> date_cloture = $request->input('date_cloture');
         $opportunite-> client = $request->input('client');
         $opportunite-> produits = $request->input('produits');
@@ -27,9 +31,10 @@ class OpportuniteController extends Controller
         return redirect('opportunites');
     }
 
-    public function details($id){
+    public function details(Request $request,$id){
     	$opportunite = Opportunite::find($id);
-    	return view('opportunites.opportunite', ['opportunite'=>$opportunite]);
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('opportunites.opportunite', ['opportunite'=>$opportunite,'user'=>$user]);
     }
 
     /*public function details($id){

@@ -62,7 +62,8 @@
                 
                 <div class="col-lg-5 col-md-5 col-xs-12 mx-auto">
                     <div class="contact-form section-bg" style="background-image: url({{asset('assets-front/images/contact-1-720x480.jpg')}})">
-                        <form id="contact" action="" method="">
+                        <form id="contact" action="{{route('verifier')}}" method="post">
+                        @csrf
                           <div class="row">
 
                             <div class="col-md-12 col-sm-12">
@@ -76,6 +77,10 @@
                                 <input name="password" type="password" id="subject" placeholder="Your Password*" required>
                               </fieldset>
                             </div>
+                            <div class="col-12">
+                        
+                        <a href="{{ route('forget.password.get') }}">Forget Password</a>
+                      </div>
                             
                             <div class="col-lg-12">
                               <fieldset>

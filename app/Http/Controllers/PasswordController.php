@@ -23,18 +23,22 @@ class PasswordController extends Controller
         return view('user-profile',['user'=> $user]);
 
     }
-    public function changepassword(validate $request, $id){
+    public function changepassword(Request $request, $id){
+       
         $user=Utilisateur::find($id);
         if(Hash::check(request('password'), $user->password)){
+            $password = $request->input('newpassword1');
             
-           $user->password = Hash::make(request('newpassword1'));
+           $user->password = Hash::make( $password);
+            $user->save();
           
           return back()->with("status", "Password changed successfully!");
             
         }else
         return back()->with("error", "Old Password Doesn't match!");
-            
-             
+     
+       
+        
     }
     // function forget(){
     //     return view('login/forget');
@@ -80,6 +84,7 @@ class PasswordController extends Controller
      * @return response()
      */
     public function showResetPasswordForm($token) { 
+        
        return view('login.reset', ['token' => $token]);
     }
 
@@ -90,9 +95,10 @@ class PasswordController extends Controller
      */
     public function submitResetPasswordForm(Request $request)
     {
+        // return $request;
         $request->validate([
             'email' => 'required|email|exists:utilisateurs',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|confirmed',
             'password_confirmation' => 'required'
         ]);
 
@@ -104,9 +110,10 @@ class PasswordController extends Controller
                             ->first();
 
         if(!$updatePassword){
+
             return back()->withInput()->with('error', 'Invalid token!');
         }
-        echo "hjgy";
+        
         $password = $request->input('password');
         $user = Utilisateur::where('email', $request->email)
                     ->update(['password' => Hash::make($password)]);

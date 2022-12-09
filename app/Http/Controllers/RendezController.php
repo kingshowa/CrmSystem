@@ -3,25 +3,30 @@
 namespace App\Http\Controllers;
 use App\Models\Rendez;
 use App\Models\Client;
+use App\Models\Utilisateur;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\validerendez;
 
 
 class RendezController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $listrendez = Rendez::all();
+        $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez]);
+        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez,'user'=>$user]);
     }
     
-    public function create(){
-    	return view('rendez-vous.rendez-add');
+    public function create(Request $request){
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('rendez-vous.rendez-add',['user'=>$user]);
     } 
-    public function creater($id){
+    public function creater(Request $request,$id){
         $societe= Client::find($id);
+        $user = Utilisateur::find($request->session()->get('user'));
         
-    	return view('rendez-vous.rendez-add2', ['societe' => $societe]);
+    	return view('rendez-vous.rendez-add2', ['societe' => $societe,'user'=>$user]);
     } 
    
     public function store(validerendez $request){
@@ -52,9 +57,11 @@ class RendezController extends Controller
         return redirect('clientView/'.$id);
     }
 
-    public function edite($id){
+    public function edite(Request $request,$id){
     	$rendez = Rendez::find($id);
-    	return view('rendez-vous.rendezView', ['rendez'=>$rendez]);
+        $user = Utilisateur::find($request->session()->get('user'));
+
+    	return view('rendez-vous.rendezView', ['rendez'=>$rendez,'user'=>$user]);
     }
 
     public function update(validerendez $request, $id){

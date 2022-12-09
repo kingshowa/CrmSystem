@@ -4,6 +4,7 @@
 
 <!-- ======= Sidebar For contact ======= -->
 <aside id="sidebar" class="sidebar">
+@if($user != null)
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -62,7 +63,7 @@
 </aside><!-- End Sidebar-->
 
 <main id="main" class="main">
-@if($user != null)
+
 
 <div class="pagetitle">
   <h1>Profile</h1>
@@ -109,7 +110,7 @@
           
 
             <li class="nav-item">
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+            <a href="#"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button></a>
             </li>
 
           </ul>
@@ -185,7 +186,7 @@
             
             <div class="tab-pane fade pt-3" id="profile-change-password">
               <!-- Change Password Form -->
-              <form action="{{url('changepassword/'.$user->id)}}" method="POST">
+              <form action="{{route('changepassword',$user->id)}}" method="POST">
               <input type="hidden" name="_method" value="PUT" >
                     {{ csrf_field() }}
 

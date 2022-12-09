@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Utilisateur;
 use App\Models\Contact;
 use App\Models\Rendez;
 use Illuminate\Http\Request;
@@ -10,14 +11,16 @@ use App\Http\Requests\validate;
 
 class ClientController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $listclients=Client::all();
+        $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('clients/clients',['clients'=> $listclients]);
+        return view('clients/clients',['clients'=> $listclients,'user'=>$user]);
     }
     
-    public function create(){
-    	return view('clients.client-add');
+    public function create(Request $request){
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('clients.client-add',['user'=>$user]);
     } 
    
     public function store(validate $request){
@@ -31,12 +34,13 @@ class ClientController extends Controller
         return redirect('clients');
     }
 
-    public function edite($id){
+    public function edite(Request $request,$id){
     	$client = Client::find($id);
         //$contact=Contact::find($client->societe);
         $contact = Contact::where('client',$client->societe)->get();
         $rendez = Rendez::where('client',$client->societe)->get();
-    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez]);
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez,'user'=>$user]);
     }
 
     public function update(validate $request, $id){
@@ -67,4 +71,5 @@ class ClientController extends Controller
     	return redirect('clients');
        
     } 
+    
 }

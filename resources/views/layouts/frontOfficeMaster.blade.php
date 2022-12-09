@@ -48,6 +48,7 @@
     
     @yield("frontContent")
     
+    
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
