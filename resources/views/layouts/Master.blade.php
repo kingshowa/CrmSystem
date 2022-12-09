@@ -66,7 +66,7 @@
           </a>
         </li><!-- End Search Icon-->
 
-         @if($user != null) 
+         
 
 
         <li class="nav-item dropdown pe-3">
@@ -75,10 +75,10 @@
             <img src="{{asset('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">
 
-               {{$user->nom}} 
-              <!-- Kingstone -->
+              
+              Kingstone 
 
-              <!-- {//{$user->nom}} -->
+             
  
             </span>
           </a><!-- End Profile Iamge Icon -->
@@ -88,15 +88,15 @@
             <li class="dropdown-header">
               <h6>
 
-                {{$user->nom}} {{$user->prenom}} 
-                <!-- Showa Kingstone -->
+               
+                Showa Kingstone 
 
-                <!-- {//{$user->nom}} {//{$user->prenom}} -->
+               
 
               </h6>
               <span>
-                 {{$user->role}} 
-                <!-- Manager -->
+                 
+                 Manager 
               </span>
             </li>
             <li>
@@ -104,8 +104,10 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{url('user-profile/'.$user->id)}}">
-                <i class="bi bi-person"></i>
+             
+            
+            <a class="dropdown-item d-flex align-items-center" href="#">
+            <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
             </li>
@@ -133,7 +135,7 @@
 
 
   @yield("content")
-  @endif
+ 
 
   
   <!-- ======= Footer ======= -->

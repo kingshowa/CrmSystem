@@ -15,7 +15,7 @@ class ClientController extends Controller
         $listclients=Client::all();
         $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('clients/clients',['clients'=> $listclients,'user'=>$user]);
+        return view('clients/clients',['clients'=> $listclients]);
     }
     
     public function create(Request $request){

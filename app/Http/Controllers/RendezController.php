@@ -15,7 +15,7 @@ class RendezController extends Controller
         $listrendez = Rendez::all();
         $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez,'user'=>$user]);
+        return view('rendez-vous/rendez-vous',['rendez'=> $listrendez]);
     }
     
     public function create(Request $request){

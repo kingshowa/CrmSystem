@@ -13,7 +13,7 @@ class ProspectController extends Controller
     	$listProspects = Prospect::all();
         $user = Utilisateur::find($request->session()->get('user'));
         
-        return view('prospects/prospects', ['prospects' => $listProspects, 'user' => $user]);
+        return view('prospects/prospects', ['prospects' => $listProspects]);
         //return view('prospects/prospects');
     }
     

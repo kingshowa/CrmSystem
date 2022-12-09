@@ -15,7 +15,7 @@ class UtilisateurController extends Controller
         $listutilisateurs=Utilisateur::all();
         $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('utilisateurs/utilisateur-view',['utilisateurs'=> $listutilisateurs,'user'=>$user]);
+        return view('utilisateurs/utilisateur-view',['utilisateurs'=> $listutilisateurs,]);
     }
     
     public function create(Request $request){

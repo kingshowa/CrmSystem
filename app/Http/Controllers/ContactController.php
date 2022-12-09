@@ -15,7 +15,7 @@ class ContactController extends Controller
     	$listContacts = Contact::all();
         $user = Utilisateur::find($request->session()->get('user'));
         
-        return view('contacts/contacts', ['contacts' => $listContacts,'user'=>$user]);
+        return view('contacts/contacts', ['contacts' => $listContacts]);
         //return view('contacts/contacts');
     }
     

@@ -25,8 +25,8 @@ class AuthController extends Controller
         //$pass=Hash::check($request->get('password'));
         $user = Utilisateur::where('email', $email)->first();
        
-
-        if ( Hash::check(request('password'), $user->password)){
+        echo $password;
+        if (Hash::check(request('password'), $user->password)){
 
             $request->session()->put('user', $user->id);
           if($user->role == 'admin'){
@@ -36,11 +36,12 @@ class AuthController extends Controller
              if($user->role == 'contact'){
                 return view('front-office.account', ['user'=>$user]);
 
-             };
+             }
 
 
-        } else
-            return back();
+        } 
+           
+            //return back();
     }
     function logout(){
         auth()->logout();

@@ -20,7 +20,7 @@ class ProduitController extends Controller
         $listproduits=Produit::all();
         $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('produits/produit-view',['produits'=> $listproduits,'user'=>$user]);
+        return view('produits/produit-view',['produits'=> $listproduits]);
     }
     
     public function create(Request $request){

@@ -15,7 +15,7 @@ class OpportuniteController extends Controller
     public function index(Request $request){
     	$listOpportunites = Opportunite::all();
         $user = Utilisateur::find($request->session()->get('user'));
-        return view('opportunites/opportunites', ['opportunites' => $listOpportunites,'user'=>$user]);
+        return view('opportunites/opportunites', ['opportunites' => $listOpportunites]);
         //return view('opportunites/opportunites');
     }
 
