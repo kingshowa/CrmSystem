@@ -12,6 +12,7 @@
       <li class="breadcrumb-item active">View Produits</li>
     </ol>
   </nav>
+  
 </div><!-- End Page Title -->
 
 <section class="section profile">

@@ -46,7 +46,6 @@
                         <td>{{ $produit->quantitie}}</td>
                         
                         <td><a class="collapsed" href="{{route('edite-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
-                        <td><a class="collapsed" href="{{route('editee-produit',$produit->id)}}"><button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button></a></td>
                         
                         <td>
                           <form action="{{url('produits/destroy/'.$produit->id)}}" method="POST">

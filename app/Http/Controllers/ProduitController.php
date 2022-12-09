@@ -56,11 +56,7 @@ class ProduitController extends Controller
     	$produit = Produit::find($id);
     	return view('produits/produits', ['produit'=>$produit]);
     }
-    public function editee($id){
-    	$produit = Produit::find($id);
-    	return view('produits/produits-edit', ['produit'=>$produit]);
-    }
-
+    
     public function update(Request $request, $id){
     	$produit = Produit::find($id);
     	
