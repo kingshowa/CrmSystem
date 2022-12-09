@@ -70,8 +70,14 @@ class ProduitController extends Controller
 
     public function edite(Request $request,$id, $action){
     	$produit = Produit::find($id);
+
         $user = Utilisateur::find($request->session()->get('user'));
     	return view('produits/produits', ['produit'=>$produit,'user'=>$user], ['action'=>$action]);
+
+
+    	//return view('produits/produits', ['produit'=>$produit]);
+        
+
     }
     
     	
