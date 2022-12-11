@@ -4,6 +4,11 @@
 @Section("utilisateurs")
 
 <main id="main" class="main">
+@if(session()->has('succes'))
+      <div class="alert alert-success">
+        {{session()->get('succes')}}
+      </div>
+    @endif
 
 <div class="pagetitle">
   <h1>Utilisateurs</h1>
@@ -15,6 +20,7 @@
     </ol>
   </nav>
 </div><!-- End Page Title -->
+
 
 <section class="section profile">
   <div class="row">
@@ -70,6 +76,16 @@
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Email</div>
                 <div class="col-lg-9 col-md-8">{{$utilisateur->email}}</div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Photo</div>
+                <div class="col-lg-9 col-md-8">
+
+                  
+                   <img src="/storage/imag/{{$utilisateur->image}}" width="100" height="100">
+
+                  
+                  </div> 
               </div>
 
             </div>

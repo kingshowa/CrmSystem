@@ -34,6 +34,7 @@ class OpportuniteController extends Controller
         $opportunite-> client = $request->input('client');
         $opportunite-> produits = $request->input('produits');
     	$opportunite->save();
+        session()->flash('succes','client ajouter avec success');
         return redirect('opportunites');
     }
 

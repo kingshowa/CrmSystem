@@ -45,26 +45,18 @@ class ProduitController extends Controller
        
         
 
-         $file = $request->file("Photo");
-         $extenstion = $file->getClientOriginalExtension();
-         $filename = time().'.'.$extenstion;
+         $filenameWithExt = $request->file("photo")->getClientOriginalName();
 
-        //$file->move('public/images/', $filename);
-         //$file->move(public_path('images'), $filename);
-         $path = $request->file('photo')->storeAs('public/images', $filename);
-         $produit->photo =$filename ;
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension=$request->file("photo")->getClientOriginalExtension();
+        $filenametostore = $filename . '_' . time() . '.' . $extension;
+        $path = $request->file("photo")->storeas('public/images', $filenametostore);
+        $produit->Photo = $filenametostore;
+        
 
-         $file->move('public/images/', $filename);
-         //$file->move(public_path('images'), $filename);
-        // $path = $request->file('photo')->storeAs('public/images', $filename);
-         $produit->photo =$file ;
-
-
-        //Produit::create([
-           // 'photo' => $filename,
-        //]);
     	
     	$produit->save();
+        session()->flash('succes','Produit ajouter avec success');
         return redirect('produits');
     }
 

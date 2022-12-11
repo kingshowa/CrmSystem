@@ -152,7 +152,7 @@ Route::post('produit/store',[ProduitController::class, 'store'])->name('store-pr
 
 //Route::get('produits/edite/{id}',[ProduitController::class, 'edite'])->name('edite-produit');
 
-Route::get('produit/{id}/{action}',[ProduitController::class, 'editee'])->name('edite');
+Route::get('produit/{id}/{action}',[ProduitController::class, 'edite'])->name('edite');
 
 //Route::get('produits/editee/{id}',[ProduitController::class, 'editee'])->name('editee-produit');
 Route::put('produits/update/{id}',[ProduitController::class, 'update'])->name('update-produit');

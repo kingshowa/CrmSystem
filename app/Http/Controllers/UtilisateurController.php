@@ -24,6 +24,7 @@ class UtilisateurController extends Controller
     } 
    
     public function store(Request $request){
+        $this->validate($request, ['image' => 'nullable']);
     	$utilisateur = new  Utilisateur();
     	$utilisateur->nom = $request->input('firstName');
     	$utilisateur->prenom = $request->input('surName');
@@ -44,12 +45,23 @@ class UtilisateurController extends Controller
           
         if (Utilisateur::where('email', $request->input('email'))->exists() ) {
             
-            return back();
+            return back()->with(session()->flash('echec','Email existe deja'));
         }else  $utilisateur->email = $request->input('email');
     
        
-    	//$utilisateur->password = $request->input('password');
+    	
+
+        $filenameWithExt = $request->file("image")->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension=$request->file("image")->getClientOriginalExtension();
+        $filenametostore = $filename . '_' . time() . '.' . $extension;
+        $path = $request->file("image")->storeas('public/imag', $filenametostore);
+
+
+        $utilisateur->image = $filenametostore;
     	$utilisateur->save();
+        session()->flash('success','client ajouter avec success');
         return redirect('utilisateurs');
     }
 

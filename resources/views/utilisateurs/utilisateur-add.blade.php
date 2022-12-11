@@ -4,6 +4,11 @@
 
 
 <main id="main" class="main">
+@if(session()->has('echec'))
+      <div class="alert alert-warning">
+        {{session()->get('echec')}}
+      </div>
+    @endif
 
 <div class="pagetitle">
   <h1>Add Utilisateurs</h1>
@@ -24,7 +29,7 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-        <form action="{{url('utilisateurs/store')}}" method="POST">
+        <form action="{{url('utilisateurs/store')}}" method="POST" enctype="multipart/form-data">
               {{ csrf_field()}}  
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
@@ -54,6 +59,12 @@
                   </div>
                 </div>
                 <div>
+                <div class="row mb-3">
+                      <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="image" type="file" class="form-control" id="Photo" width="60px" height="60px" accept="image/png, image/jpeg">
+                      </div>
+                    </div>
                 
                   <label for="Email" class="col-md-4 col-lg-3 col-form-label">Role</label>
                   

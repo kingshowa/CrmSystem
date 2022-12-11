@@ -49,7 +49,7 @@
                     <div class="row mb-3">
                       <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Photo" type="file" class="form-control" id="Photo" width="60px" height="60px" accept="image/png, image/jpeg">
+                        <input name="photo" type="file" class="form-control" id="Photo" width="60px" height="60px" accept="image/png, image/jpeg">
                       </div>
                     </div>
                     <div class="text-center">

@@ -16,20 +16,20 @@ use Carbon\Carbon;
 
 class chartsController extends Controller
 {
-  public function admin(Request $request){
-    $user = Utilisateur::find($request->session()->get('user'));
-  return view('admin',['user'=>$user]);
+//   public function admin(Request $request){
+//     $user = Utilisateur::find($request->session()->get('user'));
+//   return view('admin',['user'=>$user]);
 
-}
-
-
+// }
 
 
 
 
 
 
-    public function index(Request $request){
+
+
+    public function admin(Request $request){
         $user = Utilisateur::find($request->session()->get('user'));
         $today = Carbon::now()->todatestring();
 
@@ -77,20 +77,10 @@ class chartsController extends Controller
           //nombre total prospect
           $nombreprospect = Prospect::select('id')->get();
           $nombreprospect = count($nombreprospect);
-        return view('admin', [
-            'year' => $year,
-            'yeurp' => $yearp,
-            'months' => $months,
-            'montho' => $montho
-            ,
-            'nombreopportunite' => $nombreopportunite,
-            'nombreclient' => $nombreclient
-            ,
-            'nobrecontact' => $nombrecontact,
-            'nombreprospect' => $nombreprospect
-            ,
-            'user' => $user
-        ]);
+        return view('admin', compact('
+            year','yearp','months', 'montho' ,'nombreopportunite','nombreclient','nobrecontact','nombreprospect'
+            
+        ));
 
         
     }

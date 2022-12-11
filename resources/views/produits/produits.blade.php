@@ -76,7 +76,7 @@
                 <div class="col-lg-9 col-md-8">
 
                   <!-- <img src="{{('/public/images/'.$produit->photo)}}"> -->
-                   <img src="{{asset('/public/images/'.$produit->photo)}}" width="100" height="100">
+                   <img src="/storage/images/{{$produit->photo}}" width="100" height="100">
 
                   <img src="{{asset('/images/'.$produit->photo)}}">
                    <!-- <img src="{{asset('/public/images/'.$produit->photo)}}" width="100" height="100">-->
