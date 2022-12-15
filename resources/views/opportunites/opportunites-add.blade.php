@@ -26,68 +26,56 @@
           <form action="{{ route('store_opportunite') }}" method="POST">
           {{ csrf_field()}}
                 <div class="row mb-3">
-                  <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                  <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Opportunity name</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="nom" type="text" class="form-control" id="firstName">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Montant</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="montant" type="text" class="form-control" id="surName">
-                  </div>
-                </div>
-
-
-                <div class="row mb-3">
                   <label for="about" class="col-md-4 col-lg-3 col-form-label">Stage</label>
-                   <div class="col-md-8 col-lg-9">
-              
-                    <div class="col-sm-12">
-                      <select class="form-select" name="etapes" aria-label="Default select example">
-                        <option selected="">Prospection</option>
-                        <option value="Proposition">Proposition</option>
-                        <option value="Verification">Verification</option>
-                        <option value="Gangee">Gangee</option>
-                        </select>
-                    </div>
-            
+                  <div class="col-md-8 col-lg-9">
+                    <select class="form-select" name="etapes" aria-label="Default select example">
+                      <option selected>--Select stage--</option>
+                      <option value="Prospection">Prospection</option>
+                      <option value="Proposition">Proposition</option>
+                      <option value="Verification">Verification</option>
+                      <option value="Gangee">Gangee</option>
+                    </select>
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Date_cloture</label>
+                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Date expected</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="date_cloture" type="date" class="form-control" id="Phone">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Client</label>
+                      <label  class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
                         <select class="form-select" id="select_box" name="client">
                           <option selected>Choose Client</option>
                           @foreach($clients as $client)
-                          <option value="{{$client->societe}}">{{$client->societe}}</option>
+                          <option value="{{$client->id}}">{{$client->societe}}</option>
                           @endforeach
                         </select>
-                        <!-- <input name="client"  type="text" class="form-control" id="Email" required> -->
                        
                       </div>
                     </div>
 
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                   <label for="Email" class="col-md-4 col-lg-3 col-form-label">Produit</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="produits" type="text" class="form-control" id="Email">
                   </div>
-                </div>
+                </div> -->
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save Opportunites</button>
                 </div>
-              </form><!-- End Profile Edit Form -->
+              </form>
 
         </div>
       </div>

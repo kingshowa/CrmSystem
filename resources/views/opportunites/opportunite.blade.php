@@ -46,11 +46,8 @@
                   <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Opportunite</button>
                 </li>
 
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-                </li>
-
               </ul>
+
               <div class="tab-content pt-2 col-xl-8">
               @if($opportunite != null)
                 <div class="tab-pane fade {{ $a }} {{ $a1 }} profile-overview" id="profile-overview">
@@ -61,17 +58,22 @@
                  
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Nom</div>
+                    <div class="col-lg-3 col-md-4 label ">Opportunity Name</div>
                     <div class="col-lg-9 col-md-8">{{$opportunite->nom}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Stage</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->montant}}</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->etape}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Date de Clôture</div>
+                    <div class="col-lg-3 col-md-4 label">Amount</div>
+                    <div class="col-lg-9 col-md-8">{{$amount}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Closing Date</div>
                     <div class="col-lg-9 col-md-8">{{$opportunite->date_cloture}}	</div>
                   </div>
 
@@ -80,10 +82,6 @@
                     <div class="col-lg-9 col-md-8">{{$opportunite->client}}</div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Produit</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->produits}}</div>
-                  </div>
                 </div>
 
                 <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
@@ -94,39 +92,32 @@
                   {{ csrf_field() }}
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Opportunity Name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nom" type="text" class="form-control" id="name" value="{{$opportunite->nom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Montant</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Closing Date</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="montant" type="text" class="form-control" id="stage" value="{{$opportunite->montant}}">
+                        <input name="date_cloture" type="date" class="form-control"  value="{{$opportunite->date_cloture}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Date de Clôture</label>
+                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Stage</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="date_cloture" type="text" class="form-control" id="closing" value="{{$opportunite->date_cloture}}">
+                        <select class="form-select" name="etapes" aria-label="Default select example">
+                          <option selected value="{{$opportunite->etape}}">{{$opportunite->etape}}</option>
+                          <option value="Prospection">Prospection</option>
+                          <option value="Proposition">Proposition</option>
+                          <option value="Verification">Verification</option>
+                          <option value="Gangee">Gangee</option>
+                        </select>
                       </div>
                     </div>
 
-                    <!--<div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Client</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="client" type="text" class="form-control" id="customer" value="{{$opportunite->client}}">
-                      </div>
-                    </div>-->
-
-                    <!--<div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Produit</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="produits" type="text" class="form-control" id="Product" value="{{$opportunite->produits}}">
-                      </div>
-                    </div>-->
                    
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Modifier</button>
@@ -135,52 +126,7 @@
 
                 </div>
 
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
-                  <form method="GET" action="confirm-operation.html">
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label"></label>
-                      <div class="col-md-8 col-lg-9">
-                        
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" value="delete" name="gridRadios" id="proOffers" >
-                          <label class="form-check-label" for="proOffers">
-                            Delete Opportunite
-                          </label>
-                        </div>
-                      
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                        Save Changes
-                      </button>
-                      
-                      <div class="modal fade" id="basicModal" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Basic Modal</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- End Basic Modal-->
-
-                    </div>
-                  </form><!-- End settings Form -->
-
-                </div>
+                
 
 
               </div><!-- End Bordered Tabs -->
@@ -189,6 +135,84 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="row">
+        
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="{{ url('opp-product/'.$opportunite->id)}}">
+                      <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Product</button>
+                    </a>
+                  </h5>
+
+                  <table class="table table-striped datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unity Price</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col" colspan="2">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $product)
+                      <tr>
+                        <th scope="row">{{$product->idPO}}<a href="#"></a></th>
+                        <td>{{$product->nom}}</td>
+                        <td>{{$product->quantite}}</td>                     
+                        <td>{{$product->prix}}</td>
+                        <td>{{$product->prix * $product->quantite}}</td>
+                        
+                        <td>
+                          <a class="collapsed" href="{{url('opp-product-edit/'.$product->idPO.'/'.$product->idOpportunite)}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
+
+                        <td>
+                          <form action="{{url('opp-product/'.$product->idPO)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$product->idPO}}"><i class="bi bi-trash-fill"></i></button>
+                          
+                      
+                            <div class="modal fade" id="basicModal{{$product->idPO}}" tabindex="-1">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title">Confirm Delete Product from Opportunite</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are you sure that you want to delete {{$product->nom}} from this opportunity? This action is permanent and can not be undone.
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div><!-- End Basic Modal-->
+                            </form>
+                          </td>
+                       </tr>
+                      @endforeach
+                                
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div>
       </div>
     </section>
 

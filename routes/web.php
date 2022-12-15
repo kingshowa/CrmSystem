@@ -39,10 +39,15 @@ use App\Http\Controllers\ChartsController;
 
  Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
  Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
+ Route::get('/opp-product/{id}', [OpportuniteController::class, 'create_prod'])->name('create_prod');
+ Route::get('/opp-product-edit/{idPO}/{idOpp}', [OpportuniteController::class, 'create_prod_edit'])->name('create_prod_edit');
  Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
+ Route::post('/opp-product/{id}', [OpportuniteController::class, 'store_opp_product'])->name('store_opp_product');
  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
+ Route::put('/opp-product/{id}/{idOpp}', [OpportuniteController::class, 'updateOP'])->name('updateOP');
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
+ Route::delete('/opp-product/{id}', [OpportuniteController::class, 'destroyOP'])->name('destroyOP');
 
  Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
