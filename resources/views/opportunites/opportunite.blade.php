@@ -69,7 +69,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Amount</div>
-                    <div class="col-lg-9 col-md-8">{{$amount}}</div>
+                    <div class="col-lg-9 col-md-8">{{$amount}} DZD</div>
                   </div>
 
                   <div class="row">
