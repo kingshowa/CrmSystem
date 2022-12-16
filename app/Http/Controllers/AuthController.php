@@ -17,6 +17,7 @@ class AuthController extends Controller
     function login(){
         return view('login.login');
     }
+
     function verifier(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
@@ -31,6 +32,10 @@ class AuthController extends Controller
             $request->session()->put('user', $user->id);
           if($user->role == 'admin'){
                // $user->session()->regenerate();
+            //    session_start();
+            //    $_SESSION['admin']=$user->id;
+
+            //$id = $_SESSION['admin'];
               return view('admin', ['user'=>$user]);}
               else
              if($user->role == 'contact'){

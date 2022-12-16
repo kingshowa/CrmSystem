@@ -41,7 +41,7 @@ class ClientController extends Controller
 
     	$client = Client::find($id);
         //$contact=Contact::find($client->societe);
-        $contact = Contact::where('client',$client->societe)->get();
+        $contact = Contact::where('clientID',$id);
         $rendez = Rendez::where('client',$client->societe)->get();
 
         $user = Utilisateur::find($request->session()->get('user'));

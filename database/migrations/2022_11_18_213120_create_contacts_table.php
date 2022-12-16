@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('fonction');
             $table->string('email');
             $table->string('telephone');
-            $table->string('client');
+            $table->integer('clientID');
             $table->timestamps();
         });
     }

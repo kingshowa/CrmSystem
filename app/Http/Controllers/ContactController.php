@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Client;
 use App\Models\Utilisateur;
+use App\Models\Opportunite;
 
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,7 @@ class ContactController extends Controller
         $user = Utilisateur::find($request->session()->get('user'));
     	return view('contacts.contact-add',['clients'=>$clients,'user'=>$user]);
     } 
+
     public function create2(Request $request,$id){
         $societe= Client::find($id);
 
@@ -42,7 +44,7 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
-    	$contact->client = $request->input('client');
+    	$contact->clientID = $request->input('client');
     	$contact->save();
         session()->flash('succes','You have successfully added the contact '.$contact->nom);
         return redirect('contacts');
@@ -67,18 +69,16 @@ class ContactController extends Controller
     
 
     public function details(Request $request,$id, $action){
-    	$contact = Contact::find($id);
+        $contact = Contact::join('clients', 'clients.id', '=', 'contacts.clientID')->where('contacts.id', $id)->get()[0];
         $user = Utilisateur::find($request->session()->get('user'));
     	return view('contacts.contact', ['contact'=>$contact,'user'=>$user], ['action'=>$action]);
 
     }
 
     public function contact_details(Request $request,$id){
-    	$contact = Contact::find($id);
-        $sos = $contact->client;
-        $societe = DB::table('clients')->where('societe', $sos)->first();
-        
-    	return view('front-office.account', ['contact'=>$contact], ['societe'=>$societe]);
+        $contact = Contact::join('clients', 'clients.id', '=', 'contacts.clientID')->where('contacts.id', $id)->get()[0];
+        $opps = Opportunite::where('clientID', $contact->clientID)->get();
+    	return view('front-office.account', ['contact'=>$contact, 'opps'=>$opps]);
     }
 
     public function update(Request $request, $id){
@@ -88,7 +88,7 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
-    	$contact->client = $contact->client;
+    	$contact->clientID = $contact->clientID;
     	$contact->save();
         return redirect('contact/'.$id);    	
     }

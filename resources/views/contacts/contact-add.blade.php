@@ -68,7 +68,7 @@
                         <select class="form-select" id="select_box" name="client">
                           <option selected>Choose Client</option>
                           @foreach($clients as $client)
-                          <option value="{{$client->societe}}">{{$client->societe}}</option>
+                          <option value="{{$client->id}}">{{$client->societe}}</option>
                           @endforeach
                         </select>
                         <!-- <input name="client"  type="text" class="form-control" id="Email" required> -->

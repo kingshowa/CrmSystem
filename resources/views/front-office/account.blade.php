@@ -128,26 +128,26 @@
 
                                 <h5 class="card-title">Company Details</h5>
 
-                                @if($societe != null)
+                                @if($contact != null)
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">Company Name</div>
-                                    <div class="col-lg-9 col-md-8">{{$societe->societe}}</div>
+                                    <div class="col-lg-9 col-md-8">{{$contact->societe}}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Address</div>
-                                    <div class="col-lg-9 col-md-8">{{$societe->adresse}}</div>
+                                    <div class="col-lg-9 col-md-8">{{$contact->adresse}}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Phone Number</div>
-                                    <div class="col-lg-9 col-md-8">{{$societe->telephone}}</div>
+                                    <div class="col-lg-9 col-md-8">{{$contact->telephone}}</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Website</div>
-                                    <div class="col-lg-9 col-md-8">{{$societe->site_web}}</div>
+                                    <div class="col-lg-9 col-md-8">{{$contact->site_web}}</div>
                                 </div>
                                 @endif
                             </div>
@@ -184,7 +184,7 @@
                                     <div class="row mb-3">
                                     <label for="Job" class="col-md-4 col-lg-3 col-form-label">Company</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="client" type="text" class="form-control" id="Job" value="{{$contact->client}}" disabled>
+                                        <input name="client" type="text" class="form-control" id="Job" value="{{$contact->societe}}" disabled>
                                     </div>
                                     </div>
 
@@ -213,37 +213,37 @@
 
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit1">
                                 
-                                @if($societe != null)
+                                @if($contact != null)
                                 <!-- company Profile Edit Form -->
-                                <form action="{{ url('client/update_by_contact/'.$societe->id)}}" method="POST">
+                                <form action="{{ url('client/update_by_contact/'.$contact->clientID)}}" method="POST">
                                     <input type="hidden" name="_method" value="PUT">
                                     {{ csrf_field() }}
 
                                     <div class="row mb-3">
                                         <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Company Name</label>
                                         <div class="col-md-8 col-lg-9">
-                                        <input name="societe" type="text" class="form-control" id="firstName" value="{{$societe->societe}}" disabled>
+                                        <input name="societe" type="text" class="form-control" id="firstName" value="{{$contact->societe}}" disabled>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
                                         <div class="col-md-8 col-lg-9">
-                                        <textarea name="adresse" class="form-control" id="about" style="height: 30px">{{$societe->adresse}}</textarea>
+                                        <textarea name="adresse" class="form-control" id="about" style="height: 30px">{{$contact->adresse}}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                                         <div class="col-md-8 col-lg-9">
-                                        <input name="telephone" type="text" class="form-control" id="Phone" value="{{$societe->telephone}}">
+                                        <input name="telephone" type="text" class="form-control" id="Phone" value="{{$contact->telephone}}">
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Website</label>
                                         <div class="col-md-8 col-lg-9">
-                                        <input name="site_web" type="text" class="form-control" id="Email" value="{{$societe->site_web}}">
+                                        <input name="site_web" type="text" class="form-control" id="Email" value="{{$contact->site_web}}">
                                         </div>
                                     </div>
 
@@ -299,51 +299,31 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Stage</th>
                                         <th scope="col">Closing Date</th>
-                                        <th scope="col">Customer</th>
-                                        <th scope="col">Product </th>
+                                        <th scope="col" colspan="2">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                    @foreach($opps as $opp)
                                     <tr>
-                                        <th scope="row"><a href="#">1</a></th>
-                                        <td>Brandon Jacob</td>
-                                        <td>Gangee</td>
-                                        <td>23/02/2023</td>
-                                        <td>Brandon Jacob</td>
-                                        <td>Company Name</td>
+                                        <th scope="row"><a href="#">{{$opp->id}}</a></th>
+                                        <td>{{$opp->nom}}</td>
+                                        <td>{{$opp->etape}}</td>
+                                        <td>{{$opp->date_cloture}}</td>
+                                        
+                                        <td>
+                                            <a class="collapsed" href="{{url('')}}">
+                                                <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="collapsed" href="{{url('')}}">
+                                                <button class="btn btn-light btn-sm"><i class="bi bi-paper-fill"></i></button>
+                                            </a>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row"><a href="#">2</a></th>
-                                        <td>Brandon Jacob</td>
-                                        <td>Prospection</td>
-                                        <td>16/03/2023</td>
-                                        <td>Bridie Kessler</td>
-                                        <td>Company Name</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><a href="#">3</a></th>
-                                        <td>Ashleigh Langosh</td>
-                                        <td>Proposition</td>
-                                        <td>05/01/2023</td>
-                                        <td>Angus Grady</td>
-                                        <td>Company Name</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><a href="#">4</a></th>
-                                        <td>Angus Grady</td>
-                                        <td>Verification</td>
-                                        <td>02/12/2022</td>
-                                        <td>Ashleigh Langosh</td>
-                                        <td>Company Name</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><a href="#">5</a></th>
-                                        <td>Raheem Lehner</td>
-                                        <td>Gangee</td>
-                                        <td>11/11/2022</td>
-                                        <td>Angus Grady</td>
-                                        <td>Company Name</td>
-                                    </tr>
+
+                                    @endforeach
                                     
                                     </tbody> 
                                 </table>
