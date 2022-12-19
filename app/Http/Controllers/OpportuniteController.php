@@ -94,6 +94,16 @@ class OpportuniteController extends Controller
     	return view('opportunites.opportunite', ['opportunite'=>$opportunite,'user'=>$user ,'action'=>$action, 'amount'=>$amount, 'products'=>$products]);
 
     }
+
+    public function contact_opp_details(Request $request,$id){
+    	$opportunite = Opportunite::find($id);
+        $products = Produit::join('produit_opportunites', 'produits.id', '=', 'produit_opportunites.idProduit')->where('idOpportunite', $id)->get();
+        $amount = $this->fnAmt($id);
+         //echo $products;
+        $user = Utilisateur::find($request->session()->get('user'));
+    	return view('front-office.opportunite', ['opportunite'=>$opportunite,'user'=>$user , 'amount'=>$amount, 'products'=>$products]);
+
+    }
     
 
     public function update(Request $request, $id){

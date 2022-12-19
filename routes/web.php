@@ -44,6 +44,7 @@ use App\Http\Controllers\ChartsController;
  Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
  Route::post('/opp-product/{id}', [OpportuniteController::class, 'store_opp_product'])->name('store_opp_product');
  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
+ Route::get('/acc-opportunite/{id}', [OpportuniteController::class, 'contact_opp_details'])->name('contact_opp_details');
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
  Route::put('/opp-product/{id}/{idOpp}', [OpportuniteController::class, 'updateOP'])->name('updateOP');
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
