@@ -28,6 +28,7 @@
 
         <form action="{{route('store-rendez2')}}" method="POST">
                  {{csrf_field()}}
+                
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>
                   <div class="col-md-8 col-lg-9">
@@ -36,7 +37,7 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">heur</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">heure</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="heure" type="time" class="form-control" id="firstName">
                   </div>
@@ -46,22 +47,22 @@
                   <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte Rondus</label>
                   <div class="col-md-8 col-lg-9">
                    <!-- <input name="surName" type="text" class="form-control" id="surName">-->
-                   <textarea name="compte" class="form-control" id="about" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                   <textarea name="compte" class="form-control" id="about" style="height: 100px"></textarea>
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Job" class="col-md-4 col-lg-3 col-form-label">Client</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="client"   value="{{$societe->societe}}" type="text" class="form-control" id="Job">
+                  <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" >
                   </div>
                 </div>
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                   <label for="Job" class="col-md-4 col-lg-3 col-form-label">Commercial</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="commercial" type="text" class="form-control" id="Job">
                   </div>
-                </div>
+                </div> -->
                 
                 
                 <div class="text-center">

@@ -9,14 +9,14 @@ use App\Models\Utilisateur;
 use App\Models\Opportunite;
 
 use Illuminate\Support\Facades\DB;
-
+ //session_start();
 class ContactController extends Controller
 {   
     public function index(Request $request){
     	$listContacts = Contact::all();
         $user = Utilisateur::find($request->session()->get('user'));
         
-        return view('contacts/contacts', ['contacts' => $listContacts]);
+        return view('contacts/contacts', ['contacts' => $listContacts,'user'=>$user]);
         //return view('contacts/contacts');
     }
     
@@ -44,6 +44,8 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
+    	$contact->client_id = $request->input('client');
+
     	$contact->clientID = $request->input('client');
     	$contact->save();
         session()->flash('succes','You have successfully added the contact '.$contact->nom);
@@ -56,25 +58,30 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
-    	$contact->client = $request->input('client');
+    	$contact->client_id = $request->input('client');
     	$contact->save();
+        session()->flash('succes','You have successfully added the contact '.$contact->nom);
         $client = Client::where('societe',$request->input('client'))->first();
-        $id=$client->id;
-        session()->flash('succes','client ajouter avec success');
+        $id=$request->input('client');
+        
        // return view('clients.clientView', ['client'=>$client]);
-        return redirect('clientView/'.$id);
+        return redirect('clientView/'.$id.'/1');
     }
 
+
+ 
+    public function details($id, $action){
+    	
+        $contact = DB::table('clients')->join('contacts', 'clients.id', '=', 'contacts.client_id')
+               ->where('contacts.id', $id)
+               ->select('contacts.*', 'clients.societe')
+               ->get();
+       
+    	return view('contacts.contact', ['contact'=> $contact], ['action'=>$action]);
+    }
+       
 
     
-
-    public function details(Request $request,$id, $action){
-        $contact = Contact::join('clients', 'clients.id', '=', 'contacts.clientID')->where('contacts.id', $id)->get()[0];
-        $user = Utilisateur::find($request->session()->get('user'));
-    	return view('contacts.contact', ['contact'=>$contact,'user'=>$user], ['action'=>$action]);
-
-    }
-
     public function contact_details(Request $request,$id){
         $contact = Contact::join('clients', 'clients.id', '=', 'contacts.clientID')->where('contacts.id', $id)->get()[0];
         $opps = Opportunite::where('clientID', $contact->clientID)->get();
@@ -88,9 +95,13 @@ class ContactController extends Controller
         $contact->fonction = $request->input('fonction');
     	$contact->email = $request->input('email');
         $contact->telephone = $request->input('telephone');
+
+    	$contact->client_id = $contact->client_id;
+
     	$contact->clientID = $contact->clientID;
     	$contact->save();
-        return redirect('contact/'.$id);    	
+        //return redirect('contact/'.$id);
+        return back();    	
     }
 
     public function update_by_contact(Request $request, $id){

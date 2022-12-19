@@ -28,7 +28,7 @@ use App\Http\Controllers\ChartsController;
  Route::get('/contact-add', [ContactController::class, 'create'])->name('create');
  Route::post('/contact-add', [ContactController::class, 'store_contact'])->name('store_contact');
  Route::get('/contact/{id}/{action}', [ContactController::class, 'details'])->name('details');
- Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update');
+ Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update_contact');
  Route::put('/contact/update_by_contact/{id}', [ContactController::class, 'update_by_contact'])->name('update_by_contact');
  Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('destroy');
  Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
@@ -54,22 +54,29 @@ use App\Http\Controllers\ChartsController;
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
  Route::post('/prospect-add', [ProspectController::class, 'store_prospect'])->name('store_prospect');
  Route::get('/prospect/{id}/{action}', [ProspectController::class, 'details'])->name('details');
- Route::put('/prospect/{id}', [ProspectController::class, 'update'])->name('update');
+ Route::put('/prospect/{id}', [ProspectController::class, 'update'])->name('update_pro');
  Route::delete('/prospects/{id}', [ProspectController::class, 'destroy'])->name('destroy');
 
+ Route::get('/transforme/{id}', [ProspectController::class, 'transforme'])->name('transforme');
 
 
 
 
-Route::get('/', function () {
-    return view('admin');
-});
+// Route::get('/', function () {
+//     return view('admin');
+// });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
-// Route::get('/admin', [ChartsController::class, 'index'])->name('index');
-Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
+
+// Route::get('/', function () {
+//     return view('admin');
+// });
+
+// Route::get('/admin', function () {
+//     return view('admin');
+// });
+ Route::get('/', [ChartsController::class, 'admin'])->name('admin');
+// Route::get('/route', [ChartsController::class, 'route'])->name('route');
+// Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
 
 
 
@@ -128,7 +135,7 @@ Route::get('/user-profile', function () {
   Route::get('/clients', [ClientController::class, 'index'])->name('index');
   Route::get('/client-add', [ClientController::class, 'create'])->name('create');
   Route::post('/client-add', [ClientController::class, 'store'])->name('store');
-  Route::get('/clientView/{id}/{action}', [ClientController::class, 'edite'])->name('edite');
+  Route::get('/clientView/{id}/{action}', [ClientController::class, 'edite'])->name('showrendez');
   Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
   Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
 
@@ -180,8 +187,9 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('user-profile/{id}', [AuthController::class, 'profile'])->name('user-profile');
-Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
+Route::get('user-profile/{id}', [UtilisateurController::class, 'profile'])->name('user-profile');
+Route::put('edite_profile/{id}', [UtilisateurController::class, 'edite_profile'])->name('edite_profile');
+// Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
 
 
 

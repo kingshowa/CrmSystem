@@ -16,6 +16,11 @@
     </div><!-- End Page Title -->
 
     <section class="section profile">
+    @if(session()->has('echec'))
+                <div class="alert alert-warning">
+                  {{session()->get('echec')}}
+                </div>
+               @endif
       <div class="row">
 
         <div class="col-xl-12">
@@ -102,7 +107,8 @@
                 <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
+                  <form action="{{route('update_pro',$prospect->id)}}" method="POST">
+                    
                   <input type="hidden" name="_method" value="PUT">
                   {{ csrf_field() }}
 
@@ -205,19 +211,18 @@
 
                 </div>
                 <!--Profile transformation-->
+               
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-transformation">
-                <form action="{{url('prospect/'.$prospect->id)}}" method="POST">
-                  <input type="hidden" name="_method" value="PUT">
                   <div class="text-center">
-                      <button name="Transformation" type="button" class="btn btn-primary">Transformation</button>
-                    </div>
-                </form>
+                     <a href="{{url('transforme',$prospect->id)}}"> <button name="Transformation" type="button" class="btn btn-primary">Transformation</button></a>
+                  </div>
                 </div>
 
 
 
               </div><!-- End Bordered Tabs -->
+            
 
             </div>
           </div>
