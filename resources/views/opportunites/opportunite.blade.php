@@ -165,26 +165,26 @@
                     <tbody>
                     @foreach($products as $product)
                       <tr>
-                        <th scope="row">{{$product->idPO}}<a href="#"></a></th>
+                        <th scope="row">{{$product->id}}<a href="#"></a></th>
                         <td>{{$product->nom}}</td>
                         <td>{{$product->quantite}}</td>                     
                         <td>{{$product->prix}}</td>
                         <td>{{$product->prix * $product->quantite}}</td>
                         
                         <td>
-                          <a class="collapsed" href="{{url('opp-product-edit/'.$product->idPO.'/'.$product->idOpportunite)}}">
+                          <a class="collapsed" href="{{url('opp-product-edit/'.$product->id.'/'.$product->idOpportunite)}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
                           </a>
                         </td>
 
                         <td>
-                          <form action="{{url('opp-product/'.$product->idPO)}}" method="POST">
+                          <form action="{{url('opp-product/'.$product->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$product->idPO}}"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$product->id}}"><i class="bi bi-trash-fill"></i></button>
                           
                       
-                            <div class="modal fade" id="basicModal{{$product->idPO}}" tabindex="-1">
+                            <div class="modal fade" id="basicModal{{$product->id}}" tabindex="-1">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">

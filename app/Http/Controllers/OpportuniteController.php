@@ -38,6 +38,7 @@ class OpportuniteController extends Controller
         $products= DB::table("produits")->select('*')->whereNOTIn('id',function($query){
             $query->select('idProduit')->from('produit_opportunites')->where('idOpportunite', $this->ID);
         })->get();
+        
         return view('opportunites.opp-product', ['user' => $user], ['products'=>$products, 'oppId'=>$id]);
     }
 
@@ -45,8 +46,9 @@ class OpportuniteController extends Controller
     {
         $user = Utilisateur::find($request->session()->get('user'));
         
-        $product = ProduitOpportunite::join('produits', 'produits.id', '=', 'produit_opportunites.idProduit')
-        ->where('idPO', $idPO)->where('idOpportunite', $idOpp)->get();
+        $product = Produit::join('produit_opportunites', 'produits.id', '=', 'produit_opportunites.idProduit')
+        ->where('produit_opportunites.id', $idPO)->where('idOpportunite', $idOpp)->get();
+        //echo $product;
         return view('opportunites.opp-product-edit', ['user' => $user], ['product'=>$product]);
     }
     
@@ -85,17 +87,14 @@ class OpportuniteController extends Controller
 
     public function details(Request $request,$id, $action){
     	$opportunite = Opportunite::find($id);
-        $products = ProduitOpportunite::join('produits', 'produits.id', '=', 'produit_opportunites.idProduit')->where('idOpportunite', $id)->get();
+        $products = Produit::join('produit_opportunites', 'produits.id', '=', 'produit_opportunites.idProduit')->where('idOpportunite', $id)->get();
         $amount = $this->fnAmt($id);
-
+         //echo $products;
         $user = Utilisateur::find($request->session()->get('user'));
     	return view('opportunites.opportunite', ['opportunite'=>$opportunite,'user'=>$user ,'action'=>$action, 'amount'=>$amount, 'products'=>$products]);
 
     }
     
-
-
-
 
     public function update(Request $request, $id){
     	$opportunite = Opportunite::find($id);
@@ -107,7 +106,7 @@ class OpportuniteController extends Controller
     }
 
     public function updateOP(Request $request, $idPO, $idOpp){
-        DB::update('UPDATE produit_opportunites set quantite = ? WHERE idPO = ?', [$request->input('quantity'), $idPO]);
+        DB::update('UPDATE produit_opportunites set quantite = ? WHERE id = ?', [$request->input('quantity'), $idPO]);
         return redirect('opportunite/'.$idOpp.'/1');
     }
 
@@ -119,7 +118,7 @@ class OpportuniteController extends Controller
     }
 
     public function destroyOP($id){
-    	$oppProduct =  DB::table("produit_opportunites")->select('*')->where('idPO', $id);
+    	$oppProduct =  DB::table("produit_opportunites")->select('*')->where('id', $id);
     	$oppProduct->delete();
     	return back();
     }

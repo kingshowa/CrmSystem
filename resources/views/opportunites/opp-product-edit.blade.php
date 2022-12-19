@@ -23,7 +23,7 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-          <form action="{{ url('opp-product/'.$product[0]->idPO.'/'.$product[0]->idOpportunite) }}" method="POST">
+          <form action="{{ url('opp-product/'.$product[0]->id.'/'.$product[0]->idOpportunite) }}" method="POST">
             <input type="hidden" name="_method" value="PUT">
           {{ csrf_field()}}
 
