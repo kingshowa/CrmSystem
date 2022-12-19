@@ -42,7 +42,12 @@ class ClientController extends Controller
     public function edite(Request $request,$id, $action){
 
     	$client = Client::find($id);
+
        
+
+        //$contact=Contact::find($client->societe);
+        $contact = Contact::where('clientID',$id);
+        $rendez = Rendez::where('client',$client->societe)->get();
 
         //$contact=Contact::find($client->societe);
         $contact = Contact::where('client_id',$id)->get();

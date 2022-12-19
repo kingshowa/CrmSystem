@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('utilisateurs', function (Blueprint $table) {
-            $table->string('password');
-            //
+        Schema::create('produit_opportunites', function (Blueprint $table) {
+            $table->id();
+            $table->integer('idProduit');
+            $table->integer('idOpportunite');
+            $table->integer('quantite');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('utilisateurs', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('produit_opportunites');
     }
 };

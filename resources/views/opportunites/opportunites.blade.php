@@ -32,10 +32,9 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nom</th>
-                        <th scope="col">Montant</th>
                         <th scope="col">Date_cloture</th>
                         <th scope="col">Client</th>
-                        <th scope="col">Produit </th>
+                        <th scope="col">Etape</th>
                         <th scope="col" colspan="3">Actions</th>
                       </tr>
                     </thead>
@@ -45,10 +44,9 @@
                       <tr>
                         <th scope="row"><a href="#">{{$opportunite->id}}</a></th>
                         <td>{{$opportunite->nom}}</td>
-                        <td>{{$opportunite->montant}}</td>
                         <td>{{$opportunite->date_cloture}}</td>
                         <td>{{$opportunite->client}}</td>
-                        <td>{{$opportunite->produits}}</td>
+                        <td>{{$opportunite->etape}}</td>
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
@@ -63,11 +61,10 @@
                           <form action="{{url('opportunites/'.$opportunite->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$opportunite->id}}"><i class="bi bi-trash-fill"></i></button>
                           
-                          
-
-                          <div class="modal fade" id="basicModal" tabindex="-1">
+                      
+                          <div class="modal fade" id="basicModal{{$opportunite->id}}" tabindex="-1">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">

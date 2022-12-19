@@ -1,3 +1,5 @@
+<!-- @//if(!isset($_SESSION['admin']))
+@//endif -->
 @extends("layouts.Master")
 
 @Section("content")

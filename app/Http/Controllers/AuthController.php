@@ -23,6 +23,7 @@ class AuthController extends Controller
     function login(){
         return view('login.login');
     }
+
     function verifier(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
@@ -37,6 +38,7 @@ class AuthController extends Controller
             // $request->session()->put('user', $user->id);
           if($user->role == 'admin'){
                // $user->session()->regenerate();
+
               session_start();
               $_SESSION['admin'] = $user->id;
                 //$request->session()->put('admin',$user->id);
@@ -48,7 +50,14 @@ class AuthController extends Controller
             // 'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
             // 'contactv'=>$contactv]);
               
-            }
+            
+
+            //    session_start();
+            //    $_SESSION['admin']=$user->id;
+
+            //$id = $_SESSION['admin'];
+             }
+
               else
              if($user->role == 'contact'){
                 return view('front-office.account', ['user'=>$user]);

@@ -17,10 +17,10 @@ return new class extends Migration
         Schema::create('opportunites', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('montant');
-            $table->string('date_cloture');
+            $table->string('etape');
+            $table->date('date_cloture');
+            $table->integer('clientID');
             $table->string('client');
-            $table->string('produits');
             $table->timestamps();
         });
     }

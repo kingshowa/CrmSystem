@@ -70,11 +70,11 @@
                           <form action="{{url('contacts/'.$contact->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$contact->id}}"><i class="bi bi-trash-fill"></i></button>
                           
                           
 
-                          <div class="modal fade" id="basicModal" tabindex="-1">
+                          <div class="modal fade" id="basicModal{{$contact->id}}" tabindex="-1">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
