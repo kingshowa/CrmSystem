@@ -94,14 +94,13 @@
 
                         <div class="col-md-8 col-lg-9">
                           <select class="form-select" arial-label="Default select example" name="source">
-                                <option value="Web" selected="">Web</option>
-                                <option value="Téléphone" >Téléphone</option>
-                                <option value="Partenaire" >Partenaire</option>
-                                <option value="Salon" >Salon</option>
-                                <option value="Bouche à oreille" >Bouche à oreille</option>
-                                <option value="Salon" >Salon</option>
-                                <option value="Liste prospects" >Liste prospects</option>
-                                <option value="Autre" > Autre</option>
+                                <option value="web" selected="">Web</option>
+                                <option value="telephone" >Téléphone</option>
+                                <option value="partenaire" >Partenaire</option>
+                                <option value="salon" >Salon</option>
+                                <option value="bouche_a_oreille" >bouche_a_oreille</option>
+                                <option value="listep" >Liste_prospects</option>
+                                <option value="autre" > Autre</option>
                           </select>
                         </div>
                  

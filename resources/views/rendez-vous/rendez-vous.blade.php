@@ -42,7 +42,6 @@
                         <th scope="col">Date</th>
                         <th scope="col">Compte rendu</th>
                         <th scope="col">Client</th>
-                        <th scope="col">Commercial</th>
                         <th scope="col" colspan="3">Actions</th>
                       </tr>
                     </thead>
@@ -53,7 +52,7 @@
                         <td>{{$rendez->date}}</td>
                         <td>{{$rendez->compte}}</td>
                         <td>{{$rendez->client}}</td>
-                        <td>{{$rendez->commercial}}</td>
+                        
                         
 
                         <td>

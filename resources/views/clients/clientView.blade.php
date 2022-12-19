@@ -3,6 +3,16 @@
 @Section("clients")
 
   <main id="main" class="main">
+  @if(session()->has('succes'))
+    <div class="alert alert-success">
+      {{session()->get('succes')}}
+    </div>
+    @endif
+    @if(session()->has('bien'))
+    <div class="alert alert-success">
+      {{session()->get('bien')}}
+    </div>
+    @endif
 
     <div class="pagetitle">
       <h1>Client</h1>
@@ -79,9 +89,10 @@
                 </div>
 
                 <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
+                 
 
                   <!-- Profile Edit Form -->
-                  <form action="{{url('client/update',$client->id)}}" method="POST">       
+                  <form action="{{url('client/update/'.$client->id)}}" method="POST">       
 
                     <input type="hidden" name="_method" value="PUT" >
                     {{ csrf_field() }}
@@ -103,7 +114,7 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="adresse" class="form-control" id="about"value="{{$client->adresse}}" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                        <textarea name="adresse" class="form-control" id="about"value="{{$client->adresse}}" style="height: 100px">{{$client->adresse}}</textarea>
                       </div>
                     </div>
 
@@ -156,7 +167,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Fonction</th>
-                        <th scope="col">Client</th>
                         <th scope="col" colspan="2">Actions</th>
                       </tr>
                     </thead>
@@ -223,7 +233,7 @@
                         <th scope="row"><a href="#"></a></th>
                         <td>{{$rendez->date}}</td>
                         <td>{{$rendez->client}}</td>
-                        <td>{{$rendez->commercial}}</td>
+                        <td>{{$rendez->nom}}</td>
                         
                         
 

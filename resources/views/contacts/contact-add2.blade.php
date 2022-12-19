@@ -29,7 +29,7 @@
 
               <form action="{{ route('store_contactClient') }}" method="POST">
 
-              <form action="{{ route('store_contact') }}" method="POST">
+              <!-- <form action="{{ route('store_contact') }}" method="POST"> -->
 
               {{ csrf_field()}}
 
@@ -74,10 +74,11 @@
                       <div class="col-md-8 col-lg-9">
 
                         
-                        <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" required>
+                        <input  value="{{$societe->societe}}" type="text" class="form-control" id="Email" disabled >
+                        <input name="client" value="{{$societe->id}}" type="hidden" class="form-control" id="Email" >
                        
 
-                        <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" required>
+                       
 
                       </div>
                     </div>

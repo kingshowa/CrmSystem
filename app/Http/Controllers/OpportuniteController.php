@@ -9,20 +9,21 @@ use App\Models\Utilisateur;
 use App\Models\Produit;
 use App\Models\Client;
 use Illuminate\Http\Request;
-
+//session_start();
 class OpportuniteController extends Controller
 {
     public function index(Request $request){
     	$listOpportunites = Opportunite::all();
         $user = Utilisateur::find($request->session()->get('user'));
-        return view('opportunites/opportunites', ['opportunites' => $listOpportunites]);
+        return view('opportunites/opportunites', ['opportunites' => $listOpportunites,'user'=>$user]);
         //return view('opportunites/opportunites');
     }
 
     public function create(Request $request)
     {
+        $clients = Client::orderBy('societe')->get();
         $user = Utilisateur::find($request->session()->get('user'));
-        return view('opportunites.opportunites-add', ['user' => $user]);
+        return view('opportunites.opportunites-add', ['user' => $user,'clients'=>$clients]);
     }
     
     public function store_opportunite(Request $request){

@@ -53,12 +53,19 @@
                   <span class="d-none d-lg-block">KMHIcarSale</span>
                 </a>
               </div><!-- End Logo -->
+              
 
               <div class="card mb-3">
 
                 <div class="card-body">
+              
 
                   <div class="pt-4 pb-2">
+                  @if(session()->has('echec'))
+               <div class="alert alert-warning">
+                 {{session()->get('echec')}}
+               </div>
+             @endif
                     <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                     <p class="text-center small">Enter your email & password to login</p>
                   </div>

@@ -9,7 +9,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ url('/admin')}}">
+    <a class="nav-link" href="{{ route('admin')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
@@ -102,12 +102,14 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
+                  
                   <h5 class="card-title">Opportunités <span>| Etapes</span></h5>
 
                   <!-- Pie Chart -->
                   <div id="pieChart" style="min-height: 400px;" class="echart"></div>
 
                   <script>
+                    
                     document.addEventListener("DOMContentLoaded", () => {
                       echarts.init(document.querySelector("#pieChart")).setOption({
                         tooltip: {
@@ -122,20 +124,20 @@
                           type: "pie",
                           radius: "70%",
                           data: [{
-                              value: 1048,
-                              name: "Prospection"
+                               value: {{$nbrclient}},
+                              name: "Client"
                             },
                             {
-                              value: 735,
-                              name: "Proposition"
+                               value:  {{$nbrprospect}},
+                              name: "Prospect"
                             },
                             {
-                              value: 580,
-                              name: "Verification"
+                               value:  {{$nbrcontact}},
+                              name: "Contact"
                             },
                             {
-                              value: 484,
-                              name: "Gangee"
+                              value:  {{$nbrproduit}},
+                              name: "Produit"
                             }
                           ],
                           emphasis: {
@@ -154,7 +156,7 @@
                 </div>
               </div>
             </div>
-            
+           
             <!--Bar Chart card-->
             <div class="col-12">
               <div class="card">
@@ -164,25 +166,32 @@
                   <!-- Bar Chart -->
                   <div id="barChart" style="min-height: 400px;" class="echart"></div>
 
+
                   <script>
+                    
+                    var montho = JSON.parse('{!! json_encode($montho) !!}');
+                    var months = JSON.parse('{!! json_encode($months) !!}');
+
                     document.addEventListener("DOMContentLoaded", () => {
                       echarts.init(document.querySelector("#barChart")).setOption({
                         xAxis: {
                           type: "category",
-                          data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                           data: months,
                         },
                         yAxis: {
                           type: "value"
                         },
                         series: [{
-                          data: [120, 200, 150, 80, 70, 110, 130, 170, 80, 40, 120, 130],
+                          
+                           data: montho,
                           type: "bar"
                         }]
                       });
                     });
                   </script>
+        
                   <!-- End Bar Chart -->
-
+ 
                 </div>
               </div>
             </div>
@@ -200,11 +209,12 @@
                   <div id="reportsChart"></div>
 
                   <script>
+                   
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: "Prospects",
-                          data: [31, 40, 28, 51, 42, 82, 56],
+                          data: [50, 70, 28, 51, 42, 82, 56],
                         }, {
                           name: "Contacts",
                           data: [11, 32, 45, 32, 34, 52, 41]
@@ -271,14 +281,14 @@
               <div class="card info-card sales-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Produit <span>| Today</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
+                       <h6>{{$nbrproduit}}</h6>
                       <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                     </div>
@@ -344,6 +354,9 @@
               <div id="trafficChart" style="min-height: 500px;" class="echart"></div>
 
               <script>
+
+                   
+
                 document.addEventListener("DOMContentLoaded", () => {
                   echarts.init(document.querySelector("#trafficChart")).setOption({
                     tooltip: {
@@ -374,33 +387,24 @@
                       },
                       data: [
                          {
-                          value: 1048,
+                          value: {{$web}},
                           name: "Web"
                         },
                         {
-                          value: 484,
+                          value: {{$salon}},
                           name: "Salon"
                         },
+                       
                         {
-                          value: 300,
-                          name: "Autre"
-                        },
-                        {
-                          value: 735,
+                          value: {{$tel}},
                           name: "Telephone"
                         },
+                        
                         {
-                          value: 580,
-                          name: "Partenaire"
-                        },
-                        {
-                          value: 300,
+                          value: {{$bouche}},
                           name: "Bouche à oreille"
-                        },
-                        {
-                          value: 484,
-                          name: "Liste prospects"
                         }
+                       
                       ]
                     }]
                   });

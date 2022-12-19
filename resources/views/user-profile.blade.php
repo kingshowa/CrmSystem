@@ -9,7 +9,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('admin/'.$user->id)}}">
+    <a class="nav-link collapsed" href="{{ url('/')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
@@ -83,8 +83,8 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-          <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <h2>{{$user->nom}}{{$user->prenom}}</h2>
+          <img src="/storage/imag/{{$user->image}}" alt="Profile"  width="100" height="100">
+          <h2>{{$user->nom}}  {{$user->prenom}}</h2>
           <h3>{{$user->role}}</h3>
           
         </div>
@@ -143,13 +143,15 @@
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form action="" method="">
+              <form action="{{route('edite_profile',$user->id)}}" method="POST">
+              <input type="hidden" name="_method" value="PUT" >
+                    {{ csrf_field() }}
                 <div class="row mb-3">
                   <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                   <div class="col-md-8 col-lg-9">
-                    <img src="../assets/img/profile-img.jpg" alt="Profile">
+                    <img src="/storage/imag/{{$user->image}}" alt="Profile" class="rounded-circle">
                     <div class="pt-2">
-                      <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                      <a href="#"  class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                       <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
                     </div>
                   </div>
@@ -165,7 +167,7 @@
                 <div class="row mb-3">
                   <label for="about" class="col-md-4 col-lg-3 col-form-label">Prenom</label>
                   <div class="col-md-8 col-lg-9">
-                    <textarea name="prenom" class="form-control" id="about" style="height: 100px">{{$user->prenom}}</textarea>
+                  <input name="prenom" type="text" class="form-control" id="fullName" value="{{$user->prenom}}">
                   </div>
                 </div>
 

@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
 
  use App\Http\Controllers\response;
 use Illuminate\Http\RedirectResponse ;
-
+session_start();
 class PasswordController extends Controller
 {
     public function profile($id){

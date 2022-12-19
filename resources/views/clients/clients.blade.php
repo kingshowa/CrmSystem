@@ -54,7 +54,7 @@
                         <td>{{$client->telephone}}</td>
                         <td>{{$client->site_web}}</td>
                         <td>
-                          <a class="collapsed" href="{{url('clientView/'.$client->id.'/1')}}">
+                          <a class="collapsed" href="{{ url('clientView/'.$client->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                           </a>
                         </td>

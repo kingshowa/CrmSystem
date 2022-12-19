@@ -7,15 +7,15 @@ use App\Models\Utilisateur;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\validate;
-
+//session_start();
 class UtilisateurController extends Controller
 {
-    //
+    
     public function index(Request $request){
         $listutilisateurs=Utilisateur::all();
         $user = Utilisateur::find($request->session()->get('user'));
     	
-        return view('utilisateurs/utilisateur-view',['utilisateurs'=> $listutilisateurs,]);
+        return view('utilisateurs/utilisateur-view',['utilisateurs'=> $listutilisateurs,'user'=>$user]);
     }
     
     public function create(Request $request){
@@ -28,7 +28,7 @@ class UtilisateurController extends Controller
     	$utilisateur = new  Utilisateur();
     	$utilisateur->nom = $request->input('firstName');
     	$utilisateur->prenom = $request->input('surName');
-        $request->validate(['password'=>'min:8']);
+        
     	$password = $request->input('password');
         $utilisateur->password = Hash::make($password);
 
@@ -92,5 +92,23 @@ class UtilisateurController extends Controller
         $utilisateur->delete();
     	return redirect('utilisateurs');
     } 
+
+    function profile( $id)
+    {
+        $user=Utilisateur::where('id', $id)->first();
+        return  view('user-profile', ['user'=>$user]);
+
+    }
+    public function edite_profile(Request $request, $id){
+    	$utilisateur = Utilisateur::find($id);
+
+    	$utilisateur->image = $utilisateur->image;
+    	$utilisateur->nom = $request->input('nom');
+    	$utilisateur->prenom = $request->input('prenom');
+        $utilisateur->email = $request->input('email');
+    	//$utilisateur->password = $request->input('password');
+    	$utilisateur->save();
+        return back();    	
+    }
     
 }

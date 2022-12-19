@@ -9,17 +9,17 @@ use App\Models\Produit;
 use App\Models\Utilisateur;
 use App\Models\Opportunite;
 
+ //session_start();
 
 class ProduitController extends Controller
 {
     
    
     
-    public function index(Request $request){
+    public function index(){
 
         $listproduits=Produit::all();
-        $user = Utilisateur::find($request->session()->get('user'));
-    	
+       
         return view('produits/produit-view',['produits'=> $listproduits]);
     }
     

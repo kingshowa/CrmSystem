@@ -61,51 +61,52 @@
                  @if($rendez !=null)
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">Date</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->date}}</div>
+                <div class="col-lg-9 col-md-8">{{$rendez[0]->date}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Heure</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->heure}}</div>
+                <div class="col-lg-9 col-md-8">{{$rendez[0]->heure}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">compte</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->compte}}</div>
+                <div class="col-lg-9 col-md-8">{{$rendez[0]->compte}}</div>
               </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Client</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->client}}</div>
+                <div class="col-lg-9 col-md-8">{{$rendez[0]->client}}</div>
               </div>
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Commercial</div>
-                <div class="col-lg-9 col-md-8">{{$rendez->commercial}}</div>
+                <div class="col-lg-9 col-md-8">{{$rendez[0]->nom}}</div>
               </div>
 
              
             </div>
 
             <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
-
+            
               <!-- Profile Edit Form -->
-              <form action="{{url('rendez/update',$rendez->id)}}" method="POST">
+              <form action="{{route('update-rendez',$rendez[0]->id)}}" method="POST">
 
                     <input type="hidden" name="_method" value="PUT" >
                     {{ csrf_field() }}
+                   
 
 
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Date</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="date" type="date" class="form-control" id="firstName" value="{{$rendez->date}}">
+                    <input name="date" type="date" class="form-control" id="firstName" value="{{$rendez[0]->date}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="surName" class="col-md-4 col-lg-3 col-form-label">Heure de rendez-vous</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="heure" type="time" class="form-control" id="firstName" value="{{$rendez->heure}}">
+                    <input name="heure" type="time" class="form-control" id="firstName" value="{{$rendez[0]->heure}}">
                   </div>
                 </div>
 
@@ -113,23 +114,18 @@
                   <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte rondus</label>
                   <div class="col-md-8 col-lg-9">
                     <!--<input name="surName" type="textarea" class="form-control" id="surName" value="Anderson">-->
-                    <textarea name="compte" class="form-control" id="about" value="{{$rendez->compte}}" style="height: 100px">Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                    <textarea name="compte" class="form-control" id="about" value="{{$rendez[0]->compte}}" style="height: 100px">{{$rendez[0]->compte}}</textarea>
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Job" class="col-md-4 col-lg-3 col-form-label">CLIENT</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="client" type="text" class="form-control" id="Job" value="{{$rendez->client}}">
+                    <input name="client" type="text" class="form-control" id="Job" value="{{$rendez[0]->client}}" disabled>
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label for="about" class="col-md-4 col-lg-3 col-form-label">Commercial</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="commercial" type="textarea" class="form-control" id="surName" value="{{$rendez->commercial}}">
-                  </div>
-                </div>
+               
 
                
 

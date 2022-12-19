@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->time('heure');
-            $table->string('compte');
+            $table->string('compte')->nullable();
             $table->string('client');
-            $table->string('commercial');
+            $table->foreignId('user_id')->constrained('utilisateurs')
+            ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
            
         });
