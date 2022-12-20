@@ -60,20 +60,6 @@ use App\Http\Controllers\ChartsController;
  Route::get('/transforme/{id}', [ProspectController::class, 'transforme'])->name('transforme');
 
 
-
-
-// Route::get('/', function () {
-//     return view('admin');
-// });
-
-
-// Route::get('/', function () {
-//     return view('admin');
-// });
-
-// Route::get('/admin', function () {
-//     return view('admin');
-// });
  Route::get('/', [ChartsController::class, 'admin'])->name('admin');
 // Route::get('/route', [ChartsController::class, 'route'])->name('route');
 // Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
@@ -84,17 +70,6 @@ use App\Http\Controllers\ChartsController;
 Route::get('commerciale', function () {
     return view('commerciale');
 });
-Route::get('/commerciale', function () {
-    return view('commerciale');
-});
-
-
-// Route::get('/prospects', function () {
-//     return view('prospects/prospects');
-// });
-
-
-
 
 
 Route::get('/front-office', function () {
@@ -119,8 +94,6 @@ Route::get('/front-office/team', function () {
 
 
 
-
-
 Route::get('/login', function () {
     return view('login');
 });
@@ -142,8 +115,7 @@ Route::get('/user-profile', function () {
   Route::put('/client/update_by_contact/{id}', [ClientController::class, 'update_by_contact'])->name('update_by_contact');
  
 
-
-
+  
 
   Route::get('/rendez', [RendezController::class, 'index'])->name('index-rendez');
  Route::get('/rendez/create', [RendezController::class, 'create'])->name('create-rendez');
@@ -177,9 +149,6 @@ Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name(
 Route::get('utilisateur/{id}/{action}',[UtilisateurController::class, 'edite'])->name('edite'); 
 Route::put('utilisateurs/update/{id}',[UtilisateurController::class, 'update'])->name('update-ut');
 Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destroy'])->name('destroy-ut');
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //Authentification
@@ -200,5 +169,3 @@ Route::get('forget-password', [PasswordController::class, 'showForgetPasswordFor
 Route::post('forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
-
