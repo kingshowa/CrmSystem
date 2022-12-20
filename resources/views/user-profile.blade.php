@@ -83,7 +83,7 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-          <img src="/storage/imag/{{$user->image}}" alt="Profile"  width="100" height="100">
+          <img src="/storage/imag/{{$user->image}}" alt="Profile"  width="200" height="150">
           <h2>{{$user->nom}}  {{$user->prenom}}</h2>
           <h3>{{$user->role}}</h3>
           

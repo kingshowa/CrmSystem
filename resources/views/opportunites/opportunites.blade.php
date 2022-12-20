@@ -35,6 +35,7 @@
                         <th scope="col">Date_cloture</th>
                         <th scope="col">Client</th>
                         <th scope="col">Etape</th>
+                        <th scope="col"></th>
                         <th scope="col" colspan="3">Actions</th>
                       </tr>
                     </thead>
@@ -47,6 +48,14 @@
                         <td>{{$opportunite->date_cloture}}</td>
                         <td>{{$opportunite->client}}</td>
                         <td>{{$opportunite->etape}}</td>
+                        <td>
+                        @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
+                        <a href="#"><button type="button" class="btn btn-md btn-success">Devis </button></a> 
+                          @endif
+                          @if($opportunite->etape == 'Gangee')
+                          <a href="{{route('factureshow',$opportunite->id)}}"><button type="button" class="btn btn-danger">Facture</button></a>
+                        @endif
+                        </td>
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>

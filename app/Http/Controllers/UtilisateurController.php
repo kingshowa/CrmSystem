@@ -7,7 +7,7 @@ use App\Models\Utilisateur;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\validate;
-//session_start();
+session_start();
 class UtilisateurController extends Controller
 {
     

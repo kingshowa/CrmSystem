@@ -35,32 +35,23 @@ class AuthController extends Controller
         
         if (Hash::check(request('password'), $user->password)){
 
-            // $request->session()->put('user', $user->id);
+           
           if($user->role == 'admin'){
-               // $user->session()->regenerate();
-
               session_start();
               $_SESSION['admin'] = $user->id;
-                //$request->session()->put('admin',$user->id);
                return redirect('/');
+            }
+            if ($user->role == 'commercial') {
+                session_start();
+              $_SESSION['commercial'] = $user->id;
+               return view('/commerciale');
 
-            //   return view('admin', ['user'=>$user,'nbrclient'=> $nombreclient,
-            //   'nbrcontact'=>$nombrecontact,'nbrprospect'=>$nombreprospect,'nbrproduit'=>$nombreproduit
-            // ,'months'=>$months,'montho'=>$montho,'produit'=>$yproduit,
-            // 'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
-            // 'contactv'=>$contactv]);
-              
-            
-
-            //    session_start();
-            //    $_SESSION['admin']=$user->id;
-
-            //$id = $_SESSION['admin'];
-             }
-
-              else
+            }else
              if($user->role == 'contact'){
-                return view('front-office.account', ['user'=>$user]);
+                session_start();
+              $_SESSION['contact'] = $user->id;
+                
+                return view('front-office.account');
 
                 }
             echo "vcdf";

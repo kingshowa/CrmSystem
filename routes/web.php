@@ -13,6 +13,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ChartsController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,17 +38,44 @@ use App\Http\Controllers\ChartsController;
 
 
 
- Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+//  Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+//  Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
+//  Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
+//  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
+//  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
+//  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
+Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+
  Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
+
  Route::get('/opp-product/{id}', [OpportuniteController::class, 'create_prod'])->name('create_prod');
+
  Route::get('/opp-product-edit/{idPO}/{idOpp}', [OpportuniteController::class, 'create_prod_edit'])->name('create_prod_edit');
+
  Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
+
  Route::post('/opp-product/{id}', [OpportuniteController::class, 'store_opp_product'])->name('store_opp_product');
+
  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
+
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
+
  Route::put('/opp-product/{id}/{idOpp}', [OpportuniteController::class, 'updateOP'])->name('updateOP');
+
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
+
  Route::delete('/opp-product/{id}', [OpportuniteController::class, 'destroyOP'])->name('destroyOP');
+
+ Route::get('/opp-add/{id}', [OpportuniteController::class, 'oppcreate'])->name('oppcreate');
+
+ Route::get('/factureshow/{id}', [OpportuniteController::class, 'factureshow'])->name('factureshow');
+ Route::get('/facturedownload/{id}', [OpportuniteController::class, 'facturedownload'])->name('facturedownload');
+
+
+ Route::get('facture', function () {
+    return view('facture');
+});
+
 
  Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
@@ -61,9 +89,6 @@ use App\Http\Controllers\ChartsController;
 
 
 
-// Route::get('/', function () {
-//     return view('admin');
-// });
 
 
 // Route::get('/', function () {
@@ -74,23 +99,19 @@ use App\Http\Controllers\ChartsController;
 //     return view('admin');
 // });
  Route::get('/', [ChartsController::class, 'admin'])->name('admin');
-// Route::get('/route', [ChartsController::class, 'route'])->name('route');
-// Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
 
 
 
 
-Route::get('commerciale', function () {
-    return view('commerciale');
-});
+
+
 Route::get('/commerciale', function () {
+    session_start();
     return view('commerciale');
 });
 
 
-// Route::get('/prospects', function () {
-//     return view('prospects/prospects');
-// });
+
 
 
 

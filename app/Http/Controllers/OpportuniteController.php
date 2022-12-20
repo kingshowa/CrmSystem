@@ -9,8 +9,9 @@ use App\Models\ProduitOpportunite;
 use App\Models\Produit;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use PDF;
 
-//session_start();
+session_start();
 
 
 use Illuminate\Support\Facades\DB;
@@ -56,7 +57,8 @@ class OpportuniteController extends Controller
         $user = Utilisateur::find($request->session()->get('user'));
         
         $product = Produit::join('produit_opportunites', 'produits.id', '=', 'produit_opportunites.idProduit')
-        ->where('produit_opportunites.id', $idPO)->where('idOpportunite', $idOpp)->get();
+        ->where('produit_opportunites.id', $idPO)
+        ->where('idOpportunite', $idOpp)->get();
         //echo $product;
         return view('opportunites.opp-product-edit', ['user' => $user], ['product'=>$product]);
     }
@@ -89,10 +91,12 @@ class OpportuniteController extends Controller
         ->where('idOpportunite', $id)->get();
         $sum=0;
         foreach($products as $product){
-            $sum=$sum+($product->prix * $product->quantite);
+            $sum=$sum+(int)($product->prix * $product->quantite);
         }
         return $sum;
     }
+
+
 
     public function details(Request $request,$id, $action){
     	$opportunite = Opportunite::find($id);
@@ -130,5 +134,46 @@ class OpportuniteController extends Controller
     	$oppProduct =  DB::table("produit_opportunites")->select('*')->where('id', $id);
     	$oppProduct->delete();
     	return back();
+    }
+
+
+
+
+
+
+    public function oppcreate($id){
+        $client= Client::find($id);
+    	
+    	return view('opportunites.opp_add',['client'=>$client]);
+    }
+
+    public function factureshow($id){
+        $opp = Opportunite::find($id);
+        $product = ProduitOpportunite::join('opportunites', 'opportunites.id', '=', 'produit_opportunites.idOpportunite')
+        -> join('produits', 'produits.id', '=', 'produit_opportunites.idProduit')
+        ->where('opportunites.id', $id)
+        ->get();
+        //  $somme=0;
+        //  $totale = 0;
+        // while($product){
+        //     $somme=((double)$product[0]->prix * (double)$product[0]->quantite);
+        //     $totale+=$somme;
+
+        //  } 
+        $client=Client::where('id',$opp->clientID)->get();
+       
+        
+        
+     return view('facture',['products'=>$product,'client'=>$client,'opp'=>$opp]);
+    }
+    public function facturedownload($id){
+        $opp = Opportunite::find($id);
+        $products = ProduitOpportunite::join('opportunites', 'opportunites.id', '=', 'produit_opportunites.idOpportunite')
+        -> join('produits', 'produits.id', '=', 'produit_opportunites.idProduit')
+        ->where('opportunites.id', $id)
+        ->get();
+        $client=Client::where('id',$opp->clientID)->get();
+        $pdf = PDF::loadView('facture', compact('products','client','opp'));
+        return $pdf->download('facture.pdf');
     }
 }

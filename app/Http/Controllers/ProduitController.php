@@ -9,7 +9,7 @@ use App\Models\Produit;
 use App\Models\Utilisateur;
 use App\Models\Opportunite;
 
- //session_start();
+ session_start();
 
 class ProduitController extends Controller
 {
@@ -40,6 +40,13 @@ class ProduitController extends Controller
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
         $produit->quantitie = $request->input('quantitie');
+        $c = $request->input('type');
+        if ($c == "radio1") {
+            $produit->type = 'Auto';}
+        else {
+            $produit->type = 'Manual';}
+       
+        $produit->desc = $request->input('desc');
 
 
        
@@ -85,6 +92,8 @@ class ProduitController extends Controller
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
         $produit->quantitie = $request->input('quantitie');
+        $produit->quantitie = $request->input('type');
+        $produit->quantitie = $request->input('desc');
     	//$produit->photo = $request->input('Photo');
     	$produit->save();
         return redirect('produit/'.$id);    	

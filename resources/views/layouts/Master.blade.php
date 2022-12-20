@@ -1,4 +1,21 @@
 
+ @if (isset($_SESSION['admin']) || isset($_SESSION['commercial']))
+         <?php 
+            try{
+             $con= new PDO('mysql:host=localhost;dbname=crmsystem;charset=utf8', 'root', '');
+
+            }catch(Exception $e){
+              die('Erreur : ' . $e->getMessage());
+            }
+            if (isset($_SESSION['admin'])){
+            $a=($_SESSION['admin']);}
+            else{$a=$_SESSION['commercial'];}
+           
+            $requete=$con->prepare("SELECT * FROM utilisateurs WHERE id=?");
+		        $requete->execute(array($a));
+           
+            $user = $requete->fetch(); 
+        ?>
         
 <!DOCTYPE html>
 <html lang="en">
@@ -74,11 +91,11 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-           
+            <img src="/storage/imag/{{$user['image']}}"  width="50"  height="100" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">
 
               
-            
+            {{$user['nom']}} 
             
 
              
@@ -92,7 +109,7 @@
               <h6>
 
                
-              
+              {{$user['nom']}} {{$user['prenom']}} 
               
 
                
@@ -100,7 +117,7 @@
               </h6>
               <span>
                  
-              
+              {{$user['role']}}
              
               </span>
             </li>
@@ -111,7 +128,7 @@
             <li>
              
             
-            
+            <a class="dropdown-item d-flex align-items-center" href="{{url('user-profile',$user['id'])}}}">
             <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -189,5 +206,5 @@
 </html>
 
 
-
+  @endif
   

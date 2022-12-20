@@ -3,26 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Opportunite;
 use App\Models\Utilisateur;
 use App\Models\Contact;
 use App\Models\Rendez;
 use Illuminate\Http\Request;
 use App\Http\Requests\validate;
 use Illuminate\Support\Facades\DB;
- //session_start();
+ session_start();
 class ClientController extends Controller
 {
     
     public function index(Request $request){
         $listclients=Client::all();
-        $user = Utilisateur::find($request->session()->get('user'));
-    	
-        return view('clients/clients',['clients'=> $listclients,'user'=>$user]);
+        return view('clients/clients',['clients'=> $listclients]);
     }
     
     public function create(Request $request){
-        $user = Utilisateur::find($request->session()->get('user'));
-    	return view('clients.client-add',['user'=>$user]);
+       
+    	return view('clients.client-add');
     } 
    
     public function store(validate $request){
@@ -30,7 +29,7 @@ class ClientController extends Controller
     	$client->societe = $request->input('societe');
     	$client->telephone = $request->input('telephone');
         $client->adresse = $request->input('adresse');
-    	$client-> site_web = $request->input('site_web');
+    	$client->site_web = $request->input('site_web');
     	$client->save();
         session()->flash('succes','client ajouter avec success');
         return redirect('clients');
@@ -46,13 +45,13 @@ class ClientController extends Controller
        
 
         //$contact=Contact::find($client->societe);
-        $contact = Contact::where('clientID',$id);
+        
         $rendez = Rendez::where('client',$client->societe)->get();
 
-        //$contact=Contact::find($client->societe);
-        $contact = Contact::where('client_id',$id)->get();
-    //    $rendez = Rendez::where('client',$client->societe)
-    //             ->where('user_id',$user->id)->get();
+        
+        $contact = Contact::where('clientID',$id)->get();
+        $opp = Opportunite::where('clientID',$id)->get();
+   
 
       
         $rendez = DB::table('rendezs')->join('utilisateurs', 'utilisateurs.id', '=', 'rendezs.user_id')
@@ -65,7 +64,8 @@ class ClientController extends Controller
        
     	
 
-    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez, 'action'=>$action]);
+    	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez, 
+                                           'action'=>$action,'opp'=>$opp]);
 
     }
 
