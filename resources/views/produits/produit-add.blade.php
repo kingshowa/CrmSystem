@@ -52,6 +52,24 @@
                         <input name="photo" type="file" class="form-control" id="Photo" width="60px" height="60px" accept="image/png, image/jpeg">
                       </div>
                     </div>
+                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Type</label>
+                  
+                
+                   <input type="radio" id="contactChoice1" name="type" value="radio1">
+                   <label for="contactChoice1">Auto</label>
+
+                   <input type="radio" id="contactChoice2" name="type" value="radio2">
+                   <label for="contactChoice2">Manual</label>
+                   <div class="row mb-3">
+                      <label for="Quantites" class="col-md-4 col-lg-3 col-form-label">Describtion</label>
+                      <div class="col-md-8 col-lg-9">
+                        
+                        <textarea name="desc" class="form-control" id="about" style="height: 100px"> {{old('desc')}}</textarea>
+                      </div>
+                    </div>
+                    
+
+                 
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save Produits</button>
                     </div>

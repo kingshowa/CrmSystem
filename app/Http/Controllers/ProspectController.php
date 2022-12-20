@@ -8,7 +8,7 @@ use App\Models\Prospect;
 use App\Models\Client;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
- //session_start();
+ session_start();
 class ProspectController extends Controller
 {
     public function index(Request $request){

@@ -12,7 +12,7 @@ use App\Models\Prospect;
 use App\Models\Contact;
 use Carbon\Carbon;
 
-//  session_start();
+  session_start();
 
 class chartsController extends Controller
 {
