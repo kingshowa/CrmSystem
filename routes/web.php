@@ -58,6 +58,8 @@ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('inde
 
  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
 
+
+ Route::get('/acc-opportunite/{id}', [OpportuniteController::class, 'contact_opp_details'])->name('contact_opp_details');
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
 
  Route::put('/opp-product/{id}/{idOpp}', [OpportuniteController::class, 'updateOP'])->name('updateOP');
