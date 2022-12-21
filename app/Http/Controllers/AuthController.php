@@ -39,7 +39,7 @@ class AuthController extends Controller
           if($user->role == 'admin'){
               session_start();
               $_SESSION['admin'] = $user->id;
-               return redirect('/');
+               return redirect('/admin');
             }
             if ($user->role == 'commercial') {
                 session_start();
@@ -66,7 +66,7 @@ class AuthController extends Controller
     function logout(Request $request){
         if (SESSION()->has('admin')) {
             SESSION()->pull('admin');
-            return redirect('login');
+            return redirect('/');
         } 
     }
     
