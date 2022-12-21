@@ -15,7 +15,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-// session_start();
+ session_start();
 
 
 class AuthController extends Controller
@@ -64,10 +64,13 @@ class AuthController extends Controller
             //return back();
     }
     function logout(Request $request){
-        if (SESSION()->has('admin')) {
-            SESSION()->pull('admin');
-            return redirect('/');
-        } 
+        // if (SESSION()->has('admin')) {
+        //     //SESSION()->pull('admin');
+        //     //unset($_SESSION['admin']);
+            
+        // } 
+        session_destroy();
+        return redirect('/');
     }
     
 }
