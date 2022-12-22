@@ -45,6 +45,9 @@
                 <li class="nav-item">
                   <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Opportunite</button>
                 </li>
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#facture">Overview Facture</button>
+                </li>
 
               </ul>
 
@@ -104,6 +107,12 @@
                         <input name="date_cloture" type="date" class="form-control"  value="{{$opportunite->date_cloture}}">
                       </div>
                     </div>
+                    <div class="row mb-3">
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Remise</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="remise" type="integre" class="form-control"  value="{{$opportunite->remise}}">
+                      </div>
+                    </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Stage</label>
@@ -126,7 +135,101 @@
 
                 </div>
 
-                
+<div class="tab-pane fade  facture pt-3" id="facture">
+
+@if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
+<h5 class="card-title" style="align:center;">Devis {{$opportunite->id}} </h5>
+@else
+<h5 class="card-title" style="align:center;">Facture {{$opportunite->id}} </h5>
+@endif               
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Company</div>
+                    <div class="col-lg-9 col-md-8">{{$client[0]->societe}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Adresse</div>
+                    <div class="col-lg-9 col-md-8">{{$client[0]->adresse}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Telephone</div>
+                    <div class="col-lg-9 col-md-8">{{$client[0]->telephone}}</div>
+                  </div>
+              
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Closing Date</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->date_cloture}}	</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Amount</div>
+                    <div class="col-lg-9 col-md-8">{{$amount}} DZD</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Remise</div>
+                    <div class="col-lg-9 col-md-8">{{$opportunite->Remise}} DZD</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Amount With Remise</div>
+                    <?php $p=($amount*$opportunite->Remise)/100;
+                          $t=$amount-$p;?>
+                    <div class="col-lg-9 col-md-8">{{$t}} DZD</div>
+                  </div>
+
+                 
+
+                 
+      <section class="section">
+      <div class="row">
+        
+            <div class="col-12">
+              <!-- <div class="card recent-sales overflow-auto"> -->
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                   
+                  </h5>
+
+                  <table class="table table-striped datatable">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">Product name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unity Price</th>
+                        <th scope="col">Total Price</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $product)
+                      <tr>
+                       
+                        <td>{{$product->nom}}</td>
+                        <td>{{$product->quantite}}</td>                     
+                        <td>{{$product->prix}}</td>
+                        <td>{{$product->prix * $product->quantite}}</td>
+                       </tr>
+                      @endforeach
+                                
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div>
+            <td class="content-block">
+           <a href="{{route('facturedownload',$opportunite->id)}}">Download_facture</a>
+      </td>
+      </div>
+     
+    </section>
+                 
+</div>
+
+
+
 
 
               </div><!-- End Bordered Tabs -->

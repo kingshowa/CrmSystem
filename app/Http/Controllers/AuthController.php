@@ -15,7 +15,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-// session_start();
+//session_start();
 
 
 class AuthController extends Controller
@@ -37,8 +37,11 @@ class AuthController extends Controller
 
            
           if($user->role == 'admin'){
-              session_start();
-              $_SESSION['admin'] = $user->id;
+            session_start();
+            $_SESSION['admin'] = $user->id;
+                
+
+                
                return redirect('/');
             }
             if ($user->role == 'commercial') {
@@ -49,14 +52,13 @@ class AuthController extends Controller
             }else
              if($user->role == 'contact'){
                 session_start();
-              $_SESSION['contact'] = $user->id;
+                $_SESSION['contact'] = $user->id;
                 
-                return view('front-office.account');
+              
+                
+                return view('front-office.index');
 
                 }
-            echo "vcdf";
-
-
         } else
         session()->flash('echec','Login invalid');
         return redirect('login');
@@ -64,10 +66,20 @@ class AuthController extends Controller
             //return back();
     }
     function logout(Request $request){
-        if (SESSION()->has('admin')) {
-            SESSION()->pull('admin');
-            return redirect('login');
-        } 
+
+      if(session()->has('admin')||session()->has('commercial'))
+        {session_start();
+        session_unset();
+        session_destroy();
+        return redirect('/login');}
+        else{
+            session_start();
+            session_unset();
+            session_destroy();
+            return view('front-office.login');
+
+        }
+        
     }
     
 }

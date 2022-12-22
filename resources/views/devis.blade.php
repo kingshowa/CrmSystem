@@ -282,7 +282,7 @@ a {
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
                                     <td class="content-block">
-                                        <h2 style="font-size:50px; color:blue; text-align:center;">Facture</h2>
+                                        <h2 style="font-size:50px; color:blue; text-align:center;">Devis</h2>
                                     </td>
                                 </tr>
                                 <tr>
@@ -370,7 +370,7 @@ a {
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                    <a href="{{route('facturedownload',$opp->id)}}">Download_facture</a>
+                                    <a href="{{route('devisdownload',$opp->id)}}">Download_facture</a>
                                     </td>
                                 </tr>
                                

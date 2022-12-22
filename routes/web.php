@@ -69,9 +69,14 @@ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('inde
  Route::delete('/opp-product/{id}', [OpportuniteController::class, 'destroyOP'])->name('destroyOP');
 
  Route::get('/opp-add/{id}', [OpportuniteController::class, 'oppcreate'])->name('oppcreate');
+ Route::post('/oppstore', [OpportuniteController::class, 'oppstore'])->name('oppstore');
 
  Route::get('/factureshow/{id}', [OpportuniteController::class, 'factureshow'])->name('factureshow');
  Route::get('/facturedownload/{id}', [OpportuniteController::class, 'facturedownload'])->name('facturedownload');
+
+ Route::get('/devisshow/{id}', [OpportuniteController::class, 'devisshow'])->name('devisshow');
+ Route::get('/devisdownload/{id}', [OpportuniteController::class, 'devisdownload'])->name('devisdownload');
+
 
 
  Route::get('facture', function () {
@@ -185,6 +190,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('user-profile/{id}', [UtilisateurController::class, 'profile'])->name('user-profile');
 Route::put('edite_profile/{id}', [UtilisateurController::class, 'edite_profile'])->name('edite_profile');
+Route::put('edite_photo/{id}', [UtilisateurController::class, 'edite_photo'])->name('edite_photo');
 // Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
 
 

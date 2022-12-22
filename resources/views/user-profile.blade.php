@@ -141,21 +141,29 @@
             </div>
 
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+              <form action="{{route('edite_photo',$user->id)}}" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="_method" value="PUT" >
+                    {{ csrf_field() }}
+              <div class="row mb-3">
+                  <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                  <div class="col-md-8 col-lg-9">
+                    <img src="/storage/imag/{{$user->image}}" alt="Profile" class="rounded-circle">
+                    <div class="pt-2">
+                    <input type="file" name="image" id="photo" style="display:none">
+                     <label for="photo"><a for="photo"class="btn btn-primary btn-sm" title="Upload new profile image"><i for="photo"type="file" class="bi bi-upload"></i>
+                   </label> 
+                     <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <button type>upload!!</button>
+              </form>
 
               <!-- Profile Edit Form -->
               <form action="{{route('edite_profile',$user->id)}}" method="POST">
               <input type="hidden" name="_method" value="PUT" >
                     {{ csrf_field() }}
-                <div class="row mb-3">
-                  <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                  <div class="col-md-8 col-lg-9">
-                    <img src="/storage/imag/{{$user->image}}" alt="Profile" class="rounded-circle">
-                    <div class="pt-2">
-                      <a href="#"  class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                      <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                    </div>
-                  </div>
-                </div>
+               
 
                 <div class="row mb-3">
                   <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom</label>

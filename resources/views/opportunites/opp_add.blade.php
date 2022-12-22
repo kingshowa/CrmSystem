@@ -23,7 +23,7 @@
       <div class="card"> 
         <div class="card-body pt-3 col-xl-8">
 
-          <form action="{{ route('store_opportunite') }}" method="POST">
+          <form action="{{ route('oppstore') }}" method="POST">
           {{ csrf_field()}}
                 <div class="row mb-3">
                   <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Opportunity name</label>
@@ -51,11 +51,18 @@
                     <input name="date_cloture" type="date" class="form-control" id="Phone">
                   </div>
                 </div>
+                <div class="row mb-3">
+                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Remise</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="remise" type="integer" class="form-control" id="Phone">
+                  </div>
+                </div>
 
                 <div class="row mb-3">
                       <label  class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
-                      <input name="client" type="text" class="form-control" id="Phone" value="{{$client->id}}" disabled>
+                      <input name="client" type="integer" class="form-control" id="Phone" value="{{$client->id}}">
+                      <input name="societe" type="hidden" class="form-control" id="Phone" value="{{$client->societe}}">
                        
                       </div>
                     </div>

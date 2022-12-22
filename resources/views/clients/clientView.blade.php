@@ -280,7 +280,7 @@
                 
 
                 <div class="card-body">
-                  <h5 class="card-title"><a href="{{url('opp-add/'.$client->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunite</button></a></h5>
+                  <h5 class="card-title"><a href="{{route('oppcreate',$client->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunite</button></a></h5>
 
                   <table class="table table-striped datatable">
                     <thead>

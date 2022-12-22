@@ -51,6 +51,12 @@
                     <input name="date_cloture" type="date" class="form-control" id="Phone">
                   </div>
                 </div>
+                <div class="row mb-3">
+                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Remise</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="remise" type="integer" class="form-control" id="Phone">
+                  </div>
+                </div>
 
                 <div class="row mb-3">
                       <label  class="col-md-4 col-lg-3 col-form-label">Client</label>

@@ -50,7 +50,7 @@
                         <td>{{$opportunite->etape}}</td>
                         <td>
                         @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
-                        <a href="#"><button type="button" class="btn btn-md btn-success">Devis </button></a> 
+                        <a href="{{route('devisshow',$opportunite->id)}}"><button type="button" class="btn btn-md btn-success">Devis </button></a> 
                           @endif
                           @if($opportunite->etape == 'Gangee')
                           <a href="{{route('factureshow',$opportunite->id)}}"><button type="button" class="btn btn-danger">Facture</button></a>

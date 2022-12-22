@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('date_cloture');
             $table->integer('clientID');
             $table->string('client');
+            $table->integer('remise')->nullable();
             $table->timestamps();
         });
     }
