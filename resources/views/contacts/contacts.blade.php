@@ -55,7 +55,7 @@
                         <td>{{$contact->fonction}}</td>
                         <td>{{$contact->email}}</td>
                         <td>{{$contact->telephone}}</td>
-                        <td>{{$contact->client}}</td>
+                        <td>{{$contact->societe}}</td>
                         <td>
                           <a class="collapsed" href="{{url('contact/'.$contact->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>

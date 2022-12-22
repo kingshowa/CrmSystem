@@ -94,7 +94,7 @@ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('inde
  Route::get('/transforme/{id}', [ProspectController::class, 'transforme'])->name('transforme');
 
 
- Route::get('/', [ChartsController::class, 'admin'])->name('admin');
+ Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
 
 
 
@@ -184,7 +184,7 @@ Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destr
 
 
 //Authentification
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

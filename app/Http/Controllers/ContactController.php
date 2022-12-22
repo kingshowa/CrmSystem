@@ -13,28 +13,18 @@ use Illuminate\Support\Facades\DB;
 class ContactController extends Controller
 {   
     public function index(Request $request){
-    	$listContacts = Contact::all();
-        
-        
+    	$listContacts = Client::join('contacts', 'clients.id', '=', 'contacts.clientID')->get();
         return view('contacts/contacts', ['contacts' => $listContacts]);
-        //return view('contacts/contacts');
     }
     
     public function create(Request $request){
         $clients = Client::orderBy('societe')->get();
-        
     	return view('contacts.contact-add',['clients'=>$clients]);
     } 
 
     public function create2(Request $request,$id){
         $societe= Client::find($id);
-
-        
-        
     	return view('contacts.contact-add2', ['societe' => $societe]);
-
-    	
-
     } 
    
     public function store_contact(Request $request){
@@ -61,25 +51,18 @@ class ContactController extends Controller
         session()->flash('succes','You have successfully added the contact '.$contact->nom);
         $client = Client::where('societe',$request->input('client'))->first();
         $id=$request->input('client');
-        
-       // return view('clients.clientView', ['client'=>$client]);
         return redirect('clientView/'.$id.'/1');
     }
 
-
- 
     public function details($id, $action){
     	
         $contact = DB::table('clients')->join('contacts', 'clients.id', '=', 'contacts.clientID')
                ->where('contacts.id', $id)
                ->select('contacts.*', 'clients.societe')
-               ->get();
-       
+               ->get(); 
     	return view('contacts.contact', ['contact'=> $contact], ['action'=>$action]);
     }
        
-
-    
     public function contact_details(Request $request,$id){
         $contact = Contact::join('clients', 'clients.id', '=', 'contacts.clientID')->where('contacts.id', $id)->get()[0];
         $opps = Opportunite::where('clientID', $contact->clientID)->get();
@@ -95,7 +78,6 @@ class ContactController extends Controller
         $contact->telephone = $request->input('telephone');
     	$contact->clientID = $contact->clientID;
     	$contact->save();
-        //return redirect('contact/'.$id);
         return back();    	
     }
 
@@ -115,6 +97,5 @@ class ContactController extends Controller
     	$contact = Contact::find($id);
     	$contact->delete();
     	return redirect('contacts');
-    } 
-    
+    }   
 }
