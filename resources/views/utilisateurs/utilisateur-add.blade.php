@@ -95,7 +95,7 @@
                         <select class="form-select" id="select_box" name="contactID">
                           <option selected>Choose Contact</option>
                           @foreach($contact as $contact)
-                          <option value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
+                          <option  value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
                           @endforeach
                         </select>
                         <!-- <input name="client"  type="text" class="form-control" id="Email" required> -->

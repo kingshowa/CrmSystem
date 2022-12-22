@@ -36,8 +36,8 @@ class UtilisateurController extends Controller
 
         $contact = Contact::where('id',$utilisateur->contactID)->get();
         
-        $a = $contact[0]->nom;
-        $b = $contact[0]->prenom;
+        // $a = $contact[0]->nom;
+        // $b = $contact[0]->prenom;
 
        
         $c = $request->input('role');
@@ -53,8 +53,8 @@ class UtilisateurController extends Controller
     	        $utilisateur->prenom = $request->input('surName');
             } else {
                 $utilisateur->role = 'contact';
-                $utilisateur->nom = $a;
-                $utilisateur->prenom = $b;
+                $utilisateur->nom = $contact[0]->nom;
+                $utilisateur->prenom = $contact[0]->prenom;
             }
             
           
@@ -62,19 +62,21 @@ class UtilisateurController extends Controller
             
             return back()->with(session()->flash('echec','Email existe deja'));
         }else  $utilisateur->email = $request->input('email');
-    
+
+
+        $a = $request->input('image');
+        if($request->hasFile('image')) {
+            $filenameWithExt = $request->file("image")->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file("image")->getClientOriginalExtension();
+            $filenametostore = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file("image")->storeas('public/imag', $filenametostore);
+
+
+            $utilisateur->image = $filenametostore;
+        }
        
-    	
-
-        $filenameWithExt = $request->file("image")->getClientOriginalName();
-
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $extension=$request->file("image")->getClientOriginalExtension();
-        $filenametostore = $filename . '_' . time() . '.' . $extension;
-        $path = $request->file("image")->storeas('public/imag', $filenametostore);
-
-
-        $utilisateur->image = $filenametostore;
     	$utilisateur->save();
         session()->flash('success','client ajouter avec success');
         return redirect('utilisateurs');

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Hash;
 
 //session_start();
 
- session_start();
+ 
 
 
 
@@ -47,10 +47,8 @@ class AuthController extends Controller
                 
 
                 
-               return redirect('/');
+              
 
-              session_start();
-              $_SESSION['admin'] = $user->id;
                return redirect('/admin');
             }
             if ($user->role == 'commercial') {
