@@ -118,6 +118,7 @@
                 var id1 = document.getElementById("id1");
                 var id2 = document.getElementById("id2");
                 var id3 = document.getElementById("id3");
+                var id5 = document.getElementById("id5");
 
                 if (checkBox.checked == true){
                   form1.style.display = "block";
@@ -133,6 +134,7 @@
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio3'>";
                   id1.style.display = "none";
                   id2.style.display = "none";
+                  id5.style.display = "none";
                   id3.style.display = "block";
 
                 }
