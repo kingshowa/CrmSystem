@@ -9,7 +9,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('/')}}">
+    <a class="nav-link collapsed" href="{{ url('/admin')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
@@ -53,12 +53,7 @@
       <span>Rendez-Vous</span>
     </a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ url('rendez')}}">
-      <i class="bi bi-envelope"></i>
-      <span>Rendez-Vous</span>
-    </a>
-  </li>
+ 
 </ul>
 
 </aside><!-- End Sidebar-->

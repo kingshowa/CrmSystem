@@ -16,12 +16,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
-//session_start();
+session_start();
 
  
-
-
-
 class AuthController extends Controller
 {
     function login(){
@@ -42,7 +39,7 @@ class AuthController extends Controller
            
           if($user->role == 'admin'){
 
-            session_start();
+          
             $_SESSION['admin'] = $user->id;
                 
 
@@ -52,13 +49,13 @@ class AuthController extends Controller
                return redirect('/admin');
             }
             if ($user->role == 'commercial') {
-                session_start();
+              
               $_SESSION['commercial'] = $user->id;
                return view('/commerciale');
 
             }else
              if($user->role == 'contact'){
-                session_start();
+                
                 $_SESSION['contact'] = $user->id;
                 
               
@@ -75,21 +72,20 @@ class AuthController extends Controller
     function logout(Request $request){
 
 
-      if(session()->has('admin')||session()->has('commercial'))
-        {session_start();
-        session_unset();
+      if(($_SESSION['admin'])||($_SESSION['commercial']))
+        {
+         
         session_destroy();
-        return redirect('/login');}
+        return redirect('/');
+       }
         else{
-            session_start();
+           
             session_unset();
             session_destroy();
-            return view('front-office.login');
+           // return view('front-office.login');
 
         }
-        
-
-       
+     
 
     }
     
