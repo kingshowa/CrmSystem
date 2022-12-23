@@ -1,6 +1,9 @@
 @extends("layouts.nav-opportunities")
 
 @Section("opportunites")
+<style>
+  a{color:white;}
+</style>
 
 <main id="main" class="main">
 
@@ -47,6 +50,14 @@
                         <td>{{$opportunite->date_cloture}}</td>
                         <td>{{$opportunite->client}}</td>
                         <td>{{$opportunite->etape}}</td>
+                        <td>
+                        @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
+                             <button type="button" class="btn btn-md btn-success">Devis  </button> 
+                          @endif
+                          @if($opportunite->etape == 'Gangee')
+                             <button type="button" class="btn btn-danger" ><a href="{{url('opportunites/factures')}}">Facture</a></button>
+                          @endif
+                        </td>
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>

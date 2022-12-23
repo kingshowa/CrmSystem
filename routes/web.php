@@ -48,6 +48,7 @@ use App\Http\Controllers\ChartsController;
  Route::put('/opp-product/{id}/{idOpp}', [OpportuniteController::class, 'updateOP'])->name('updateOP');
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
  Route::delete('/opp-product/{id}', [OpportuniteController::class, 'destroyOP'])->name('destroyOP');
+ Route::get('/opportunites/factures', [OpportuniteController::class, 'facture'])->name('facture');
 
  Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');

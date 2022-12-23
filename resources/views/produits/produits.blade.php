@@ -75,8 +75,8 @@
                 <div class="col-lg-3 col-md-4 label">Photo</div>
                 <div class="col-lg-9 col-md-8">
 
-                  <!-- <img src="{{('/public/images/'.$produit->photo)}}"> -->
-                   <img src="/storage/images/{{$produit->photo}}" width="100" height="100">
+                  
+                   <img src="{{asset('storage/images/'.$produit->photo)}}" width="100" height="100">
 
                 
                   </div> 
@@ -113,7 +113,7 @@
                 <div class="row mb-3">
                   <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Photo" type="file"  accept="image/png, image/jpeg" class="form-control" id="Photo" value="Mercedes_Classe_C_002.jpg ">
+                    <input name="Photo" type="file"  accept="image/png, image/jpg" class="form-control" id="Photo" value="Mercedes_Classe_C_002.jpg ">
                   </div>
                 </div>
                 <div class="text-center">
