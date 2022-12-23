@@ -67,6 +67,7 @@ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('inde
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
 
  Route::delete('/opp-product/{id}', [OpportuniteController::class, 'destroyOP'])->name('destroyOP');
+ Route::get('/opportunites/factures', [OpportuniteController::class, 'facture'])->name('facture');
 
  Route::get('/opp-add/{id}', [OpportuniteController::class, 'oppcreate'])->name('oppcreate');
  Route::post('/oppstore', [OpportuniteController::class, 'oppstore'])->name('oppstore');

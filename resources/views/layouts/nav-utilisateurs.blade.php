@@ -21,11 +21,7 @@
     
   </li><!-- End Prospects Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('contacts')}}">
-      <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
-    </a>
-  </li><!-- End Contacts Nav -->
+ 
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('clients')}}">
@@ -33,6 +29,12 @@
     </a>
   </li><!-- End Clients Nav -->
 
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{ url('contacts')}}">
+      <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
+    </a>
+  </li><!-- End Contacts Nav -->
+  
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('opportunites')}}">
       <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
@@ -54,7 +56,7 @@
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
       <i class="bi bi-envelope"></i>
-      <span>Rendez-Vous</span>
+      <span>Mes Rendez-Vous</span>
     </a>
   </li>
 </ul>
