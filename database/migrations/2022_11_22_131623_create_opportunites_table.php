@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('etape');
             $table->date('date_cloture');
             $table->integer('clientID');
-            $table->string('client');
+            $table->string('client');  //unnecessary column!!!!!!!
+            $table->integer('remise')->nullable();
             $table->timestamps();
         });
     }

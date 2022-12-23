@@ -1,10 +1,10 @@
 @extends("layouts.Master")
 
 @Section("content")
-
-<!-- ======= Sidebar For prospects ======= -->
-<aside id="sidebar" class="sidebar">
 @if (isset($_SESSION['admin']))
+
+<!-- ======= Sidebar For contact ======= -->
+<aside id="sidebar" class="sidebar">
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -16,19 +16,11 @@
   </li><!-- End Dashboard Nav -->
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ url('prospects')}}">
+    <a class="nav-link collapsed" href="{{ url('prospects')}}">
       <i class="bi bi-person-plus-fill"></i><span>Prospects</span>
     </a>
     
   </li><!-- End Prospects Nav -->
-
- 
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('clients')}}">
-      <i class="bi bi-person-check-fill"></i><span>Clients</span>
-    </a>
-  </li><!-- End Clients Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('contacts')}}">
@@ -37,7 +29,13 @@
   </li><!-- End Contacts Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('opportunites')}}">
+    <a class="nav-link collapsed" href="{{ url('clients')}}">
+      <i class="bi bi-person-check-fill"></i><span>Clients</span>
+    </a>
+  </li><!-- End Clients Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('opportunites')}}">
       <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
     </a>
   </li><!-- End Oppotunites Nav -->
@@ -57,12 +55,15 @@
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
       <i class="bi bi-envelope"></i>
-      <span>Mes Rendez-Vous</span>
+      <span>Rendez-Vous</span>
     </a>
   </li>
 </ul>
 
+</aside><!-- End Sidebar-->
 @else
+<!-- ======= Sidebar For contact ======= -->
+<aside id="sidebar" class="sidebar">
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -74,26 +75,27 @@
   </li><!-- End Dashboard Nav -->
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ url('prospects')}}">
+    <a class="nav-link collapsed" href="{{ url('prospects')}}">
       <i class="bi bi-person-plus-fill"></i><span>Prospects</span>
     </a>
     
   </li><!-- End Prospects Nav -->
-
-  
-
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('clients')}}">
       <i class="bi bi-person-check-fill"></i><span>Clients</span>
     </a>
   </li><!-- End Clients Nav -->
+
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('contacts')}}">
       <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
     </a>
   </li><!-- End Contacts Nav -->
+
+  
+
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('opportunites')}}">
+    <a class="nav-link" href="{{ url('opportunites')}}">
       <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
     </a>
   </li><!-- End Oppotunites Nav -->
@@ -106,10 +108,10 @@
     </a>
   </li>
 </ul>
-@endif
 
 </aside><!-- End Sidebar-->
 
-@yield("prospects")
+@endif
+@yield("opportunites")
 
 @endsection

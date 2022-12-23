@@ -13,6 +13,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ChartsController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,18 +38,52 @@ use App\Http\Controllers\ChartsController;
 
 
 
- Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+//  Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+//  Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
+//  Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
+//  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
+//  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
+//  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
+Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
+
  Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
+
  Route::get('/opp-product/{id}', [OpportuniteController::class, 'create_prod'])->name('create_prod');
+
  Route::get('/opp-product-edit/{idPO}/{idOpp}', [OpportuniteController::class, 'create_prod_edit'])->name('create_prod_edit');
+
  Route::post('/opportunites-add', [OpportuniteController::class, 'store_opportunite'])->name('store_opportunite');
+
  Route::post('/opp-product/{id}', [OpportuniteController::class, 'store_opp_product'])->name('store_opp_product');
+
  Route::get('/opportunite/{id}/{action}', [OpportuniteController::class, 'details'])->name('details');
+
+
+ Route::get('/acc-opportunite/{id}', [OpportuniteController::class, 'contact_opp_details'])->name('contact_opp_details');
  Route::put('/opportunite/{id}', [OpportuniteController::class, 'update'])->name('update');
+
  Route::put('/opp-product/{id}/{idOpp}', [OpportuniteController::class, 'updateOP'])->name('updateOP');
+
  Route::delete('/opportunites/{id}', [OpportuniteController::class, 'destroy'])->name('destroy');
+
  Route::delete('/opp-product/{id}', [OpportuniteController::class, 'destroyOP'])->name('destroyOP');
  Route::get('/opportunites/factures', [OpportuniteController::class, 'facture'])->name('facture');
+
+ Route::get('/opp-add/{id}', [OpportuniteController::class, 'oppcreate'])->name('oppcreate');
+ Route::post('/oppstore', [OpportuniteController::class, 'oppstore'])->name('oppstore');
+
+ Route::get('/factureshow/{id}', [OpportuniteController::class, 'factureshow'])->name('factureshow');
+ Route::get('/facturedownload/{id}', [OpportuniteController::class, 'facturedownload'])->name('facturedownload');
+
+ Route::get('/devisshow/{id}', [OpportuniteController::class, 'devisshow'])->name('devisshow');
+ Route::get('/devisdownload/{id}', [OpportuniteController::class, 'devisdownload'])->name('devisdownload');
+
+
+
+ Route::get('facture', function () {
+    return view('facture');
+});
+
 
  Route::get('/prospects', [ProspectController::class, 'index'])->name('index');
  Route::get('/prospect-add', [ProspectController::class, 'create'])->name('create');
@@ -60,23 +95,7 @@ use App\Http\Controllers\ChartsController;
  Route::get('/transforme/{id}', [ProspectController::class, 'transforme'])->name('transforme');
 
 
-
-
-// Route::get('/', function () {
-//     return view('admin');
-// });
-
-
-// Route::get('/', function () {
-//     return view('admin');
-// });
-
-// Route::get('/admin', function () {
-//     return view('admin');
-// });
- Route::get('/', [ChartsController::class, 'admin'])->name('admin');
-// Route::get('/route', [ChartsController::class, 'route'])->name('route');
-// Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
+ Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
 
 
 
@@ -84,17 +103,6 @@ use App\Http\Controllers\ChartsController;
 Route::get('commerciale', function () {
     return view('commerciale');
 });
-Route::get('/commerciale', function () {
-    return view('commerciale');
-});
-
-
-// Route::get('/prospects', function () {
-//     return view('prospects/prospects');
-// });
-
-
-
 
 
 Route::get('/front-office', function () {
@@ -119,8 +127,6 @@ Route::get('/front-office/team', function () {
 
 
 
-
-
 Route::get('/login', function () {
     return view('login');
 });
@@ -142,8 +148,7 @@ Route::get('/user-profile', function () {
   Route::put('/client/update_by_contact/{id}', [ClientController::class, 'update_by_contact'])->name('update_by_contact');
  
 
-
-
+  
 
   Route::get('/rendez', [RendezController::class, 'index'])->name('index-rendez');
  Route::get('/rendez/create', [RendezController::class, 'create'])->name('create-rendez');
@@ -177,18 +182,16 @@ Route::post('utilisateurs/store',[UtilisateurController::class, 'store'])->name(
 Route::get('utilisateur/{id}/{action}',[UtilisateurController::class, 'edite'])->name('edite'); 
 Route::put('utilisateurs/update/{id}',[UtilisateurController::class, 'update'])->name('update-ut');
 Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destroy'])->name('destroy-ut');
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //Authentification
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('user-profile/{id}', [UtilisateurController::class, 'profile'])->name('user-profile');
 Route::put('edite_profile/{id}', [UtilisateurController::class, 'edite_profile'])->name('edite_profile');
+Route::put('edite_photo/{id}', [UtilisateurController::class, 'edite_photo'])->name('edite_photo');
 // Route::get('admin/{id}', [AuthController::class, 'admin'])->name('admin');
 
 
@@ -200,5 +203,3 @@ Route::get('forget-password', [PasswordController::class, 'showForgetPasswordFor
 Route::post('forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
-

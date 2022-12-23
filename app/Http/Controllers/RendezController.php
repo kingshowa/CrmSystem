@@ -8,7 +8,7 @@ use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use App\Http\Requests\validerendez;
 use Illuminate\Support\Facades\DB;
-//session_start();
+session_start();
 
 class RendezController extends Controller
 {

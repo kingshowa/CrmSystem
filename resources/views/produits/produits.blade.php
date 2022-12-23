@@ -70,6 +70,14 @@
                 <div class="col-lg-3 col-md-4 label">Quantites</div>
                 <div class="col-lg-9 col-md-8">{{$produit->quantitie}}</div>
               </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Type</div>
+                <div class="col-lg-9 col-md-8">{{$produit->type}}</div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-4 label">Description</div>
+                <div class="col-lg-9 col-md-8">{{$produit->desc}}</div>
+              </div>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Photo</div>
@@ -86,7 +94,7 @@
             <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form action="{{url('produits/update',$produit->id)}}" method="POST">
+              <form action="{{url('produits/update/'.$produit->id)}}" method="POST">
               <input type="hidden" name="_method" value="PUT" >
               {{ csrf_field() }}
                 <div class="row mb-3">
@@ -107,6 +115,18 @@
                   <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Quantite</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="quantitie" type="number" class="form-control" id="Quantite" value="{{$produit->quantitie}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Type</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="type" type="text" class="form-control" id="Quantite" value="{{$produit->type}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Description</label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="desc" type="text" class="form-control" id="Quantite" value="{{$produit->desc}}">
                   </div>
                 </div>
 

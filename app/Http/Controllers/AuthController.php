@@ -15,9 +15,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-// session_start();
 
+session_start();
 
+ 
 class AuthController extends Controller
 {
     function login(){
@@ -35,37 +36,33 @@ class AuthController extends Controller
         
         if (Hash::check(request('password'), $user->password)){
 
-            // $request->session()->put('user', $user->id);
+           
           if($user->role == 'admin'){
-               // $user->session()->regenerate();
 
-              session_start();
-              $_SESSION['admin'] = $user->id;
-                //$request->session()->put('admin',$user->id);
-               return redirect('/');
+          
+            $_SESSION['admin'] = $user->id;
+                
 
-            //   return view('admin', ['user'=>$user,'nbrclient'=> $nombreclient,
-            //   'nbrcontact'=>$nombrecontact,'nbrprospect'=>$nombreprospect,'nbrproduit'=>$nombreproduit
-            // ,'months'=>$months,'montho'=>$montho,'produit'=>$yproduit,
-            // 'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
-            // 'contactv'=>$contactv]);
+                
               
-            
 
-            //    session_start();
-            //    $_SESSION['admin']=$user->id;
+               return redirect('/admin');
+            }
+            if ($user->role == 'commercial') {
+              
+              $_SESSION['commercial'] = $user->id;
+               return view('/commerciale');
 
-            //$id = $_SESSION['admin'];
-             }
-
-              else
+            }else
              if($user->role == 'contact'){
-                return view('front-office.account', ['user'=>$user]);
+                
+                $_SESSION['contact'] = $user->id;
+                
+              
+                
+                return view('front-office.index');
 
                 }
-            echo "vcdf";
-
-
         } else
         session()->flash('echec','Login invalid');
         return redirect('login');
@@ -73,10 +70,23 @@ class AuthController extends Controller
             //return back();
     }
     function logout(Request $request){
-        if (SESSION()->has('admin')) {
-            SESSION()->pull('admin');
-            return redirect('login');
-        } 
+
+
+      if(($_SESSION['admin'])||($_SESSION['commercial']))
+        {
+         
+        session_destroy();
+        return redirect('/');
+       }
+        else{
+           
+            session_unset();
+            session_destroy();
+           // return view('front-office.login');
+
+        }
+     
+
     }
     
 }

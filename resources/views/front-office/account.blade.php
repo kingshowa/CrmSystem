@@ -292,14 +292,14 @@
                         <div class="tab-content pt-2 col-lg-12">
                             <div class="tab-pane fade pt-3 " id="profile-settings">
 
-                                <table class="table table-striped datatable">
+                                <table class="table table-dark">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Stage</th>
                                         <th scope="col">Closing Date</th>
-                                        <th scope="col" colspan="2">Actions</th>
+                                        <th scope="col">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -312,15 +312,15 @@
                                         <td>{{$opp->date_cloture}}</td>
                                         
                                         <td>
-                                            <a class="collapsed" href="{{url('')}}">
+                                            <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id)}}">
                                                 <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                                             </a>
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             <a class="collapsed" href="{{url('')}}">
                                                 <button class="btn btn-light btn-sm"><i class="bi bi-paper-fill"></i></button>
                                             </a>
-                                        </td>
+                                        </td> -->
                                     </tr>
 
                                     @endforeach

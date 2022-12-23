@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email');
-            $table->string('password');
-            $table->string('role');
+            $table->string('nom')->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->string('role')->nullable();
+            $table->integer('contactID')->nullable(); //id is an integer not a string!!!!!
             $table->timestamps();
         });
     }

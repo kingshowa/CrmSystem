@@ -166,7 +166,7 @@
                     <div class="row mb-3">
                       <label for="site_web" class="col-md-4 col-lg-3 col-form-label">Site web</label>
                       <div class="col-md-8 col-lg-9">
-                        <a href=""><input name="site_web" type="text" class="form-control" id="site_web" value="{{$prospect->site_web}}"></a>
+                        <input name="site_web" type="text" class="form-control" id="site_web" value="{{$prospect->site_web}}">
                       </div>
                     </div>
 
