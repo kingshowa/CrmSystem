@@ -96,7 +96,7 @@ class ProduitController extends Controller
         $produit->quantitie = $request->input('desc');
     	//$produit->photo = $request->input('Photo');
     	$produit->save();
-        return redirect('produit/'.$id);    	
+        return back();    	
     }
 
 
