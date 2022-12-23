@@ -20,7 +20,7 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="{{url('front-office')}}" class="active">Home</a></li>
+                            <li><a href="{{url('front')}}" class="active">Home</a></li>
                             <li><a href="{{url('front-office/cars')}}">Cars</a></li>
                             <li><a href="{{url('front-office/team')}}">Team</a></li>
                             
@@ -99,24 +99,25 @@
 
 
 
-
-
+   
+        @foreach($produit as $produit)
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="{{asset('assets-front/images/product-1-720x480.jpg')}}" alt="">
+                            
+                        <img src="/storage/images/{{$produit->photo}}"  alt="" >
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
+                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>{{$produit->prix}} DZD
                             </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                            <h4>{{$produit->nom}}</h4>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cog"></i>{{$produit->type}} &nbsp;&nbsp;&nbsp;
                             </p>
 
                             <ul class="social-icons">
@@ -125,56 +126,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{asset('assets-front/images/product-2-720x480.jpg')}}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                            </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-
-                            <ul class="social-icons">
-                                <li><a href="car-details.html">+ View Car</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{asset('assets-front/images/product-3-720x480.jpg')}}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                            </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-
-                            <ul class="social-icons">
-                                <li><a href="car-details.html">+ View Car</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                @endforeach
+               
             <br>
 
             <div class="main-button text-center">

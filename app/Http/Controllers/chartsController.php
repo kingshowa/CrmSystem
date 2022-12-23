@@ -110,4 +110,12 @@ class chartsController extends Controller
 
         
     }
+    public function front(){
+      $today = Carbon::today()->todatestring();
+     
+      $produit = Produit::orderBy('id', 'asc')->limit(3)->get();
+   
+    return view('front-office.index',['produit'=>$produit]);
+      
+    }
 }

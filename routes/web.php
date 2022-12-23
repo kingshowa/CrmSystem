@@ -90,7 +90,6 @@ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('inde
  Route::get('/prospect/{id}/{action}', [ProspectController::class, 'details'])->name('details');
  Route::put('/prospect/{id}', [ProspectController::class, 'update'])->name('update_pro');
  Route::delete('/prospects/{id}', [ProspectController::class, 'destroy'])->name('destroy');
-
  Route::get('/transforme/{id}', [ProspectController::class, 'transforme'])->name('transforme');
 
 
@@ -104,9 +103,11 @@ Route::get('commerciale', function () {
 });
 
 
-Route::get('/front-office', function () {
-    return view('front-office/index');
-});
+// Route::get('/front-office', function () {
+//     return view('front-office/index');
+// });
+
+ Route::get('/front', [ChartsController::class, 'front'])->name('front');
 
 Route::get('/front-office/cars', function () {
     return view('front-office/cars');
@@ -184,7 +185,7 @@ Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destr
 
 
 //Authentification
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

@@ -19,7 +19,7 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="{{url('front-office')}}">Home</a></li>
+                            <li><a href="{{url('front')}}">Home</a></li>
                             <li><a href="{{url('front-office/cars')}}">Cars</a></li>
 
                             <li><a href="{{url('front-office/team')}}">Team</a></li>
@@ -87,7 +87,7 @@
                                 <button type="submit" id="form-submit" class="main-button" style="width: 100%;">LOGIN</button>
                               </fieldset>
                             </div>
-                            <a href="{{ url('front-office/account/5')}}"><button type="button" id="form-submit" class="main-button" >go to account</button></a>
+                            <a href="{{ url('front-office/account/2')}}"><button type="button" id="form-submit" class="main-button" >go to account</button></a>
 
                           </div>
                           
