@@ -35,8 +35,8 @@
                         <th scope="col">Date_cloture</th>
                         <th scope="col">Client</th>
                         <th scope="col">Etape</th>
-                        <th scope="col"></th>
-                        <th scope="col" colspan="3">Actions</th>
+                        <th scope="col">Receipt</th>
+                        <th scope="col" colspan="4">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -50,10 +50,10 @@
                         <td>{{$opportunite->etape}}</td>
                         <td>
                         @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
-                        <a href="{{route('devisshow',$opportunite->id)}}"><button type="button" class="btn btn-md btn-success">Devis </button></a> 
+                        <a href="{{route('devisshow',$opportunite->id)}}">Devis </a> 
                           @endif
                           @if($opportunite->etape == 'Gangee')
-                          <a href="{{route('factureshow',$opportunite->id)}}"><button type="button" class="btn btn-danger">Facture</button></a>
+                          <a href="{{route('factureshow',$opportunite->id)}}">Facture</a>
                         @endif
                         </td>
                         <td>
@@ -64,6 +64,11 @@
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/2')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/3')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-file-earmark-ruled-fill"></i></button>
                           </a>
                         </td>
                         <td>

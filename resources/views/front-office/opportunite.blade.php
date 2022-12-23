@@ -65,10 +65,13 @@
 
               @php ($a = 'active')
               @php ($b = '')
+              @php ($c = '')
               @php ($a1 = 'show')
               @php ($b1 = '')
+              @php ($c1 = '')
 
               
+
 
               <ul class="nav nav-tabs nav-tabs-bordered">
 
