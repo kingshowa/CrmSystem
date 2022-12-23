@@ -26,14 +26,32 @@
 
               @php ($a = 'active')
               @php ($b = '')
+              @php ($c = '')
               @php ($a1 = 'show')
               @php ($b1 = '')
+              @php ($c1 = '')
 
               @if($action==2)
                 @php ($b = 'active')
                 @php ($a = '')
+                @php ($c = '')
                 @php ($a1 = '')
                 @php ($b1 = 'show')
+                @php ($c1 = '')
+              @endif
+              @if($action==3)
+                @php ($b = '')
+                @php ($a = '')
+                @php ($c = 'active')
+                @php ($a1 = '')
+                @php ($b1 = '')
+                @php ($c1 = 'show')
+              @endif
+
+              @if($opportunite->etape == 'Gangee')
+                @php ($fact = 'Invoice')
+              @else
+                @php ($fact = 'Quotation') 
               @endif
 
               <ul class="nav nav-tabs nav-tabs-bordered">
@@ -46,7 +64,7 @@
                   <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Opportunite</button>
                 </li>
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#facture">Overview Facture</button>
+                  <button class="nav-link {{ $c }}" data-bs-toggle="tab" data-bs-target="#facture">View {{$fact}}</button>
                 </li>
 
               </ul>
@@ -134,99 +152,82 @@
                   </form><!-- End Profile Edit Form -->
 
                 </div>
-
-<div class="tab-pane fade  facture pt-3" id="facture">
-
-@if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
-<h5 class="card-title" style="align:center;">Devis {{$opportunite->id}} </h5>
-@else
-<h5 class="card-title" style="align:center;">Facture {{$opportunite->id}} </h5>
-@endif               
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Company</div>
-                    <div class="col-lg-9 col-md-8">{{$client[0]->societe}}</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Adresse</div>
-                    <div class="col-lg-9 col-md-8">{{$client[0]->adresse}}</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Telephone</div>
-                    <div class="col-lg-9 col-md-8">{{$client[0]->telephone}}</div>
-                  </div>
-              
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Closing Date</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->date_cloture}}	</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Amount</div>
-                    <div class="col-lg-9 col-md-8">{{$amount}} DZD</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Remise</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->Remise}} DZD</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Amount With Remise</div>
-                    <?php $p=($amount*$opportunite->Remise)/100;
-                          $t=$amount-$p;?>
-                    <div class="col-lg-9 col-md-8">{{$t}} DZD</div>
-                  </div>
-
-                 
-
-                 
-      <section class="section">
-      <div class="row">
-        
-            <div class="col-12">
-              <!-- <div class="card recent-sales overflow-auto"> -->
-
-                <div class="card-body">
-                  <h5 class="card-title">
-                   
-                  </h5>
-
-                  <table class="table table-striped datatable">
-                    <thead>
-                      <tr>
-                        
-                        <th scope="col">Product name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Unity Price</th>
-                        <th scope="col">Total Price</th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($products as $product)
-                      <tr>
-                       
-                        <td>{{$product->nom}}</td>
-                        <td>{{$product->quantite}}</td>                     
-                        <td>{{$product->prix}}</td>
-                        <td>{{$product->prix * $product->quantite}}</td>
-                       </tr>
-                      @endforeach
-                                
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
             </div>
-            <td class="content-block">
-           <a href="{{route('facturedownload',$opportunite->id)}}">Download_facture</a>
-      </td>
-      </div>
-     
-    </section>
-                 
-</div>
+
+            <div class="tab-content pt-2 col-xl-10">
+
+                <div class="tab-pane fade {{ $c }} {{ $c1 }}  facture pt-3" id="facture">
+
+                            <h5 class="card-title"> {{$fact}} </h5>
+                                  <div class="row">
+                                    <div class="col-lg-10 col-md-9 label "></div>
+                                    <div class="col-lg-2 col-md-3" style="color:red;font-weight:bold;">No: 00000{{$opportunite->id}}</div>
+                                  </div> 
+
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label ">Company</div>
+                                    <div class="col-lg-8 col-md-8">{{$client[0]->societe}}</div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label">Adresse</div>
+                                    <div class="col-lg-8 col-md-8">{{$client[0]->adresse}}</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label">Telephone</div>
+                                    <div class="col-lg-8 col-md-8">{{$client[0]->telephone}}</div>
+                                  </div>
+                              
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label">Closing Date</div>
+                                    <div class="col-lg-8 col-md-8">{{$opportunite->date_cloture}}	</div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label">Amount</div>
+                                    <div class="col-lg-8 col-md-8">{{$amount}} DZD</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label">Discount</div>
+                                    <div class="col-lg-8 col-md-8">{{$opportunite->remise}} %</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-lg-4 col-md-4 label">Amount with discount</div>
+                                    <?php $p=($amount*$opportunite->remise)/100;
+                                          $t=$amount-$p;?>
+                                    <div class="col-lg-8 col-md-8">{{$t}} DZD</div>
+                                  </div>
+
+                                
+
+                                  <table class="table table-striped ">
+                                    <thead>
+                                      <tr>
+                                        
+                                        <th scope="col">Product name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Unity Price</th>
+                                        <th scope="col">Total Price</th>
+                                      
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($products as $product)
+                                      <tr>
+                                      
+                                        <td>{{$product->nom}}</td>
+                                        <td>{{$product->quantite}}</td>                     
+                                        <td>{{$product->prix}}</td>
+                                        <td>{{$product->prix * $product->quantite}}</td>
+                                      </tr>
+                                      @endforeach
+                                                
+                                    </tbody>
+                                  </table>
+                          <a href="{{route('facturedownload',$opportunite->id)}}">
+                            <button class="btn btn-success" style="float: right;">Download {{$fact}}</button>
+                          </a>              
+                </div>
 
 
 

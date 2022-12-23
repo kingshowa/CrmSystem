@@ -52,9 +52,9 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Remise</label>
+                  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Discount</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="remise" type="integer" class="form-control" id="Phone">
+                    <input name="remise" type="number" class="form-control" id="Phone">
                   </div>
                 </div>
 
