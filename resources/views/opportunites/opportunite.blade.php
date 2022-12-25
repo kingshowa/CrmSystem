@@ -224,9 +224,16 @@
                                                 
                                     </tbody>
                                   </table>
+                          
+                          @if($fact=="Quotation")
+                          <a href="{{route('devisdownload',$opportunite->id)}}">
+                            <button class="btn btn-success" style="float: right;">Download {{$fact}}</button>
+                          </a>
+                          @else
                           <a href="{{route('facturedownload',$opportunite->id)}}">
                             <button class="btn btn-success" style="float: right;">Download {{$fact}}</button>
-                          </a>              
+                          </a>  
+                          @endif            
                 </div>
 
 

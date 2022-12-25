@@ -28,17 +28,21 @@
                 
 
                 <div class="card-body">
-                  <h5 class="card-title"><a href="{{url('opportunites-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunite</button></a></h5>
+                  <h5 class="card-title">
+                    <a href="{{url('opportunites-add')}}">
+                      <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunity</button>
+                    </a>
+                  </h5>
 
                   <table class="table table-striped datatable">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Date_cloture</th>
-                        <th scope="col">Client</th>
-                        <th scope="col">Etape</th>
-                        <th scope="col" colspan="3">Actions</th>
+                        <th scope="col">Opportunity</th>
+                        <th scope="col">Clossing date</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Stage</th>
+                        <th scope="col" colspan="4">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -50,14 +54,7 @@
                         <td>{{$opportunite->date_cloture}}</td>
                         <td>{{$opportunite->client}}</td>
                         <td>{{$opportunite->etape}}</td>
-                        <td>
-                        @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
-                             <button type="button" class="btn btn-md btn-success">Devis  </button> 
-                          @endif
-                          @if($opportunite->etape == 'Gangee')
-                             <button type="button" class="btn btn-danger" ><a href="{{url('opportunites/factures')}}">Facture</a></button>
-                          @endif
-                        </td>
+                        
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
@@ -66,6 +63,12 @@
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/2')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
+
+                        <td>
+                          <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/3')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-file-earmark-ruled-fill"></i></button>
                           </a>
                         </td>
                         <td>

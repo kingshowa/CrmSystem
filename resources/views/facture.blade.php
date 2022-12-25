@@ -219,16 +219,16 @@ a {
     padding: 5px 0;
 }
 .invoice .invoice-items {
-    width: 550px;
-    margin-top:50px;
+    width: 430px;
+    margin-top:20px;
 }
 .invoice .invoice-items td {
     border: #eee 1px solid;
     width:100px;
 }
 .invoice .invoice-items .total td {
-    border-top: 2px solid #333;
-    border-bottom: 2px solid #333;
+    /* border-top: 2px solid #333;
+    border-bottom: 2px solid #333; */
     font-weight: 700;
 }
 
@@ -282,41 +282,42 @@ a {
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
                                     <td class="content-block">
-                                        <h2 style="font-size:50px; color:blue; text-align:center;">Facture</h2>
+                                        <h2 style="font-size:50px; color:blue; text-align:center;">INVOICE</h2>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block">
                                         <table class="invoice">
         
-                                            <tbody><tr>
-                                            <td><b>Company</b><div style="margin-left:150px; margin-top:-17px;"> {{$client[0]->societe}}</div></td>
-                                            
-                                            </tr>
-                                            <tbody><tr>
-                                            <td><b>Adresse</b>
-                                            <div style="margin-left:150px; margin-top:-17px;"> {{$client[0]->adresse}}</div>
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>Company</b>
+                                                        <div style="margin-left:150px; margin-top:-22px;"> {{$client[0]->societe}}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="margin-left:-70px; margin-top:-22px; color:red; font-weight:bold;">No: 0000{{$opp->id}}</div>
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                            <td><b>Address</b>
+                                            <div style="margin-left:150px; margin-top:-22px;"> {{$client[0]->adresse}}</div>
                                         </td>
                                              
                                             </tr>
-                                            <tbody><tr>
+                                            <tr>
                                             <td><b>Telephone</b>
-                                            <div style="margin-left:150px; margin-top:-17px;"> {{$client[0]->telephone}}</div>
+                                            <div style="margin-left:150px; margin-top:-22px;"> {{$client[0]->telephone}}</div>
                                         </td>
                                              
                                             </tr>
-                                            <tbody><tr>
-                                            <td><b>Date Cloture </b>
-                                            <div style="margin-left:150px; margin-top:-17px;">{{$opp->date_cloture}}</div>
+                                            <tr>
+                                            <td><b>Clossing Date</b>
+                                            <div style="margin-left:150px; margin-top:-22px;">{{$opp->date_cloture}}</div>
                                         </td>
                                             
                                             </tr>
                                             
-                                            <br>
-                                            <br>
-                                            <tbody><tr>
-                                            <td></td>
-                                            </tr>
+                                            
                                             <tr>
                                                 <td>
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
@@ -327,7 +328,7 @@ a {
                                                         <tr>
                                                             <td class="colone"><b>Product Name</b></td>
                                                             <td class="colone"><b>Unit Price</b></td>
-                                                            <td class="colone"><b>Quantite</b></td>
+                                                            <td class="colone"><b>Quantity</b></td>
                                                             <td class="colone"><b>Amount</b></td>
                                                         </tr> 
                                                             @foreach($products as $product)
@@ -342,24 +343,24 @@ a {
                                                         @endforeach
                                                                                                   
                                                         <tr class="total">
-                                                        <td></td>
-                                                            <td></td>
-                                                            <td class="aligncenter" width="80%">Total</td>
-                                                            <td class="aligncenter">{{$totale}} DZD</td>
+                                                        
+                                                            <td colspan="2"></td>
+                                                            <td >Total</td>
+                                                            <td>{{$totale}} DZD</td>
                                                         </tr>
                                                         <tr class="total">
-                                                        <td></td>
-                                                            <td></td>
-                                                            <td class="aligncenter" width="80%">Remise</td>
-                                                            <td class="aligncenter">{{$opp->remise}} DZD</td>
+                                                        
+                                                            <td colspan="2"></td>
+                                                            <td >Reduction</td>
+                                                            <td>{{$opp->remise}} %</td>
                                                         </tr>
                                                         <tr class="total">
-                                                        <td></td>
-                                                            <td></td>
-                                                            <td class="aligncenter" width="80%"> With Reduction</td>
+                                                        
+                                                            <td colspan="2"></td>
+                                                            <td >With Reduction</td>
                                                             <?php $p=($totale*$opp->remise)/100;
                                                             $t=(double)($totale-$p);?>
-                                                            <td class="aligncenter">{{$t}} DZD</td>
+                                                            <td>{{$t}} DZD</td>
                                                         </tr>
                                                         
                                                     </tbody></table>
@@ -368,20 +369,20 @@ a {
                                         </tbody></table>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="content-block">
-                                    <a href="{{route('facturedownload',$opp->id)}}">Download_facture</a>
-                                    </td>
-                                </tr>
                                
-                            </tbody></table>
+                            </tbody>
+                        </table>
+                        
+                        <div class="footer">
+                            KHIMcarSales 2022
+                        </div>
                         </td>
                     </tr>
                 </tbody></table>
-                <div class="footer">
-                   
-                </div></div>
+                
+            </div>
         </td>
-        <td></td>
+        
     </tr>
-</tbody></table>
+</tbody>
+</table>
