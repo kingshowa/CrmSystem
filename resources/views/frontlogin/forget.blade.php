@@ -62,7 +62,7 @@
                 
                 <div class="col-lg-5 col-md-5 col-xs-12 mx-auto">
                     <div class="contact-form section-bg" style="background-image: url({{asset('assets-front/images/contact-1-720x480.jpg')}})">
-                        <form id="contact" action="{{route('verifier')}}" method="post">
+                        <form id="contact" action="{{route('forget.password')}}" method="post">
                         @csrf
                           <div class="row">
 
@@ -72,23 +72,14 @@
                               </fieldset>
                             </div>
 
-                            <div class="col-md-12 col-sm-12">
-                              <fieldset>
-                                <input name="password" type="password" id="subject" placeholder="Your Password*" required>
-                              </fieldset>
-                            </div>
-                            <div class="col-12">
-                        
-                        <a href="{{ url('forget') }}">Forget Password</a>
-                      </div>
+                           
                             
                             <div class="col-lg-12">
                               <fieldset>
-                                <button type="submit" id="form-submit" class="main-button" style="width: 100%;">LOGIN</button>
+                                <button type="submit" id="form-submit" class="main-button" style="width: 100%;">Verifier</button>
                               </fieldset>
                             </div>
-                            <a href="{{ url('front-office/account/2')}}"><button type="button" id="form-submit" class="main-button" >go to account</button></a>
-
+                          
                           </div>
                           
                         </form>

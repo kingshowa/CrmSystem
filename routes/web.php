@@ -80,8 +80,8 @@ Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('inde
 
 
 
- Route::get('facture', function () {
-    return view('facture');
+ Route::get('forget', function () {
+    return view('frontlogin.forget');
 });
 
 
@@ -109,10 +109,13 @@ Route::get('commerciale', function () {
 // });
 
  Route::get('/front', [ChartsController::class, 'front'])->name('front');
+ Route::get('/showcar', [ChartsController::class, 'showcar'])->name('showcar');
+ Route::get('/showteam', [ChartsController::class, 'showteam'])->name('showteam');
 
-Route::get('/front-office/cars', function () {
-    return view('front-office/cars');
-});
+
+// Route::get('/front-office/cars', function () {
+//     return view('front-office/cars');
+// });
 
 Route::get('/front-office/login', function () {
     return view('front-office/login');
@@ -122,14 +125,14 @@ Route::get('/front-office/contact', function () {
     return view('front-office/contact');
 });
 
-Route::get('/front-office/team', function () {
-    return view('front-office/team');
-});
+// Route::get('/front-office/team', function () {
+//     return view('front-office/team');
+// });
 
 
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('login.login');
 });
 
 Route::get('/user-profile', function () {
@@ -197,10 +200,14 @@ Route::put('edite_photo/{id}', [UtilisateurController::class, 'edite_photo'])->n
 
 
 
-// Route::get('/forget', [PasswordController::class, 'forget'])->name('forget');
+//  Route::get('/forget', [PasswordController::class, 'forget'])->name('forget');
 // Route::get('/user-profile/{id}', [PasswordController::class, 'profile'])->name('profile');
 Route::put('changepassword/{id}', [PasswordController::class, 'changepassword'])->name('changepassword');
 Route::get('forget-password', [PasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+Route::post('forget', [PasswordController::class, 'submitForgetPasswordFormfront'])->name('forget.password'); 
+Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordFormfront'])->name('reset.password1');
+Route::post('reset-password', [PasswordController::class, 'submitResetPasswordFormfront'])->name('reset.password2');

@@ -15,7 +15,10 @@ class RendezController extends Controller
     public function index(Request $request){
         //$listrendez = Rendez::all();
         //$user = Utilisateur::find($request->session()->get('user'));
-        $rendez = Rendez::where('user_id', $_SESSION['admin'])->get();
+        if (isset($_SESSION['admin'])){
+            $a=($_SESSION['admin']);}
+            else{$a=$_SESSION['commercial'];}
+        $rendez = Rendez::where('user_id', $a)->get();
     	
         return view('rendez-vous/rendez-vous',['rendez'=> $rendez]);
     }
@@ -34,35 +37,36 @@ class RendezController extends Controller
    
     public function store(Request $request){
     	$rendez= new  Rendez();
+        if (isset($_SESSION['admin'])){
+            $a=($_SESSION['admin']);}
+            else{$a=$_SESSION['commercial'];}
         
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
     	$rendez->client = $request->input('client');
-        $rendez->user_id =  $_SESSION['admin'];
+        $rendez->user_id =  $a;
     	$rendez->save();
         session()->flash('succes','rendez-vous bien ajouter');
         return redirect('rendez');
     }
 
     public function store2(Request $request){
+        if (isset($_SESSION['admin'])){
+            $a=($_SESSION['admin']);}
+            else{$a=$_SESSION['commercial'];}
     	$rendez= new  Rendez();
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
     	$rendez->client = $request->input('client');
-        $rendez->user_id =  $_SESSION['admin'];
+        $rendez->user_id =  $a;
     	$rendez->save();
         session()->flash('bien','rendez-vous ajouter avec success');
         $client = Client::where('societe',$request->input('client'))->first();
         $id=$client->id;
         
-    //     session()->flash('succes','rendez-vous bien ajouter');
-    //     $client = Client::where('societe',$request->input('client'))->first();
-    //     $id=$client->id;
-    //     session()->flash('succes','client ajouter avec success');
-    //    // return view('clients.clientView', ['client'=>$client]);
-    //     return redirect('clientView/'.$id);
+    
     return redirect('clientView/'.$id.'/1');
     }
 
@@ -88,11 +92,14 @@ class RendezController extends Controller
     }
 
     public function update(Request $request, $id){
+        if (isset($_SESSION['admin'])){
+            $a=($_SESSION['admin']);}
+            else{$a=$_SESSION['commercial'];}
     	$rendez = Rendez::find($id);
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
-        $rendez->user_id = $_SESSION['admin'];
+        $rendez->user_id = $a;
     	$rendez->save();
         return back();      	
     }

@@ -20,9 +20,9 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="{{url('front')}}">Home</a></li>
-                            <li><a href="{{url('front-office/cars')}}">Cars</a></li>
+                            <li><a href="{{url('showcar')}}">Cars</a></li>
 
-                            <li><a href="{{url('front-office/team')}}">Team</a></li>
+                            <li><a href="{{url('showteam')}}">Team</a></li>
                             
                             <li><a href="{{url('front-office/contact')}}">Contact</a></li>
 

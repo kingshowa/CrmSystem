@@ -9,7 +9,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ url('/')}}">
+    <a class="nav-link" href="{{ url('/admin')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
@@ -209,7 +209,8 @@
                   <div id="reportsChart"></div>
 
                   <script>
-                   
+                     var opptoday = JSON.parse('{!! json_encode($opptoday) !!}');
+                   opptoday
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{

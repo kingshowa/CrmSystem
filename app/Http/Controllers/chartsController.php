@@ -103,7 +103,7 @@ class chartsController extends Controller
             ,'months'=>$months,'montho'=>$montho,'produit'=>$yproduit,
             'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
             'contactv'=>$contactv,'web'=>$web,'salon'=>$salon,'bouche'=>$bouche,
-            'tel'=>$tel]);
+            'tel'=>$tel,'opptoday'=>$opptoday]);
           
             
         
@@ -117,5 +117,16 @@ class chartsController extends Controller
    
     return view('front-office.index',['produit'=>$produit]);
       
+    }
+    public function showcar(){
+      $produit = Produit::simplepaginate(6);
+    return view('front-office.cars', ['produits' => $produit]);
+
+    }
+    public function showteam(){
+      $utilisateur = Utilisateur::where('role','=','admin')
+      -> simplepaginate(6);
+    return view('front-office.team', ['utilisateurs' => $utilisateur]);
+
     }
 }

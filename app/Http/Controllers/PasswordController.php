@@ -122,4 +122,65 @@ class PasswordController extends Controller
 
         return redirect('login')->with('message', 'Your password has been changed!');
     }
+
+    
+
+    public function submitForgetPasswordFormfront(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:utilisateurs',
+        ]);
+
+        $token = Str::random(64);
+
+        DB::table('password_resets')->insert([
+            'email' => $request->email, 
+            'token' => $token, 
+            'created_at' => Carbon::now()
+          ]);
+
+        Mail::send('frontlogin.email', ['token' => $token], function($message) use($request){
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
+
+        return back()->with('message', 'We have e-mailed your password reset link!');
+    }
+
+    public function showResetPasswordFormfront($token) { 
+        
+        return view('frontlogin.reset', ['token' => $token]);
+     }
+
+     public function submitResetPasswordFormfront(Request $request)
+     {
+         // return $request;
+         $request->validate([
+             'email' => 'required|email|exists:utilisateurs',
+             'password' => 'required|string|confirmed',
+             'renewPassword' => 'required'
+         ]);
+ 
+         $updatePassword = DB::table('password_resets')
+                             ->where([
+                               'email' => $request->email, 
+                               'token' => $request->token
+                             ])
+                             ->first();
+ 
+         if(!$updatePassword){
+ 
+             return back()->withInput()->with('error', 'Invalid token!');
+         }
+         
+         $password = $request->input('password');
+         $user = Utilisateur::where('email', $request->email)
+                     ->update(['password' => Hash::make($password)]);
+ 
+         DB::table('password_resets')->where(['email'=> $request->email])->delete();
+ 
+         return redirect('front-office/login')->with('message', 'Your password has been changed!');
+    
+        }
+
 }
