@@ -110,13 +110,14 @@ class OpportuniteController extends Controller
 
     }
 
-    public function contact_opp_details(Request $request,$id){
+    public function contact_opp_details($id, $action){
     	$opportunite = Opportunite::find($id);
         $products = Produit::join('produit_opportunites', 'produits.id', '=', 'produit_opportunites.idProduit')->where('idOpportunite', $id)->get();
         $amount = $this->fnAmt($id);
+        $client = Client::where('id', $opportunite->clientID)->get();
          //echo $products;
-        $user = Utilisateur::find($request->session()->get('user'));
-    	return view('front-office.opportunite', ['opportunite'=>$opportunite,'user'=>$user , 'amount'=>$amount, 'products'=>$products]);
+
+    	return view('front-office.opportunite', ['opportunite'=>$opportunite, 'amount'=>$amount, 'products'=>$products, 'client'=>$client,'action'=>$action]);
 
     }
     
@@ -192,12 +193,10 @@ class OpportuniteController extends Controller
         //     $totale+=$somme;
 
         //  } 
-        $client=Client::where('id',$opp->clientID)->get();
-       
-        
-        
-     return view('facture',['products'=>$product,'client'=>$client,'opp'=>$opp]);
+        $client=Client::where('id',$opp->clientID)->get();  
+        return view('facture',['products'=>$product,'client'=>$client,'opp'=>$opp]);
     }
+    
     public function facturedownload($id){
         $opp = Opportunite::find($id);
         $products = ProduitOpportunite::join('opportunites', 'opportunites.id', '=', 'produit_opportunites.idOpportunite')

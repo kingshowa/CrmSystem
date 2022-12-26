@@ -312,15 +312,15 @@
                                         <td>{{$opp->date_cloture}}</td>
                                         
                                         <td>
-                                            <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id)}}">
+                                            <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id.'/1')}}">
                                                 <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                                             </a>
                                         </td>
-                                        <!-- <td>
-                                            <a class="collapsed" href="{{url('')}}">
-                                                <button class="btn btn-light btn-sm"><i class="bi bi-paper-fill"></i></button>
+                                        <td>
+                                            <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id.'/2')}}">
+                                                <button class="btn btn-light btn-sm"><i class="bi bi-file-earmark-ruled-fill"></i></button>
                                             </a>
-                                        </td> -->
+                                        </td>
                                     </tr>
 
                                     @endforeach
