@@ -11,7 +11,7 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ url('commerciale')}}">
       <i class="bi bi-grid"></i>
-      <span>COMMERCIALE</span>
+      <span>Dashboard</span>
     </a>
   </li><!-- End Dashboard Nav -->
 
@@ -21,6 +21,8 @@
     </a>
     
   </li><!-- End Prospects Nav -->
+
+  
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('clients')}}">
       <i class="bi bi-person-check-fill"></i><span>Clients</span>
@@ -28,25 +30,22 @@
   </li><!-- End Clients Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{  url('contacts') }}">
+    <a class="nav-link collapsed" href="{{ url('contacts')}}">
       <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
     </a>
   </li><!-- End Contacts Nav -->
 
- 
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('opportunites')}}">
-      <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
+      <i class="bi bi-bar-chart"></i><span>Opportunities</span>
     </a>
   </li><!-- End Oppotunites Nav -->
 
-  
- 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
       <i class="bi bi-person"></i>
-      <span>Rendez-Vous</span>
+      <span>Appointments</span>
     </a>
   </li>
 </ul>

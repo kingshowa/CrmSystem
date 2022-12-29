@@ -21,6 +21,12 @@
     </a>
     
   </li><!-- End Prospects Nav -->
+  
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{ url('clients')}}">
+      <i class="bi bi-person-check-fill"></i><span>Clients</span>
+    </a>
+  </li><!-- End Clients Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('contacts')}}">
@@ -29,33 +35,31 @@
   </li><!-- End Contacts Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('clients')}}">
-      <i class="bi bi-person-check-fill"></i><span>Clients</span>
-    </a>
-  </li><!-- End Clients Nav -->
-
-  <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('opportunites')}}">
-      <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
+      <i class="bi bi-bar-chart"></i><span>Opportunities</span>
     </a>
   </li><!-- End Oppotunites Nav -->
 
+
+  @if(isset($_SESSION['admin']))
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('produits')}}">
-      <i class="bi bi-gem"></i><span>Produits</span>
+      <i class="bi bi-gem"></i><span>Products</span>
     </a>
   </li><!-- End Products Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('utilisateurs')}}">
       <i class="bi bi-person"></i>
-      <span>Utilisateurs</span>
+      <span>Users</span>
     </a>
   </li><!-- End Users Nav -->
+  @endif
+  
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
       <i class="bi bi-envelope"></i>
-      <span>Rendez-Vous</span>
+      <span>Appointments</span>
     </a>
   </li>
 </ul>
@@ -83,7 +87,7 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-          <img src="/storage/imag/{{$user->image}}" alt="Profile"  width="200" height="150">
+          <img src="/storage/imag/{{$user->image}}" alt="Profile"  class="rounded-circle">
           <h2>{{$user->nom}}  {{$user->prenom}}</h2>
           <h3>{{$user->role}}</h3>
           
@@ -147,16 +151,22 @@
               <div class="row mb-3">
                   <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                   <div class="col-md-8 col-lg-9">
-                    <img src="/storage/imag/{{$user->image}}" alt="Profile" class="rounded-circle">
+                    <img src="/storage/imag/{{$user->image}}" alt="Profile">
                     <div class="pt-2">
                     <input type="file" name="image" id="photo" style="display:none">
-                     <label for="photo"><a for="photo"class="btn btn-primary btn-sm" title="Upload new profile image"><i for="photo"type="file" class="bi bi-upload"></i>
-                   </label> 
+                     <label for="photo">
+                      <a for="photo" class="btn btn-primary btn-sm" title="Upload new profile image">
+                        <i for="photo"type="file" class="bi bi-upload"></i>
+                      </a>
+                     </label> 
                      <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                     <br>
+                     <br>
+                     <button type="submit" class="btn btn-small btn-success">Save</button>
                     </div>
                   </div>
                 </div>
-                <button type>upload!!</button>
+                
               </form>
 
               <!-- Profile Edit Form -->
@@ -166,14 +176,14 @@
                
 
                 <div class="row mb-3">
-                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                  <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Second name</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="nom" type="text" class="form-control" id="fullName" value="{{$user->nom}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="about" class="col-md-4 col-lg-3 col-form-label">Prenom</label>
+                  <label for="about" class="col-md-4 col-lg-3 col-form-label">First name</label>
                   <div class="col-md-8 col-lg-9">
                   <input name="prenom" type="text" class="form-control" id="fullName" value="{{$user->prenom}}">
                   </div>

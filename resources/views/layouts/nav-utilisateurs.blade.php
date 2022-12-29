@@ -7,12 +7,21 @@
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
+@if (isset($_SESSION['admin']))
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('/admin')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
   </li><!-- End Dashboard Nav -->
+  @else
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{ url('/commerciale')}}">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  @endif
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('prospects')}}">
@@ -20,8 +29,6 @@
     </a>
     
   </li><!-- End Prospects Nav -->
-
- 
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('clients')}}">
@@ -37,26 +44,29 @@
   
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('opportunites')}}">
-      <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
+      <i class="bi bi-bar-chart"></i><span>Opportunities</span>
     </a>
   </li><!-- End Oppotunites Nav -->
 
+  @if(isset($_SESSION['admin']))
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('produits')}}">
-      <i class="bi bi-gem"></i><span>Produits</span>
+      <i class="bi bi-gem"></i><span>Products</span>
     </a>
   </li><!-- End Products Nav -->
 
   <li class="nav-item">
     <a class="nav-link" href="{{ url('utilisateurs')}}">
       <i class="bi bi-person"></i>
-      <span>Utilisateurs</span>
+      <span>Users</span>
     </a>
   </li><!-- End Users Nav -->
+  @endif
+
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
       <i class="bi bi-envelope"></i>
-      <span>Mes Rendez-Vous</span>
+      <span>Appointments</span>
     </a>
   </li>
 </ul>

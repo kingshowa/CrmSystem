@@ -77,11 +77,8 @@
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
-                    <div class="col-12">
-                      <div class="col-12">
-                        
-                        <a href="{{ route('forget.password.get') }}">Forget Password</a>
-                      </div>
+                    
+                      
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
@@ -89,20 +86,28 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                       </div>
-                    </div>
+                    </div> -->
+
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                    
                   </form>
+                  
+                  <div class="col-12"> 
+                    <br> 
+                    <a href="{{ route('forget.password.get') }}">Forget Password</a>
+                  </div>
 
                 </div>
               </div>
+              <br>
+              <br>
 
               <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

@@ -62,7 +62,7 @@
                     <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="{{ route('forget.password.post') }}" method="POST" >
+                  <form class="row g-3 needs-validation" action="{{ url('forget-password') }}" method="POST" >
                         @csrf
                         @if(session('status'))
                          <div class="alert alert-ssuccess">
@@ -77,7 +77,7 @@
 
                    
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <button class="btn btn-primary w-100" type="submit">Submit</button>
                     </div>
                    
                   </form>

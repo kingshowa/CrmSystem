@@ -36,26 +36,26 @@
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('opportunites')}}">
-      <i class="bi bi-bar-chart"></i><span>Oppotunites</span>
+      <i class="bi bi-bar-chart"></i><span>Opportunities</span>
     </a>
   </li><!-- End Oppotunites Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('produits')}}">
-      <i class="bi bi-gem"></i><span>Produits</span>
+      <i class="bi bi-gem"></i><span>Products</span>
     </a>
   </li><!-- End Products Nav -->
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('utilisateurs')}}">
       <i class="bi bi-person"></i>
-      <span>Utilisateurs</span>
+      <span>Users</span>
     </a>
   </li><!-- End Users Nav -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
-      <i class="bi bi-person"></i>
-      <span>Rendez-Vous</span>
+      <i class="bi bi-envelope"></i>
+      <span>Appointments</span>
     </a>
   </li>
 </ul>
@@ -65,7 +65,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Admin Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
@@ -73,6 +73,8 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -81,12 +83,6 @@
     <!-- Chartisan -->
     <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
 
-
-    <script type="text/javascript">
-      
-    
-     
-    </script>
 
     <section class="section dashboard">
       <div class="row">
@@ -103,7 +99,7 @@
               <div class="card">
                 <div class="card-body">
                   
-                  <h5 class="card-title">Opportunités <span>| Etapes</span></h5>
+                  <h5 class="card-title">Opportunities <span>| Stages</span></h5>
 
                   <!-- Pie Chart -->
                   <div id="pieChart" style="min-height: 400px;" class="echart"></div>
@@ -161,7 +157,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Opportunité <span>| Mois</span></h5>
+                  <h5 class="card-title">Opportunities <span>| Month</span></h5>
 
                   <!-- Bar Chart -->
                   <div id="barChart" style="min-height: 400px;" class="echart"></div>
@@ -282,7 +278,7 @@
               <div class="card info-card sales-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Produit <span>| Today</span></h5>
+                  <h5 class="card-title">Products <span>| Today</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -350,7 +346,7 @@
           <div class="card">
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Source des Prospects</h5>
+              <h5 class="card-title">Prospects Sources</h5>
 
               <div id="trafficChart" style="min-height: 500px;" class="echart"></div>
 
@@ -403,7 +399,7 @@
                         
                         {
                           value: {{$bouche}},
-                          name: "Bouche à oreille"
+                          name: "Word of mouth"
                         }
                        
                       ]

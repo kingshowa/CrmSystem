@@ -80,6 +80,7 @@ Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
 
 
 Route::get('commerciale', function () {
+    session_start();
 return view('commerciale');
 });
 
@@ -187,9 +188,9 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::put('changepassword/{id}', [PasswordController::class, 'changepassword'])->name('changepassword');
 Route::get('forget-password', [PasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::post('/forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('submitForgetPasswordForm'); 
+Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('showResetPasswordForm');
+Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('submitResetPasswordForm');
 
 Route::post('forget', [PasswordController::class, 'submitForgetPasswordFormfront'])->name('forget.password'); 
 Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordFormfront'])->name('reset.password1');

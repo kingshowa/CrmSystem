@@ -72,7 +72,7 @@ class AuthController extends Controller
     function logout(Request $request){
 
 
-      if(($_SESSION['admin'])||($_SESSION['commercial']))
+      if(isset($_SESSION['admin'])||isset($_SESSION['commercial']))
         {
          
         session_destroy();

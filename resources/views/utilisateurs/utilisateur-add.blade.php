@@ -33,14 +33,14 @@
                 
               <!-- <input type="checkbox" id="contactChoice1" name="role" value="radio1"id="myCheck" >
                <label for="contactChoice1">Admin</label> -->
-               <input type="checkbox" id="myCheck" onclick="myFunction()">
-              <label for="contactChoice2">Admin</label>
+               <input type="radio" name="nwe" id="myCheck" onclick="myFunction()">
+              <label for="myCheck">Admin</label>
 
-               <input type="checkbox" id="myCheck2" onclick="myFunction()">
-              <label for="contactChoice2">Commercial</label>
+               <input type="radio" name="nwe" id="myCheck2" onclick="myFunction()">
+              <label for="myCheck2">Commercial</label>
 
-               <input type="checkbox" id="myCheck3" onclick="myFunction()">
-              <label for="contactChoice2">Contact</label>
+               <input type="radio" name="nwe" id="myCheck3" onclick="myFunction()">
+              <label for="myCheck3">Contact</label>
               <!-- <input type="checkbox" id="contactChoice3"name="role" value="radio3"id="contactCheck" onclick="contactCheck()">
               <label for="contactChoice3">Contact</label> -->
 

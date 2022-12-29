@@ -29,15 +29,11 @@ class UtilisateurController extends Controller
         $this->validate($request, ['image' => 'nullable']);
     	$utilisateur = new  Utilisateur();
     	
-        $utilisateur->contactID = $request->input('contactID');
+        
+       
         
     	$password = $request->input('password');
         $utilisateur->password = Hash::make($password);
-
-        $contact = Contact::where('id',$utilisateur->contactID)->get();
-        
-        // $a = $contact[0]->nom;
-        // $b = $contact[0]->prenom;
 
        
         $c = $request->input('role');
@@ -52,6 +48,8 @@ class UtilisateurController extends Controller
                 $utilisateur->nom = $request->input('firstName');
     	        $utilisateur->prenom = $request->input('surName');
             } else {
+                $contact = Contact::where('id',$utilisateur->contactID)->get();
+                $utilisateur->contactID = $request->input('contactID');
                 $utilisateur->role = 'contact';
                 $utilisateur->nom = $contact[0]->nom;
                 $utilisateur->prenom = $contact[0]->prenom;
@@ -117,6 +115,7 @@ class UtilisateurController extends Controller
         return  view('user-profile', ['user'=>$user]);
 
     }
+
     public function edite_profile(Request $request, $id){
     	$utilisateur = Utilisateur::find($id);
 
@@ -124,17 +123,16 @@ class UtilisateurController extends Controller
     	$utilisateur->nom = $request->input('nom');
     	$utilisateur->prenom = $request->input('prenom');
         $utilisateur->email = $request->input('email');
-    	//$utilisateur->password = $request->input('password');
     	$utilisateur->save();
         return back();    	
     }
+
     public function edite_photo(Request $request, $id){
     	$utilisateur = Utilisateur::find($id);
     	
     	$utilisateur->nom = $utilisateur->nom;
     	$utilisateur->prenom = $utilisateur->prenom;
         $utilisateur->email = $utilisateur->email;
-    	//$utilisateur->password = $request->input('password');
         $filenameWithExt = $request->file("image")->getClientOriginalName();
 
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
