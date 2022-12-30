@@ -98,8 +98,7 @@
                           <option  value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
                           @endforeach
                         </select>
-                        <!-- <input name="client"  type="text" class="form-control" id="Email" required> -->
-                       
+                        
                       </div>
                     </div>
                  

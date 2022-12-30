@@ -74,7 +74,7 @@ class ProspectController extends Controller
             $contact->fonction = $prospect->fonction;
             $contact->email = $prospect->email;
             $contact->telephone = $prospect->telephone;
-            $contact->client_id = $client->id;
+            $contact->clientID = $client->id;
             $contact->save();
 
            
