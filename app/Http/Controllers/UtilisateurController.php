@@ -48,7 +48,7 @@ class UtilisateurController extends Controller
                 $utilisateur->nom = $request->input('firstName');
     	        $utilisateur->prenom = $request->input('surName');
             } else {
-                $contact = Contact::where('id',$utilisateur->contactID)->get();
+                $contact = Contact::where('id',$request->contactID)->get();
                 $utilisateur->contactID = $request->input('contactID');
                 $utilisateur->role = 'contact';
                 $utilisateur->nom = $contact[0]->nom;
