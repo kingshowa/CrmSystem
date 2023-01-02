@@ -35,6 +35,7 @@ use App\Http\Controllers\ChartsController;
  Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
  Route::post('/contact-add2', [ContactController::class, 'store_contactClient'])->name('store_contactClient');
  Route::get('/front-office/account/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
+ Route::get('/getEmail/{id}', [ContactController::class, 'getEmail'])->name('getEmail');
 
 
 Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');

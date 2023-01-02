@@ -689,7 +689,7 @@ Our Classes
   padding: 0;
 }
 #tabs ul li {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: inline-block;
   width: 100%;
 }
@@ -699,7 +699,7 @@ Our Classes
 #tabs ul li a {
   text-transform: capitalize;
   width: 100%;
-  padding: 30px 30px;
+  padding: 15px 30px;
   display: inline-block;
   background-color: #fff;
   box-shadow: 0px 0px 15px rgba(0,0,0,0.1);

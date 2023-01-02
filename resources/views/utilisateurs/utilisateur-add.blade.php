@@ -30,9 +30,6 @@
         <div class="card-body pt-3 col-xl-8">
         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Role</label>
                   
-                
-              <!-- <input type="checkbox" id="contactChoice1" name="role" value="radio1"id="myCheck" >
-               <label for="contactChoice1">Admin</label> -->
                <input type="radio" name="nwe" id="myCheck" onclick="myFunction()">
               <label for="myCheck">Admin</label>
 
@@ -41,9 +38,7 @@
 
                <input type="radio" name="nwe" id="myCheck3" onclick="myFunction()">
               <label for="myCheck3">Contact</label>
-              <!-- <input type="checkbox" id="contactChoice3"name="role" value="radio3"id="contactCheck" onclick="contactCheck()">
-              <label for="contactChoice3">Contact</label> -->
-
+              
              
         <form id="form1" action="{{url('utilisateurs/store')}}" style="display:none;"method="POST" enctype="multipart/form-data">
               {{ csrf_field()}}  
@@ -60,6 +55,18 @@
                   <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="surName" type="text" class="form-control" id="surName">
+                  </div>
+                </div>
+
+                <div class="row mb-3" id="id3">
+                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Contact</label>
+                  <div class="col-md-8 col-lg-9">
+                    <select class="form-select" id="select_box" name="contactID">
+                      <option selected>Choose Contact</option>
+                      @foreach($contact as $contact)
+                      <option  value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
 
@@ -89,25 +96,26 @@
                     </div>
                   <div>
                   </div>
-                  <div class="row mb-3" id="id3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Contact</label>
-                      <div class="col-md-8 col-lg-9">
-                        <select class="form-select" id="select_box" name="contactID">
-                          <option selected>Choose Contact</option>
-                          @foreach($contact as $contact)
-                          <option  value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
-                          @endforeach
-                        </select>
-                        
-                      </div>
-                    </div>
+                  
                  
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save Utilisateurs</button>
                 </div>
               </form><!-- End Profile Edit Form -->
 
-              <script>
+              
+        
+            </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main><!-- End #main -->
+
+<script>
                 function myFunction() {
                 var checkBox = document.getElementById("myCheck");
                 var checkBox2 = document.getElementById("myCheck2");
@@ -140,7 +148,7 @@
                   id1.style.display = "none";
                   id2.style.display = "none";
                   id5.style.display = "none";
-                  id3.style.display = "block";
+                  id3.style.display = true;
 
                      }
                      else {
@@ -177,18 +185,7 @@
                }
                }
 </script>
-        
-            </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
 
 
-
-
-</main><!-- End #main -->
 
 @endsection
