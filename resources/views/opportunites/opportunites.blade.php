@@ -42,7 +42,7 @@
                         <th scope="col">Clossing date</th>
                         <th scope="col">Company</th>
                         <th scope="col">Stage</th>
-                        <th scope="col" colspan="4">Actions</th>
+                        <th scope="col" colspan="5">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,10 +59,14 @@
                         @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition
                         || $opportunite->etape == 'cperdue'')
 
-                        <a href="{{route('devisshow',$opportunite->id)}}">Devis </a> 
+                        <a href="{{route('devisdownload',$opportunite->id)}}">Devis </a> 
                         @endif
                         @if($opportunite->etape == 'cgangee')
                           <a href="{{route('factureshow',$opportunite->id)}}">Facture</a>
+
+                        @if($opportunite->etape == 'Gangee')
+                          <a href="{{route('facturedownload',$opportunite->id)}}">Facture</a>
+
                         @endif
 
                         </td>

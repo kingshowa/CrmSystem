@@ -186,13 +186,7 @@ class OpportuniteController extends Controller
         -> join('produits', 'produits.id', '=', 'produit_opportunites.idProduit')
         ->where('opportunites.id', $id)
         ->get();
-        //  $somme=0;
-        //  $totale = 0;
-        // while($product){
-        //     $somme=((double)$product[0]->prix * (double)$product[0]->quantite);
-        //     $totale+=$somme;
-
-        //  } 
+        
         $client=Client::where('id',$opp->clientID)->get();  
         return view('facture',['products'=>$product,'client'=>$client,'opp'=>$opp]);
     }
