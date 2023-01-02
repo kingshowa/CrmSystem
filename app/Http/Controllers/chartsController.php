@@ -96,6 +96,21 @@ class chartsController extends Controller
                  $bouche = count($bouche);
                  $tel = Prospect::select('id')->where('source','telephone')->get();
                  $tel = count($tel);
+
+                 $oppPro = Opportunite::where('etape','=','Prospection')->get();
+                $oppPro = count($oppPro);
+
+                $oppProp = Opportunite::where('etape','=','Proposition')->get();
+                $oppProp = count($oppProp);
+
+                $oppver = Opportunite::where('etape','=','Verification')->get();
+                $oppver = count($oppver);
+
+                $oppgan = Opportunite::where('etape','=','cgangee')->get();
+                $oppgan = count($oppgan);
+
+                $oppper = Opportunite::where('etape','=','cperdue')->get();
+                $oppper = count($oppper);
                       
 
          return view('admin', ['nbrclient'=> $nombreclient,
@@ -103,7 +118,8 @@ class chartsController extends Controller
             ,'months'=>$months,'montho'=>$montho,'produit'=>$yproduit,
             'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
             'contactv'=>$contactv,'web'=>$web,'salon'=>$salon,'bouche'=>$bouche,
-            'tel'=>$tel,'opptoday'=>$opptoday]);
+            'tel'=>$tel,'opptoday'=>$opptoday,'oppPro'=>$oppPro,'oppProp'=>$oppProp
+          ,'oppver'=>$oppver,'oppgan'=>$oppgan,'oppper'=>$oppper]);
           
             
         

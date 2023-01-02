@@ -189,9 +189,9 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::put('changepassword/{id}', [PasswordController::class, 'changepassword'])->name('changepassword');
 Route::get('forget-password', [PasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('/forget-password', [PasswordController::class, 'submitForgetPasswordForm'])->name('submitForgetPasswordForm'); 
-Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('showResetPasswordForm');
-Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('submitResetPasswordForm');
+Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [PasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::post('forget', [PasswordController::class, 'submitForgetPasswordFormfront'])->name('forget.password'); 
-Route::get('reset-password/{token}', [PasswordController::class, 'showResetPasswordFormfront'])->name('reset.password1');
-Route::post('reset-password', [PasswordController::class, 'submitResetPasswordFormfront'])->name('reset.password2');
+Route::get('reset-password1/{token}', [PasswordController::class, 'showResetPasswordFormfront'])->name('reset.password1');
+Route::post('reset-password1', [PasswordController::class, 'submitResetPasswordFormfront'])->name('reset.password2');

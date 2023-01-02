@@ -24,18 +24,24 @@ class PasswordController extends Controller
 
     }
     public function changepassword(Request $request, $id){
-       
+        $request->validate([
+            'password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
         $user=Utilisateur::find($id);
-        if(Hash::check(request('password'), $user->password)){
-            $password = $request->input('newpassword1');
+        if(Hash::check($request->password,$user->password)){
             
-           $user->password = Hash::make( $password);
-            $user->save();
-          
-          return back()->with("status", "Password changed successfully!");
+                $password = $request->input('new_password');
+
+                $user->password = Hash::make($password);
+                $user->save();
+                session()->flash('success','Password changed successfully!');
+                return back();
+            
             
         }else
-        return back()->with("error", "Old Password Doesn't match!");
+        session()->flash('echec','old password and current password does not matches!');
+        return back();
      
        
         
@@ -120,7 +126,7 @@ class PasswordController extends Controller
 
         DB::table('password_resets')->where(['email'=> $request->email])->delete();
 
-        return redirect('login')->with('message', 'Your password has been changed!');
+        return redirect('/')->with('message', 'Your password has been changed!');
     }
 
     
@@ -179,7 +185,7 @@ class PasswordController extends Controller
  
          DB::table('password_resets')->where(['email'=> $request->email])->delete();
  
-         return redirect('front-office/login')->with('message', 'Your password has been changed!');
+         return view('front-office/login')->with('message', 'Your password has been changed!');
     
         }
 

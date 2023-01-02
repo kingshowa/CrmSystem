@@ -38,9 +38,10 @@
                     <select class="form-select" name="etapes" aria-label="Default select example">
                       <option selected>--Select stage--</option>
                       <option value="Prospection">Prospection</option>
-                      <option value="Proposition">Proposition</option>
-                      <option value="Verification">Verification</option>
-                      <option value="Gangee">Gangee</option>
+                      <option value="Proposition">Proposition/Devis</option>
+                      <option value="Verification">, Négociation/Vérification</option>
+                      <option value="cgangee">Clôturée/Gagnée</option>
+                      <option value="cperdue">Clôturée/Perdue</option>
                     </select>
                   </div>
                 </div>

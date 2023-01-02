@@ -124,12 +124,18 @@
                   form1.style.display = "block";
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio1'>";
                   id3.style.display = "none";
-                }else if(checkBox2.checked == true){
+                  id1.style.display = "block";
+                  id2.style.display = "block";
+                  id5.style.display = "block";
+                  }else if(checkBox2.checked == true){
                   form1.style.display = "block";
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio2'>";
                   id3.style.display = "none";
+                  id1.style.display = "block";
+                  id2.style.display = "block";
+                  id5.style.display = "block";
 
-                }else if(checkBox3.checked == true){
+                    }else if(checkBox3.checked == true){
                   form1.style.display = "block";
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio3'>";
                   id1.style.display = "none";
@@ -137,11 +143,11 @@
                   id5.style.display = "none";
                   id3.style.display = "block";
 
-                }
-                 else {
-                  form1.style.display = "none";
+                     }
+                     else {
+                    form1.style.display = "none";
                  
-               }
+                  }
                }
          
                

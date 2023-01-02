@@ -65,7 +65,7 @@ class AuthController extends Controller
                 }
         } else
         session()->flash('echec','Login invalid');
-        return redirect('login');
+        return redirect('/');
            
             //return back();
     }
