@@ -43,9 +43,6 @@ class AuthController extends Controller
             $_SESSION['admin'] = $user->id;
                 
 
-                
-              
-
                return redirect('/admin');
             }
             if ($user->role == 'commercial') {
@@ -56,16 +53,14 @@ class AuthController extends Controller
             }else
              if($user->role == 'contact'){
                 
-                $_SESSION['contact'] = $user->id;
+                $_SESSION['contact'] = $user->contactID;
                 
-              
-                
-                return view('front-office.index');
+                return redirect('front-office/account/'.$user->contactID);
 
                 }
         } else
         session()->flash('echec','Login invalid');
-        return redirect('/');
+        return back();
            
             //return back();
     }

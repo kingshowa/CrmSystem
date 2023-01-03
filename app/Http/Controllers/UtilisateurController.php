@@ -8,6 +8,7 @@ use App\Models\Contact;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\validate;
+use Mail;
 session_start();
 class UtilisateurController extends Controller
 {
@@ -26,56 +27,65 @@ class UtilisateurController extends Controller
     } 
    
     public function store(Request $request){
+
         $this->validate($request, ['image' => 'nullable']);
     	$utilisateur = new  Utilisateur();
     	
-        
-       
-        
     	$password = $request->input('password');
         $utilisateur->password = Hash::make($password);
 
        
         $c = $request->input('role');
         if ($c == "radio1") {
+            if (Utilisateur::where('email', $request->input('email'))->exists() ) {   
+                return back()->with(session()->flash('echec','Email existe deja'));
+            }else  $utilisateur->email = $request->input('email');
+
             $utilisateur->role = 'admin';
             $utilisateur->nom = $request->input('firstName');
             $utilisateur->prenom = $request->input('surName');
 
+            Mail::send('utilisateurs.email', ['role'=>'admin', 'password'=>$request->input('password'), 'link'=>'/'], function($message) use($request){
+                $message->to($request->email);
+                $message->subject('Your Password');
+            });
+
         }else if ($c == "radio2"){
-            
+            if (Utilisateur::where('email', $request->input('email'))->exists() ) {   
+                return back()->with(session()->flash('echec','Email existe deja'));
+            }else  $utilisateur->email = $request->input('email');
+
                 $utilisateur->role = 'commercial';
                 $utilisateur->nom = $request->input('firstName');
     	        $utilisateur->prenom = $request->input('surName');
+
+                Mail::send('utilisateur.email', ['role'=>'commercial', 'password'=>$request->input('password'), 'link'=>'/'], function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Your Password');
+                });
             } else {
                 $contact = Contact::where('id',$request->contactID)->get();
+
+                if (Utilisateur::where('email', $contact[0]->email)->exists() ) {   
+                    return back()->with(session()->flash('echec','Email existe deja'));
+                }else  $utilisateur->email = $contact[0]->email;
+
                 $utilisateur->contactID = $request->input('contactID');
                 $utilisateur->role = 'contact';
                 $utilisateur->nom = $contact[0]->nom;
                 $utilisateur->prenom = $contact[0]->prenom;
+
+                Mail::send('utilisateur.email', ['role'=>'contact', 'password'=>$request->input('password'), 'link'=>'/front-office/login'], function($message) use($request){
+                    $message->to($request->email);
+                    $message->subject('Your Password');
+                });
             }
             
-          
-        if (Utilisateur::where('email', $request->input('email'))->exists() ) {
-            
-            return back()->with(session()->flash('echec','Email existe deja'));
-        }else  $utilisateur->email = $request->input('email');
 
-
-        $a = $request->input('image');
-        if($request->hasFile('image')) {
-            $filenameWithExt = $request->file("image")->getClientOriginalName();
-
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file("image")->getClientOriginalExtension();
-            $filenametostore = $filename . '_' . time() . '.' . $extension;
-            $path = $request->file("image")->storeas('public/imag', $filenametostore);
-
-
-            $utilisateur->image = $filenametostore;
-        }
+        $utilisateur->image = 'th.jpeg';
        
     	$utilisateur->save();
+
         session()->flash('success','client ajouter avec success');
         return redirect('utilisateurs');
     }

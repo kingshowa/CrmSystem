@@ -35,8 +35,7 @@ use App\Http\Controllers\ChartsController;
  Route::get('/contact-add2/{societe}', [ContactController::class, 'create2'])->name('create2');
  Route::post('/contact-add2', [ContactController::class, 'store_contactClient'])->name('store_contactClient');
  Route::get('/front-office/account/{id}', [ContactController::class, 'contact_details'])->name('contact_details');
- Route::get('/getEmail/{id}', [ContactController::class, 'getEmail'])->name('getEmail');
-
+ 
 
 Route::get('/opportunites', [OpportuniteController::class, 'index'])->name('index');
 Route::get('/opportunites-add', [OpportuniteController::class, 'create'])->name('create');
@@ -95,9 +94,6 @@ return view('front-office/index');
  Route::get('/showteam', [ChartsController::class, 'showteam'])->name('showteam');
 
 
-// Route::get('/front-office/cars', function () {
-//     return view('front-office/cars');
-// });
 
 Route::get('/front-office', [ChartsController::class, 'front'])->name('front');
 

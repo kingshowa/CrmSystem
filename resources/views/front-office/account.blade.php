@@ -2,11 +2,9 @@
 
 @Section("frontContent")
 
-@php ($label = 'login')
 
-@if(1==1)
 @php ($label = 'account')
-@endif
+
 
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
@@ -26,7 +24,7 @@
                             
                             <li><a href="{{url('front-office/contact')}}">Contact</a></li>
 
-                            <li id="login"><a href="{{url('front-office/'.$label)}}" class="active">{{ $label }}</a></li> 
+                            <li id="login"><a href="" class="active">{{ $label }}</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

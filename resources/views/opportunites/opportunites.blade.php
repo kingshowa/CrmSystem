@@ -56,13 +56,11 @@
                         <td>{{$opportunite->etape}}</td>
 
                         <td>
-                        @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition
-                        || $opportunite->etape == 'cperdue'')
+                        @if($opportunite->etape != 'Gangee')
 
                         <a href="{{route('devisdownload',$opportunite->id)}}">Devis </a> 
                         @endif
-                        @if($opportunite->etape == 'cgangee')
-                          <a href="{{route('factureshow',$opportunite->id)}}">Facture</a>
+        
 
                         @if($opportunite->etape == 'Gangee')
                           <a href="{{route('facturedownload',$opportunite->id)}}">Facture</a>

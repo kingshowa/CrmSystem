@@ -42,33 +42,34 @@
              
         <form id="form1" action="{{url('utilisateurs/store')}}" style="display:none;"method="POST" enctype="multipart/form-data">
               {{ csrf_field()}}  
+
+              <div class="row mb-3">
+                <label for="Email" id="id3" class="col-md-4 col-lg-3 col-form-label">Contact</label>
+                <div class="col-md-8 col-lg-9" id="id31">
+                  <select class="form-select" id="select_box" name="contactID">
+                    <option selected>Choose Contact</option>
+                    @foreach($contact as $contact)
+                    <option  value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
               
-                <div class="row mb-3" id="id1">
-                  <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                <div class="row mb-3">
+                  <label for="firstName" id="id1" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="firstName" type="text" class="form-control" id="firstName">
+                    <input name="firstName" id="id11" type="text" class="form-control" id="firstName">
                   </div>
                 </div>
                 
 
-                <div class="row mb-3" id="id2">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                <div class="row mb-3">
+                  <label for="surName" id="id2" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="surName" type="text" class="form-control" id="surName">
+                    <input name="surName" id="id21" type="text" class="form-control" id="surName">
                   </div>
                 </div>
 
-                <div class="row mb-3" id="id3">
-                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Contact</label>
-                  <div class="col-md-8 col-lg-9">
-                    <select class="form-select" id="select_box" name="contactID">
-                      <option selected>Choose Contact</option>
-                      @foreach($contact as $contact)
-                      <option  value="{{$contact->id}}">{{$contact->nom}} {{$contact->prenom}}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
 
                 <div class="row mb-3" >
                   <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
@@ -76,7 +77,7 @@
                     <input name="email" type="email" class="form-control" id="Email">
                   </div>
                 </div>
-                <div>
+                
                 <div class="row mb-3" id="id4">
                   <label for="Email" class="col-md-4 col-lg-3 col-form-label">Password</label>
                   <div class="col-md-8 col-lg-9">
@@ -87,24 +88,29 @@
                  
                   </div>
                 </div>
-                <div>
-                <div class="row mb-3" id="id5">
-                      <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
+
+               
+                <!-- <div class="row mb-3">
+                      <label for="Photo" id="id5" class="col-md-4 col-lg-3 col-form-label">Photo</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="image" type="file" class="form-control" id="Photo" width="60px" height="60px" accept="image/png, image/jpeg">
                       </div>
-                    </div>
-                  <div>
+                    </div> -->
+                  
+                <div class="row mb-3" >
+                  <label for="Email" class="col-md-4 col-lg-3 col-form-label"></label>
+                  <div class="col-md-8 col-lg-9">
+                   <button type="submit" class="btn btn-primary">Save User</button>
                   </div>
+                </div>  
                   
                  
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Save Utilisateurs</button>
+                  
                 </div>
               </form><!-- End Profile Edit Form -->
 
-              
-        
+                 
             </div>
       </div>
 
@@ -123,32 +129,48 @@
                 var form1 = document.getElementById("form1");
                
                 var id1 = document.getElementById("id1");
+                var id11 = document.getElementById("id11");
                 var id2 = document.getElementById("id2");
+                var id21 = document.getElementById("id21");
                 var id3 = document.getElementById("id3");
+                var id31 = document.getElementById("id31");
                 var id5 = document.getElementById("id5");
+                var id51 = document.getElementById("id51");
 
                 if (checkBox.checked == true){
                   form1.style.display = "block";
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio1'>";
                   id3.style.display = "none";
+                  id31.style.display = "none";
                   id1.style.display = "block";
+                  id11.style.display = "block";
                   id2.style.display = "block";
+                  id21.style.display = "block";
                   id5.style.display = "block";
+                  id51.style.display = "block";
                   }else if(checkBox2.checked == true){
                   form1.style.display = "block";
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio2'>";
                   id3.style.display = "none";
+                  id31.style.display = "none";
                   id1.style.display = "block";
+                  id11.style.display = "block";
                   id2.style.display = "block";
+                  id21.style.display = "block";
                   id5.style.display = "block";
+                  id51.style.display = "block";
 
-                    }else if(checkBox3.checked == true){
+                  }else if(checkBox3.checked == true){
                   form1.style.display = "block";
                   document.getElementById("id7").innerHTML ="<input id='roleUser'  type='hidden' name='role' value='radio3'>";
+                  id3.style.display = "block";
+                  id31.style.display = "block";
                   id1.style.display = "none";
+                  id11.style.display = "none";
                   id2.style.display = "none";
+                  id21.style.display = "none";
                   id5.style.display = "none";
-                  id3.style.display = true;
+                  id51.style.display = "none";
 
                      }
                      else {
@@ -157,9 +179,7 @@
                   }
                }
          
-               
-              
-               
+                          
 </script>
 
 
