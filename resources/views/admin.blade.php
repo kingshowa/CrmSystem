@@ -169,21 +169,21 @@
 
                   <script>
                     
-                    var montho = JSON.parse('{!! json_encode($montho) !!}');
-                    var months = JSON.parse('{!! json_encode($months) !!}');
+                    var montant = JSON.parse('{!! json_encode($montant) !!}');
+                    var mois = JSON.parse('{!! json_encode($mois) !!}');
 
                     document.addEventListener("DOMContentLoaded", () => {
                       echarts.init(document.querySelector("#barChart")).setOption({
                         xAxis: {
                           type: "category",
-                           data: months,
+                           data: mois,
                         },
                         yAxis: {
                           type: "value"
                         },
                         series: [{
                           
-                           data: montho,
+                           data: montant,
                           type: "bar"
                         }]
                       });

@@ -10,6 +10,7 @@ use App\Models\Opportunite;
 use App\Models\Client;
 use App\Models\Prospect;
 use App\Models\Contact;
+use App\Models\ProduitOpportunite;
 use Carbon\Carbon;
 
   session_start();
@@ -42,6 +43,31 @@ class chartsController extends Controller
                  $months[] = $month;
                  $montho[]= count($values);
                }
+
+
+               $prix = Produit::join('produit_opportunites', 'produit_opportunites.idProduit', '=', 'produits.id')
+               ->get()->groupBy(function($prix){return Carbon::parse($prix->created_at)->format('M');});
+   
+                  $sum=0;
+                  $mois = [];
+                  $montant = [];
+                foreach($prix as $month => $product)
+                  {
+                    // $produit = Produit::select('produits.prix')->where('produits.id',$product[0]->idProduit);
+                   
+                    $mois[] = $month;
+               
+                    $sum =  $sum+($product[0]->quantite * $product[0]->prix);
+             
+                     $montant[]=$sum;
+                     $sum = 0;
+                 
+                   }
+               
+                 
+               
+              
+
                 $nombreopportunite = Opportunite::select('id')->get();
                 $nombreopportunite = count($nombreopportunite);
        
@@ -115,7 +141,7 @@ class chartsController extends Controller
 
          return view('admin', ['nbrclient'=> $nombreclient,
               'nbrcontact'=>$nombrecontact,'nbrprospect'=>$nombreprospect,'nbrproduit'=>$nombreproduit
-            ,'months'=>$months,'montho'=>$montho,'produit'=>$yproduit,
+            ,'mois'=>$mois,'montant'=>$montant,'produit'=>$yproduit,
             'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
             'contactv'=>$contactv,'web'=>$web,'salon'=>$salon,'bouche'=>$bouche,
             'tel'=>$tel,'opptoday'=>$opptoday,'oppPro'=>$oppPro,'oppProp'=>$oppProp
