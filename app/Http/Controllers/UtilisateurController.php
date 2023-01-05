@@ -59,7 +59,7 @@ class UtilisateurController extends Controller
                 $utilisateur->nom = $request->input('firstName');
     	        $utilisateur->prenom = $request->input('surName');
 
-                Mail::send('utilisateur.email', ['role'=>'commercial', 'password'=>$request->input('password'), 'link'=>'/'], function($message) use($request){
+                Mail::send('utilisateurs.email', ['role'=>'commercial', 'password'=>$request->input('password'), 'link'=>'/'], function($message) use($request){
                     $message->to($request->email);
                     $message->subject('Your Password');
                 });
@@ -75,13 +75,11 @@ class UtilisateurController extends Controller
                 $utilisateur->nom = $contact[0]->nom;
                 $utilisateur->prenom = $contact[0]->prenom;
 
-                Mail::send('utilisateur.email', ['role'=>'contact', 'password'=>$request->input('password'), 'link'=>'/front-office/login'], function($message) use($request){
+                Mail::send('utilisateurs.email', ['role'=>'contact', 'password'=>$request->input('password'), 'link'=>'/front-office/login'], function($message) use($request){
                     $message->to($request->email);
                     $message->subject('Your Password');
                 });
-            }
-            
-
+            }      
         $utilisateur->image = 'th.jpeg';
        
     	$utilisateur->save();

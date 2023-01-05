@@ -240,7 +240,7 @@
                     Products
                   </h5>
 
-                  <table class="table table-dark">
+                  <table class="table table-success">
                     <thead>
                       <tr>
                         <th scope="col">#</th>

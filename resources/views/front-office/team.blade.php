@@ -56,37 +56,36 @@
         <div class="container">
             <br>
             <br>
-            @foreach($utilisateurs as $utilisateur)
+            
             <div id="column">
-            <div class="row">
-            <div class="row">
-            <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="/storage/imag/{{$utilisateur->image}}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>{{$utilisateur->nom}}</span>
-                            <h4>John Doe</h4>
-                            <ul class="social-icons">
-                                <li><a href="mailto:kingshowa1@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                                <li><a href="mailto:kingshowa1@gmail.com">email@gmail.com</a></li> 
-                            </ul>
-                        </div>
-                    </div> 
+                <div class="row">
+                    @foreach($utilisateurs as $utilisateur)
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="/storage/imag/{{$utilisateur->image}}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span></span>
+                                <h4>{{$utilisateur->nom}}</h4>
+                                <ul class="social-icons">
+                                    <li><a href="mailto:{{$utilisateur->email}}"><i class="fa fa-envelope"></i></a></li>
+                                    <li><a href="mailto:{{$utilisateur->email}}">{{$utilisateur->email}}</a></li> 
+                                </ul>
+                            </div>
+                        </div> 
                     </div>
-                    </div>
-                    </div>
-</div>
                     @endforeach
                 </div>
-                <div class="text-center">
-               
-               {{ $utilisateurs->links() }}
-                 
-              </div>
-               
+            </div>
             
+        </div>
+
+        <div class="text-center">
+        
+        {{ $utilisateurs->links() }}
+            
+        </div>      
        
     </section>
 
