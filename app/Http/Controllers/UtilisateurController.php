@@ -59,23 +59,23 @@ class UtilisateurController extends Controller
                 $utilisateur->nom = $request->input('firstName');
     	        $utilisateur->prenom = $request->input('surName');
 
-                Mail::send('utilisateur.email', ['role'=>'commercial', 'password'=>$request->input('password'), 'link'=>'/'], function($message) use($request){
+                Mail::send('utilisateurs.email', ['role'=>'commercial', 'password'=>$request->input('password'), 'link'=>'/'], function($message) use($request){
                     $message->to($request->email);
                     $message->subject('Your Password');
                 });
             } else {
                 $contact = Contact::where('id',$request->contactID)->get();
 
-                if (Utilisateur::where('email', $contact[0]->email)->exists() ) {   
+                if (Utilisateur::where('email',  $request->input('email'))->exists() ) {   
                     return back()->with(session()->flash('echec','Email existe deja'));
-                }else  $utilisateur->email = $contact[0]->email;
+                }else  $utilisateur->email =  $request->input('email');
 
                 $utilisateur->contactID = $request->input('contactID');
                 $utilisateur->role = 'contact';
                 $utilisateur->nom = $contact[0]->nom;
                 $utilisateur->prenom = $contact[0]->prenom;
 
-                Mail::send('utilisateur.email', ['role'=>'contact', 'password'=>$request->input('password'), 'link'=>'/front-office/login'], function($message) use($request){
+                Mail::send('utilisateurs.email', ['role'=>'contact', 'password'=>$request->input('password'), 'link'=>'/front-office/login'], function($message) use($request){
                     $message->to($request->email);
                     $message->subject('Your Password');
                 });

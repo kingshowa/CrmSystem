@@ -101,8 +101,13 @@ class chartsController extends Controller
                           $contactv[]= count($values);
                          }
                    //nombre total produit
-                 $nombreproduit = Produit::all();
-                 $nombreproduit = count($nombreproduit);
+          $nombreproduit = Produit::join('produit_opportunites', 'produit_opportunites.idProduit', '=', 'produits.id')
+                                    ->get();
+                      foreach ($nombreproduit as $p) 
+                        {
+                         $sum = $sum + (double)($p->quantite * $p->prix);
+                        }
+             
        
                   //nombre total client
                  $nombreclient = Client::select('id')->get();
@@ -126,6 +131,16 @@ class chartsController extends Controller
                  $tel = Prospect::select('id')->where('source','telephone')->get();
                  $tel = count($tel);
 
+                 $part = Prospect::select('id')->where('source','partenaire')->get();
+                 $part = count($part);
+
+                 $autre = Prospect::select('id')->where('source','autre')->get();
+                 $autre = count($autre);
+
+                 $listep = Prospect::select('id')->where('source','listep')->get();
+                 $listep = count($listep);
+
+
                  $oppPro = Opportunite::where('etape','=','Prospection')->get();
                 $oppPro = count($oppPro);
 
@@ -140,15 +155,18 @@ class chartsController extends Controller
 
                 $oppper = Opportunite::where('etape','=','cperdue')->get();
                 $oppper = count($oppper);
+
+                $allproduit = Opportunite::ALL();
+                $allproduit = count($allproduit);
                       
 
          return view('admin', ['nbrclient'=> $nombreclient,
-              'nbrcontact'=>$nombrecontact,'nbrprospect'=>$nombreprospect,'nbrproduit'=>$nombreproduit
+              'nbrcontact'=>$nombrecontact,'nbrprospect'=>$nombreprospect,'nbrproduit'=>$sum
             ,'mois'=>$mois,'montant'=>$montant,'produit'=>$yproduit,
             'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
             'contactv'=>$contactv,'web'=>$web,'salon'=>$salon,'bouche'=>$bouche,
-            'tel'=>$tel,'opptoday'=>$opptoday,'oppPro'=>$oppPro,'oppProp'=>$oppProp
-          ,'oppver'=>$oppver,'oppgan'=>$oppgan,'oppper'=>$oppper]);
+            'tel'=>$tel,'autre'=>$autre,'listep'=>$listep,'part'=>$part,'opptoday'=>$opptoday,'oppPro'=>$oppPro,'oppProp'=>$oppProp
+          ,'oppver'=>$oppver,'oppgan'=>$oppgan,'oppper'=>$oppper,'allproduit'=>$allproduit]);
           
             
         
