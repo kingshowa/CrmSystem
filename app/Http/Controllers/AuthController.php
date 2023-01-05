@@ -48,7 +48,7 @@ class AuthController extends Controller
             if ($user->role == 'commercial') {
               
               $_SESSION['commercial'] = $user->id;
-               return view('/commerciale');
+              return redirect('/commercial');
 
             }else
              if($user->role == 'contact'){

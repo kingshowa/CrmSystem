@@ -15,7 +15,7 @@
   </li><!-- End Dashboard Nav -->
   @else
   <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('/commerciale')}}">
+    <a class="nav-link collapsed" href="{{ url('/commercial')}}">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>

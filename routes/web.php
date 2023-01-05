@@ -77,12 +77,13 @@ Route::get('/transforme/{id}', [ProspectController::class, 'transforme'])->name(
 
 
 Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
+Route::get('/commercial', [ChartsController::class, 'commercial'])->name('commercial');
 
 
-Route::get('commerciale', function () {
-    session_start();
-return view('commerciale');
-});
+// Route::get('commerciale', function () {
+//     session_start();
+// return view('commerciale');
+// });
 
 
 Route::get('/front-office', function () {

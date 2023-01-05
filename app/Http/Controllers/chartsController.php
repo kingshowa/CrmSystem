@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+use App\Models\Rendez;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Utilisateur;
@@ -190,6 +191,38 @@ class chartsController extends Controller
       $utilisateur = Utilisateur::where('role','=','admin')
       -> simplepaginate(6);
     return view('front-office.team', ['utilisateurs' => $utilisateur]);
+
+    }
+
+
+    public function commercial(){
+      $produit = Produit::select('id','created_at')->get()->groupBy(function($produit)
+      {return Carbon::parse($produit->created_at)->format('M');});
+      
+           $mois = [];
+           $value = [];
+           foreach($produit as $year => $values){
+             $mois[] = $year;
+             $value[]= count($values);
+            }
+
+
+
+            $rendez = Rendez::select('id','created_at')->get()->groupBy(function($rendez)
+            {return Carbon::parse($rendez->created_at)->format('M');});
+            
+                 $rendezs = [];
+                 $valeur = [];
+                 foreach($rendez as $years => $valeurs){
+                   $rendezs[] = $years;
+                   $valeur[]= count($valeurs);
+                  }
+
+                  $nombrecontact = Contact::select('id') ->whereYear('created_at', date('Y'))->get();
+                  $nombrecontact = count($nombrecontact);
+      
+        return view('commerciale', ['mois' => $mois,'values'=>$value,'rendezs' => $rendezs,'valeur'=>$valeur
+                                       ,'nbrcontact'=>$nombrecontact]);
 
     }
 }
