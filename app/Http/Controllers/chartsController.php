@@ -46,21 +46,24 @@ class chartsController extends Controller
 
 
                $prix = Produit::join('produit_opportunites', 'produit_opportunites.idProduit', '=', 'produits.id')
+               
                ->get()->groupBy(function($prix){return Carbon::parse($prix->created_at)->format('M');});
-   
-                  $sum=0;
+               
+                 
                   $mois = [];
                   $montant = [];
                 foreach($prix as $month => $product)
                   {
-                    // $produit = Produit::select('produits.prix')->where('produits.id',$product[0]->idProduit);
-                   
+                    $sum=0;
+                 
                     $mois[] = $month;
-               
-                    $sum =  $sum+($product[0]->quantite * $product[0]->prix);
+                 foreach ($product as $p) 
+                 {
+                   $sum = $sum + ($p->quantite * $p->prix);
+                    }
              
                      $montant[]=$sum;
-                     $sum = 0;
+                     
                  
                    }
                
