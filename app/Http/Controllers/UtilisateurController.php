@@ -79,9 +79,7 @@ class UtilisateurController extends Controller
                     $message->to($request->email);
                     $message->subject('Your Password');
                 });
-            }
-            
-
+            }      
         $utilisateur->image = 'th.jpeg';
        
     	$utilisateur->save();
