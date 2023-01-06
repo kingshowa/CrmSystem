@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
 use App\Models\Contact;
+use App\Models\Client;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\validate;
@@ -152,6 +153,27 @@ class UtilisateurController extends Controller
         $utilisateur->image = $filenametostore;
     	
     	$utilisateur->save();
+        return back();    	
+    }
+
+    public function edite_logo(Request $request, $id){
+    	$client = Client::find($id);
+    	
+    	$client->societe = $client->societe;
+    	$client->telephone = $client->telephone;
+        $client->adresse = $client->adresse;
+    	$client->site_web = $client->site_web;
+        $filenameWithExt = $request->file("logo")->getClientOriginalName();
+
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension=$request->file("logo")->getClientOriginalExtension();
+        $filenametostore = $filename . '_' . time() . '.' . $extension;
+        $path = $request->file("logo")->storeas('public/imag', $filenametostore);
+
+
+        $client->logo = $filenametostore;
+    	
+    	$client->save();
         return back();    	
     }
     

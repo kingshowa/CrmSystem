@@ -66,7 +66,7 @@
                   <h5 class="card-title">Client Details</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Nom societe</div>
+                    <div class="col-lg-3 col-md-4 label ">Company</div>
                     <div class="col-lg-9 col-md-8">{{$client->societe}}</div>
                   </div>
 
@@ -81,10 +81,13 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Site Web</div>
+                    <div class="col-lg-3 col-md-4 label">Website</div>
                     <div class="col-lg-9 col-md-8">{{$client->site_web}}</div>
-
-                   </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Logo</div>
+                    <div class="col-lg-9 col-md-8"><img src="/storage/imag/{{$client->logo}}" height="50" alt=""></div>
+                  </div>
                   
                 </div>
 
@@ -98,14 +101,14 @@
                     {{ csrf_field() }}
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Societe</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Company</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="societe" type="text" class="form-control" id="firstName" value="{{$client->societe}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Telephone</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Phone No</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="telephone" type="text" class="form-control" id="surName" value="{{$client->telephone}}">
                       </div>
@@ -114,22 +117,23 @@
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="adresse" class="form-control" id="about"value="{{$client->adresse}}" style="height: 100px">{{$client->adresse}}</textarea>
+                        <textarea name="adresse" class="form-control" id="about"value="{{$client->adresse}}" style="height: 50px">{{$client->adresse}}</textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Site Web</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Website</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="site_web" type="text" class="form-control" id="Phone" value="{{$client->site_web}}">
                       </div>
                     </div>
-
-                    
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Modifier</button>
+                    <div class="row mb-3">
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label"></label>
+                      <div class="col-md-8 col-lg-9">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
                     </div>
+
                   </form><!-- End Profile Edit Form -->
 
                 </div>

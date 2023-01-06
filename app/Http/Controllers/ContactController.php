@@ -55,7 +55,6 @@ class ContactController extends Controller
     }
 
     public function details($id, $action){
-    	
         $contact = DB::table('clients')->join('contacts', 'clients.id', '=', 'contacts.clientID')
                ->where('contacts.id', $id)
                ->select('contacts.*', 'clients.societe')
@@ -66,7 +65,11 @@ class ContactController extends Controller
     public function contact_details(Request $request,$id){
         $contact = Contact::join('clients', 'clients.id', '=', 'contacts.clientID')->where('contacts.id', $id)->get()[0];
         $opps = Opportunite::where('clientID', $contact->clientID)->get();
-    	return view('front-office.account', ['contact'=>$contact, 'opps'=>$opps]);
+        $user = Contact::join('utilisateurs', 'utilisateurs.contactID', '=', 'contacts.id')
+        ->where('contacts.id', $id)->get()[0];
+        
+        //  echo $user;
+    	return view('front-office.account', ['contact'=>$contact, 'opps'=>$opps, 'user'=>$user]);
     }
 
     public function update(Request $request, $id){
@@ -98,4 +101,5 @@ class ContactController extends Controller
     	$contact->delete();
     	return redirect('contacts');
     }   
+
 }

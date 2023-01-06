@@ -46,35 +46,12 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>feel free to manage your <em>details</em></h2>
+                        <h2>your opportunity <em>details</em></h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <section class="section profile" style="margin-top:40px;">
-      <div class="row">
-
-        <div class="col-xl-12">
-
-          <div class="card">
-            <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
-
-              @php ($a = 'active')
-              @php ($c = '')
-              @php ($a1 = 'show')
-              @php ($c1 = '')
-
-              @if($action==2)
-                @php ($c = 'active')
-                @php ($a = '')
-                @php ($a1 = '')
-                @php ($c1 = 'show')
-              @endif
-
 
               @if($opportunite->etape == 'Gangee')
                 @php ($fact = 'Invoice')
@@ -82,70 +59,114 @@
                 @php ($fact = 'Quotation') 
               @endif
 
-              
-              <ul class="nav nav-tabs nav-tabs-bordered">
-
-                <li class="nav-item">
-                  <button class="nav-link {{ $a }}" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
-                </li>
-
-                <li class="nav-item">
-                  <button class="nav-link {{ $c }}" data-bs-toggle="tab" data-bs-target="#facture">View {{$fact}}</button>
-                </li>
-
-              </ul>
-
-              <div class="tab-content pt-2 col-xl-8">
-              @if($opportunite != null)
-                <div class="tab-pane fade {{ $a }} {{ $a1 }} profile-overview" id="profile-overview">
+    <style>
+        a > .bi{
+            font-size: 25px;
+            margin-right: 15px;
+        }
+        .ttt{
+          font-size: 30px;
+        }
+    </style>
 
 
-                  <h5 class="card-title">Opportunite Details</h5>                
+    <!-- ***** Fleet Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            
+            <br>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Opportunity Name</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->nom}}</div>
-                  </div>
+            <div class="row" id="tabs">
+              <div class="col-lg-4">
+                <br>
+                <ul>
+                  <li><a href='#tabs-1'><i class="bi bi-gem"></i> Opportunity Overview</a></li>
+                  <li><a href='#tabs-2'><i class="bi bi-file-earmark-ruled-fill"></i> Opportunity {{$fact}}</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-8">
+                <section class='tabs-content' style="width: 100%;">
+                <article id='tabs-1'>
+                  <h4>Opportuny Details</h4>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Stage</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->etape}}</div>
-                  </div>
+                        @if($opportunite != null)
+  
+                    <br>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Amount</div>
-                    <div class="col-lg-9 col-md-8">{{$amount}} DZD</div>
-                  </div>
+                    <div class="row">
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Closing Date</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->date_cloture}}	</div>
-                  </div>
+                        <div class="col-sm-6">
+                          <label>Opportunity Name</label>
+                          <p>{{$opportunite->nom}}</p>
+                        </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Client</div>
-                    <div class="col-lg-9 col-md-8">{{$opportunite->client}}</div>
-                  </div>
+                        <div class="col-sm-6">
+                          <label>Stage</label>
+                          <p>{{$opportunite->etape}}</p>
+                        </div>
 
-                </div>
+                        <div class="col-sm-6">
+                          <label>Amount</label>
+                          <p>{{$amount}} DZD</p>
+                        </div>
 
-                @endif
+                        <div class="col-sm-6">
+                          <label>Closing Date</label>
+                          <p>{{$opportunite->date_cloture}}	</p>
+                        </div>
 
-              </div><!-- End Bordered Tabs -->
+                        <div class="col-sm-6">
+                          <label>Client</label>
+                          <p>{{$opportunite->client}}</p>
+                        </div>
 
+                    </div>  
+                    
+                  <h5 class="card-title">
+                    Products
+                  </h5>
 
-              <div class="tab-content pt-2 col-xl-8">
+                  <table class="table table-danger">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unity Price</th>
+                        <th scope="col">Total Price</th>
+                        <!-- <th scope="col" colspan="2">Actions</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $product)
+                      <tr>
+                        <th scope="row">{{$product->id}}<a href="#"></a></th>
+                        <td>{{$product->nom}}</td>
+                        <td>{{$product->type}}</td>                     
+                        <td>{{$product->quantite}}</td>  
+                        <td>{{$product->prix}}</td>
+                        <td>{{$product->prix * $product->quantite}}</td>
+                        
+                       </tr>
+                      @endforeach
+                                
+                    </tbody>
+                  </table>
 
-                <div class="tab-pane fade {{ $c }} {{ $c1 }}  facture pt-3" id="facture">
+                        @endif
+                  </article>
 
-                            <h5 class="card-title"> {{$fact}} </h5>
+                  <article id='tabs-2'>
+
+                  <h5 class="card-title ttt"> {{$fact}} </h5>
                                   <div class="row">
-                                    <div class="col-lg-10 col-md-9 label "></div>
+                                    <div class="col-lg-10 col-md-9 label"></div>
                                     <div class="col-lg-2 col-md-3" style="color:red;font-weight:bold;">No: 00000{{$opportunite->id}}</div>
                                   </div> 
 
                                   <div class="row">
-                                    <div class="col-lg-4 col-md-4 label ">Company</div>
+                                    <div class="col-lg-4 col-md-4 label">Company</div>
                                     <div class="col-lg-8 col-md-8">{{$client[0]->societe}}</div>
                                   </div>
 
@@ -213,66 +234,14 @@
                                   <a href="{{route('facturedownload',$opportunite->id)}}">
                                     <button class="btn btn-success" style="float: right;">Download {{$fact}}</button>
                                   </a>  
-                                  @endif              
-                </div>
+                                  @endif 
 
+                  </article>
 
-
-
-
-              </div><!-- End Bordered Tabs -->
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="row">
-        
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title">
-                    Products
-                  </h5>
-
-                  <table class="table table-success">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Product name</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Unity Price</th>
-                        <th scope="col">Total Price</th>
-                        <!-- <th scope="col" colspan="2">Actions</th> -->
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($products as $product)
-                      <tr>
-                        <th scope="row">{{$product->id}}<a href="#"></a></th>
-                        <td>{{$product->nom}}</td>
-                        <td>{{$product->type}}</td>                     
-                        <td>{{$product->quantite}}</td>  
-                        <td>{{$product->prix}}</td>
-                        <td>{{$product->prix * $product->quantite}}</td>
-                        
-                       </tr>
-                      @endforeach
-                                
-                    </tbody>
-                  </table>
-
-                </div>
-
+                </section>
               </div>
             </div>
-      </div>
+        </div>
     </section>
 
   @endsection

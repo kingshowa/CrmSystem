@@ -145,6 +145,7 @@ Route::get('/client/restore-all', [ClientController::class, 'restore_all'])->nam
 Route::put('/client/update_by_contact/{id}', [ClientController::class, 'update_by_contact'])->name('update_by_contact');
 
 
+
 Route::get('/rendez', [RendezController::class, 'index'])->name('index-rendez');
 Route::get('/rendez/create', [RendezController::class, 'create'])->name('create-rendez');
 Route::post('/rendez/store', [RendezController::class, 'store'])->name('store-rendez');
@@ -173,6 +174,7 @@ Route::delete('utilisateurs/destroy/{id}', [UtilisateurController::class, 'destr
 Route::get('user-profile/{id}', [UtilisateurController::class, 'profile'])->name('user-profile');
 Route::put('edite_profile/{id}', [UtilisateurController::class, 'edite_profile'])->name('edite_profile');
 Route::put('edite_photo/{id}', [UtilisateurController::class, 'edite_photo'])->name('edite_photo');
+Route::put('edite_logo/{id}', [UtilisateurController::class, 'edite_logo'])->name('edite_logo');
 
 //Authentification
 Route::get('/', [AuthController::class, 'login'])->name('login');

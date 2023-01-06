@@ -44,7 +44,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>feel free to manage your <em>details</em></h2>
+                        <h2>manage your <em>details</em></h2>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     
                     <div class="row">
                         <div class="col-sm-6">
-                            <img src="/storage/imag/img_1671574458.png" width="150" alt="ProfileIMage">
+                            <img src="/storage/imag/{{$user->image}}" width="150" alt="ProfileIMage">
                         </div>
                     </div>
 
@@ -131,7 +131,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <img src="/storage/imag/img_1671574458.png" width="150" alt="Logo">
+                            <img src="/storage/imag/{{$contact->logo}}" width="150" alt="Logo">
                         </div>
                     </div>
 
@@ -165,68 +165,117 @@
                     <h4>Edit Contact Profile</h4>
 
                     @if($contact != null)
-                                <!-- Profile Edit Form -->
-                                <form action="{{url('contact/update_by_contact/'.$contact->id)}}" method="POST">
-                                    <input type="hidden" name="_method" value="PUT">
-                                    {{ csrf_field() }}
-                                    
-                                    <div class="row mb-3">
-                                    <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="nom" type="text" class="form-control" id="firstName" value="{{$contact->nom}}">
-                                    </div>
-                                    </div>
 
-                                    <div class="row mb-3">
-                                    <label for="surName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="prenom" type="text" class="form-control" id="surName" value="{{$contact->prenom}}">
-                                    </div>
-                                    </div>
+                    <form action="{{route('edite_photo',$user->id)}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="PUT" >
+                                {{ csrf_field() }}
+                        <div class="row mb-3">
+                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                            <div class="col-md-8 col-lg-9">
+                                <img src="/storage/imag/{{$user->image}}" width="100" alt="Profile" >
+                                <div class="pt-2">
+                                <input type="file" name="image" id="photo" style="display:none">
+                                <label for="photo">
+                                <a for="photo" class="btn btn-primary btn-sm" title="Upload new profile image">
+                                    <i for="photo"type="file" class="b bi-upload"></i>
+                                </a>
+                                </label> 
+                                <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="b bi-trash"></i></a>
+                                <br>
+                                <br>
+                                <button type="submit" class="btn btn-small btn-success">Save</button>
+                                </div>
+                            </div>
+                            </div>
+                            
+                        </form>
 
-                                    <div class="row mb-3">
-                                    <label for="company" class="col-md-4 col-lg-3 col-form-label">Role</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="fonction" type="text" class="form-control" id="company" value="{{$contact->fonction}}">
-                                    </div>
-                                    </div>
+                        <!-- Profile Edit Form -->
+                        <form action="{{url('contact/update_by_contact/'.$contact->id)}}" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            {{ csrf_field() }}
+                            
+                            <div class="row mb-3">
+                            <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nom" type="text" class="form-control" id="firstName" value="{{$contact->nom}}">
+                            </div>
+                            </div>
 
-                                    <div class="row mb-3">
-                                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Company</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="client" type="text" class="form-control" id="Job" value="{{$contact->societe}}" disabled>
-                                    </div>
-                                    </div>
+                            <div class="row mb-3">
+                            <label for="surName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="prenom" type="text" class="form-control" id="surName" value="{{$contact->prenom}}">
+                            </div>
+                            </div>
 
-                                    <div class="row mb-3">
-                                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone Number</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="telephone" type="text" class="form-control" id="Phone" value="{{$contact->telephone}}">
-                                    </div>
-                                    </div>
+                            <div class="row mb-3">
+                            <label for="company" class="col-md-4 col-lg-3 col-form-label">Role</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="fonction" type="text" class="form-control" id="company" value="{{$contact->fonction}}">
+                            </div>
+                            </div>
 
-                                    <div class="row mb-3">
-                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email Address</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="email" type="email" class="form-control" id="Email" value="{{$contact->email}}">
-                                    </div>
-                                    </div>
+                            <div class="row mb-3">
+                            <label for="Job" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="client" type="text" class="form-control" id="Job" value="{{$contact->societe}}" disabled>
+                            </div>
+                            </div>
 
-                                    <div class="row mb-3">
-                                        <label for="Email" class="col-md-4 col-lg-3 col-form-label"></label>
-                                        <div class="col-md-8 col-lg-9">
-                                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                                        </div>
-                                    </div>
+                            <div class="row mb-3">
+                            <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone Number</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="telephone" type="text" class="form-control" id="Phone" value="{{$contact->telephone}}">
+                            </div>
+                            </div>
 
-                                    
-                                </form><!-- End Profile Edit Form -->
-                                @endif
+                            <div class="row mb-3">
+                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email Address</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="email" type="email" class="form-control" id="Email" value="{{$contact->email}}">
+                            </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Email" class="col-md-4 col-lg-3 col-form-label"></label>
+                                <div class="col-md-8 col-lg-9">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
+
+                            
+                        </form><!-- End Profile Edit Form -->
+                        @endif
                   </article>
                   <article id='tabs-4'>
                     <h4>Edit Company Profile</h4>
 
                     @if($contact != null)
+
+                    <form action="{{route('edite_logo',$contact->id)}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="PUT" >
+                                {{ csrf_field() }}
+                        <div class="row mb-3">
+                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Company Logo</label>
+                            <div class="col-md-8 col-lg-9">
+                                <img src="/storage/imag/{{$contact->logo}}" width="100" alt="Profile" >
+                                <div class="pt-2">
+                                <input type="file" name="logo" id="logo" style="display:none">
+                                <label for="logo">
+                                <a for="logo" class="btn btn-primary btn-sm" title="Upload new profile image">
+                                    <i for="logo"type="file" class="b bi-upload"></i>
+                                </a>
+                                </label> 
+                                <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="b bi-trash"></i></a>
+                                <br>
+                                <br>
+                                <button type="submit" class="btn btn-small btn-success">Save</button>
+                                </div>
+                            </div>
+                            </div>
+                            
+                        </form>
                                 <!-- company Profile Edit Form -->
                                 <form action="{{ url('client/update_by_contact/'.$contact->clientID)}}" method="POST">
                                     <input type="hidden" name="_method" value="PUT">
@@ -332,12 +381,12 @@
                             <td>{{$opp->date_cloture}}</td>
                             
                             <td>
-                                <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id.'/1')}}">
+                                <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id.'/1#tabs-1')}}">
                                     <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                                 </a>
                             </td>
                             <td>
-                                <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id.'/2')}}">
+                                <a class="collapsed" href="{{url('acc-opportunite/'.$opp->id.'/2#tabs-2')}}">
                                     <button class="btn btn-light btn-sm"><i class="bi bi-file-earmark-ruled-fill"></i></button>
                                 </a>
                             </td>
