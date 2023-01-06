@@ -189,7 +189,7 @@ class UtilisateurController extends Controller
             $message->from($data['email']);
             $message->subject('Contact email');
         });
-        return back();
+        return back()->with('send','Message Send successfully');
 
     }
     

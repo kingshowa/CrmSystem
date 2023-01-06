@@ -101,6 +101,11 @@
     <!-- ***** Features Item End ***** -->
    
     <!-- ***** Contact Us Area Starts ***** -->
+    @if(session()->has('send'))
+      <div class="alert alert-success">
+        {{session()->get('send')}}
+      </div>
+    @endif
     <section class="section" id="contact-us" style="margin-top: 0">
         <div class="container-fluid">
             <div class="row">
