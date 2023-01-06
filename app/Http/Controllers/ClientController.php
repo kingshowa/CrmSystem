@@ -23,6 +23,7 @@ class ClientController extends Controller
         return view('clients/clients',['clients'=> $listclients]);
     }
     
+    
     public function create(Request $request){
        
     	return view('clients.client-add');

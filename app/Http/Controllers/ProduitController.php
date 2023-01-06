@@ -16,9 +16,13 @@ class ProduitController extends Controller
     
    
     
-    public function index(){
+    public function index(Request $request){
 
         $listproduits=Produit::all();
+        if($request->has('deleted'))
+        {
+            $listproduits=Produit::onlyTrashed()->get();
+        }
        
         return view('produits/produit-view',['produits'=> $listproduits]);
     }
@@ -114,7 +118,21 @@ class ProduitController extends Controller
     public function destroy($id){
     	$produit = Produit::find($id);
     	$produit->delete();
+    	return back()->with('delete','Produit Delete successfully');
+    } 
+
+    public function restore($id){
+    	Produit::withTrashed()->find($id)->restore();
+    	
+    	return back()->with('restore','Produit Restore successfully');
+       
+    } 
+
+    public function restore_all(){
+    	Produit::withTrashed()->restore();
+    	
     	return redirect('produits');
+       
     } 
 }
 ?>

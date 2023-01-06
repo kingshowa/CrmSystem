@@ -13,7 +13,10 @@ class ProspectController extends Controller
 {
     public function index(Request $request){
     	$listProspects = Prospect::all();
-        // $user = Utilisateur::find($request->session()->get('user'));
+        if($request->has('deleted'))
+        {
+            $listProspects=Prospect::onlyTrashed()->get();
+        }
         
         return view('prospects/prospects', ['prospects' => $listProspects]);
         //return view('prospects/prospects');
@@ -111,6 +114,19 @@ class ProspectController extends Controller
     public function destroy($id){
     	$prospect = Prospect::find($id);
     	$prospect->delete();
+    	return back()->with('delete','Prospect Delete successfully');
+    } 
+    public function restore($id){
+    	Prospect::withTrashed()->find($id)->restore();
+    	
+    	return back()->with('restore','Prospect Restore successfully');
+       
+    } 
+
+    public function restore_all(){
+    	Prospect::withTrashed()->restore();
+    	
     	return redirect('prospects');
+       
     } 
 }

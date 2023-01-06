@@ -5,10 +5,20 @@
 
 <main id="main" class="main">
   
-    @if(session()->has('succes'))
-    <div class="alert alert-success">
-      {{session()->get('succes')}}
-    </div>
+@if(session()->has('succes'))
+      <div class="alert alert-success">
+        {{session()->get('succes')}}
+      </div>
+    @endif
+    @if(session()->has('restore'))
+      <div class="alert alert-success">
+        {{session()->get('restore')}}
+      </div>
+    @endif
+    @if(session()->has('delete'))
+      <div class="alert alert-success">
+        {{session()->get('delete')}}
+      </div>
     @endif
 
     <div class="pagetitle">
@@ -20,6 +30,12 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
+    
+    <style>
+      .lefted{
+        float: right;
+      }
+      </style>
 
     <section class="section">
       <div class="row">
@@ -33,6 +49,15 @@
                     <a href="{{ url('contact-add')}}">
                       <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Contact</button>
                     </a>
+                    @if(request()->has('deleted'))
+                    <a href="{{route('indexcontact')}}"><button type="button" class="btn btn-secondary btn-sm">View all</button></a>
+                    <a href="{{route('restore-allcontact')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
+                    @else
+                    <a href="{{route('indexcontact',['deleted'=>'deleted'])}}" class="lefted">
+                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Contact</button>
+                    </a>
+                  </h5>
+                    @endif
                   </h5>
 
                   <table class="table table-striped datatable">
@@ -57,6 +82,14 @@
                         <td>{{$contact->telephone}}</td>
                         <td>{{$contact->societe}}</td>
                         <td>
+                        @if(request()->has('deleted'))
+                        <td>{{$client->deleted_at}}</td>
+                        <td>
+                            <a href="{{url('contacts-restore/'.$contact->id)}}">
+                              <span class="badge bg-success">Restore</span>
+                            </a>
+                        </td>
+                        @else
                           <a class="collapsed" href="{{url('contact/'.$contact->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                           </a>
@@ -93,6 +126,7 @@
                           </div><!-- End Basic Modal-->
                           </form>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
             

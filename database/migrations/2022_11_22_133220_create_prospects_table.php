@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('source');
             $table->string('statut');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
