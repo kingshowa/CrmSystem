@@ -134,12 +134,14 @@ return view('user-profile');
 });
 
 
-Route::get('/clients', [ClientController::class, 'index'])->name('index');
+Route::get('/clients', [ClientController::class, 'index'])->name('indexclient');
 Route::get('/client-add', [ClientController::class, 'create'])->name('create');
 Route::post('/client-add', [ClientController::class, 'store'])->name('store');
 Route::get('/clientView/{id}/{action}', [ClientController::class, 'edite'])->name('showrendez');
 Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('update');
 Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('destroy');
+Route::get('/client/restore/{id}', [ClientController::class, 'restore'])->name('restore');
+Route::get('/client/restore-all', [ClientController::class, 'restore_all'])->name('restore-all');
 Route::put('/client/update_by_contact/{id}', [ClientController::class, 'update_by_contact'])->name('update_by_contact');
 
 

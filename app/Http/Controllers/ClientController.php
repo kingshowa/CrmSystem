@@ -16,6 +16,10 @@ class ClientController extends Controller
     
     public function index(Request $request){
         $listclients=Client::all();
+        if($request->has('deleted'))
+        {
+            $listclients=Client::onlyTrashed()->get();
+        }
         return view('clients/clients',['clients'=> $listclients]);
     }
     
@@ -94,9 +98,26 @@ class ClientController extends Controller
     public function destroy($id){
     	$client = Client::find($id);
     	$client->delete();
+    	return back()->with('delete','Client deleted successfully');
+       
+    } 
+    public function restore($id){
+    	Client::withTrashed()->find($id)->restore();
+    	
+    	return back()->with('restore','Client Restore successfully');
+       
+    } 
+
+    public function restore_all(){
+    	Client::withTrashed()->restore();
+    	
     	return redirect('clients');
        
     } 
+
+   
+    
+
 }
     
 

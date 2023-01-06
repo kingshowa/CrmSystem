@@ -10,6 +10,16 @@
         {{session()->get('succes')}}
       </div>
     @endif
+    @if(session()->has('restore'))
+      <div class="alert alert-success">
+        {{session()->get('restore')}}
+      </div>
+    @endif
+    @if(session()->has('delete'))
+      <div class="alert alert-success">
+        {{session()->get('delete')}}
+      </div>
+    @endif
 
     <div class="pagetitle">
       <h1>Clients</h1>
@@ -34,7 +44,12 @@
 
                   <h5 class="card-title"><a href="{{url('client-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Client</button></a></h5>
 
-
+                  @if(request()->has('deleted'))
+                  <a href="{{route('indexclient')}}"><button type="button" class="btn btn-secondary btn-sm">View All Clients</button></a>
+                  <a href="{{route('restore-all')}}"><button type="button" class="badge bg-success">Restore All Cleints</button></a>
+                  @else
+                  <h5 class="card-title"><a href="{{route('indexclient',['deleted'=>'deleted'])}}"><button type="button" class="btn btn-secondary btn-sm">View Trashed Client</button></a></h5>
+                 @endif
                   <table class="table table-striped datatable">
                     <thead>
                       <tr>
@@ -65,6 +80,10 @@
                         </td>
 
                         <td>
+                          @if(request()->has('deleted'))
+                            <a href="{{url('client/restore/'.$client->id)}}">
+                            <span class="badge bg-success">Restore</span></a>
+                          @else
                           <form action="{{url('client/destroy/'.$client->id)}}" method="POST">
                             @csrf
                             @method('delete')
@@ -90,6 +109,7 @@
                             </div>
                           </div><!-- End Basic Modal-->
                           </form>
+                          @endif
                         </td>
                      
                       </tr>

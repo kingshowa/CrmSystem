@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('site_web');
             $table->boolean('achived')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
