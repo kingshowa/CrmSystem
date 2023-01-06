@@ -60,12 +60,10 @@
     <section class="section" id="trainers">
         <div class="container">
             <br>
+            <div id="column">
+                <div class="row">
             
         @foreach($produits as $produit)
-        <div class="row">
-        <div class="row">
-           
-            
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
@@ -93,6 +91,9 @@
                 </div>
              
                 @endforeach
+                </div>
+                </div>
+                </div>
                
                 
 

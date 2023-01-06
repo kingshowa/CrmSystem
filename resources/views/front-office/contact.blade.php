@@ -20,9 +20,9 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="{{url('front')}}">Home</a></li>
-                            <li><a href="{{url('front-office/cars')}}">Cars</a></li>
+                            <li><a href="{{url('showcar')}}">Cars</a></li>
 
-                            <li><a href="{{url('front-office/team')}}">Team</a></li>
+                            <li><a href="{{url('showteam')}}">Team</a></li>
                             
                             <li><a href="{{url('front-office/contact')}}" class="active">Contact</a></li>
 
@@ -111,11 +111,12 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="contact-form section-bg" style="background-image: url({{asset('assets-front/images/contact-1-720x480.jpg')}})">
-                        <form id="contact" action="" method="post">
-                          <div class="row">
+                        <form id="contact" action="{{route('sendemail')}}" method="POST">
+                        {{csrf_field()}}
+                        <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                                <input name="nom" type="text" id="name" placeholder="Your Name*" required="">
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">

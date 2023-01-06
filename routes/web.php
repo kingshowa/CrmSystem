@@ -92,22 +92,11 @@ Route::get('/commercial', [ChartsController::class, 'commercial'])->name('commer
 // });
 
 
-Route::get('/front-office', function () {
-return view('front-office/index');
-});
+
 
  Route::get('/front', [ChartsController::class, 'front'])->name('front');
  Route::get('/showcar', [ChartsController::class, 'showcar'])->name('showcar');
  Route::get('/showteam', [ChartsController::class, 'showteam'])->name('showteam');
-
-
-
-Route::get('/front-office', [ChartsController::class, 'front'])->name('front');
-
-Route::get('/front-office/cars', function () {
-return view('front-office/cars');
-});
-
 
 Route::get('/front-office/login', function () {
 return view('front-office/login');
@@ -129,15 +118,16 @@ Route::get('/', function () {
 });
 
 
-Route::get('/front-office/team', function () {
-return view('front-office/team');
-});
+
 
 
 
 Route::get('/user-profile', function () {
 return view('user-profile');
 });
+
+Route::post('sendemail', [UtilisateurController::class, 'sendEmail'])->name('sendemail');
+
 
 
 Route::get('/clients', [ClientController::class, 'index'])->name('indexclient');
