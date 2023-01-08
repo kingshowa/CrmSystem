@@ -127,6 +127,7 @@ return view('user-profile');
 });
 
 Route::post('sendemail', [UtilisateurController::class, 'sendEmail'])->name('sendemail');
+Route::get('book-edit/{id}',[ProduitController::class,'bookEdit']);
 
 
 

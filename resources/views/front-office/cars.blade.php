@@ -10,6 +10,7 @@
 
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
+    
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -62,6 +63,8 @@
             <br>
             <div id="column">
                 <div class="row">
+                    <table>
+                        <tr>
             
         @foreach($produits as $produit)
                 <div class="col-lg-4">
@@ -71,10 +74,10 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>dz</sup>{{$produit->prix}} </del> &nbsp; <sup>dz</sup>{{$produit->prix}}
+                              <div id="prix"> <sup>dz</sup>{{$produit->prix}}</div>
                             </span>
 
-                            <h4>{{$produit->desc}}</h4>
+                            <h4 id="desc">{{$produit->desc}}</h4>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
@@ -83,7 +86,8 @@
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="car-details.html">+ View Car</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"class="">+ View Car</a></li>
+                                <button type="button" data-toggle="modal" data-target="#EditBookModalLabel" value="{{ $produit->id }}" class="btn btn-warning btn-xs editbtn" style="margin-right:5px;">
                             </ul>
                         </div>
                     </div>
@@ -91,13 +95,77 @@
                 </div>
              
                 @endforeach
+</tr></table>
                 </div>
                 </div>
                 </div>
+
                
                 
 
             <br>
+            <script>
+    $(document).ready(function(){
+         $(document).on('click','.editbtn',function(){
+            var produit_id = $(this).val();
+            $.ajax({
+               type:"GET",
+               url:"/book-edit/"+produit_id,
+               success:function(response){
+                  $('#bookId').val(response.produitdata.id);
+                  $('#bookName').val(response.produitdata.prix);
+                  $('#bookAuthor').val(response.produitdata.desc);
+                  $('#bookStatus').val(response.produitdata.photo);
+                  $('#bookId').val(produit_id);
+               }
+            });
+         });
+      });
+</script>
+<div class="modal fade" id="EditBookModalLabel" tabindex="-1" role="dialog" aria-labelledby="EditBookModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        
+          
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body" style="width:620px;">
+                  <div class="item form-group">
+                     <label class="col-form-label col-md-3 col-sm-3 label-align">Product
+                     <span class="required" style="color:red">*</span>
+                     </label>
+                      
+                     <div class="col-md-6 col-sm-6">
+                        <input type="text" name="book_name"  id="bookId" value="" required="required" class="form-control"disabled>
+                     </div>
+                  </div>
+                  <div class="item form-group">
+                     <label class="col-form-label col-md-3 col-sm-3 label-align">Price
+                     </label>
+                     <div class="col-md-6 col-sm-6">
+                        <input type="text" name="book_author"  id="bookName" value="" class="form-control" disabled>
+                     </div>
+                  </div>
+               </div>
+                 
+
+               <div class="item form-group">
+                     <label class="col-form-label col-md-3 col-sm-3 label-align">desc
+                     </label>
+                     <div class="col-md-6 col-sm-6">
+                        <input type="text" name="book_author"  id="bookAuthor" value="" class="form-control" disabled>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+  
+      </div>
+   </div>
+
                 
             <nav>
               

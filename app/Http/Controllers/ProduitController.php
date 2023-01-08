@@ -134,5 +134,13 @@ class ProduitController extends Controller
     	return redirect('produits');
        
     } 
+
+    public function bookEdit ($id){
+        $produitData = Produit::find($id);
+        return response()->json([
+           'status' =>200,
+           'produitdata' =>$produitData,
+       ]);
+   }
 }
 ?>

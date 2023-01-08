@@ -97,6 +97,7 @@ class chartsController extends Controller
                    {return Carbon::parse($contact->created_at)->format('H');});
                         $contacth = [];
                         $contactv = [];
+    $sum = 0;
                         foreach($produit as $year => $values){
                           $contacth[] = $year;
                           $contactv[]= count($values);
