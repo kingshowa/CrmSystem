@@ -31,16 +31,18 @@
   </li><!-- End Prospects Nav -->
 
   <li class="nav-item">
+    <a class="nav-link collapsed" href="{{ url('clients')}}">
+      <i class="bi bi-person-check-fill"></i><span>Clients</span>
+    </a>
+  </li><!-- End Clients Nav -->
+  
+  <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('contacts')}}">
       <i class="bi bi-person-lines-fill"></i><span>Contacts</span>
     </a>
   </li><!-- End Contacts Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ url('clients')}}">
-      <i class="bi bi-person-check-fill"></i><span>Clients</span>
-    </a>
-  </li><!-- End Clients Nav -->
+ 
 
   <li class="nav-item">
     <a class="nav-link" href="{{ url('opportunites')}}">
