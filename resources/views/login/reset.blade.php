@@ -58,7 +58,7 @@
              
                          @csrf
                           <input type="hidden" name="token" value="{{ $token }}">
-              <!-- <input type="hidden" name="_method" value="PUT" >  -->
+             
                     
 
                 <div class="row mb-3">

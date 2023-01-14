@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                               <fieldset>
-                                <input name="renewPassword" type="password" id="subject" placeholder="Your Password*" required>
+                                <input name="password_confirmation" type="password" id="subject" placeholder="Your Password*" required>
                               </fieldset>
                             </div>
                            
