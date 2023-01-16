@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->integer('contactID')->nullable(); //id is an integer not a string!!!!!
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

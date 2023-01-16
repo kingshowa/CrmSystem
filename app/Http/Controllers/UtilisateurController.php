@@ -176,5 +176,21 @@ class UtilisateurController extends Controller
     	$client->save();
         return back();    	
     }
+    public function sendEmail(Request $request){
+        $data = array(
+            'email'=>$request->email,
+            'nom'=>$request->nom,
+            'subject'=>$request->subject,
+            'mssg'=>$request->message,
+
+        );
+        Mail::send('front-office.email',$data,function($message) use($data){
+            $message->to('teams@gmail.com');
+            $message->from($data['email']);
+            $message->subject('Contact email');
+        });
+        return back()->with('send','Message Send successfully');
+
+    }
     
 }

@@ -2,11 +2,22 @@
 
 @Section("rendez-vous")
 <main id="main" class="main">
- @if(session()->has('succes'))
-<div class="alert alert-success">
-  {{session()->get('succes')}}
-</div>
-@endif
+@if(session()->has('succes'))
+      <div class="alert alert-success">
+        {{session()->get('succes')}}
+      </div>
+    @endif
+    @if(session()->has('restore'))
+      <div class="alert alert-success">
+        {{session()->get('restore')}}
+      </div>
+    @endif
+    @if(session()->has('delete'))
+      <div class="alert alert-success">
+        {{session()->get('delete')}}
+      </div>
+    @endif
+
     <div class="pagetitle">
       <h1>rendez-vous</h1>
       <nav>
@@ -16,6 +27,11 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
+    <style>
+      .lefted{
+        float: right;
+      }
+    </style>
 
     <section class="section">
       <div class="row">
@@ -30,7 +46,16 @@
 
                   <h5 class="card-title">
                     <a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button>
-                  </a></h5>
+                  </a>
+                  @if(request()->has('deleted'))
+                    <a href="{{route('index-rendez')}}"><button type="button" class="btn btn-secondary btn-sm">View all</button></a>
+                    <a href="{{route('rendez-all')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
+                    @else
+                    <a href="{{route('index-rendez',['deleted'=>'deleted'])}}" class="lefted">
+                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Appointment</button>
+                    </a>
+                  </h5>
+                    @endif</h5>
 
                  
 
@@ -42,7 +67,12 @@
                         <th scope="col">Date</th>
                         <th scope="col">Compte rendu</th>
                         <th scope="col">Client</th>
-                        <th scope="col" colspan="3">Actions</th>
+                        @if(request()->has('deleted'))
+                        <th scope="col">Deleted at</th>
+                        <th scope="col" colspan="1">Actions </th>
+                        @else
+                        <th scope="col" colspan="3">Actions </th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -52,6 +82,14 @@
                         <td>{{$rendez->date}}</td>
                         <td>{{$rendez->compte}}</td>
                         <td>{{$rendez->client}}</td>
+                        @if(request()->has('deleted'))
+                        <td>{{$client->deleted_at}}</td>
+                        <td>
+                            <a href="{{route('rendez-restore',$rendez->id)}}">
+                              <span class="badge bg-success">Restore</span>
+                            </a>
+                        </td>
+                        @else
                         
                         
 
@@ -92,6 +130,7 @@
                           </div><!-- End Basic Modal-->
                           </form>
                         </td>
+                        @endif
                       </tr>
                       
                         @endforeach

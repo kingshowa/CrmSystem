@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -50,6 +53,58 @@
 
     
     @yield("frontContent")
+    <div class="modal fade" id="EditBookModalLabel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Car</h4>
+            </div>
+            <div class="modal-body">
+            <form id="frmProducts" name="frmProducts" class="form-horizontal" novalidate="">
+                <!-- <div class="form-group error">
+                 <label for="inputName" class="col-sm-3 control-label">Name</label>
+                   <div class="col-sm-9">
+                    <input type="text" class="form-control has-error" id="bookId" name="name" placeholder="Product Name" value="">
+                   </div>
+                   </div> -->
+                 <div class="form-group">
+                 <label for="inputDetail" class="col-sm-3 control-label">Type</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id="bookhgtrName" name="details" placeholder="details" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                 <label for="inputDetail" class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id="bookAuthor" name="details" placeholder="details" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                 <label for="inputDetail" class="col-sm-3 control-label">Price</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id="details" name="details" placeholder="details" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                 <label for="inputDetail" class="col-sm-3 control-label">book</label>
+                    <div class="col-sm-9">
+                    <p id="bookName"></p>
+                    </div>
+                </div>
+            </form>
+            </div>
+            
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+  
+
     
     
     <!-- ***** Footer Start ***** -->

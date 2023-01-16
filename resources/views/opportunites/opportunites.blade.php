@@ -2,10 +2,27 @@
 
 @Section("opportunites")
 <style>
- 
-</style>
+      .lefted{
+        float: right;
+      }
+    </style>
 
 <main id="main" class="main">
+@if(session()->has('succes'))
+      <div class="alert alert-success">
+        {{session()->get('succes')}}
+      </div>
+    @endif
+    @if(session()->has('restore'))
+      <div class="alert alert-success">
+        {{session()->get('restore')}}
+      </div>
+    @endif
+    @if(session()->has('delete'))
+      <div class="alert alert-success">
+        {{session()->get('delete')}}
+      </div>
+    @endif
 
     <div class="pagetitle">
       <h1>Opportunites</h1>
@@ -32,6 +49,15 @@
                     <a href="{{url('opportunites-add')}}">
                       <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Opportunity</button>
                     </a>
+                    @if(request()->has('deleted'))
+                    <a href="{{route('indexopp')}}"><button type="button" class="btn btn-secondary btn-sm">View all</button></a>
+                    <a href="{{route('restore-allopp')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
+                    @else
+                    <a href="{{route('indexopp',['deleted'=>'deleted'])}}" class="lefted">
+                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Opportunite</button>
+                    </a>
+                  </h5>
+                    @endif
                   </h5>
 
                   <table class="table table-striped datatable">
@@ -42,7 +68,12 @@
                         <th scope="col">Clossing date</th>
                         <th scope="col">Company</th>
                         <th scope="col">Stage</th>
-                        <th scope="col" colspan="5">Actions</th>
+                        @if(request()->has('deleted'))
+                        <th scope="col">Deleted at</th>
+                        <th scope="col" colspan="1">Actions </th>
+                        @else
+                        <th scope="col" colspan="3">Actions </th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -54,6 +85,15 @@
                         <td>{{$opportunite->date_cloture}}</td>
                         <td>{{$opportunite->client}}</td>
                         <td>{{$opportunite->etape}}</td>
+
+                        @if(request()->has('deleted'))
+                        <td>{{$opportunite->deleted_at}}</td>
+                        <td>
+                            <a href="{{url('opportunites-restore/'.$opportunite->id)}}">
+                              <span class="badge bg-success">Restore</span>
+                            </a>
+                        </td>
+                        @else
 
                         <td>
                         @if($opportunite->etape != 'Gangee')
@@ -112,6 +152,7 @@
                           </div><!-- End Basic Modal-->
                           </form>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
 

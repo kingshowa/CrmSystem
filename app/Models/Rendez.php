@@ -4,8 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rendez extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
+    protected $fillable = ['date','heure','compte','client','user_id'];
+
+
 }

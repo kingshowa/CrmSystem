@@ -19,6 +19,10 @@ class RendezController extends Controller
             $a=($_SESSION['admin']);}
             else{$a=$_SESSION['commercial'];}
         $rendez = Rendez::where('user_id', $a)->get();
+        if($request->has('deleted'))
+        {
+            $rendez=Rendez::where('user_id', $a)->onlyTrashed()->get();
+        }
     	
         return view('rendez-vous/rendez-vous',['rendez'=> $rendez]);
     }
@@ -108,7 +112,21 @@ class RendezController extends Controller
     	$rendez = Rendez::find($id);
     	$rendez->delete();
     	
+    	return back()->with('delete','Appointmen deleted successfully');
+    } 
+
+    public function restore($id){
+    	Rendez::withTrashed()->find($id)->restore();
+    	
+    	return back()->with('restore','Appointment Restore successfully');
+       
+    } 
+
+    public function restore_all(){
+    	Rendez::withTrashed()->restore();
+    	
     	return redirect('rendez');
+       
     } 
 }
 

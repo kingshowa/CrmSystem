@@ -162,9 +162,9 @@ class PasswordController extends Controller
      {
          // return $request;
          $request->validate([
-             'email' => 'required|email|exists:utilisateurs',
-             'password' => 'required|string|confirmed',
-             'renewPassword' => 'required'
+            'email' => 'required|email|exists:utilisateurs',
+            'password' => 'required|string|confirmed',
+            'password_confirmation' => 'required'
          ]);
  
          $updatePassword = DB::table('password_resets')

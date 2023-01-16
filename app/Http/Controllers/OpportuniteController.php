@@ -20,9 +20,12 @@ class OpportuniteController extends Controller
 {
     public function index(Request $request){
     	$listOpportunites = Opportunite::all();
-        $user = Utilisateur::find($request->session()->get('user'));
-        return view('opportunites/opportunites', ['opportunites' => $listOpportunites,'user'=>$user]);
-        //return view('opportunites/opportunites');
+       
+        
+        if($request->has('deleted'))
+        {
+            $listOpportunites=Opportunite::onlyTrashed()->get();
+        }
 
         return view('opportunites/opportunites', ['opportunites' => $listOpportunites]);
     }
@@ -141,8 +144,22 @@ class OpportuniteController extends Controller
     public function destroy($id){
     	$opportunite = Opportunite::find($id);
     	$opportunite->delete();
-    	return redirect('opportunites');
+    	return back()->with('delete','Client deleted successfully');
     }
+
+    public function restore_opp($id){
+    	Opportunite::withTrashed()->find($id)->restore();
+    	
+    	return back()->with('restore','Opportunites Restore successfully');
+       
+    } 
+
+    public function restore_allopp(){
+    	Opportunite::withTrashed()->restore();
+    	
+    	return redirect('opportunites');
+       
+    } 
 
     public function destroyOP($id){
     	$oppProduct =  DB::table("produit_opportunites")->select('*')->where('id', $id);

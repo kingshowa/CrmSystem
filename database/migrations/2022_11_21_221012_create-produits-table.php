@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('quantitie');
             $table->string('photo')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

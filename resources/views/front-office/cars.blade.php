@@ -10,6 +10,7 @@
 
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
+    
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -60,12 +61,12 @@
     <section class="section" id="trainers">
         <div class="container">
             <br>
+            <div id="column">
+                <div class="row">
+                    <table>
+                        <tr>
             
         @foreach($produits as $produit)
-        <div class="row">
-        <div class="row">
-           
-            
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
@@ -73,10 +74,10 @@
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>dz</sup>{{$produit->prix}} </del> &nbsp; <sup>dz</sup>{{$produit->prix}}
+                              <div id="prix"> <sup>dz</sup>{{$produit->prix}}</div>
                             </span>
 
-                            <h4>{{$produit->desc}}</h4>
+                            <h4 id="desc">{{$produit->desc}}</h4>
 
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
@@ -85,7 +86,8 @@
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="car-details.html">+ View Car</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal"class="">+ View Car</a></li>
+                                <button type="button" data-toggle="modal" data-target="#EditBookModalLabel" value="{{ $produit->id }}" class="btn btn-warning btn-xs editbtn" style="margin-right:5px;">
                             </ul>
                         </div>
                     </div>
@@ -93,10 +95,37 @@
                 </div>
              
                 @endforeach
+</tr></table>
+                </div>
+                </div>
+                </div>
+
                
                 
 
             <br>
+ <script>
+         $(document).ready(function(){
+         $(document).on('click','.editbtn',function(){
+            var produit_id = $(this).val();
+            $.ajax({
+               type:"GET",
+               url:"/book-edit/"+produit_id,
+               success:function(response){
+                  $('#bookId').val(response.produitdata.nom);
+                 
+                  $('#bookAuthor').val(response.produitdata.desc);
+                  $('#bookStatus').val(response.produitdata.photo);
+                  $('#bookId').val(produit_nom);
+
+                  document.getElementById('bookName').innerHTML=$response.produitdata.nom;
+               }
+            });
+         });
+      });
+</script>
+
+
                 
             <nav>
               

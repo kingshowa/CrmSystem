@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('client');  //unnecessary column!!!!!!!
             $table->integer('remise')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
