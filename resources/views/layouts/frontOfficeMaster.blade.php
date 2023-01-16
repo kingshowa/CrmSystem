@@ -87,12 +87,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                 <label for="inputDetail" class="col-sm-3 control-label">book</label>
-                    <div class="col-sm-9">
-                    <p id="bookName"></p>
-                    </div>
-                </div>
+                <div id="bookName"></div>
             </form>
             </div>
             

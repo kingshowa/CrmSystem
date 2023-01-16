@@ -142,5 +142,14 @@ class ProduitController extends Controller
            'produitdata' =>$produitData,
        ]);
    }
+
+   public function carview($id){
+    $produit = Produit::find($id);
+
+    
+    return view('front-office/carview', ['produit'=>$produit]);
+    
+
+}
 }
 ?>

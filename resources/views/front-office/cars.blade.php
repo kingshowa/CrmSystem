@@ -86,7 +86,7 @@
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="#" data-toggle="modal" data-target="#myModal"class="">+ View Car</a></li>
+                                <li><a href="{{route('carview',$produit->id)}}" >+ View Car</a></li>
                                 <button type="button" data-toggle="modal" data-target="#EditBookModalLabel" value="{{ $produit->id }}" class="btn btn-warning btn-xs editbtn" style="margin-right:5px;">
                             </ul>
                         </div>
@@ -118,7 +118,8 @@
                   $('#bookStatus').val(response.produitdata.photo);
                   $('#bookId').val(produit_nom);
 
-                  document.getElementById('bookName').innerHTML=$response.produitdata.nom;
+                  var div = document.getElementById('bookName');
+                div.innerHTMl='response.produitdata.desc';
                }
             });
          });

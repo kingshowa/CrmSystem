@@ -86,10 +86,7 @@ Route::get('/admin', [ChartsController::class, 'admin'])->name('admin');
 Route::get('/commercial', [ChartsController::class, 'commercial'])->name('commercial');
 
 
-// Route::get('commerciale', function () {
-//     session_start();
-// return view('commerciale');
-// });
+
 
 
 
@@ -97,6 +94,8 @@ Route::get('/commercial', [ChartsController::class, 'commercial'])->name('commer
  Route::get('/front', [ChartsController::class, 'front'])->name('front');
  Route::get('/showcar', [ChartsController::class, 'showcar'])->name('showcar');
  Route::get('/showteam', [ChartsController::class, 'showteam'])->name('showteam');
+
+ Route::get('/carview/{id}', [ProduitController::class, 'carview'])->name('carview');
 
 Route::get('/front-office/login', function () {
 return view('front-office/login');
@@ -106,10 +105,12 @@ Route::get('/front-office/contact', function () {
 return view('front-office/contact');
 });
 
+Route::get('/carview', function () {
+    return view('front-office/carview');
+    });
 
-// Route::get('/front-office/team', function () {
-//     return view('front-office/team');
-// });
+
+
 
 
 
