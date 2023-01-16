@@ -6,14 +6,14 @@
   <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Add Rendez-Vous</h1>
+<h1>Add Appointment</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
 
-      <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
+      <li class="breadcrumb-item"><a href="{{url('rendez')}}">Appointments</a></li>
 
-      <li class="breadcrumb-item active">Add rendez-vous</li>
+      <li class="breadcrumb-item active">Add Appointment</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -37,17 +37,17 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">heure</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Time</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="heure" type="time" class="form-control" id="firstName">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte Rondus</label>
+                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Purpose</label>
                   <div class="col-md-8 col-lg-9">
                    <!-- <input name="surName" type="text" class="form-control" id="surName">-->
-                   <textarea name="compte" class="form-control" id="about" style="height: 100px"></textarea>
+                   <textarea name="compte" class="form-control" id="about" style="height: 60px"></textarea>
                   </div>
                 </div>
 
@@ -57,16 +57,12 @@
                   <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" >
                   </div>
                 </div>
-                <!-- <div class="row mb-3">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Commercial</label>
+
+                <div class="row mb-3  ">
+                  <label  class="col-md-4 col-lg-3 col-form-label"></label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="commercial" type="text" class="form-control" id="Job">
+                    <button type="submit" class="btn btn-primary">Save Appointment</button>
                   </div>
-                </div> -->
-                
-                
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Save rendez-vous</button>
                 </div>
               </form><!-- End Profile Edit Form -->
 

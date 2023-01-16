@@ -7,14 +7,14 @@
 
 
 <div class="pagetitle">
-  <h1>Add Rendez-Vous</h1>
+  <h1>Add Appointment</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
 
-      <li class="breadcrumb-item"><a href="{{url('rendez')}}">rendez-vous</a></li>
+      <li class="breadcrumb-item"><a href="{{url('rendez')}}">Appointments</a></li>
 
-      <li class="breadcrumb-item active">Add rendez-vous</li>
+      <li class="breadcrumb-item active">Add Appointment</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="row mb-3  @if($errors->get('heure')) has-error @endif">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Heure</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Time</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="heure" type="time" value="{{old('heure')}}" class="form-control" id="firstName">
                     @if($errors->get('heure'))
@@ -55,11 +55,11 @@
                 </div>
 
                 <div class="row mb-3  @if($errors->get('compte')) has-error @endif">
-                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte Rondus</label>
+                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Purpose</label>
                   <div class="col-md-8 col-lg-9">
-                   <!-- <input name="surName" type="text" class="form-control" id="surName">-->
+          
                    
-                   <textarea name="compte" class="form-control" id="about" style="height: 100px">{{old('compte')}}</textarea>
+                   <textarea name="compte" class="form-control" id="about" style="height: 60px">{{old('compte')}}</textarea>
                   
                   </div>
                  
@@ -74,7 +74,7 @@
                           <option value="{{$client->societe}}">{{$client->societe}}</option>
                           @endforeach
                         </select>
-                    <!-- <input name="client" type="text" value="{{old('client')}}" class="form-control" id="Job"> -->
+                    
                     @if($errors->get('client'))
                     @foreach($errors->get('client') as $message)
                        {{$message}}
@@ -83,10 +83,11 @@
                   </div>
                 </div>
                
-                
-                
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Save rendez-vous</button>
+                <div class="row mb-3  ">
+                  <label  class="col-md-4 col-lg-3 col-form-label"></label>
+                  <div class="col-md-8 col-lg-9">
+                    <button type="submit" class="btn btn-primary">Save Appointment</button>
+                  </div>
                 </div>
               </form><!-- End Profile Edit Form -->
 

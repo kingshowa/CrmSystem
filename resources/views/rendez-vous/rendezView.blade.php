@@ -85,6 +85,7 @@
               </div> -->
 
 
+
              
             </div>
 
@@ -104,14 +105,14 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Heure de rendez-vous</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Time</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="heure" type="time" class="form-control" id="firstName" value="{{$rendez[0]->heure}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Compte rondus</label>
+                  <label for="company" class="col-md-4 col-lg-3 col-form-label">Purpose</label>
                   <div class="col-md-8 col-lg-9">
                     
                     <textarea name="compte" class="form-control" id="about" value="{{$rendez[0]->compte}}" style="height: 60px">{{$rendez[0]->compte}}</textarea>
@@ -121,8 +122,6 @@
                 <div class="row mb-3">
 
                   <label for="Job" class="col-md-4 col-lg-3 col-form-label">Contact</label>
-
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Client</label>
 
                   <div class="col-md-8 col-lg-9">
                     <input name="client" type="text" class="form-control" id="Job" value="{{$rendez[0]->nom}}" disabled>
