@@ -130,15 +130,15 @@
                             },
                             {
                                value:  {{$oppver}},
-                              name: "Négociation"
-                            },
-                            {
-                              value:  {{$oppgan}},
-                              name: "Gagnée"
+                              name: "Negotiation"
                             },
                             {
                               value:  {{$oppper}},
-                              name: "Perdue"
+                              name: "Lost"
+                            },
+                            {
+                              value:  {{$oppgan}},
+                              name: "Won"
                             }
                           ],
                           emphasis: {
@@ -257,7 +257,7 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+                  <h5 class="card-title">Clients <span>| This Year</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -325,6 +325,18 @@
                           value: {{$salon}},
                           name: "Salon"
                         },
+                        {
+                          value: {{$bouche}},
+                          name: "Word of mouth"
+                        },
+                        {
+                          value: {{$listep}},
+                          name: "List of prospects"
+                        },
+                        {
+                          value: {{$part}},
+                          name: "Partners"
+                        },
                        
                         {
                           value: {{$tel}},
@@ -333,19 +345,7 @@
                         
                         {
                           value: {{$autre}},
-                          name: "Autre"
-                        },
-                        {
-                          value: {{$bouche}},
-                          name: "Word of mouth"
-                        },
-                        {
-                          value: {{$listep}},
-                          name: "liste_prospect"
-                        },
-                        {
-                          value: {{$part}},
-                          name: "Partenaire"
+                          name: "Other"
                         }
                        
                       ]

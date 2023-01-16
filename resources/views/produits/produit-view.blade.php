@@ -20,11 +20,11 @@
       </div>
     @endif
     <div class="pagetitle">
-      <h1>Produits</h1>
+      <h1>Products</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-          <li class="breadcrumb-item active">Produits</li>
+          <li class="breadcrumb-item active">Products</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -45,14 +45,14 @@
 
                 <div class="card-body">
                   
-                <h5 class="card-title"><a href="{{ url('produits-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Produits</button></a>
+                <h5 class="card-title"><a href="{{ url('produits-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Product</button></a>
                 
                 @if(request()->has('deleted'))
                     <a href="{{route('indexproduit')}}"><button type="button" class="btn btn-secondary btn-sm">View all</button></a>
                     <a href="{{route('produit-all')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
                     @else
                     <a href="{{route('indexproduit',['deleted'=>'deleted'])}}" class="lefted">
-                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Produits</button>
+                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Products</button>
                     </a>
                   </h5>
                     @endif
@@ -62,9 +62,9 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Quantites</th>   
+                        <th scope="col">Product name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>   
                         @if(request()->has('deleted'))
                         <th scope="col">Deleted at</th>
                         <th scope="col" colspan="1">Actions </th>
@@ -81,7 +81,7 @@
                         <td>{{ $produit->prix }}</td>
                         <td>{{ $produit->quantitie}}</td>
                         @if(request()->has('deleted'))
-                        <td>{{$client->deleted_at}}</td>
+                        <td>{{$produit->deleted_at}}</td>
                         <td>
                             <a href="{{url('produit-all/'.$produit->id)}}">
                               <span class="badge bg-success">Restore</span>

@@ -28,9 +28,7 @@ class AuthController extends Controller
     function verifier(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
-    
-       // $emailok =  DB::table('utilisateurs')->where('email',$email)->first();
-        //$pass=Hash::check($request->get('password'));
+  
         $user = Utilisateur::where('email', $email)->first();
        
         

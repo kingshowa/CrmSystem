@@ -4,12 +4,12 @@
 <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Produits</h1>
+  <h1>View Product</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="{{url('/produits')}}">Produits</a></li>
-      <li class="breadcrumb-item active">View Produits</li>
+      <li class="breadcrumb-item"><a href="{{url('/produits')}}">Products</a></li>
+      <li class="breadcrumb-item active">View Product</li>
     </ol>
   </nav>
   
@@ -43,7 +43,7 @@
             </li>
 
             <li class="nav-item">
-              <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Produits</button>
+              <button class="nav-link {{ $b }}" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Product</button>
             </li>
 
             
@@ -57,17 +57,17 @@
               <h5 class="card-title">Produits Details</h5>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label ">Nom</div>
+                <div class="col-lg-3 col-md-4 label ">Product name</div>
                 <div class="col-lg-9 col-md-8">{{$produit->nom}}</div>
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Prix</div>
+                <div class="col-lg-3 col-md-4 label">Price</div>
                 <div class="col-lg-9 col-md-8">{{$produit->prix}}</div>
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Quantites</div>
+                <div class="col-lg-3 col-md-4 label">Quantity</div>
                 <div class="col-lg-9 col-md-8">{{$produit->quantitie}}</div>
               </div>
               <div class="row">
@@ -82,11 +82,9 @@
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">Photo</div>
                 <div class="col-lg-9 col-md-8">
-
-                  
+  
                    <img src="{{asset('storage/images/'.$produit->photo)}}" width="100" height="100">
 
-                
                   </div> 
               </div>
             </div>
@@ -98,21 +96,21 @@
               <input type="hidden" name="_method" value="PUT" >
               {{ csrf_field() }}
                 <div class="row mb-3">
-                  <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                  <label for="Nom" class="col-md-4 col-lg-3 col-form-label">Product name</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="Nom" type="text" class="form-control" id="Nom" value="{{$produit->nom}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Prix" class="col-md-4 col-lg-3 col-form-label">Prix</label>
+                  <label for="Prix" class="col-md-4 col-lg-3 col-form-label">Price</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="Prix" type="text" class="form-control" id="Prix" value="{{$produit->prix}}">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Quantite</label>
+                  <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Quantity</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="quantitie" type="number" class="form-control" id="Quantite" value="{{$produit->quantitie}}">
                   </div>

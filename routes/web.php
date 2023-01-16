@@ -91,6 +91,7 @@ Route::get('/commercial', [ChartsController::class, 'commercial'])->name('commer
 
 
 
+ Route::get('/', [ChartsController::class, 'front'])->name('front');
  Route::get('/front', [ChartsController::class, 'front'])->name('front');
  Route::get('/showcar', [ChartsController::class, 'showcar'])->name('showcar');
  Route::get('/showteam', [ChartsController::class, 'showteam'])->name('showteam');
@@ -114,12 +115,15 @@ Route::get('/carview', function () {
 
 
 
-Route::get('/', function () {
-    return view('login.login');
+Route::get('/admin', function () {
+    session_start();
+    if(isset($_SESSION['admin']))
+        return redirect('/admin');
+    else if(isset($_SESSION['commercial']))
+        return redirect('/commercial');
+    else
+        return view('login.login');
 });
-
-
-
 
 
 
@@ -130,8 +134,6 @@ return view('user-profile');
 Route::post('sendemail', [UtilisateurController::class, 'sendEmail'])->name('sendemail');
 Route::get('book-edit/{id}',[ProduitController::class,'bookEdit']);
 
-
-
 Route::get('/clients', [ClientController::class, 'index'])->name('indexclient');
 Route::get('/client-add', [ClientController::class, 'create'])->name('create');
 Route::post('/client-add', [ClientController::class, 'store'])->name('store');
@@ -141,7 +143,6 @@ Route::delete('/client/destroy/{id}', [ClientController::class, 'destroy'])->nam
 Route::get('/client/restore/{id}', [ClientController::class, 'restore'])->name('restore');
 Route::get('/client/restore-all', [ClientController::class, 'restore_all'])->name('restore-all');
 Route::put('/client/update_by_contact/{id}', [ClientController::class, 'update_by_contact'])->name('update_by_contact');
-
 
 
 Route::get('/rendez', [RendezController::class, 'index'])->name('index-rendez');
@@ -182,7 +183,7 @@ Route::put('edite_photo/{id}', [UtilisateurController::class, 'edite_photo'])->n
 Route::put('edite_logo/{id}', [UtilisateurController::class, 'edite_logo'])->name('edite_logo');
 
 //Authentification
-Route::get('/', [AuthController::class, 'login'])->name('login');
+//Route::get('/log', [AuthController::class, 'login'])->name('login');
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

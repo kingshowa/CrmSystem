@@ -15,11 +15,11 @@
     @endif
 
     <div class="pagetitle">
-      <h1>Client</h1>
+      <h1>View Client</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{url('clients')}}">Client</a></li>
+          <li class="breadcrumb-item"><a href="{{url('clients')}}">Clients</a></li>
           <li class="breadcrumb-item active">View Client</li>
         </ol>
       </nav>
@@ -82,7 +82,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Website</div>
-                    <div class="col-lg-9 col-md-8">{{$client->site_web}}</div>
+                    <div class="col-lg-9 col-md-8"><a href="https://{{$client->site_web}}">{{$client->site_web}}</a></div>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Logo</div>
@@ -137,11 +137,7 @@
                   </form><!-- End Profile Edit Form -->
 
                 </div>
-                
-
-                
-
-
+  
               </div><!-- End Bordered Tabs -->
 
             </div>
@@ -177,7 +173,7 @@
                     <tbody>
                     @foreach($contacts as $contact)
                       <tr>
-                        <th scope="row"><a href="#"></a></th>
+                        <th scope="row"><a href="#">{{$contact->id}}</a></th>
                         <td>{{$contact->nom}} {{$contact->prenom}}</td>
                         <td>{{$contact->fonction}}</td>                     
                         <td>{{$contact->client}}</td>
@@ -218,9 +214,6 @@
 
                   <h5 class="card-title"><a href="{{ url('rendez/creater/'.$client->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
 
-                 
-
-
                   <table class="table table-striped datatable">
                     <thead>
                       <tr>
@@ -234,7 +227,7 @@
                     <tbody>
                     @foreach($rendezs as $rendez)
                       <tr>
-                        <th scope="row"><a href="#"></a></th>
+                        <th scope="row"><a href="#">{{$rendez->id}}</a></th>
                         <td>{{$rendez->date}}</td>
                         <td>{{$rendez->client}}</td>
                         <td>{{$rendez->nom}}</td>
@@ -290,12 +283,16 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Date_cloture</th>
-                        <th scope="col">Client</th>
-                        <th scope="col">Etape</th>
-                        <th scope="col"></th>
-                        <th scope="col" colspan="3">Actions</th>
+                        <th scope="col">Opportunity</th>
+                        <th scope="col">Clossing date</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Stage</th>
+                        @if(request()->has('deleted'))
+                        <th scope="col">Deleted at</th>
+                        <th scope="col" colspan="1">Actions </th>
+                        @else
+                        <th scope="col" colspan="3">Actions </th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -305,15 +302,33 @@
                         <th scope="row"><a href="#">{{$opportunite->id}}</a></th>
                         <td>{{$opportunite->nom}}</td>
                         <td>{{$opportunite->date_cloture}}</td>
-                        
+                        <td>{{$opportunite->client}}</td>
+                        <td>{{$opportunite->etape}}</td>
+
+                        @if(request()->has('deleted'))
+                        <td>{{$opportunite->deleted_at}}</td>
                         <td>
-                        @if($opportunite->etape == 'Prospection' || $opportunite->etape == 'Verification' || $opportunite->etape == 'Proposition')
-                        <a href="#"><button type="button" class="btn btn-md btn-success">Devis </button></a> 
-                          @endif
-                          @if($opportunite->etape == 'Gangee')
-                          <a href="{{route('factureshow',$opportunite->id)}}"><button type="button" class="btn btn-danger">Facture</button></a>
-                        @endif
+                            <a href="{{url('opportunites-restore/'.$opportunite->id)}}">
+                              <span class="badge bg-success">Restore</span>
+                            </a>
                         </td>
+                        @else
+
+                        <td>
+                        @if($opportunite->etape != 'Gangee')
+
+                        <a href="{{route('devisdownload',$opportunite->id)}}">Devis </a> 
+                        @endif
+        
+
+                        @if($opportunite->etape == 'Gangee')
+                          <a href="{{route('facturedownload',$opportunite->id)}}">Facture</a>
+
+                        @endif
+
+                        </td>
+
+                        
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
@@ -322,6 +337,12 @@
                         <td>
                           <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/2')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
+
+                        <td>
+                          <a class="collapsed" href="{{url('opportunite/'.$opportunite->id.'/3')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-file-earmark-ruled-fill"></i></button>
                           </a>
                         </td>
                         <td>
@@ -350,6 +371,7 @@
                           </div><!-- End Basic Modal-->
                           </form>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
 

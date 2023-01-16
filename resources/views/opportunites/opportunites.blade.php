@@ -54,7 +54,7 @@
                     <a href="{{route('restore-allopp')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
                     @else
                     <a href="{{route('indexopp',['deleted'=>'deleted'])}}" class="lefted">
-                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Opportunite</button>
+                      <button type="button" class="btn btn-warning btn-sm"><i class="bi bi-trash-fill"></i> Trashed Opportunities</button>
                     </a>
                   </h5>
                     @endif
@@ -161,7 +161,6 @@
                     </tbody>
                     
                   </table>
-                 <a href="rendez_add .html"> <button type="button" class="btn btn-link" style="text-align: left;">planifier un rendez-vous</button></a>
                 </div>
 
               </div>

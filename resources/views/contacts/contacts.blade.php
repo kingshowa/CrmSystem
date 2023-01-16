@@ -78,12 +78,12 @@
                         <th scope="row"><a href="#">{{$contact->id}}</a></th>
                         <td>{{$contact->prenom}} {{$contact->nom}}</td>
                         <td>{{$contact->fonction}}</td>
-                        <td>{{$contact->email}}</td>
-                        <td>{{$contact->telephone}}</td>
+                        <td><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></td>
+                        <td><a href="tel:{{$contact->telephone}}">{{$contact->telephone}}</a></td>
                         <td>{{$contact->societe}}</td>
                         <td>
                         @if(request()->has('deleted'))
-                        <td>{{$client->deleted_at}}</td>
+                        <td>{{$contact->deleted_at}}</td>
                         <td>
                             <a href="{{url('contacts-restore/'.$contact->id)}}">
                               <span class="badge bg-success">Restore</span>

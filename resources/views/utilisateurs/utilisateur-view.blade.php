@@ -5,11 +5,11 @@
 <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Utilisateurs</h1>
+  <h1>Users</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-      <li class="breadcrumb-item active">Utilisateurs</li>
+      <li class="breadcrumb-item active">Users</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -21,19 +21,17 @@
         <div class="col-12">
           <div class="card recent-sales overflow-auto">
 
-            
-
             <div class="card-body">
-              <h5 class="card-title"><a href="{{ url('utilisateurs-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Utilisateurs</button></a></h5>
+              <h5 class="card-title"><a href="{{ url('utilisateurs-add')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add User</button></a></h5>
 
               <table class="table table-striped datatable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prenom</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">First name</th>
                     <th scope="col">Email</th>
-                    <!--  <th scope="col">Password</th>   -->
+                     <th scope="col">Role</th>  
                     <th scope="col" colspan="3">Actions</th>
                   </tr>
                 </thead>
@@ -44,6 +42,7 @@
                     <td>{{ $utilisateur->nom }}</td>
                     <td>{{ $utilisateur->prenom }}</td>
                     <td>{{ $utilisateur->email }}</td>
+                    <td>{{ $utilisateur->role }}</td>
                    
                   
                   

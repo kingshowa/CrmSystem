@@ -5,12 +5,12 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>prospects</h1>
+      <h1>View Prospect</h1>
       <nav>
        <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{url('prospects')}}">prospects</a></li>
-          <li class="breadcrumb-item active">Add prospects</li>
+          <li class="breadcrumb-item"><a href="{{url('prospects')}}">Prospects</a></li>
+          <li class="breadcrumb-item active">View prospect</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -67,28 +67,28 @@
 
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Nom</div>
+                    <div class="col-lg-3 col-md-4 label ">Last name</div>
                     <div class="col-lg-9 col-md-8">{{$prospect->nom}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Prenom</div>
+                    <div class="col-lg-3 col-md-4 label ">First name</div>
                     <div class="col-lg-9 col-md-8">{{$prospect->prenom}}</div>
                   </div>
 
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Societe</div>
+                    <div class="col-lg-3 col-md-4 label">Company</div>
                     <div class="col-lg-9 col-md-8">{{$prospect->societe}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Fonction</div>
+                    <div class="col-lg-3 col-md-4 label">Role</div>
                     <div class="col-lg-9 col-md-8">{{$prospect->fonction}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Addresse</div>
+                    <div class="col-lg-3 col-md-4 label">Address</div>
                     <div class="col-lg-9 col-md-8">{{$prospect->adresse}}</div>
                   </div>
 
@@ -113,21 +113,21 @@
                   {{ csrf_field() }}
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Last name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nom" type="text" class="form-control" id="firstName" value="{{$prospect->nom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="prenom" class="col-md-4 col-lg-3 col-form-label">Prenom</label>
+                      <label for="prenom" class="col-md-4 col-lg-3 col-form-label">First name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="prenom" type="text" class="form-control" id="prenom" value="{{$prospect->prenom}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="societe" class="col-md-4 col-lg-3 col-form-label">Societe</label>
+                      <label for="societe" class="col-md-4 col-lg-3 col-form-label">Company</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="societe" type="text" class="form-control" id="societe" value="{{$prospect->societe}}">
                       
@@ -136,14 +136,14 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Fonction</label>
+                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Role</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="fonction" type="text" class="form-control" id="Job" value="{{$prospect->fonction}}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Adresse</label>
+                      <label for="about" class="col-md-4 col-lg-3 col-form-label">Address</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="adresse" class="form-control" id="about" value="{{$prospect->adresse}}">
                       </div>
@@ -164,7 +164,7 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="site_web" class="col-md-4 col-lg-3 col-form-label">Site web</label>
+                      <label for="site_web" class="col-md-4 col-lg-3 col-form-label">Website</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="site_web" type="text" class="form-control" id="site_web" value="{{$prospect->site_web}}">
                       </div>

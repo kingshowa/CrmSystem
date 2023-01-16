@@ -79,7 +79,7 @@
                         <th scope="row"><a href="#">{{$client->id}}</a></th>
                         <td>{{ $client->societe }}</td>
                         <td>{{$client->telephone}}</td>
-                        <td>{{$client->site_web}}</td>
+                        <td><a href="https://{{$client->site_web}}">{{$client->site_web}}</a></td>
                   
                         @if(request()->has('deleted'))
                         <td>{{$client->deleted_at}}</td>
@@ -117,7 +117,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Are you sure that you want to delete  {{$client->societe}} from clients? This action is permanent and can not be undone.
+                                  Are you sure that you want to delete  {{$client->societe}} from clients? You can restore this client later.
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
