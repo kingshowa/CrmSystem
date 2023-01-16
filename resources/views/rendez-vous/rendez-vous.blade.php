@@ -45,8 +45,8 @@
                 <div class="card-body">
 
                   <h5 class="card-title">
-                    <a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button>
-                  </a>
+                    <!-- <a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button>
+                  </a> -->
                   @if(request()->has('deleted'))
                     <a href="{{route('index-rendez')}}"><button type="button" class="btn btn-secondary btn-sm">View all</button></a>
                     <a href="{{route('rendez-all')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
@@ -65,8 +65,8 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Compte rendu</th>
-                        <th scope="col">Client</th>
+                        <th scope="col">Heure</th>
+                        <th scope="col">Contact</th>
                         @if(request()->has('deleted'))
                         <th scope="col">Deleted at</th>
                         <th scope="col" colspan="1">Actions </th>
@@ -80,8 +80,8 @@
                       <tr>
                         <th scope="row"><a href="#">{{$rendez->id}}</a></th>
                         <td>{{$rendez->date}}</td>
-                        <td>{{$rendez->compte}}</td>
-                        <td>{{$rendez->client}}</td>
+                        <td>{{$rendez->heure}}</td>
+                        <td>{{$rendez->nom}}</td>
                         @if(request()->has('deleted'))
                         <td>{{$client->deleted_at}}</td>
                         <td>

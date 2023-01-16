@@ -226,8 +226,8 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Client</th>
-                        <th scope="col">Commercial</th>
+                        <th scope="col">Heure</th>
+                        <th scope="col">Contact</th>
                         <th scope="col" colspan="2">Actions </th>
                       </tr>
                     </thead>
@@ -236,7 +236,7 @@
                       <tr>
                         <th scope="row"><a href="#"></a></th>
                         <td>{{$rendez->date}}</td>
-                        <td>{{$rendez->client}}</td>
+                        <td>{{$rendez->heure}}</td>
                         <td>{{$rendez->nom}}</td>
                         
                         

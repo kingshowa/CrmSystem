@@ -18,9 +18,11 @@ return new class extends Migration
             $table->date('date');
             $table->time('heure');
             $table->string('compte')->nullable();
-            $table->string('client');
             $table->foreignId('user_id')->constrained('utilisateurs')
             ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('contactID')->constrained('contacts')
+            ->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
             $table->softDeletes();
            

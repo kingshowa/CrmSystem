@@ -81,6 +81,8 @@
                   </div>
                   
                 </div>
+                <a href="{{route('createrendez',$contact[0]->id)}}"> <button type="button" class="btn btn-link" style="text-align: left;">planifier un rendez-vous</button></a>
+
 
                 <div class="tab-pane fade {{ $b1 }} {{ $b }} profile-edit pt-3" id="profile-edit">
                   <!-- Profile Edit Form -->
@@ -151,6 +153,68 @@
           </div>
 
         </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="row">
+        
+        <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                
+
+                <div class="card-body">
+
+                  <h5 class="card-title"><a href="{{route('createrendez',$contact[0]->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
+
+                 
+
+
+                  <table class="table table-striped datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Heure</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col" colspan="2">Actions </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($rendezs as $rendez)
+                      <tr>
+                        <th scope="row"><a href="#"></a></th>
+                        <td>{{$rendez->date}}</td>
+                        <td>{{$rendez->heure}}</td>
+                       
+                        <td>{{$contact[0]->nom}}</td>
+                        
+                        
+
+                        <td>
+                          <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/1')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/2')}}">
+                            <button class="btn btn-light btn-sm"><i class="bi bi-pencil-fill"></i></button>
+                          </a>
+                        </td>
+
+                       
+                      </tr>
+                      @endforeach
+                   
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div>
+
       </div>
     </section>
 

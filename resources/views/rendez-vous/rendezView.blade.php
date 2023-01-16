@@ -75,13 +75,10 @@
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Client</div>
-                <div class="col-lg-9 col-md-8">{{$rendez[0]->client}}</div>
-              </div>
-              <div class="row">
-                <div class="col-lg-3 col-md-4 label">Commercial</div>
+                <div class="col-lg-3 col-md-4 label">Contact</div>
                 <div class="col-lg-9 col-md-8">{{$rendez[0]->nom}}</div>
               </div>
+             
 
              
             </div>
@@ -119,9 +116,9 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">CLIENT</label>
+                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Contact</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="client" type="text" class="form-control" id="Job" value="{{$rendez[0]->client}}" disabled>
+                    <input name="client" type="text" class="form-control" id="Job" value="{{$rendez[0]->nom}}" disabled>
                   </div>
                 </div>
 

@@ -154,6 +154,8 @@ Route::get('/rendez-restore/{id}', [RendezController::class, 'restore'])->name('
 Route::get('/rendez-all', [RendezController::class, 'restore_all'])->name('rendez-all');
 
 Route::get('/rendez/creater/{societe}', [RendezController::class, 'creater'])->name('creater');
+Route::get('/createrendez/{id}', [RendezController::class, 'createrendez'])->name('createrendez');
+Route::post('/rendezstore', [RendezController::class, 'rendezstore'])->name('rendezstore');
 Route::post('/rendez/store2', [RendezController::class, 'store2'])->name('store-rendez2');
 
 

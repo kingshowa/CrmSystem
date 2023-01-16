@@ -63,7 +63,14 @@ class ContactController extends Controller
                ->where('contacts.id', $id)
                ->select('contacts.*', 'clients.societe')
                ->get(); 
-    	return view('contacts.contact', ['contact'=> $contact], ['action'=>$action]);
+
+               $rendez = DB::table('rendezs')->join('utilisateurs', 'utilisateurs.id', '=', 'rendezs.user_id')
+               ->where('rendezs.user_id',$_SESSION['admin'])
+               ->where('utilisateurs.id', $_SESSION['admin'])
+               ->where('rendezs.contactID', $id)
+               ->select('rendezs.*', 'utilisateurs.*')
+               ->get();
+    	return view('contacts.contact', ['rendezs'=> $rendez,'contact'=>$contact], ['action'=>$action]);
     }
        
     public function contact_details(Request $request,$id){

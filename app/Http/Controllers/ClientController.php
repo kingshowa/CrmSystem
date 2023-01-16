@@ -16,6 +16,8 @@ class ClientController extends Controller
     
     public function index(Request $request){
         $listclients=Client::all();
+
+        
         if($request->has('deleted'))
         {
             $listclients=Client::onlyTrashed()->get();
@@ -51,7 +53,7 @@ class ClientController extends Controller
 
         //$contact=Contact::find($client->societe);
         
-        $rendez = Rendez::where('client',$client->societe)->get();
+
 
         
         $contact = Contact::where('clientID',$id)->get();
@@ -59,18 +61,26 @@ class ClientController extends Controller
    
 
       
-        $rendez = DB::table('rendezs')->join('utilisateurs', 'utilisateurs.id', '=', 'rendezs.user_id')
+        // $rendez = DB::table('rendezs')->join('utilisateurs', 'utilisateurs.id', '=', 'rendezs.user_id')
+        //        ->where('rendezs.user_id',$_SESSION['admin'])
+        //        ->where('utilisateurs.id', $_SESSION['admin'])
+        //        ->where('rendezs.client', $client->societe)
+        //        ->select('rendezs.*', 'utilisateurs.*')
+        //        ->get();
+
+    $rendez = DB::table('utilisateurs')->join('rendezs', 'utilisateurs.id', '=', 'rendezs.user_id')
+               ->join('contacts', 'rendezs.contactID', '=', 'contacts.id')
+               ->where('contacts.clientID',$id)
                ->where('rendezs.user_id',$_SESSION['admin'])
                ->where('utilisateurs.id', $_SESSION['admin'])
-               ->where('rendezs.client', $client->societe)
-               ->select('rendezs.*', 'utilisateurs.*')
-               ->get();
+                  ->select('contacts.nom','rendezs.*')
+                  ->get();
 
        
     	
 
     	return view('clients.clientView', ['client'=>$client,'contacts'=>$contact,'rendezs'=>$rendez, 
-                                           'action'=>$action,'opp'=>$opp]);
+       'action'=>$action,'opp'=>$opp]);
 
     }
 

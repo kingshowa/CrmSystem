@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Rendez;
 use App\Models\Client;
+use App\Models\Contact;
 use App\Models\Utilisateur;
 
 use Illuminate\Http\Request;
@@ -13,12 +14,16 @@ session_start();
 class RendezController extends Controller
 {
     public function index(Request $request){
-        //$listrendez = Rendez::all();
-        //$user = Utilisateur::find($request->session()->get('user'));
         if (isset($_SESSION['admin'])){
             $a=($_SESSION['admin']);}
             else{$a=$_SESSION['commercial'];}
-        $rendez = Rendez::where('user_id', $a)->get();
+      
+
+
+        $rendez = DB::table('utilisateurs')->join('rendezs', 'utilisateurs.id', '=', 'rendezs.user_id')
+        ->join('contacts', 'rendezs.contactID', '=', 'contacts.id')
+           ->select('contacts.nom','rendezs.*')
+           ->get();
         if($request->has('deleted'))
         {
             $rendez=Rendez::where('user_id', $a)->onlyTrashed()->get();
@@ -32,10 +37,9 @@ class RendezController extends Controller
         
     	return view('rendez-vous.rendez-add',['clients'=>$clients]);
     } 
+
     public function creater(Request $request,$id){
         $societe= Client::find($id);
-       
-        
     	return view('rendez-vous.rendez-add2', ['societe' => $societe]);
     } 
    
@@ -51,7 +55,12 @@ class RendezController extends Controller
     	$rendez->client = $request->input('client');
         $rendez->user_id =  $a;
     	$rendez->save();
+
         session()->flash('succes','rendez-vous bien ajouter');
+        if($request->has('rendezvous'))
+        {
+            return back(); 
+        }
         return redirect('rendez');
     }
 
@@ -79,19 +88,13 @@ class RendezController extends Controller
 
     public function edite(Request $request,$id, $action){
 
-        // $rendez = Utilisateur::join('rendezs', 'rendezs.user_id', '=', 'utilisateurs.id')
-        //     ->where('rendezs.id', '=', $id)
-        //     ->get(['utilisateurs.nom','rendezs.*']);
-
 
             $rendez = DB::table('utilisateurs')->join('rendezs', 'utilisateurs.id', '=', 'rendezs.user_id')
+            ->join('contacts', 'rendezs.contactID', '=', 'contacts.id')
                ->where('rendezs.id', $id)
-               ->select('rendezs.*', 'utilisateurs.nom')
+               ->select('contacts.nom','rendezs.*')
                ->get();
-            
-        $user = Utilisateur::find($request->session()->get('user'));
-
-    	return view('rendez-vous.rendezView', ['rendez'=>$rendez,'user' => $user,'action'=>$action]);
+    	return view('rendez-vous.rendezView', ['rendez'=>$rendez,'action'=>$action]);
 
     }
 
@@ -104,6 +107,7 @@ class RendezController extends Controller
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
         $rendez->user_id = $a;
+        $rendez->contactID =$rendez->contactID;
     	$rendez->save();
         return back();      	
     }
@@ -128,5 +132,29 @@ class RendezController extends Controller
     	return redirect('rendez');
        
     } 
+
+    public function createrendez($id){
+        $contacts = Contact::find($id);
+        
+    	return view('rendez-vous.rendez-addc',['contacts'=>$contacts]);
+    } 
+
+    public function rendezstore(Request $request){
+        if (isset($_SESSION['admin'])){
+            $a=($_SESSION['admin']);}
+            else{$a=$_SESSION['commercial'];}
+    	$rendez= new  Rendez();
+    	$rendez->date = $request->input('date');
+    	$rendez->heure = $request->input('heure');
+        $rendez->compte = $request->input('compte');
+    	$rendez->contactID = $request->input('contact');
+        $rendez->user_id =  $a;
+    	$rendez->save();
+        session()->flash('bien','rendez-vous ajouter avec success');
+        $contact = Contact::where('id',$request->input('contact'))->first();
+        $id=$contact->id;
+        return redirect('contact/'.$id.'/1');
+    }
+
 }
 

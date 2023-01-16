@@ -161,7 +161,6 @@
                     </tbody>
                     
                   </table>
-                 <a href="rendez_add .html"> <button type="button" class="btn btn-link" style="text-align: left;">planifier un rendez-vous</button></a>
                 </div>
 
               </div>
