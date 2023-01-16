@@ -49,7 +49,7 @@
                  
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Surname</div>
+                    <div class="col-lg-3 col-md-4 label ">Last Name</div>
                     <div class="col-lg-9 col-md-8">{{$contact[0]->nom}}</div>
                   </div>
 
@@ -79,7 +79,8 @@
                   </div>
                   
                 </div>
-                <a href="{{route('createrendez',$contact[0]->id)}}"> <button type="button" class="btn btn-link" style="text-align: left;">planifier un rendez-vous</button></a>
+                <!-- <a href="{{route('createrendez',$contact[0]->id)}}">
+                   <button type="button" class="btn btn-link" style="text-align: left;">planifier un rendez-vous</button></a> -->
 
 
                 <div class="tab-pane fade {{ $b1 }} {{ $b }} profile-edit pt-3" id="profile-edit">
@@ -91,7 +92,7 @@
                     {{ csrf_field() }}
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nom" type="text" class="form-control" id="firstName" value="{{$contact[0]->nom}}">
                       </div>
@@ -136,11 +137,13 @@
                       </div>
                     </div>
                     
-                  
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <div class="row mb-3">
+                      <label  class="col-md-4 col-lg-3 col-form-label"></label>
+                      <div class="col-md-8 col-lg-9">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                      </div>
                     </div>
+                    
                   </form><!-- End Profile Edit Form -->
 
                 </div>
@@ -164,17 +167,18 @@
 
                 <div class="card-body">
 
-                  <h5 class="card-title"><a href="{{route('createrendez',$contact[0]->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button></a></h5>
-
-                 
-
+                  <h5 class="card-title">
+                    <a href="{{route('createrendez',$contact[0]->id)}}">
+                       <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Appointment</button>
+                    </a>
+                  </h5>
 
                   <table class="table table-striped datatable">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Heure</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Contact</th>
                         <th scope="col" colspan="2">Actions </th>
                       </tr>
@@ -187,9 +191,7 @@
                         <td>{{$rendez->heure}}</td>
                        
                         <td>{{$contact[0]->nom}}</td>
-                        
-                        
-
+         
                         <td>
                           <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>

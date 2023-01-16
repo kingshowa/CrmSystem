@@ -19,11 +19,11 @@
     @endif
 
     <div class="pagetitle">
-      <h1>rendez-vous</h1>
+      <h1>Appointments</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-          <li class="breadcrumb-item active">rendez-vous</li>
+          <li class="breadcrumb-item active">Appointments</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -45,8 +45,8 @@
                 <div class="card-body">
 
                   <h5 class="card-title">
-                    <!-- <a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add rendez-vous</button>
-                  </a> -->
+                    <a href="{{url('rendez/create')}}"><button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-plus-circle me-1"></i>Add Appointment</button>
+                  </a>
                   @if(request()->has('deleted'))
                     <a href="{{route('index-rendez')}}"><button type="button" class="btn btn-secondary btn-sm">View all</button></a>
                     <a href="{{route('rendez-all')}}" class="lefted"><button type="button" class="btn btn-success btn-sm">Restore all</button></a></h5>
@@ -65,7 +65,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Heure</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Contact</th>
                         @if(request()->has('deleted'))
                         <th scope="col">Deleted at</th>
@@ -119,7 +119,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Are you sure that you want to delete {{$rendez->id}}  from contacts? This action is permanent and can not be undone.
+                                  Are you sure that you want to delete {{$rendez->id}}  from contacts? 
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
