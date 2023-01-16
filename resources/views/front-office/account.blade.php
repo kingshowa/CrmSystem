@@ -67,7 +67,7 @@
             <br>
 
             <div class="row" id="tabs">
-              <div class="col-lg-4">
+              <div class="col-lg-4"><br>
                 <ul>
                   <li><a href='#tabs-1'><i class="bi bi-person-circle"></i> My Profile</a></li>
                   <li><a href='#tabs-2'><i class="bi bi-people-fill"></i> Company Profile</a></li>
