@@ -103,8 +103,9 @@ class chartsController extends Controller
                           $contactv[]= count($values);
                          }
                    //nombre total produit
-          $nombreproduit = Produit::join('produit_opportunites', 'produit_opportunites.idProduit', '=', 'produits.id')
-                                    ->get();
+          $nombreproduit = ProduitOpportunite::join('produits', 'produit_opportunites.idProduit', '=', 'produits.id')
+                                  ->join('opportunites', 'produit_opportunites.idOpportunite', '=', 'opportunites.id')
+                                    ->where('etape', 'Gangee')->get();
                       foreach ($nombreproduit as $p) 
                         {
                          $sum = $sum + (double)($p->quantite * $p->prix);
@@ -152,14 +153,14 @@ class chartsController extends Controller
                 $oppver = Opportunite::where('etape','=','Verification')->get();
                 $oppver = count($oppver);
 
-                $oppgan = Opportunite::where('etape','=','cgangee')->get();
-                $oppgan = count($oppgan);
+                $oppgann = Opportunite::where('etape','=','Gangee')->get();
+                $oppgan = count($oppgann);
 
-                $oppper = Opportunite::where('etape','=','cperdue')->get();
+                $oppper = Opportunite::where('etape','=','Perdue')->get();
                 $oppper = count($oppper);
 
-                $allproduit = Opportunite::ALL();
-                $allproduit = count($allproduit);
+                $allproduite = Produit::All();
+                $allproduit = count($allproduite);
                       
 
          return view('admin', ['nbrclient'=> $nombreclient,
@@ -168,12 +169,7 @@ class chartsController extends Controller
             'heurs'=>$heurs,'yearp'=>$yearp,'contacth'=>$contacth,
             'contactv'=>$contactv,'web'=>$web,'salon'=>$salon,'bouche'=>$bouche,
             'tel'=>$tel,'autre'=>$autre,'listep'=>$listep,'part'=>$part,'opptoday'=>$opptoday,'oppPro'=>$oppPro,'oppProp'=>$oppProp
-          ,'oppver'=>$oppver,'oppgan'=>$oppgan,'oppper'=>$oppper,'allproduit'=>$allproduit]);
-          
-            
-        
-
-        
+          ,'oppver'=>$oppver,'oppgan'=>$oppgan,'oppper'=>$oppper,'allproduit'=>$allproduit]);        
     }
     public function front(){
       $today = Carbon::today()->todatestring();

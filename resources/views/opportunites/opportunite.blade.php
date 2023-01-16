@@ -5,12 +5,12 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Opportunite</h1>
+      <h1>View Opportunity</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{url('opportunites')}}">Opportunite</a></li>
-          <li class="breadcrumb-item active">Details Opportunite</li>
+          <li class="breadcrumb-item"><a href="{{url('opportunites')}}">Opportunities</a></li>
+          <li class="breadcrumb-item active">View Opportunity</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -126,9 +126,9 @@
                       </div>
                     </div>
                     <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Remise</label>
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Discount (%)</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="remise" type="integre" class="form-control"  value="{{$opportunite->remise}}">
+                        <input name="remise" type="text" class="form-control"  value="{{$opportunite->remise}}">
                       </div>
                     </div>
 
@@ -146,8 +146,11 @@
                     </div>
 
                    
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Modifier</button>
+                    <div class="row mb-3">
+                      <label  class="col-md-4 col-lg-3 col-form-label"></label>
+                      <div class="col-md-8 col-lg-9">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                      </div>
                     </div>
                   </form><!-- End Profile Edit Form -->
 

@@ -90,7 +90,7 @@
                         <td>{{$prospect->societe}}</td>
                         <td>{{$prospect->telephone}}</td>
                         <!-- <td>{//{$prospect->email}}</td> -->
-                        <td class="text-primary"><a href="">{{$prospect->site_web}}</a></td>
+                        <td class="text-primary"><a href="https://{{$prospect->site_web}}">{{$prospect->site_web}}</a></td>
                         <td>{{$prospect->source}}</td>
                         @if($prospect->statut=='Froid')
                         <td><span class="badge bg-success">{{$prospect->statut}}</span></td>@endif
@@ -98,7 +98,7 @@
                         @if($prospect->statut=='Chaud')
                         <td><span class="badge bg-danger">{{$prospect->statut}}</span></td>@endif
                         @if(request()->has('deleted'))
-                        <td>{{$client->deleted_at}}</td>
+                        <td>{{$prospect->deleted_at}}</td>
                         <td>
                             <a href="{{url('prospects-restore/'.$prospect->id)}}">
                               <span class="badge bg-success">Restore</span>
@@ -130,7 +130,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Are you sure that you want to delete {{$prospect->prenom}} {{$prospect->nom}} from prospects? This action is permanent and can not be undone.
+                                  Are you sure that you want to delete {{$prospect->prenom}} {{$prospect->nom}} from prospects? You will be able to reverse the opperation.
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

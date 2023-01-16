@@ -11,12 +11,12 @@
     @endif
 
 <div class="pagetitle">
-  <h1>Utilisateurs</h1>
+  <h1>View User</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{{url('/utilisateurs')}}">Utilisateurs</a></li>
-      <li class="breadcrumb-item active">View Utilisateur</li>
+      <li class="breadcrumb-item"><a href="{{url('/utilisateurs')}}">User</a></li>
+      <li class="breadcrumb-item active">View User</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -61,7 +61,7 @@
             <div class="tab-pane fade {{ $a }} {{ $a1 }} profile-overview" id="profile-overview">
 
 
-              <h5 class="card-title">Utilisateurs Details</h5>
+              <h5 class="card-title">User Details</h5>
 
               <div class="row">
                 <div class="col-lg-3 col-md-4 label ">First Name</div>
@@ -69,7 +69,7 @@
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Sure Name</div>
+                <div class="col-lg-3 col-md-4 label">Last Name</div>
                 <div class="col-lg-9 col-md-8">{{$utilisateur->prenom}}</div>
               </div>
 
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="row mb-3">
-                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                  <label for="surName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                   <div class="col-md-8 col-lg-9">
                     <input name="surName" type="text" class="form-control" id="surName" value="{{$utilisateur->prenom}}">
                   </div>
@@ -116,22 +116,18 @@
                     <input name="email" type="email" class="form-control" id="Email" value="{{$utilisateur->email}}">
                   </div>
                 </div>
-                <!--
+
                 <div class="row mb-3">
-                  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                  <label  class="col-md-4 col-lg-3 col-form-label"></label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="password" type="password" class="form-control" id="password" value="k.anderson@example.com">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                   </div>
                 </div>
--->
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Save Changes</button>
-                </div>
+                
+                
               </form><!-- End Profile Edit Form -->
 
             </div>
-
-
 
           </div><!-- End Bordered Tabs -->
 

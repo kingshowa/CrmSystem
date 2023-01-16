@@ -28,21 +28,21 @@
 
 
                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
+                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nom" type="text" class="form-control" id="firstName" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">Prenom</label>
+                      <label for="surName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="prenom" type="text" class="form-control" id="surName" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Fonction</label>
+                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Role</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="fonction" type="text" class="form-control" id="company" required>
                       </div>
@@ -65,20 +65,23 @@
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Client</label>
                       <div class="col-md-8 col-lg-9">
-                        <select class="form-select" id="select_box" name="client">
-                          <option selected>Choose Client</option>
+                        <select class="form-select" id="select_box" name="client" required>
+                          <option selected value="">Choose Client</option>
                           @foreach($clients as $client)
                           <option value="{{$client->id}}">{{$client->societe}}</option>
                           @endforeach
                         </select>
-                        <!-- <input name="client"  type="text" class="form-control" id="Email" required> -->
                        
                       </div>
                     </div>
 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Contact</button>
+                    <div class="row mb-3">
+                      <label  class="col-md-4 col-lg-3 col-form-label"></label>
+                      <div class="col-md-8 col-lg-9">
+                        <button type="submit" class="btn btn-primary">Save Contact</button>
+                      </div>
                     </div>
+
                   </form><!-- End Profile Edit Form -->
 
             </div>

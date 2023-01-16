@@ -40,7 +40,7 @@ class ProspectController extends Controller
         $prospect->statut = $request->input('statut');
         $prospect->source = $request->input('source');
     	$prospect->save();
-        return redirect('prospects');
+        return redirect('prospects')->with('restore','Prospect saved successfully');
     }
 
 
@@ -49,16 +49,8 @@ class ProspectController extends Controller
 
         $client = new Client();
         $contact = new Contact();
-
-       
-       
-       
-       
-
-        $user = Utilisateur::find($request->session()->get('user'));
     	return view('prospects.prospect', ['prospect'=>$prospect],['action'=>$action]);
 
-    
     }
 
     public function transforme($id){
@@ -80,8 +72,6 @@ class ProspectController extends Controller
             $contact->clientID = $client->id;
             $contact->save();
 
-           
-            
             $prospect->est_transmit = true;
             $prospect->save();
             session()->flash('succes', 'prespect transformer avec success');
@@ -114,7 +104,7 @@ class ProspectController extends Controller
     public function destroy($id){
     	$prospect = Prospect::find($id);
     	$prospect->delete();
-    	return back()->with('delete','Prospect Delete successfully');
+    	return back()->with('delete','Prospect deleted successfully');
     } 
     public function restore($id){
     	Prospect::withTrashed()->find($id)->restore();

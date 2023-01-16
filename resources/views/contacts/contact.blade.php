@@ -5,12 +5,12 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Contact</h1>
+      <h1>View Contact</h1>
       <nav>
        <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{url('contacts')}}">Contacts</a></li>
-          <li class="breadcrumb-item active">Add Contact</li>
+          <li class="breadcrumb-item active">View Contact</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -65,18 +65,16 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone No</div>
-                    <div class="col-lg-9 col-md-8">{{$contact[0]->telephone}}</div>
+                    <div class="col-lg-9 col-md-8"><a href="tel:{{$contact[0]->telephone}}">{{$contact[0]->telephone}}</a></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">{{$contact[0]->email}}</div>
+                    <div class="col-lg-9 col-md-8"><a href="mailto:{{$contact[0]->email}}">{{$contact[0]->email}}</a></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">{{$contact[0]->societe}}</div>
-
                     <div class="col-lg-9 col-md-8">{{$contact[0]->societe}}</div>
                   </div>
                   

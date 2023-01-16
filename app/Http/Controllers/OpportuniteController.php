@@ -144,13 +144,13 @@ class OpportuniteController extends Controller
     public function destroy($id){
     	$opportunite = Opportunite::find($id);
     	$opportunite->delete();
-    	return back()->with('delete','Client deleted successfully');
+    	return back()->with('delete','Opportunity deleted successfully');
     }
 
     public function restore_opp($id){
     	Opportunite::withTrashed()->find($id)->restore();
     	
-    	return back()->with('restore','Opportunites Restore successfully');
+    	return back()->with('restore','Opportunity restored successfully');
        
     } 
 

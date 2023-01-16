@@ -38,6 +38,8 @@ class ProduitController extends Controller
         
     	return view('produits.produit-add2', ['opportunite' => $opportunite,'user' => $user]);
     } 
+
+
    /* public function store_produit(Request $request){*/
     public function store(Request $request){
     	$produit = new  Produit();
@@ -51,10 +53,6 @@ class ProduitController extends Controller
             $produit->type = 'Manual';}
        
         $produit->desc = $request->input('desc');
-
-
-       
-        
 
          $filenameWithExt = $request->file("photo")->getClientOriginalName();
 
@@ -77,18 +75,10 @@ class ProduitController extends Controller
         $user = Utilisateur::find($request->session()->get('user'));
     	return view('produits/produits', ['produit'=>$produit,'user'=>$user], ['action'=>$action]);
 
-
-    	//return view('produits/produits', ['produit'=>$produit]);
-        
-
     }
     
     	
-    
-    // public function editee($id){
-    // 	$produit = Produit::find($id);
-    // 	return view('produits/produits-edit', ['produit'=>$produit]);
-    // }
+
 
     public function update(Request $request, $id){
     	$produit = Produit::find($id);
@@ -96,9 +86,9 @@ class ProduitController extends Controller
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
         $produit->quantitie = $request->input('quantitie');
-        $produit->quantitie = $request->input('type');
-        $produit->quantitie = $request->input('desc');
-    	//$produit->photo = $request->input('Photo');
+        $produit->type = $request->input('type');
+        $produit->desc = $request->input('desc');
+    	
     	$produit->save();
         return back();    	
     }
