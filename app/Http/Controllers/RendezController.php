@@ -33,14 +33,15 @@ class RendezController extends Controller
     }
     
     public function create(Request $request){
-        $clients = Client::orderBy('societe')->get();
+        $contacts = Contact::orderBy('clientID')->get();
         
-    	return view('rendez-vous.rendez-add',['clients'=>$clients]);
+    	return view('rendez-vous.rendez-add',['contacts'=>$contacts]);
     } 
 
     public function creater(Request $request,$id){
-        $societe= Client::find($id);
-    	return view('rendez-vous.rendez-add2', ['societe' => $societe]);
+        
+        $contact = Contact::where('clientID', $id)->get();
+    	return view('rendez-vous.rendez-add2', ['contacts' => $contact]);
     } 
    
     public function store(Request $request){
@@ -52,7 +53,7 @@ class RendezController extends Controller
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
-    	$rendez->client = $request->input('client');
+    	$rendez->contactID = $request->input('contactID');
         $rendez->user_id =  $a;
     	$rendez->save();
 
@@ -72,12 +73,12 @@ class RendezController extends Controller
     	$rendez->date = $request->input('date');
     	$rendez->heure = $request->input('heure');
         $rendez->compte = $request->input('compte');
-    	$rendez->client = $request->input('client');
+    	$rendez->contactID = $request->input('contactID');
         $rendez->user_id =  $a;
     	$rendez->save();
         session()->flash('bien','rendez-vous ajouter avec success');
-        $client = Client::where('societe',$request->input('client'))->first();
-        $id=$client->id;
+        $contact = Contact::where('id',$request->input('contactID'))->first();
+        $id=$contact->id;
         
     
     return redirect('clientView/'.$id.'/1');

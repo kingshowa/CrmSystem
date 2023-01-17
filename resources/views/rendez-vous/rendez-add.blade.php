@@ -66,12 +66,12 @@
                 </div>
 
                 <div class="row mb-3  @if($errors->get('client')) has-error @endif">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Client</label>
+                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Contact</label>
                   <div class="col-md-8 col-lg-9">
-                  <select class="form-select" id="select_box" name="client">
-                          <option selected>Choose Client</option>
-                          @foreach($clients as $client)
-                          <option value="{{$client->societe}}">{{$client->societe}}</option>
+                  <select class="form-select" id="select_box" name="contactID">
+                          <option selected>Choose Contact</option>
+                          @foreach($contacts as $contact)
+                          <option value="{{$contact->id}}">{{$contact->nom}}</option>
                           @endforeach
                         </select>
                     

@@ -51,10 +51,21 @@
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Client</label>
+                <div class="row mb-3  @if($errors->get('client')) has-error @endif">
+                  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Contact</label>
                   <div class="col-md-8 col-lg-9">
-                  <input name="client" value="{{$societe->societe}}" type="text" class="form-control" id="Email" >
+                  <select class="form-select" id="select_box" name="contactID">
+                          <option selected>Choose Contact</option>
+                          @foreach($contacts as $contact)
+                          <option value="{{$contact->id}}">{{$contact->nom}}</option>
+                          @endforeach
+                        </select>
+                    
+                    @if($errors->get('client'))
+                    @foreach($errors->get('client') as $message)
+                       {{$message}}
+                    @endforeach
+                 @endif
                   </div>
                 </div>
 
