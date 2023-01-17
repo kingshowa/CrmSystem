@@ -112,10 +112,7 @@ Route::get('/carview', function () {
 
 
 
-
-
-
-Route::get('/admin', function () {
+Route::get('/adminstration', function () {
     session_start();
     if(isset($_SESSION['admin']))
         return redirect('/admin');
@@ -185,7 +182,7 @@ Route::put('edite_photo/{id}', [UtilisateurController::class, 'edite_photo'])->n
 Route::put('edite_logo/{id}', [UtilisateurController::class, 'edite_logo'])->name('edite_logo');
 
 //Authentification
-//Route::get('/log', [AuthController::class, 'login'])->name('login');
+
 Route::post('verifier', [AuthController::class, 'verifier'])->name('verifier');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

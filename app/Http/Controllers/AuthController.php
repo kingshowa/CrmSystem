@@ -31,7 +31,7 @@ class AuthController extends Controller
   
         $user = Utilisateur::where('email', $email)->first();
        
-        
+        if($user!=null){
         if (Hash::check(request('password'), $user->password)){
 
            
@@ -56,12 +56,17 @@ class AuthController extends Controller
                 return redirect('front-office/account/'.$user->contactID);
 
                 }
-        } else
+        } else{
         session()->flash('echec','Login invalid');
         return back();
-           
-            //return back();
+        }
+      }else{
+          session()->flash('echec','Invalid email');
+          return back();
+          }
+     
     }
+
     function logout(Request $request){
 
 
@@ -69,14 +74,13 @@ class AuthController extends Controller
         {
          
         session_destroy();
-        return redirect('/');
+        return redirect('/adminstration');
        }
         else{
            
             session_unset();
             session_destroy();
-           // return view('front-office.login');
-
+            return redirect('/');
         }
      
 

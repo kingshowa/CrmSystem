@@ -120,6 +120,7 @@ body {
 .section-heading h2 {
   font-size: 28px;
   font-weight: 800;
+  font-family: 'Poppins', sans-serif;
   color: #232d39;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -265,12 +266,14 @@ header
 
 .header-area .main-nav .nav li a {
   color: #fff;
+  margin-top: -10px;
 }
 
 .header-area .main-nav .nav li:hover > a,
 .header-area .main-nav .nav li > a.active {
   color: #ed563b!important;
   opacity: 1;
+  background-color: transparent;
 }
 
 .background-header .main-nav .nav li:hover > a,
@@ -279,9 +282,11 @@ header
   opacity: 1;
 }
 #login {
-  border: solid;
-  border-width: 1px;
+  border-bottom: solid;
+  border-width: 3px;
   border-color: #ed563b;
+  padding: 0px 0px;
+
 }
 
 

@@ -3,7 +3,6 @@
 @Section("frontContent")
 
 
-@php ($label = 'account')
 
 
 <!-- ***** Header Area Start ***** -->
@@ -24,7 +23,7 @@
                             
                             <li><a href="{{url('front-office/contact')}}">Contact</a></li>
 
-                            <li id="login"><a href="" class="active">{{ $label }}</a></li> 
+                            <li id="login"><a href="{{url('logout')}}" class="active">Sign out</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

@@ -20,14 +20,18 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="{{url('front')}}">Home</a></li>
-                            <li><a href="{{url('front-office/cars')}}">Cars</a></li>
+                            <li><a href="{{url('showcar')}}">Cars</a></li>
 
-                            <li><a href="{{url('front-office/team')}}">Team</a></li>
+                            <li><a href="{{url('showteam')}}">Team</a></li>
                             
                             <li><a href="{{url('front-office/contact')}}">Contact</a></li>
 
-                            <li id="login"><a href="{{url('front-office/'.$label)}}" class="active">{{ $label }}</a></li> 
-                        </ul>        
+                            @if(isset($_SESSION['contact']))
+                            <li id="login"><a href="{{url('front-office/account/'.$_SESSION['contact'])}}">account</a></li> 
+                            @else
+                            <li id="login"><a href="{{url('front-office/login')}}">account</a></li>
+                            @endif
+                        </ul>          
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>

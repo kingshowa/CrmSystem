@@ -2,11 +2,6 @@
 
 @Section("frontContent")
 
-@php ($label = 'login')
-
-@if(1==2)
-@php ($label = 'account')
-@endif
 
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
@@ -15,7 +10,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="{{url('front-office')}}" class="logo">KMHI<em> carSale</em></a>
+                        <a href="{{url('front-office')}}" class="logo">KMIH<em> carSale</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -26,7 +21,11 @@
                             
                             <li><a href="{{url('front-office/contact')}}" class="active">Contact</a></li>
 
-                            <li id="login"><a href="{{url('front-office/'.$label)}}">{{ $label }}</a></li> 
+                            @if(isset($_SESSION['contact']))
+                            <li id="login"><a href="{{url('front-office/account/'.$_SESSION['contact'])}}">account</a></li> 
+                            @else
+                            <li id="login"><a href="{{url('front-office/login')}}">login</a></li>
+                            @endif
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
