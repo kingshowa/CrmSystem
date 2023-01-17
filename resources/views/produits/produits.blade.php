@@ -115,17 +115,23 @@
                     <input name="quantitie" type="number" class="form-control" id="Quantite" value="{{$produit->quantitie}}">
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Type</label>
-                  <div class="col-md-8 col-lg-9">
-                    <input name="type" type="text" class="form-control" id="Quantite" value="{{$produit->type}}">
-                  </div>
-                </div>
+                <label for="Email" class="col-md-4 col-lg-3 col-form-label">Type</label>
+                  
+                   @if($produit->type=='radio1')
+                  <input type="radio" id="contactChoice1" name="type" value="radio1" checked="true">
+                  <label for="contactChoice1">Auto</label>
+                  <input type="radio" id="contactChoice2" name="type" value="radio2">
+                  <label for="contactChoice2">Manual</label>
+                  @else
+                  <input type="radio" id="contactChoice1" name="type" value="radio1" >
+                  <label for="contactChoice1">Auto</label>
+                  <input type="radio" id="contactChoice2" name="type" value="radio2" checked="true">
+                  <label for="contactChoice2">Manual</label>
+                  @endif
                 <div class="row mb-3">
                   <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Description</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="desc" type="text" class="form-control" id="Quantite" value="{{$produit->desc}}">
-                  </div>
+                  <textarea name="desc" class="form-control" id="about" style="height: 30px"> $produit->desc</textarea>                  </div>
                 </div>
 
                 <div class="row mb-3">
