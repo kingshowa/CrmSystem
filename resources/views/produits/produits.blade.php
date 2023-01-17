@@ -92,7 +92,7 @@
             <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
-              <form action="{{url('produits/update/'.$produit->id)}}" method="POST">
+              <form action="{{url('produits/update/'.$produit->id)}}" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_method" value="PUT" >
               {{ csrf_field() }}
                 <div class="row mb-3">
@@ -131,13 +131,13 @@
                 <div class="row mb-3">
                   <label for="Quantite" class="col-md-4 col-lg-3 col-form-label">Description</label>
                   <div class="col-md-8 col-lg-9">
-                  <textarea name="desc" class="form-control" id="about" style="height: 30px"> $produit->desc</textarea>                  </div>
+                  <textarea name="desc" class="form-control" id="about" style="height: 30px"> {{$produit->desc}}</textarea>                  </div>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Photo" class="col-md-4 col-lg-3 col-form-label">Photo</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="Photo" type="file"  accept="image/png, image/jpg" class="form-control" id="Photo" value="Mercedes_Classe_C_002.jpg ">
+                    <input name="photo" type="file"  accept="image/png, image/jpg" class="form-control" id="Photo" value="Mercedes_Classe_C_002.jpg ">
                   </div>
                 </div>
                 <div class="text-center">

@@ -93,13 +93,13 @@ class ProduitController extends Controller
             $produit->type = 'Auto';}
         else {
             $produit->type = 'Manual';}
-        if ($request->has('photo')) {
+        if ($request->hasFile('photo')) {
 
             $filenameWithExt = $request->file("photo")->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file("image")->getClientOriginalExtension();
+            $extension = $request->file("photo")->getClientOriginalExtension();
             $filenametostore = $filename . '_' . time() . '.' . $extension;
-            $path = $request->file("image")->storeas('public/imag', $filenametostore);
+            $path = $request->file("photo")->storeas('public/images', $filenametostore);
 
 
             $produit->photo = $filenametostore;
