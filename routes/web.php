@@ -115,15 +115,15 @@ Route::get('/carview', function () {
 
 
 
-Route::get('/admin', function () {
-    session_start();
-    if(isset($_SESSION['admin']))
-        return redirect('/admin');
-    else if(isset($_SESSION['commercial']))
-        return redirect('/commercial');
-    else
-        return view('login.login');
-});
+// Route::get('/admin', function () {
+//     session_start();
+//     if(isset($_SESSION['admin']))
+//         return redirect('/admin');
+//     else if(isset($_SESSION['commercial']))
+//         return redirect('/commercial');
+//     else
+//         return view('login.login');
+// });
 
 
 
