@@ -61,6 +61,25 @@
             font-size: 25px;
             margin-right: 15px;
         }
+        .ligne{
+            border:1px solid #ff5c33;
+            width: 0.2em; 
+            height:300px;
+            background-color:#ff5c33;
+            border-radius:5px;
+            opacity: 0.2;
+            margin-left:500px;
+            margin-top:-300px;
+            margin-right:100px;
+        }
+        p{
+            /* background-color:#ff5c33; */
+            border:1px solid #ffd6cc;
+            border-radius:4px;
+            width:500px;
+            padding-left:15px;
+
+        }
     </style>
 
 
@@ -78,37 +97,38 @@
                  
                <br>
                   <article id='tabs-2'>
-                    <h4>Company Details</h4>
-                    
-                   
-
+                    <!-- <h4>Company Details</h4> -->
+                    <h1>Lead Information</h1><br><br>
+                  
                     <div class="row">
-                        <div class="col-sm-6">
-                            <img src="{{asset('storage/images/'.$produit->photo)}}" width="150" alt="Logo">
-                        </div>
-                    </div>
+                        <div class="col-sm-8">
+                            <img src="{{asset('storage/images/'.$produit->photo)}}" width="450" hight="600" alt="Logo">
+                       <div class="ligne"></div> </div>
+                    <!-- </div>
 
                     <br>
                     
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label>Company Name</label>
+                    <div class="row"> -->
+                    <div class="col-sm-1"> </div>
+                        <div class="col-sm-3">
+                            <label>Car Name</label>
                             <p>{{$produit->nom}}</p>
-                        </div>
+                        <!-- </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4"> -->
                             <label>Type</label>
                             <p>{{$produit->type}}</p>
-                        </div>
+                        <!-- </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4"> -->
                             <label>Description</label>
                             <p>{{$produit->desc}}</p>
-                        </div>
+                        <!-- </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4"> -->
                             <label>Prix</label>
-                            <p>{{$produit->prix}}</p>
+                            <p>{{$produit->prix}}
+                            <span style="padding-left:375px;">DZD</span></p>
                         </div>
 
                 

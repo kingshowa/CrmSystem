@@ -86,8 +86,26 @@ class ProduitController extends Controller
     	$produit->nom = $request->input('Nom');
     	$produit->prix = $request->input('Prix');
         $produit->quantitie = $request->input('quantitie');
-        $produit->type = $request->input('type');
+       
         $produit->desc = $request->input('desc');
+        $c = $request->input('type');
+        if ($c == "radio1") {
+            $produit->type = 'Auto';}
+        else {
+            $produit->type = 'Manual';}
+        if ($request->hasFile('photo')) {
+
+            $filenameWithExt = $request->file("photo")->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file("photo")->getClientOriginalExtension();
+            $filenametostore = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file("photo")->storeas('public/images', $filenametostore);
+
+
+            $produit->photo = $filenametostore;
+        
+        }
+        $produit->photo = $produit->photo;
     	
     	$produit->save();
         return back();    	

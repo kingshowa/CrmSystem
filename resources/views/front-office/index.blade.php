@@ -122,7 +122,7 @@
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="car-details.html">+ View Car</a></li>
+                                <li><a href="{{route('carview',$produit->id)}}">+ View Car</a></li>
                             </ul>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
             <br>
 
             <div class="main-button text-center">
-                <a href="{{url('front-office/cars')}}">View Cars</a>
+                <a href="{{url('showcar')}}">View Cars</a>
             </div>
         </div>
     </section>

@@ -74,9 +74,7 @@
                 <div class="col-lg-3 col-md-4 label">Contact</div>
                 <div class="col-lg-9 col-md-8">{{$rendez[0]->nom}}</div>
               </div>
-             
-
-             
+          
             </div>
 
             <div class="tab-pane fade {{ $b }} {{ $b1 }} profile-edit pt-3" id="profile-edit">

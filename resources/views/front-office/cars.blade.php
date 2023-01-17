@@ -76,8 +76,6 @@
                               <div id="prix"> <sup>dz</sup>{{$produit->prix}}</div>
                             </span>
 
-                            <h4 id="desc">{{$produit->desc}}</h4>
-
                             <p>
                                 <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
