@@ -171,6 +171,7 @@ class chartsController extends Controller
             'tel'=>$tel,'autre'=>$autre,'listep'=>$listep,'part'=>$part,'opptoday'=>$opptoday,'oppPro'=>$oppPro,'oppProp'=>$oppProp
           ,'oppver'=>$oppver,'oppgan'=>$oppgan,'oppper'=>$oppper,'allproduit'=>$allproduit]);        
     }
+    
     public function front(){
       $today = Carbon::today()->todatestring();
      
@@ -217,9 +218,19 @@ class chartsController extends Controller
 
                   $nombrecontact = Contact::select('id') ->whereYear('created_at', date('Y'))->get();
                   $nombrecontact = count($nombrecontact);
+
+
+            $prospects = Prospect::All()->count();
+            $contacts = Contact::All()->count();
+            $clients = Client::All()->count();
+            $opp = Opportunite::All()->count();
+            $app = Rendez::select('*')->where('date', '>=', date('Y-m-d'))->count();
+
       
         return view('commerciale', ['mois' => $mois,'values'=>$value,'rendezs' => $rendezs,'valeur'=>$valeur
-                                       ,'nbrcontact'=>$nombrecontact]);
+                                       ,'nbrcontact'=>$nombrecontact, 'prospects'=>$prospects,
+                                      'contacts'=>$contacts, 'clients'=>$clients, 'opp'=>$opp, 'app'=>$app]);
+
 
     }
 }

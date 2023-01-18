@@ -44,7 +44,7 @@
 
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ url('rendez')}}">
-      <i class="bi bi-person"></i>
+      <i class="bi bi-envelope"></i>
       <span>Appointments</span>
     </a>
   </li>
@@ -63,12 +63,143 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-    <div class="col-lg-6">
+
+<section class="section dashboard">
+  <div class="row">
+
+        <!-- Left side columns -->
+    <div class="col-lg-12">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Prospects <span>| All</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-person-plus-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$prospects}}</h6>
+                      
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Clients <span>| All</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-person-check-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$clients}}</h6>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-md-6">
+
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Contacts <span>| All</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$contacts}}</h6>
+                      
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Opportunities <span>| All</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-bar-chart"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$opp}}</h6>
+                      
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-md-12">
+
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">My Appointments <span>| To Come</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-envelope"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{$app}}</h6>
+                      
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Product<span>| Month</span></h5>
 
-              <!-- Line Chart -->
+              
               <div id="lineChart"></div>
 
               <script>
@@ -96,7 +227,7 @@
                     },
                     grid: {
                       row: {
-                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                        colors: ['#f3f3f3', 'transparent'], 
                         opacity: 0.5
                       },
                     },
@@ -106,7 +237,7 @@
                   }).render();
                 });
               </script>
-              <!-- End Line Chart -->
+              
 
             </div>
             
@@ -118,7 +249,7 @@
             <div class="card-body">
               <h5 class="card-title">Appointments</h5>
 
-              <!-- Bar Chart -->
+             
               <canvas id="barChart" style="max-height: 400px;"></canvas>
               <script>
 
@@ -163,15 +294,15 @@
                   });
                 });
               </script>
-              <!-- End Bar CHart -->
+              
 
             </div>
           </div>
-        </div>
+        </div> -->
 
 
              <!-- Customers Card -->
-            <div class="">
+            <!-- <div class="">
 
               <div class="card info-card customers-card">
 
@@ -183,7 +314,7 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{$nbrcontact}}</h6>
+                      <h6>{//{$nbrcontact}}</h6>
                     
 
                     </div>
@@ -192,7 +323,8 @@
                 </div>
               </div>
 
-            </div><!-- End Customers Card -->
+            </div> -->
+            <!-- End Customers Card -->
 
   </main><!-- End #main -->
 

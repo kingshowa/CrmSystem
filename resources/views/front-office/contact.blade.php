@@ -24,7 +24,7 @@
                             @if(isset($_SESSION['contact']))
                             <li id="login"><a href="{{url('front-office/account/'.$_SESSION['contact'])}}">account</a></li> 
                             @else
-                            <li id="login"><a href="{{url('front-office/login')}}">login</a></li>
+                            <li id="login"><a href="{{url('front-office/login/#log')}}">login</a></li>
                             @endif
                         </ul>        
                         <a class='menu-trigger'>
@@ -46,7 +46,7 @@
                         <br>
                         <br>
                         <h2>Feel free to <em>Contact Us</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div id="map">
-                      <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52373.74268435907!2d-1.3888449974644395!3d34.87233247985556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd78c872578de5d1%3A0x57392e401cc5e7e8!2sMansourah!5e0!3m2!1sen!2sdz!4v1674057222370!5m2!1sen!2sdz" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
