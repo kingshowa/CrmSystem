@@ -63,7 +63,7 @@
                     <div class="col-lg-4">
                         <div class="trainer-item">
                             <div class="image-thumb">
-                                <img src="/storage/imag/{{$utilisateur->image}}" alt="" width="200" height="300">
+                                <img src="/storage/imag/{{$utilisateur->image}}" alt="" width="150" height="300">
                             </div>
                             <div class="down-content">
                                 <span></span>

@@ -47,7 +47,7 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>manage your <em>details</em></h2>
+                        <h2>view <em>car</em> specifications</h2>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
             margin-top:-300px;
             margin-right:100px;
         }
-        p{
+        .car-det{
             /* background-color:#ff5c33; */
             border:1px solid #ffd6cc;
             border-radius:4px;
@@ -98,7 +98,7 @@
                <br>
                   <article id='tabs-2'>
                     <!-- <h4>Company Details</h4> -->
-                    <h1>Lead Information</h1><br><br>
+                    <h1>Car Specifications</h1><br><br>
                   
                     <div class="row">
                         <div class="col-sm-8">
@@ -112,22 +112,22 @@
                     <div class="col-sm-1"> </div>
                         <div class="col-sm-3">
                             <label>Car Name</label>
-                            <p>{{$produit->nom}}</p>
+                            <p class="car-det">{{$produit->nom}}</p>
                         <!-- </div>
 
                         <div class="col-sm-4"> -->
                             <label>Type</label>
-                            <p>{{$produit->type}}</p>
+                            <p class="car-det">{{$produit->type}}</p>
                         <!-- </div>
 
                         <div class="col-sm-4"> -->
                             <label>Description</label>
-                            <p>{{$produit->desc}}</p>
+                            <p class="car-det">{{$produit->desc}}</p>
                         <!-- </div>
 
                         <div class="col-sm-4"> -->
                             <label>Prix</label>
-                            <p>{{$produit->prix}}
+                            <p class="car-det">{{$produit->prix}}
                             <span style="padding-left:375px;">DZD</span></p>
                         </div>
 
