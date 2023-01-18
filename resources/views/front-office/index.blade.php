@@ -26,7 +26,7 @@
                             @if(isset($_SESSION['contact']))
                             <li id="login"><a href="{{url('front-office/account/'.$_SESSION['contact'])}}">account</a></li> 
                             @else
-                            <li id="login"><a href="{{url('front-office/login')}}">login</a></li>
+                            <li id="login"><a href="{{url('front-office/login/#log')}}">login</a></li>
                             @endif
                         </ul>        
                         <a class='menu-trigger'>
