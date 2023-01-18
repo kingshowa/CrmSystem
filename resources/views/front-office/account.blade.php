@@ -60,7 +60,18 @@
 
 
     <!-- ***** Fleet Starts ***** -->
+   
     <section class="section" id="trainers">
+    @if(session()->has('success'))
+            <div class="alert alert-success">
+           {{session()->get('success')}}
+         </div>
+    @else
+            <div class="alert alert-warning">
+           {{session()->get('echec')}}
+         </div>
+         @endif
+    
         <div class="container">
             
             <br>
@@ -76,6 +87,7 @@
                   <li><a href='#tabs-6'><i class="bi bi-gem"></i> Opportunities</a></li>
                 </ul>
               </div>
+             
               <div class="col-lg-8">
                 <section class='tabs-content' style="width: 100%;">
                   <article id='tabs-1'>
@@ -322,9 +334,9 @@
                     <h4>Change Password</h4>
 
                     <!-- Change Password Form -->
-                    <form action="{{url('changepassword/'.$contact->id)}}" method="POST">
-                        <input type="hidden" name="_method" value="PUT" >
-                                {{ csrf_field() }}
+                    <form action="{{route('changepswr',$contact->id)}}" method="POST">
+                    <input type="hidden" name="_method" value="PUT" >
+                    {{ csrf_field() }}
 
                             <div class="row mb-3">
                             <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
@@ -336,14 +348,14 @@
                             <div class="row mb-3">
                             <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                             <div class="col-md-8 col-lg-9">
-                                <input name="newpassword1" type="password" class="form-control" id="newPassword">
+                                <input name="new_password" type="password" class="form-control" id="newPassword">
                             </div>
                             </div>
 
                             <div class="row mb-3">
                             <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                             <div class="col-md-8 col-lg-9">
-                                <input name="newpassword2" type="password" class="form-control" id="renewPassword">
+                                <input name="new_password_confirmation" type="password" class="form-control" id="renewPassword">
                             </div>
                             </div>
 

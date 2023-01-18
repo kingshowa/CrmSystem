@@ -46,6 +46,32 @@ class PasswordController extends Controller
        
         
     }
+
+
+    public function changepswr(Request $request, $id){
+        $request->validate([
+            'password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+        $user=Utilisateur::where('contactID',$id)->first();
+       
+        if(Hash::check($request->password,$user->password)){
+            
+                $password = $request->input('new_password');
+
+                $user->password = Hash::make($password);
+                $user->save();
+                session()->flash('success','Password changed successfully!');
+                return back();
+            
+            
+        }else
+        session()->flash('echec','old password and current password does not matches!');
+        return back();
+     
+       
+        
+    }
     // function forget(){
     //     return view('login/forget');
     // }
