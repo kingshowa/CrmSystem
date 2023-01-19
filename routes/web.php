@@ -203,3 +203,4 @@ Route::post('reset-password', [PasswordController::class, 'submitResetPasswordFo
 Route::post('forget', [PasswordController::class, 'submitForgetPasswordFormfront'])->name('forget.password'); 
 Route::get('reset-password1/{token}', [PasswordController::class, 'showResetPasswordFormfront'])->name('reset.password1');
 Route::post('reset-password1', [PasswordController::class, 'submitResetPasswordFormfront'])->name('reset.password2');
+Route::put('changepswr/{id}', [PasswordController::class, 'changepswr'])->name('changepswr');
