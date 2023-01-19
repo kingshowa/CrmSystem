@@ -16,7 +16,7 @@ class ContactController extends Controller
     	$listContacts = Client::join('contacts', 'clients.id', '=', 'contacts.clientID')->get();
         if($request->has('deleted'))
         {
-            $listContacts=Client::join('contacts', 'clients.id', '=', 'contacts.clientID')->onlyTrashed()->get();
+            $listContacts=Contact::onlyTrashed()->get();
         }
         return view('contacts/contacts', ['contacts' => $listContacts]);
     }
@@ -110,7 +110,7 @@ class ContactController extends Controller
     public function destroy($id){
     	$contact = Contact::find($id);
     	$contact->delete();
-    	return back()->with('delete','Client deleted successfully');
+    	return back()->with('delete','Contact deleted successfully');
     }  
     
     public function restore_contact($id){

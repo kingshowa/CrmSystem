@@ -74,10 +74,10 @@ class ProspectController extends Controller
 
             $prospect->est_transmit = true;
             $prospect->save();
-            session()->flash('succes', 'prespect transformer avec success');
+            session()->flash('succes', 'Prespect successfully transformed');
             return redirect('prospects');
         }else {
-            session()->flash('echec', 'prespect est deja transmit');
+            session()->flash('echec', 'Prospect alredy transmited');
             return back();
         }
 
@@ -98,6 +98,7 @@ class ProspectController extends Controller
         $prospect->statut = $request->input('statut');
         $prospect->source = $request->input('source');
     	$prospect->save();
+        session()->flash('succes', 'Prespect successfully modified');
         return back();    	
     }
 

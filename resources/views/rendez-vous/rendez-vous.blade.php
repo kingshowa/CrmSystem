@@ -60,7 +60,7 @@
                  
 
 
-                  <table class="table table-striped datatable">
+                    <table class="table table-striped datatable">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -81,9 +81,10 @@
                         <th scope="row"><a href="#">{{$rendez->id}}</a></th>
                         <td>{{$rendez->date}}</td>
                         <td>{{$rendez->heure}}</td>
-                        <td>{{$rendez->nom}}</td>
+                        
                         @if(request()->has('deleted'))
-                        <td>{{$client->deleted_at}}</td>
+                        <td>Unknown</td>
+                        <td>{{$rendez->deleted_at}}</td>
                         <td>
                             <a href="{{route('rendez-restore',$rendez->id)}}">
                               <span class="badge bg-success">Restore</span>
@@ -91,7 +92,7 @@
                         </td>
                         @else
                         
-                        
+                        <td>{{$rendez->nom}}</td>
 
                         <td>
                           <a class="collapsed" href="{{url('rendezView/'.$rendez->id.'/1')}}">
@@ -107,11 +108,11 @@
                           <form action="{{url('rendez/destroy/'.$rendez->id)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-trash-fill"></i></button>
+                            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal{{$rendez->id}}"><i class="bi bi-trash-fill"></i></button>
                           
                           
 
-                          <div class="modal fade" id="basicModal" tabindex="-1">
+                          <div class="modal fade" id="basicModal{{$rendez->id}}" tabindex="-1">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">

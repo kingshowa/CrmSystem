@@ -20,9 +20,9 @@ class RendezController extends Controller
       
 
 
-        $rendez = DB::table('utilisateurs')->join('rendezs', 'utilisateurs.id', '=', 'rendezs.user_id')
+        $rendez = Utilisateur::join('rendezs', 'utilisateurs.id', '=', 'rendezs.user_id')
         ->join('contacts', 'rendezs.contactID', '=', 'contacts.id')
-           ->select('contacts.nom','rendezs.*')
+           ->select('contacts.nom','rendezs.*')->where('rendezs.deleted_at', NULL)->where('user_id', $a)
            ->get();
         if($request->has('deleted'))
         {

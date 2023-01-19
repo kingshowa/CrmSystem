@@ -60,17 +60,17 @@
             <div id="column">
                 <div class="row">
                     @foreach($utilisateurs as $utilisateur)
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="trainer-item">
                             <div class="image-thumb">
-                                <img src="/storage/imag/{{$utilisateur->image}}" alt="" width="150" height="300">
+                                <img src="/storage/imag/{{$utilisateur->image}}" alt="" >
                             </div>
                             <div class="down-content">
                                 <span></span>
                                 <h4>{{$utilisateur->nom}}</h4>
                                 <ul class="social-icons">
                                     <li><a href="mailto:{{$utilisateur->email}}"><i class="fa fa-envelope"></i></a></li>
-                                    <li><a href="mailto:{{$utilisateur->email}}">{{$utilisateur->email}}</a></li> 
+                                    <li><a href="mailto:{{$utilisateur->email}}" style="font-size: 15px;">{{$utilisateur->email}}</a></li> 
                                 </ul>
                             </div>
                         </div> 

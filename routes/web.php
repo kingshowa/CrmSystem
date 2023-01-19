@@ -103,6 +103,7 @@ return view('front-office/login');
 });
 
 Route::get('/front-office/contact', function () {
+    session_start();
 return view('front-office/contact');
 });
 

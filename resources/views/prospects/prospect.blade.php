@@ -21,6 +21,11 @@
                   {{session()->get('echec')}}
                 </div>
                @endif
+               @if(session()->has('succes'))
+      <div class="alert alert-success">
+        {{session()->get('succes')}}
+      </div>
+    @endif
       <div class="row">
 
         <div class="col-xl-12">
@@ -42,6 +47,7 @@
               @endif
 
               <ul class="nav nav-tabs nav-tabs-bordered">
+                
 
                 <li class="nav-item">
                   <button class="nav-link {{ $a }}" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>

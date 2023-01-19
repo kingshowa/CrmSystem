@@ -48,7 +48,7 @@
                         <br>
                         <br>
                         <h2>Our <em>Cars</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        
                     </div>
                 </div>
             </div>
@@ -69,11 +69,13 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="{{asset('storage/images/'.$produit->photo)}}" alt="">
+                            <a href="{{route('carview',$produit->id)}}">
+                                <img src="{{asset('storage/images/'.$produit->photo)}}" alt="">
+                            </a>
                         </div>
                         <div class="down-content">
                             <span>
-                              <div id="prix"> <sup>dz</sup>{{$produit->prix}}</div>
+                              <div id="prix"> {{$produit->prix}} DZD</div>
                             </span>
 
                             <p>
@@ -84,7 +86,7 @@
 
                             <ul class="social-icons">
                                 <li><a href="{{route('carview',$produit->id)}}" >+ View Car</a></li>
-                                <button type="button" data-toggle="modal" data-target="#EditBookModalLabel" value="{{ $produit->id }}" class="btn btn-warning btn-xs editbtn" style="margin-right:5px;">
+                                
                             </ul>
                         </div>
                     </div>

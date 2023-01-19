@@ -68,8 +68,13 @@
                         <th scope="col">Fonction</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telephone</th>
+                        @if(request()->has('deleted'))
+                        <th scope="col">Deleted at</th>
+                        <th scope="col" colspan="1">Actions </th>
+                        @else
                         <th scope="col">Client</th>
-                        <th scope="col" colspan="3">Actions</th>
+                        <th scope="col" colspan="3">Actions </th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -80,8 +85,8 @@
                         <td>{{$contact->fonction}}</td>
                         <td><a href="mailto:{{$contact->email}}">{{$contact->email}}</a></td>
                         <td><a href="tel:{{$contact->telephone}}">{{$contact->telephone}}</a></td>
-                        <td>{{$contact->societe}}</td>
-                        <td>
+                        
+                        
                         @if(request()->has('deleted'))
                         <td>{{$contact->deleted_at}}</td>
                         <td>
@@ -90,6 +95,8 @@
                             </a>
                         </td>
                         @else
+                        <td>{{$contact->societe}}</td>
+                        <td>
                           <a class="collapsed" href="{{url('contact/'.$contact->id.'/1')}}">
                             <button class="btn btn-light btn-sm"><i class="bi bi-eye-fill"></i></button>
                           </a>

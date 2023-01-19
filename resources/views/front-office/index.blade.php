@@ -50,7 +50,7 @@
             <div class="caption">
                 <h2>Best <em>car dealer</em> in town!</h2>
                 <div class="main-button">
-                    <a href="contact.html">Contact Us</a>
+                    <a href="{{url('front-office/contact')}}">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Featured <em>Cars</em></h2>
+                        <h2>New <em>Arrivals</em></h2>
                         <img src="{{asset('assets-front/images/line-dec.png')}}" alt="">
                     </div>
                 </div>
@@ -71,32 +71,7 @@
             <div class="row">
 
             
-            <!--@//foreach($produits as $produit)
-                 <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{asset('assets-front/images/product-1-720x480.jpg')}}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                            </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                                <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                            </p>
-
-                            <ul class="social-icons">
-                                <li><a href="car-details.html">+ View Car</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> 
-            @//endforeach-->
+            
 
 
 
@@ -105,12 +80,13 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            
-                        <img src="/storage/images/{{$produit->photo}}"  alt="" >
+                        <a href="{{route('carview',$produit->id)}}">
+                                <img src="{{asset('storage/images/'.$produit->photo)}}" alt="">
+                            </a>
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>{{$produit->prix}} DZD
+                                 {{$produit->prix}} DZD
                             </span>
 
                             <h4>{{$produit->nom}}</h4>
@@ -158,67 +134,6 @@
     </section>
     <!-- ***** Call to Action End ***** -->
 
-    <!-- ***** Testimonials Item Start ***** -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading">
-                        <h2>Read our <em>Testimonials</em></h2>
-                        <img src="{{asset('assets-front/images/line-dec.png')}}" alt="waves">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem incidunt alias minima tenetur nemo necessitatibus?</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="features-items">
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="{{asset('assets-front/images/features-first-icon.png')}}" alt="First One">
-                            </div>
-                            <div class="right-content">
-                                <h4>John Doe</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="{{asset('assets-front/images/features-first-icon.png')}}" alt="second one">
-                            </div>
-                            <div class="right-content">
-                                <h4>John Doe</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="features-items">
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="{{asset('assets-front/images/features-first-icon.png')}}" alt="fourth muscle">
-                            </div>
-                            <div class="right-content">
-                                <h4>John Doe</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="{{asset('assets-front/images/features-first-icon.png')}}" alt="training fifth">
-                            </div>
-                            <div class="right-content">
-                                <h4>John Doe</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <br>
-
-        </div>
-    </section>
-    <!-- ***** Testimonials Item End ***** -->
 
     @endsection
