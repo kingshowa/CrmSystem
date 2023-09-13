@@ -13,7 +13,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="{{url('front-office')}}" class="logo">KMHI<em> carSale</em></a>
+                        <a href="{{url('front')}}" class="logo">KMHI<em> carSale</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
